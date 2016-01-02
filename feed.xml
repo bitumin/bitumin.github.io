@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MitxelMoriana</title>
-    <description>Hi there. I&#39;m Mitxel Moriana, developer, technophile, entrepeneur and blogger. This is the blog I use for things related to my work as a developer, so you can expect to find many programming related posts that I hope you&#39;ll find useful!
+    <description>Hi there. I&#39;m Mitxel Moriana, developer, technophile, entrepeneur and blogger. This is the blog I use to talk about my work as a developer, so you can expect to find many programming related posts that I hope you&#39;ll find useful!
 </description>
     <link>http://bitumin.github.io//</link>
     <atom:link href="http://bitumin.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Jan 2016 23:23:22 +0100</pubDate>
-    <lastBuildDate>Sat, 02 Jan 2016 23:23:22 +0100</lastBuildDate>
+    <pubDate>Sat, 02 Jan 2016 23:31:32 +0100</pubDate>
+    <lastBuildDate>Sat, 02 Jan 2016 23:31:32 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -33,7 +33,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;La primera opción es usar &lt;strong&gt;WordPress&lt;/strong&gt;, en cuyo caso podrá customizar el aspecto y editar nuevos contenidos a una velocidad muy razonable. Por contra, los contenidos se servirán bastante lentamente en relación al poco peso que en realidad tienen y WordPress en sí consumirá muchos más recursos del servidor de los estrictamente necesarios, lo cual hay que tener en cuenta si nuestro cliente o nosotros mismos pagamos un hosting a razón de los servicios que ofrece (PHP, SQL) o los recursos que consume (RAM, espacio).&lt;/p&gt;
+    &lt;p&gt;La primera opción es usar &lt;strong&gt;WordPress&lt;/strong&gt;, en cuyo caso podrá customizar el aspecto y editar nuevos contenidos a una velocidad muy razonable. Por contra, los contenidos se servirán bastante lentamente en relación al poco peso que en realidad tienen y WordPress en sí consumirá muchos más recursos del servidor de los estrictamente necesarios, lo cual hay que tener en cuenta si nuestro cliente o nosotros mismos pagamos un hosting a razón de los servicios que ofrece (PHP, SQL) o los recursos que consume (CPU, espacio).&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;La segunda opción, óptima para webs-anuncios, landing pages o pequeñas webs corporativas con 2-5 páginas distintas, es sencillamente editar a pelo algún template html/css/js existente. Al respecto, los templates basados en &lt;strong&gt;&lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt;&lt;/strong&gt; y similares son ideales: fáciles de entender, responsive, cross-browser…&lt;/p&gt;
