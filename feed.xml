@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Your awesome title</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 02 Jan 2016 18:34:45 +0100</pubDate>
+    <lastBuildDate>Sat, 02 Jan 2016 18:34:45 +0100</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Estrategias de desarrollo web</title>
+        <description>&lt;h2 id=&quot;breve-introduccin&quot;&gt;Breve introducción&lt;/h2&gt;
+&lt;p&gt;Cualquier desarrollador web estará de acuerdo conmigo en que elegir la tecnología apropiada a la magnitud, complejidad y naturaleza de cada proyecto es de una importancia difícil de sobrevalorar. Además, es lo primero que debe hacerse frente a cualquier proyecto, incluso antes de comenzar a trabajar en él. Por eso, he decidido estrenar mi blog comenzando por el principio, es decir, hablando sobre las estrategias de desarrollo web de las que yo tengo noticia a fecha de hoy.&lt;/p&gt;
+
+&lt;h2 id=&quot;wordpress-y-todo-lo-dems&quot;&gt;WordPress y todo lo demás&lt;/h2&gt;
+&lt;p&gt;WordPress es muy útil para crear blogs con docenas de funcionalidades. Si además le instalas woocommerce o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, hay que reconocer que la modularidad y versatilidad de Wordpress deja poco espacio para cualquier otra plataforma de desarrollo web salvo en dos casos específicos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Desarrollo de grandes sitios o aplicaciones web con bases de datos enormes o 100% personalizadas&lt;/li&gt;
+  &lt;li&gt;Desarrollo de pequeñas webs o blogs con contenido principalmente estático&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;apps-complejas-y-personalizadas&quot;&gt;Apps complejas y personalizadas&lt;/h2&gt;
+&lt;p&gt;Si, por ejemplo, uno desea desarrollar una app social, un nuevo facebook, un nuevo twitter, etc., donde el back end (lo que no se ve) nos va a llevar muchas semanas de desarrollo, lo más apropiado es utilizar &lt;strong&gt;frameworks&lt;/strong&gt;, cuya raison d’être es, precisamente, ayudarnos a escribir el menor número de líneas de código posible para realizar el mayor número de tareas posible (consultas a base de datos, validación de datos, servir páginas, enviar correos… cualquier cosa).&lt;/p&gt;
+
+&lt;p&gt;En estos casos yo recomiendo utilizar &lt;strong&gt;Laravel&lt;/strong&gt; si uno prefiere programar en PHP, o &lt;strong&gt;Ruby on Rails&lt;/strong&gt; (aka RoR) si uno prefiere programar en Ruby. Aunque yo soy un fan confeso de Laravel, me consta que los dos frameworks tienen una comunidad de desarrolladores enorme, es decir: los dos tienen muy buen soporte y montones de plugins relacionados.&lt;/p&gt;
+
+&lt;h2 id=&quot;blogs-sencillos-manuales-y-pginas-corporativas&quot;&gt;Blogs sencillos, manuales y páginas corporativas&lt;/h2&gt;
+&lt;p&gt;Si, por otro lado, uno desea hacerse un blog personal o una pequeña página corporativa o, en general, cualquier web con contenido principalmente estático, a mi parecer, tiene tres opciones:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;La primera opción es usar &lt;strong&gt;WordPress&lt;/strong&gt;, en cuyo caso podrá customizar el aspecto y editar nuevos contenidos a una velocidad muy razonable. Por contra, los contenidos se servirán bastante lentamente en relación al poco peso que en realidad tienen y WordPress en sí consumirá muchos más recursos del servidor de los estrictamente necesarios, lo cual hay que tener en cuenta si nuestro cliente o nosotros mismos pagamos un hosting a razón de los servicios que ofrece (PHP, SQL) o los recursos que consume (RAM, espacio).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La segunda opción, óptima para webs-anuncios, landing pages o pequeñas webs corporativas con 2-3 páginas distintas, es sencillamente escribir a pelo sobre algún template html/css/js existente y que modificaremos convenientemente. Al respecto, los templates basados en &lt;strong&gt;Bootstrap&lt;/strong&gt; y similares son ideales (fáciles de manejar, responsive, cross-platform…).&lt;/p&gt;
+
+    &lt;p&gt;Este tipo de webs tan sólo nos debería llevar 1-2 jornadas de trabajo, incluyendo la optimización de la velocidad de carga y el SEO. El resultado debería ser una web extremadamente optimizada y que consumirá menos recursos que un mechero.&lt;/p&gt;
+
+    &lt;p&gt;La única pega de este enfoque es que agregar una nueva página no supone ningún ahorro de tiempo respecto a la anterior. Por tanto, si hubiese que hacer muchas páginas, al momento o a lo largo del tiempo, o si quisiéramos ciertas funcionalidades complejas (de blog, de e-shop…), esta estrategia no sería la más adecuada.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La tercera y última opción es utilizar &lt;strong&gt;Jekyll&lt;/strong&gt;, una especie de intérprete/generador de webs de contenido estático, al que sólo hay que pasarle el contenido de cada página convenientemente estructurado (markdown). Jekyll genera y actualiza (incluso en tiempo real) la totalidad de nuestro sitio web conforme uno lo escribe en cualquier editor de texto plano o IDE favorito.&lt;/p&gt;
+
+    &lt;p&gt;Además, el contenido generado no requiere del propio Jekyll para ser servido, con lo cual en nuestro entorno de producción no es necesario tener bases de datos, ni Ruy, ni PHP… lo que implica un consumo de recursos mínimo, con el consecuente ahorro de dinerito.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;alguna-duda-o-sugerencia&quot;&gt;¿Alguna duda o sugerencia?&lt;/h2&gt;
+&lt;p&gt;Estoy seguro que me dejo un montón de tecnologías aplicable a tipologías de proyectos muy variadas. A vote pronto me vienen a la mente la gran cantidad de content managers que existen para montar portales, e-shops o blogs. ¡Te animo a que me sugieras todos los que tú conoces y consideres excepcionalmente buenos!&lt;/p&gt;
+
+&lt;p&gt;En cualquier caso, espero que este par de pinceladas sobre estrategias de desarrollo web resulte útil a aquellos que comienzan. Si tienes algunda duda, no dudes en preguntar.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 02 Jan 2016 00:00:00 +0100</pubDate>
+        <link>http://yourdomain.com/web/2016/01/02/estrategias-de-desarrollo-web.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/web/2016/01/02/estrategias-de-desarrollo-web.html</guid>
+        
+        <category>web,</category>
+        
+        <category>desarrollo</category>
+        
+        <category>web</category>
+        
+        
+        <category>web</category>
+        
+      </item>
+    
+  </channel>
+</rss>
