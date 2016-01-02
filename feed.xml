@@ -6,14 +6,14 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Jan 2016 22:11:37 +0100</pubDate>
-    <lastBuildDate>Sat, 02 Jan 2016 22:11:37 +0100</lastBuildDate>
+    <pubDate>Sat, 02 Jan 2016 22:59:18 +0100</pubDate>
+    <lastBuildDate>Sat, 02 Jan 2016 22:59:18 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Estrategias de desarrollo web</title>
         <description>&lt;h2 id=&quot;breve-introduccin&quot;&gt;Breve introducción&lt;/h2&gt;
-&lt;p&gt;Cualquier desarrollador web estará de acuerdo conmigo en que elegir la tecnología apropiada a la magnitud, complejidad y características de cada proyecto es de una importancia difícil de sobrevalorar. Además es lo primero que debe hacerse frente a cualquier proyecto, incluso antes de comenzar a trabajar en él. Por eso, he decidido estrenar mi blog comenzando por el principio, es decir, hablando sobre estrategias de desarrollo web.&lt;/p&gt;
+&lt;p&gt;Cualquier desarrollador web estará de acuerdo conmigo en que elegir la tecnología apropiada a la magnitud, complejidad y características de cada proyecto es de una importancia difícil de sobrevalorar. Además, es lo primero que debe hacerse  incluso antes de comenzar a trabajar en un proyecto. Por eso, he decidido estrenar mi blog comenzando por el principio, es decir, hablando sobre estrategias de desarrollo web.&lt;/p&gt;
 
 &lt;h2 id=&quot;wordpress-y-todo-lo-dems&quot;&gt;WordPress y todo lo demás&lt;/h2&gt;
 &lt;p&gt;WordPress es muy útil para crear blogs con docenas de funcionalidades. Si además le instalas woocommerce o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, hay que reconocer que la modularidad o versatilidad de Wordpress deja poco espacio para cualquier otra plataforma de desarrollo web salvo en dos casos:&lt;/p&gt;
@@ -26,7 +26,7 @@
 &lt;h2 id=&quot;apps-complejas-y-personalizadas&quot;&gt;Apps complejas y personalizadas&lt;/h2&gt;
 &lt;p&gt;Si, por ejemplo, uno desea desarrollar una app social, un nuevo facebook, un nuevo twitter, etc., donde el back end (lo que no se ve) nos va a llevar muchas semanas de desarrollo, lo más apropiado es utilizar un &lt;strong&gt;framework&lt;/strong&gt;, cuya raison d’être es, precisamente, ayudarnos a escribir el menor número de líneas de código posible para realizar el mayor número de tareas posible (consultas a base de datos, validación de datos, servir páginas, enviar correos…).&lt;/p&gt;
 
-&lt;p&gt;En estos casos yo recomiendo utilizar &lt;strong&gt;Laravel&lt;/strong&gt; si uno está familiarizado con el PHP, o &lt;strong&gt;Ruby on Rails&lt;/strong&gt; (aka RoR) si uno prefiere Ruby. Aunque yo soy un fan confeso de Laravel, me consta que los dos frameworks tienen una comunidad de desarrolladores enorme, es decir: los dos tienen muy buen soporte y montones de repositorios que nos vendrán que ni pintados.&lt;/p&gt;
+&lt;p&gt;En estos casos yo recomiendo utilizar &lt;strong&gt;Laravel&lt;/strong&gt; si uno está familiarizado con PHP, o &lt;strong&gt;Ruby on Rails&lt;/strong&gt; (aka RoR) si uno prefiere Ruby. Aunque yo soy un fan confeso de Laravel, me consta que los dos frameworks tienen una comunidad de desarrolladores enorme, es decir: los dos tienen muy buen soporte y montones de repositorios que nos vendrán que ni pintados.&lt;/p&gt;
 
 &lt;h2 id=&quot;blogs-sencillos-pginas-corporativas&quot;&gt;Blogs sencillos, páginas corporativas…&lt;/h2&gt;
 &lt;p&gt;Si, por otro lado, uno desea hacerse un blog personal o una pequeña página corporativa o, en general, cualquier web con contenido principalmente estático, a mi parecer, tiene tres opciones:&lt;/p&gt;
