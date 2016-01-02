@@ -4,10 +4,10 @@
     <title>MitxelMoriana</title>
     <description>Hi there. I&#39;m Mitxel Moriana, developer, technophile, entrepeneur and blogger. This is the blog I use for things related to my work as a developer, so you can expect to find many programming related posts that I hope you&#39;ll find useful!
 </description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Jan 2016 22:59:18 +0100</pubDate>
-    <lastBuildDate>Sat, 02 Jan 2016 22:59:18 +0100</lastBuildDate>
+    <link>http://bitumin.github.io//</link>
+    <atom:link href="http://bitumin.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 02 Jan 2016 23:03:56 +0100</pubDate>
+    <lastBuildDate>Sat, 02 Jan 2016 23:03:56 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -94,8 +94,8 @@
 &lt;p&gt;En cualquier caso, espero que este par de pinceladas sobre estrategias de desarrollo web resulte útil a aquellos que comienzan. Si tienes algunda duda, no dudes en preguntar.&lt;/p&gt;
 </description>
         <pubDate>Sat, 02 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://yourdomain.com/web/2016/01/02/estrategias-de-desarrollo-web.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/web/2016/01/02/estrategias-de-desarrollo-web.html</guid>
+        <link>http://bitumin.github.io//web/2016/01/02/estrategias-de-desarrollo-web.html</link>
+        <guid isPermaLink="true">http://bitumin.github.io//web/2016/01/02/estrategias-de-desarrollo-web.html</guid>
         
         <category>web,</category>
         
