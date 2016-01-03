@@ -509,8 +509,14 @@ himg {
     color: #FFF;
     font-size: 48px;
     font-weight: bold; }
+    @media screen and (max-width: 600px) {
+      .with-image h1 {
+        font-size: 34px; } }
   .with-image .post-meta {
     color: #B3B3B3;
     font-size: 24px;
     font-weight: bold;
     margin-left: 25px; }
+    @media screen and (max-width: 600px) {
+      .with-image .post-meta {
+        font-size: 18px; } }
