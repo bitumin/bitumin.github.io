@@ -11,7 +11,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 400 16px/1.5 "Merriweather", serif;
   color: #222222;
   background-color: #fdfdfd;
   -webkit-text-size-adjust: 100%;
@@ -477,3 +477,40 @@ td {
  */
 a:hover {
   text-decoration: none; }
+
+/**
+ * Posts header with background image
+ */
+hiwrapper {
+  height: 400px;
+  width: 100%;
+  background-color: #000;
+  position: absolute;
+  top: 62px;
+  left: 0;
+  display: block;
+  z-index: -1; }
+
+himg {
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; }
+
+.with-image {
+  margin-top: 200px;
+  margin-bottom: 100px; }
+  .with-image h1 {
+    color: #FFF;
+    font-size: 48px;
+    font-weight: bold; }
+  .with-image .post-meta {
+    color: #B3B3B3;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 25px; }
