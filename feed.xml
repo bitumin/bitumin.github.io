@@ -6,8 +6,8 @@
 </description>
     <link>http://bitumin.github.io//</link>
     <atom:link href="http://bitumin.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 Jan 2016 11:31:17 +0100</pubDate>
-    <lastBuildDate>Sun, 03 Jan 2016 11:31:17 +0100</lastBuildDate>
+    <pubDate>Sun, 03 Jan 2016 11:33:21 +0100</pubDate>
+    <lastBuildDate>Sun, 03 Jan 2016 11:33:21 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -81,7 +81,7 @@
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Complex web app&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;***&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;*&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
     &lt;/tr&gt;
