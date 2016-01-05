@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Jan 2016 02:34:20 +0100</pubDate>
-    <lastBuildDate>Tue, 05 Jan 2016 02:34:20 +0100</lastBuildDate>
+    <pubDate>Tue, 05 Jan 2016 02:41:40 +0100</pubDate>
+    <lastBuildDate>Tue, 05 Jan 2016 02:41:40 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -24,7 +24,7 @@
 
 &lt;h2 id=&quot;a-quin-va-dirigido-el-curso&quot;&gt;¿A quién va dirigido el curso?&lt;/h2&gt;
 
-&lt;p&gt;A cualquier persona que tenga conocimientos básicos de desarrollo web. Es necesario tener un entorno de desarrollo adecuado: un servidor web, PHP y MySQL. También es necesario saber instalar y tener preparada una nueva copia de Laravel. Si nunca has usado Laravel te invito a que sigas los pasos de la web oficial para su instalación. Si durante la instalación de Laravel o durante el seguimiento del curso te surgen dudas o detectas errores, házmelo saber más abajo, en el área de comentarios.&lt;/p&gt;
+&lt;p&gt;A cualquier persona que tenga conocimientos básicos de desarrollo web. Es necesario tener un entorno de desarrollo adecuado: un servidor web (por ej. Apache o Nginx), PHP y base de datos (por ej. MySQL). También es necesario saber instalar y tener preparada una nueva copia de Laravel. Si nunca has usado Laravel te invito a que sigas los pasos de la web oficial para su instalación &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot;&gt;aquí&lt;/a&gt;. Si durante la instalación de Laravel o durante el seguimiento del curso te surgen dudas o detectas errores, házmelo saber más abajo, en el área de comentarios.&lt;/p&gt;
 
 &lt;h2 id=&quot;qu-aspectos-de-laravel-voy-a-tratar-durante-el-desarrollo&quot;&gt;¿Qué aspectos de Laravel voy a tratar durante el desarrollo?&lt;/h2&gt;
 
@@ -104,6 +104,7 @@
 &lt;br /&gt;
 &lt;strong&gt;Próximamente en tu blog favorito…&lt;/strong&gt;&lt;br /&gt;
 Tu web porno con Laravel - II: Migrations, models y seeders&lt;/p&gt;
+
 </description>
         <pubDate>Mon, 04 Jan 2016 00:00:00 +0100</pubDate>
         <link>http://mitxelmoriana.com/web/2016/01/04/crea-tu-propia-web-porno.html</link>
