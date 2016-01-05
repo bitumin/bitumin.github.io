@@ -481,7 +481,7 @@ a:hover {
 /**
  * Posts header with background image
  */
-hiwrapper {
+headerimagewrapper {
   height: 400px;
   width: 100%;
   background-color: #000;
@@ -491,7 +491,7 @@ hiwrapper {
   display: block;
   z-index: -1; }
 
-himg {
+headerimage {
   opacity: 0.5;
   height: 100%;
   width: 100%;
@@ -502,21 +502,32 @@ himg {
   left: 0;
   right: 0; }
 
-.with-image {
-  margin-top: 200px;
-  margin-bottom: 100px; }
-  .with-image h1 {
+.with-header-image header {
+  position: absolute;
+  height: 400px;
+  width: -webkit-calc(100% - 30px);
+  width: -moz-calc(100% - 30px);
+  width: calc(100% - 30px);
+  top: 62px;
+  padding-left: 0; }
+  .with-header-image header h1 {
+    position: absolute;
+    bottom: 90px;
     color: #FFF;
     font-size: 48px;
     font-weight: bold; }
     @media screen and (max-width: 600px) {
-      .with-image h1 {
+      .with-header-image header h1 {
         font-size: 34px; } }
-  .with-image .post-meta {
+  .with-header-image header .post-meta {
+    position: absolute;
+    bottom: 40px;
     color: #B3B3B3;
     font-size: 24px;
     font-weight: bold;
     margin-left: 25px; }
     @media screen and (max-width: 600px) {
-      .with-image .post-meta {
+      .with-header-image header .post-meta {
         font-size: 18px; } }
+.with-header-image div.post-content {
+  margin-top: 400px; }

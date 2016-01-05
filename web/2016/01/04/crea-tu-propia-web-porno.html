@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tu web porno con Laravel - I: Introducción y planificación</title>
+  <meta name="description" content="No sólo de porno vive el internauta">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mitxelmoriana.com/web/2016/01/04/crea-tu-propia-web-porno.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+
+  <body>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-71923540-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">MitxelMoriana</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+  <headerimagewrapper>
+    <headerimage style="background-image: url('/headers/porn-1.jpg');"></headerimage>
+  </headerimagewrapper>
+  
+
+  <header class="post-header wrapper">
+    <h1 class="post-title" itemprop="name headline">Tu web porno con Laravel - I: Introducción y planificación</h1>
+    <p class="post-meta"><time datetime="2016-01-04T00:00:00+01:00" itemprop="datePublished">Jan 4, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="no-slo-de-porno-vive-el-internauta">No sólo de porno vive el internauta</h2>
+
+<p>El objetivo de este pequeño curso de Laravel es mostrar cómo de bien y rápido se puede realizar el back end (lo que no se ve) de una web no del todo estándar: un negocio web de vídeos porno ¡con su área de suscriptores y todo!</p>
+
+<p>¡Pero no todo es porno en internet! En realidad este curso es aplicable a la creación de cualquier tipo de web que ofrezca contenidos mediante suscripción (texto, fotografía, música…), asímismo si ya sabes algo de Laravel quizá te puedan servir algunas partes del curso para profundizar en algunos aspectos del framework que desconocías.</p>
+
+<h2 id="qu-habremos-conseguido-al-finalizar-el-curso">¿Qué habremos conseguido al finalizar el curso?</h2>
+
+<p>Al finalizar el curso tendrás terminado todo el back end necesario para el funcionamiento de una página que sirve contenido audiovisual a suscriptores. Además, haremos lo justo y necesario del front end para hacernos una idea de cómo se verá la web, pero no profundizaremos en este aspecto: el diseño gráfico y los contenidos no formarán parte del curso.</p>
+
+<h2 id="a-quin-va-dirigido-el-curso">¿A quién va dirigido el curso?</h2>
+
+<p>A cualquier persona que tenga conocimientos básicos de desarrollo web. Es necesario tener un entorno de desarrollo adecuado: un servidor web, PHP y MySQL. También es necesario saber instalar y tener preparada una nueva copia de Laravel. Si nunca has usado Laravel te invito a que sigas los pasos de la web oficial para su instalación. Si durante la instalación de Laravel o durante el seguimiento del curso te surgen dudas o detectas errores, házmelo saber más abajo, en el área de comentarios.</p>
+
+<h2 id="qu-aspectos-de-laravel-voy-a-tratar-durante-el-desarrollo">¿Qué aspectos de Laravel voy a tratar durante el desarrollo?</h2>
+
+<p>De casi todo un poco. Si no sabes nada de Laravel esto que diré a continuación te sonará a chino, pero no te desanimes, es muy posible seguir el curso sin saber nada sobre Laravel. Ofrezco este pequeño listado para aquellos ya iniciados que quieran saber si este curso tocará algún asunto que pudiera interesarles.</p>
+
+<p>Durante el curso tocaremos los siguientes aspectos del framework:</p>
+
+<ul>
+  <li>Routes, controllers y RestFUL resource controllers</li>
+  <li>Creación de models y relaciones entre models</li>
+  <li>Uso de eloquent en los models y controllers</li>
+  <li>Uso de authentication para el login y registro</li>
+  <li>Manejo de datos introducidos por el usuario: Validation, Requests…</li>
+  <li>Creación de migrations y seeders para preparar la base de datos</li>
+  <li>Layouts, views y blade templates para el front end</li>
+  <li>Lang para hacer nuestra web multilingual</li>
+  <li>Extensiones de Requests para hacer validaciones repetitivas</li>
+  <li>Middleware para gestionar Requests bajo ciertas condiciones</li>
+  <li>Integrar una pasarela bancaria para realizar pagos en línea</li>
+</ul>
+
+<p>Como (casi) ninguna persona se suscribiría a una página porno utilizando su cuenta de las redes sociales, no será necesario integrar un sistema de registro/login social, de hecho, para mayor seguridad y privacidad de nuestros usuarios el único dato personal que pediremos y almacenaremos será el e-mail. Nosotros mismos generaremos un nombre de usuario y contraseña para cada suscriptor.</p>
+
+<h2 id="manos-a-la-obra-planificar-el-proyecto">Manos a la obra: planificar el proyecto</h2>
+
+<p>Antes de comenzar cualquier proyecto web de cierta envergadura es necesario tener una idea bastante clara de qué páginas y funcionalidades va a disponer, porque de ello dependerá todo nuestro trabajo. Así pues, nos ponemos manos a la obra y nos preguntamos: ¿cómo será y qué páginas tendrá nuestra web de contenido pornográfico?</p>
+
+<h3 id="rea-de-no-miembros-non-members-area">Área de no miembros (non members area)</h3>
+
+<p>Ésta será el área destinada a crear interés y captar suscriptores. Para ello ofreceremos enlaces a páginas con vídeos cortos (como trailers de película) que dan una visión previa de lo que podrá encontrar el usuario si se suscribe. A bote pronto necesitaremos las siguientes páginas:</p>
+
+<ul>
+  <li>Home page with latest video trailers, featured trailers and index of girls</li>
+  <li>Girl page with some teaser pictures, information and links to the related trailers</li>
+  <li>Register/buy a subscription plan page</li>
+  <li>Members login page</li>
+</ul>
+
+<p>Todas estas páginas tendrán una cabecera (header) y un pie de página (footer) en común.</p>
+
+<h3 id="rea-de-miembrossuscriptores-members-area">Área de miembros/suscriptores (members area)</h3>
+
+<p>En esta área, para usuarios ya suscritos, tenemos que ofrecer fácil acceso a todo nuestro contenido audiovisual. En la página inicial deberá aparecer siempre el contenido más nuevo, pero debemos ofrecer también una forma ágil de navegar entre el contenido más viejo, por tanto:</p>
+
+<ul>
+  <li>Members home page with latest video additions, featured videos, latest girls and index of girls</li>
+  <li>Full video page (visualization and download options)</li>
+  <li>Girl page with the links to her related videos</li>
+  <li>Account management page for password change, subscription plan change, etc.</li>
+</ul>
+
+<p>Estas páginas tendrán una cabecera y un pie de página en común, pero diferentes a las del área de no miembros.</p>
+
+<h3 id="rea-de-administrador-de-contenidos">Área de administrador de contenidos</h3>
+
+<p>Esta será el área que usará el dueño de la web, es decir, el productor pornográfico, para gestionar los contenidos (subir vídeos e información sobre nuevas modelos), así como para gestionar a los usuarios (ver usuarios suscritos). También se podría ampliar el panel de control con feedback sobre vídeos/modelos más vistos, ingresos periódicos, etc.</p>
+
+<p>Por tanto, necesitaremos:</p>
+
+<ul>
+  <li>Página de login para el área de administrador</li>
+  <li>Panel de control con enlaces al resto de áreas y con datos de interés sobre el estado de la web</li>
+  <li>Índice de vídeos con acciones para sus datos: nuevo, editar, eliminar</li>
+  <li>Índice de modelos con acciones para sus datos: nueva, editar, eliminar</li>
+  <li>Índice de usuarios con información sobre el estado de cada suscripción</li>
+  <li>Página de nuevo/editar datos de vídeo</li>
+  <li>Página de nuevo/editar datos de modelo</li>
+</ul>
+
+<p>Todas estas páginas tendrán en común el mismo aspecto de área de administración o panel de control.</p>
+
+<h2 id="siguiente-paso">Siguiente paso…</h2>
+
+<p>Una vez planificado el proyecto ya podemos darle vueltas a cuestiones más técnicas y prácticas. En el próximo post hablaré sobre cómo diseñar la base de datos teniendo en cuenta nuestra planificación y, una vez diseñada, cómo crear las tablas y sus relaciones mediante Laravel.</p>
+
+<p><br />
+<br />
+<strong>Próximamente en tu blog favorito…</strong><br />
+Tu web porno con Laravel - II: Migrations, models y seeders</p>
+
+  </div>
+
+</article>
+
+        
+<div id="disqus_thread"></div>
+<script>
+     var disqus_config = function () {
+         this.page.url = 'http://mitxelmoriana.com/web/2016/01/04/crea-tu-propia-web-porno.html';
+     };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//mitxelmoriana.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">MitxelMoriana</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Mitxel Moriana</li>
+          <li><a href="mailto:moriana.mitxel@gmail.com">moriana.mitxel@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+            
+            <li>
+              <a href="https://facebook.com/mitxel.moriana"><span class="icon icon--facebook"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.476-1.195 1.176v1.54h2.39l-.31 2.416h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero"/></svg>
+</span><span class="username">mitxel.moriana</span></a>
+            </li>
+            
+
+            
+            <li>
+              <a href="https://linkedin.com/in/morianamitxel"><span class="icon icon--linkedin"><svg viewBox="0 0 61 61">
+    <path fill="#828282" d="M49.265,4.667H7.145c-2.016,0-3.651,1.596-3.651,3.563v42.613c0,1.966,1.635,3.562,3.651,3.562h42.12   c2.019,0,3.654-1.597,3.654-3.562V8.23C52.919,6.262,51.283,4.667,49.265,4.667z M18.475,46.304h-7.465V23.845h7.465V46.304z    M14.743,20.777h-0.05c-2.504,0-4.124-1.725-4.124-3.88c0-2.203,1.67-3.88,4.223-3.88c2.554,0,4.125,1.677,4.175,3.88   C18.967,19.052,17.345,20.777,14.743,20.777z M45.394,46.304h-7.465V34.286c0-3.018-1.08-5.078-3.781-5.078   c-2.062,0-3.29,1.389-3.831,2.731c-0.197,0.479-0.245,1.149-0.245,1.821v12.543h-7.465c0,0,0.098-20.354,0-22.459h7.465v3.179   c0.992-1.53,2.766-3.709,6.729-3.709c4.911,0,8.594,3.211,8.594,10.11V46.304z"/>
+</svg>
+</span><span class="username">morianamitxel</span></a>
+
+            </li>
+            
+
+            
+            <li>
+                <a href="https://twitter.com/mitxelmoriana"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">mitxelmoriana</span></a>
+
+            </li>
+            
+
+            
+            <li>
+            <a href="https://github.com/bitumin"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">bitumin</span></a>
+
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Hi there. I'm Mitxel Moriana, developer, technophile, entrepeneur and blogger. This is the blog I use to talk about my work as a developer, so you can expect to find many programming related posts that I hope you'll find useful!
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

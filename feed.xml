@@ -6,9 +6,119 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 Jan 2016 18:38:46 +0100</pubDate>
-    <lastBuildDate>Sun, 03 Jan 2016 18:38:46 +0100</lastBuildDate>
+    <pubDate>Tue, 05 Jan 2016 02:34:20 +0100</pubDate>
+    <lastBuildDate>Tue, 05 Jan 2016 02:34:20 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Tu web porno con Laravel - I: Introducción y planificación</title>
+        <description>&lt;h2 id=&quot;no-slo-de-porno-vive-el-internauta&quot;&gt;No sólo de porno vive el internauta&lt;/h2&gt;
+
+&lt;p&gt;El objetivo de este pequeño curso de Laravel es mostrar cómo de bien y rápido se puede realizar el back end (lo que no se ve) de una web no del todo estándar: un negocio web de vídeos porno ¡con su área de suscriptores y todo!&lt;/p&gt;
+
+&lt;p&gt;¡Pero no todo es porno en internet! En realidad este curso es aplicable a la creación de cualquier tipo de web que ofrezca contenidos mediante suscripción (texto, fotografía, música…), asímismo si ya sabes algo de Laravel quizá te puedan servir algunas partes del curso para profundizar en algunos aspectos del framework que desconocías.&lt;/p&gt;
+
+&lt;h2 id=&quot;qu-habremos-conseguido-al-finalizar-el-curso&quot;&gt;¿Qué habremos conseguido al finalizar el curso?&lt;/h2&gt;
+
+&lt;p&gt;Al finalizar el curso tendrás terminado todo el back end necesario para el funcionamiento de una página que sirve contenido audiovisual a suscriptores. Además, haremos lo justo y necesario del front end para hacernos una idea de cómo se verá la web, pero no profundizaremos en este aspecto: el diseño gráfico y los contenidos no formarán parte del curso.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-quin-va-dirigido-el-curso&quot;&gt;¿A quién va dirigido el curso?&lt;/h2&gt;
+
+&lt;p&gt;A cualquier persona que tenga conocimientos básicos de desarrollo web. Es necesario tener un entorno de desarrollo adecuado: un servidor web, PHP y MySQL. También es necesario saber instalar y tener preparada una nueva copia de Laravel. Si nunca has usado Laravel te invito a que sigas los pasos de la web oficial para su instalación. Si durante la instalación de Laravel o durante el seguimiento del curso te surgen dudas o detectas errores, házmelo saber más abajo, en el área de comentarios.&lt;/p&gt;
+
+&lt;h2 id=&quot;qu-aspectos-de-laravel-voy-a-tratar-durante-el-desarrollo&quot;&gt;¿Qué aspectos de Laravel voy a tratar durante el desarrollo?&lt;/h2&gt;
+
+&lt;p&gt;De casi todo un poco. Si no sabes nada de Laravel esto que diré a continuación te sonará a chino, pero no te desanimes, es muy posible seguir el curso sin saber nada sobre Laravel. Ofrezco este pequeño listado para aquellos ya iniciados que quieran saber si este curso tocará algún asunto que pudiera interesarles.&lt;/p&gt;
+
+&lt;p&gt;Durante el curso tocaremos los siguientes aspectos del framework:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Routes, controllers y RestFUL resource controllers&lt;/li&gt;
+  &lt;li&gt;Creación de models y relaciones entre models&lt;/li&gt;
+  &lt;li&gt;Uso de eloquent en los models y controllers&lt;/li&gt;
+  &lt;li&gt;Uso de authentication para el login y registro&lt;/li&gt;
+  &lt;li&gt;Manejo de datos introducidos por el usuario: Validation, Requests…&lt;/li&gt;
+  &lt;li&gt;Creación de migrations y seeders para preparar la base de datos&lt;/li&gt;
+  &lt;li&gt;Layouts, views y blade templates para el front end&lt;/li&gt;
+  &lt;li&gt;Lang para hacer nuestra web multilingual&lt;/li&gt;
+  &lt;li&gt;Extensiones de Requests para hacer validaciones repetitivas&lt;/li&gt;
+  &lt;li&gt;Middleware para gestionar Requests bajo ciertas condiciones&lt;/li&gt;
+  &lt;li&gt;Integrar una pasarela bancaria para realizar pagos en línea&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Como (casi) ninguna persona se suscribiría a una página porno utilizando su cuenta de las redes sociales, no será necesario integrar un sistema de registro/login social, de hecho, para mayor seguridad y privacidad de nuestros usuarios el único dato personal que pediremos y almacenaremos será el e-mail. Nosotros mismos generaremos un nombre de usuario y contraseña para cada suscriptor.&lt;/p&gt;
+
+&lt;h2 id=&quot;manos-a-la-obra-planificar-el-proyecto&quot;&gt;Manos a la obra: planificar el proyecto&lt;/h2&gt;
+
+&lt;p&gt;Antes de comenzar cualquier proyecto web de cierta envergadura es necesario tener una idea bastante clara de qué páginas y funcionalidades va a disponer, porque de ello dependerá todo nuestro trabajo. Así pues, nos ponemos manos a la obra y nos preguntamos: ¿cómo será y qué páginas tendrá nuestra web de contenido pornográfico?&lt;/p&gt;
+
+&lt;h3 id=&quot;rea-de-no-miembros-non-members-area&quot;&gt;Área de no miembros (non members area)&lt;/h3&gt;
+
+&lt;p&gt;Ésta será el área destinada a crear interés y captar suscriptores. Para ello ofreceremos enlaces a páginas con vídeos cortos (como trailers de película) que dan una visión previa de lo que podrá encontrar el usuario si se suscribe. A bote pronto necesitaremos las siguientes páginas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Home page with latest video trailers, featured trailers and index of girls&lt;/li&gt;
+  &lt;li&gt;Girl page with some teaser pictures, information and links to the related trailers&lt;/li&gt;
+  &lt;li&gt;Register/buy a subscription plan page&lt;/li&gt;
+  &lt;li&gt;Members login page&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Todas estas páginas tendrán una cabecera (header) y un pie de página (footer) en común.&lt;/p&gt;
+
+&lt;h3 id=&quot;rea-de-miembrossuscriptores-members-area&quot;&gt;Área de miembros/suscriptores (members area)&lt;/h3&gt;
+
+&lt;p&gt;En esta área, para usuarios ya suscritos, tenemos que ofrecer fácil acceso a todo nuestro contenido audiovisual. En la página inicial deberá aparecer siempre el contenido más nuevo, pero debemos ofrecer también una forma ágil de navegar entre el contenido más viejo, por tanto:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Members home page with latest video additions, featured videos, latest girls and index of girls&lt;/li&gt;
+  &lt;li&gt;Full video page (visualization and download options)&lt;/li&gt;
+  &lt;li&gt;Girl page with the links to her related videos&lt;/li&gt;
+  &lt;li&gt;Account management page for password change, subscription plan change, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Estas páginas tendrán una cabecera y un pie de página en común, pero diferentes a las del área de no miembros.&lt;/p&gt;
+
+&lt;h3 id=&quot;rea-de-administrador-de-contenidos&quot;&gt;Área de administrador de contenidos&lt;/h3&gt;
+
+&lt;p&gt;Esta será el área que usará el dueño de la web, es decir, el productor pornográfico, para gestionar los contenidos (subir vídeos e información sobre nuevas modelos), así como para gestionar a los usuarios (ver usuarios suscritos). También se podría ampliar el panel de control con feedback sobre vídeos/modelos más vistos, ingresos periódicos, etc.&lt;/p&gt;
+
+&lt;p&gt;Por tanto, necesitaremos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Página de login para el área de administrador&lt;/li&gt;
+  &lt;li&gt;Panel de control con enlaces al resto de áreas y con datos de interés sobre el estado de la web&lt;/li&gt;
+  &lt;li&gt;Índice de vídeos con acciones para sus datos: nuevo, editar, eliminar&lt;/li&gt;
+  &lt;li&gt;Índice de modelos con acciones para sus datos: nueva, editar, eliminar&lt;/li&gt;
+  &lt;li&gt;Índice de usuarios con información sobre el estado de cada suscripción&lt;/li&gt;
+  &lt;li&gt;Página de nuevo/editar datos de vídeo&lt;/li&gt;
+  &lt;li&gt;Página de nuevo/editar datos de modelo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Todas estas páginas tendrán en común el mismo aspecto de área de administración o panel de control.&lt;/p&gt;
+
+&lt;h2 id=&quot;siguiente-paso&quot;&gt;Siguiente paso…&lt;/h2&gt;
+
+&lt;p&gt;Una vez planificado el proyecto ya podemos darle vueltas a cuestiones más técnicas y prácticas. En el próximo post hablaré sobre cómo diseñar la base de datos teniendo en cuenta nuestra planificación y, una vez diseñada, cómo crear las tablas y sus relaciones mediante Laravel.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Próximamente en tu blog favorito…&lt;/strong&gt;&lt;br /&gt;
+Tu web porno con Laravel - II: Migrations, models y seeders&lt;/p&gt;
+</description>
+        <pubDate>Mon, 04 Jan 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/web/2016/01/04/crea-tu-propia-web-porno.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/04/crea-tu-propia-web-porno.html</guid>
+        
+        <category>web,</category>
+        
+        <category>desarrollo</category>
+        
+        <category>web</category>
+        
+        
+        <category>web</category>
+        
+      </item>
     
       <item>
         <title>Estrategias de desarrollo web</title>
