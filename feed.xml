@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Jan 2016 02:23:02 +0100</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 02:23:02 +0100</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 02:28:24 +0100</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 02:28:24 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -1164,9 +1164,9 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;!-- Links --&gt;
 </description>
-        <pubDate>Tue, 05 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/web/2016/01/05/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/05/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</guid>
+        <pubDate>Wed, 06 Jan 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/web/2016/01/06/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/06/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</guid>
         
         <category>web,</category>
         
@@ -1269,7 +1269,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Una vez planificado el proyecto ya podemos darle vueltas a cuestiones más técnicas y prácticas. En el próximo post hablaré sobre cómo diseñar la base de datos teniendo en cuenta nuestra planificación y, una vez diseñada, cómo crear las tablas y sus relaciones mediante Laravel.&lt;/p&gt;
 
-&lt;p&gt;Vamos allá: &lt;a href=&quot;/web/2016/01/05/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html&quot;&gt;Tu web porno con Laravel - II: Migrations, models y seeders&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vamos allá: &lt;a href=&quot;/web/2016/01/06/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html&quot;&gt;Tu web porno con Laravel - II: Migrations, models y seeders&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 04 Jan 2016 00:00:00 +0100</pubDate>
