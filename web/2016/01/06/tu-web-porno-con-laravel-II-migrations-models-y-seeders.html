@@ -549,7 +549,7 @@ $tag-&gt;videos
 
 <p>Obtendremos así todos los vídeos relacionados con una tag específica. A este sistema para obtener información de nuestra base de datos, es decir, hacer consultas a nuestra base de datos, a través los models y la concatenación de métodos se le conoce como <strong>eloquent</strong> en lenguaje <em>laravelita</em>.</p>
 
-<p>Muy bien, ¡basta ya de aprender y sigamos trabajando! Tenemos que crear el resto de modelos: Video y Girl, ¿te atreves a hacerlos por tu cuenta? Un truco para terminar rápido es copiar lo que has escrito para Tag.php y hacer las modificaciones necesarias, es decir: cambiar el nombre de la clase, modificar el build_from que pasamos dentro del array del atributo $sluggable y, <strong>muy importante</strong>, reescribir las relationships adecuadamente (acuérdate que Video tiene <strong>dos</strong> relaciones en lugar de una, por lo que tendrás que escribirle sus dos métodos correspondientes).</p>
+<p>Muy bien, ¡basta ya de aprender y sigamos trabajando! Tenemos que crear el resto de modelos: Video y Girl, ¿te atreves a hacerlos por tu cuenta? Un truco para terminar rápido es copiar lo que has escrito para Tag.php y hacer las modificaciones necesarias, es decir: cambiar el nombre de la clase, modificar el build_from que pasamos dentro del array $sluggable y, <strong>muy importante</strong>, reescribir las relationships adecuadamente (acuérdate que Video tiene <strong>dos</strong> relaciones en lugar de una, por lo que tendrás que escribirle sus dos métodos correspondientes).</p>
 
 <p><a href="javascript:" data-toggle="collapse" data-target="#video">Video.php</a></p>
 <div id="video" class="collapse"> 
@@ -725,7 +725,7 @@ class User extends Authenticatable
 
 <p>Salgamos de la carpeta app/ y volvamos a la carpeta database/, por razones obvias esta vez abriremos la subcarpeta seeders/ en lugar de migrations/.</p>
 
-<p>Fíjate que aquí dentro podemos encontrar un fichero llamado DatabaseSeeder.php . Échale un vistazo. Se trata de una clase que extiende la clase Seeder y que tiene un método run(), no hay mucho más que ver. Pues bien, este fichero es un seeder, ni más ni menos. Todos nuestros seeders van a extender la clase Seeder y tendrás un método run().</p>
+<p>Fíjate que aquí dentro podemos encontrar un fichero llamado DatabaseSeeder.php . Échale un vistazo. Se trata de una clase que extiende la clase Seeder y que tiene un método run(), no hay mucho más que ver. Pues bien, este fichero es un seeder, ni más ni menos. Todos nuestros seeders van a extender la clase Seeder y tendrán un método run().</p>
 
 <p>Para ser ordenados y limpios escribiremos un Seeder por cada tabla que queremos poblar y a continuación “enlazaremos” la ejecución de todos ellos escribiendo una llamada a cada seeder en el fichero DatabaseSeeder.php . Manos a la obra. Hagamos en primer lugar una recapitulación de las tablas que necesitamos poblar:</p>
 
@@ -1024,7 +1024,7 @@ class User extends Authenticatable
 			    <span class="s1">&#39;filename&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;example-video.flv&#39;</span><span class="p">,</span>
 			    <span class="s1">&#39;thumbnail&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;example-thumbnail.jpg&#39;</span><span class="p">,</span>
 			    <span class="s1">&#39;featured&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">boolean</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-	            <span class="s1">&#39;trailer&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-trailer.flv&#39;</span>
+          <span class="s1">&#39;trailer&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-trailer.flv&#39;</span>
 		    <span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
@@ -1197,12 +1197,12 @@ class User extends Authenticatable
 <pre>
 	public function run()
 	{
-	  <strong style="color:red;">$this-&gt;call(TagTableSeeder::class);</strong>
-	  <strong style="color:red;">$this-&gt;call(GirlTableSeeder::class);</strong>
+		<strong style="color:red;">$this-&gt;call(TagTableSeeder::class);</strong>
+		<strong style="color:red;">$this-&gt;call(GirlTableSeeder::class);</strong>
 		<strong style="color:red;">$this-&gt;call(VideoTableSeeder::class);</strong>
-	  <strong style="color:red;">$this-&gt;call(RelationshipsSeeder::class);</strong>
-	  <strong style="color:red;">$this-&gt;call(UserTableSeeder::class);</strong>
-	  <strong style="color:red;">$this-&gt;call(SubscriptionsSeeder::class);</strong>
+		<strong style="color:red;">$this-&gt;call(RelationshipsSeeder::class);</strong>
+		<strong style="color:red;">$this-&gt;call(UserTableSeeder::class);</strong>
+		<strong style="color:red;">$this-&gt;call(SubscriptionsSeeder::class);</strong>
 	}
 }
 </pre>

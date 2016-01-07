@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Jan 2016 02:28:24 +0100</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 02:28:24 +0100</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 02:57:10 +0100</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 02:57:10 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -481,7 +481,7 @@ $tag-&amp;gt;videos
 
 &lt;p&gt;Obtendremos así todos los vídeos relacionados con una tag específica. A este sistema para obtener información de nuestra base de datos, es decir, hacer consultas a nuestra base de datos, a través los models y la concatenación de métodos se le conoce como &lt;strong&gt;eloquent&lt;/strong&gt; en lenguaje &lt;em&gt;laravelita&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Muy bien, ¡basta ya de aprender y sigamos trabajando! Tenemos que crear el resto de modelos: Video y Girl, ¿te atreves a hacerlos por tu cuenta? Un truco para terminar rápido es copiar lo que has escrito para Tag.php y hacer las modificaciones necesarias, es decir: cambiar el nombre de la clase, modificar el build_from que pasamos dentro del array del atributo $sluggable y, &lt;strong&gt;muy importante&lt;/strong&gt;, reescribir las relationships adecuadamente (acuérdate que Video tiene &lt;strong&gt;dos&lt;/strong&gt; relaciones en lugar de una, por lo que tendrás que escribirle sus dos métodos correspondientes).&lt;/p&gt;
+&lt;p&gt;Muy bien, ¡basta ya de aprender y sigamos trabajando! Tenemos que crear el resto de modelos: Video y Girl, ¿te atreves a hacerlos por tu cuenta? Un truco para terminar rápido es copiar lo que has escrito para Tag.php y hacer las modificaciones necesarias, es decir: cambiar el nombre de la clase, modificar el build_from que pasamos dentro del array $sluggable y, &lt;strong&gt;muy importante&lt;/strong&gt;, reescribir las relationships adecuadamente (acuérdate que Video tiene &lt;strong&gt;dos&lt;/strong&gt; relaciones en lugar de una, por lo que tendrás que escribirle sus dos métodos correspondientes).&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#video&quot;&gt;Video.php&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&quot;video&quot; class=&quot;collapse&quot;&gt; 
@@ -657,7 +657,7 @@ class User extends Authenticatable
 
 &lt;p&gt;Salgamos de la carpeta app/ y volvamos a la carpeta database/, por razones obvias esta vez abriremos la subcarpeta seeders/ en lugar de migrations/.&lt;/p&gt;
 
-&lt;p&gt;Fíjate que aquí dentro podemos encontrar un fichero llamado DatabaseSeeder.php . Échale un vistazo. Se trata de una clase que extiende la clase Seeder y que tiene un método run(), no hay mucho más que ver. Pues bien, este fichero es un seeder, ni más ni menos. Todos nuestros seeders van a extender la clase Seeder y tendrás un método run().&lt;/p&gt;
+&lt;p&gt;Fíjate que aquí dentro podemos encontrar un fichero llamado DatabaseSeeder.php . Échale un vistazo. Se trata de una clase que extiende la clase Seeder y que tiene un método run(), no hay mucho más que ver. Pues bien, este fichero es un seeder, ni más ni menos. Todos nuestros seeders van a extender la clase Seeder y tendrán un método run().&lt;/p&gt;
 
 &lt;p&gt;Para ser ordenados y limpios escribiremos un Seeder por cada tabla que queremos poblar y a continuación “enlazaremos” la ejecución de todos ellos escribiendo una llamada a cada seeder en el fichero DatabaseSeeder.php . Manos a la obra. Hagamos en primer lugar una recapitulación de las tablas que necesitamos poblar:&lt;/p&gt;
 
@@ -956,7 +956,7 @@ class User extends Authenticatable
 			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;filename&amp;#39;&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;example-video.flv&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;thumbnail&amp;#39;&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;example-thumbnail.jpg&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;featured&amp;#39;&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-	            &lt;span class=&quot;s1&quot;&gt;&amp;#39;trailer&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;example-trailer.flv&amp;#39;&lt;/span&gt;
+          &lt;span class=&quot;s1&quot;&gt;&amp;#39;trailer&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;example-trailer.flv&amp;#39;&lt;/span&gt;
 		    &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -1129,12 +1129,12 @@ class User extends Authenticatable
 &lt;pre&gt;
 	public function run()
 	{
-	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(TagTableSeeder::class);&lt;/strong&gt;
-	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(GirlTableSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(TagTableSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(GirlTableSeeder::class);&lt;/strong&gt;
 		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(VideoTableSeeder::class);&lt;/strong&gt;
-	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(RelationshipsSeeder::class);&lt;/strong&gt;
-	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(UserTableSeeder::class);&lt;/strong&gt;
-	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(SubscriptionsSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(RelationshipsSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(UserTableSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(SubscriptionsSeeder::class);&lt;/strong&gt;
 	}
 }
 &lt;/pre&gt;
