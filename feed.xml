@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Jan 2016 10:38:04 +0100</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 10:38:04 +0100</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 10:47:35 +0100</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 10:47:35 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -1171,7 +1171,7 @@ php artisan db:seed
 &lt;p&gt;Podría ocurrir que algún seeder nos diese error y se quedase la historia a medio hacer, en estos casos, una vez corregido nuestro código, un comando muy útil que resetea la base de datos y vuelve a intentar poblarla es el siguiente:&lt;/p&gt;
 
 &lt;pre&gt;
-php artisan migrate:refresh --seed #Si lo usas en el entorno de producción irás al infierno
+php artisan migrate:refresh --seed # Si lo usas en el entorno de producción irás al infierno
 &lt;/pre&gt;
 
 &lt;p&gt;Anótalo bien, porque yo he perdido la cuenta de las veces que lo he tenido que usar en la fase de desarrollo de los proyectos.&lt;/p&gt;
