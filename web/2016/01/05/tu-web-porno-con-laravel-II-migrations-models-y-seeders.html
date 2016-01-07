@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Preparación previa">
+
+  <title>Tu web porno con Laravel - II: Migrations, models y seeders</title>
+
+  <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mitxelmoriana.com/web/2016/01/05/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+
+  <body>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-71923540-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">MitxelMoriana</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+  <headerimagewrapper>
+    <headerimage style="background-image: url('/headers/porn-2.jpg');"></headerimage>
+  </headerimagewrapper>
+  
+
+  <header class="post-header wrapper">
+    <h1 class="post-title" itemprop="name headline">Tu web porno con Laravel - II: Migrations, models y seeders</h1>
+    <p class="post-meta"><time datetime="2016-01-05T00:00:00+01:00" itemprop="datePublished">Jan 5, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="preparacin-previa">Preparación previa</h2>
+
+<p>Una vez configurado nuestro entorno de desarrollo de acuerdo a las <a href="https://laravel.com/docs/5.2/installation">especificaciones</a> de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:</p>
+
+<pre>
+laravel new porn-site-demo
+</pre>
+
+<p>Este comando creará una nueva copia de la última versión del framework en la carpeta porn-site-demo. A continuación abre dicha carpeta en tu explorador de ficheros o IDE favorito y pasemos a analizar lo que se cuece ahí dentro.</p>
+
+<h2 id="la-estructura-de-directorios-de-laravel">La estructura de directorios de Laravel</h2>
+
+<p>Echemos un vistazo y aprendamos un poco sobre la estructura de carpetas de nuestro nuevo proyecto Laravel. Es posible que tu estructura sea un poco distinta a la mía si estás leyendo esto muchos meses o años después de que lo escribiese. Asumiendo que estás trabajando con una versión de Laravel entorno a la 5.2, deberías encontrar los siguientes directorios en el interior de tu carpeta raíz porn-site-demo (las carpetas <strong>importantes</strong> van en negrita):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Carpeta</th>
+      <th style="text-align: left">Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>/</strong></td>
+      <td style="text-align: left">La raíz de nuestro proyecto, aquí encontraremos algunos ficheros importantes, como por ejemplo: el fichero <em>.env</em> (de <em>environment</em> variables) que nos permite asignar valores a algunas de las variables de configuración más importantes, o el fichero <em>composer.json</em> que nos permite, entre otras cosas, instalar nuevas dependencias (algo así como plugins) para nuestro proyecto</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>app/</strong></td>
+      <td style="text-align: left">Posiblemente la carpeta donde pasaremos la mayor parte de nuestro tiempo escribiendo código. En <em>app/</em> escribiremos nuestros models, routes, middleware, controllers… que, como veremos más adelante, son la quintaesencia del back end.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">bootstrap/</td>
+      <td style="text-align: left">Aquí encontramos procedimientos relacionados con el inicio e instanciación de nuestra aplicación. Cuestiones que es improbable que toquemos durante nuestros primeros proyectos.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>config/</strong></td>
+      <td style="text-align: left">Como su nombre indica, aquí encontramos la mayor parte de los arrays que contienen información sobre la configuración de nuestra aplicación y sus dependencias. Si en el futuro necesitas crear ficheros de configuración de alguna dependencia desarrollada por ti mismo el universo te agradecerá que los generes en esta carpeta.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>database/</strong></td>
+      <td style="text-align: left">Dentro de esta carpeta escribiremos bastante durante los primeros días de desarrollo del back end, puesto que aquí es donde crearemos las migrations y los seeders (explicados más abajo), es decir, donde se cocina la base de datos de nuestra aplicación.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>public/</strong></td>
+      <td style="text-align: left">Como su nombre indica, esta carpeta está destinada a aquel contenido que será accesible al “público”, lo que en el mundo web significa material gráfico, hojas de estilo, robots.txt, etc. Si prestas atención verás que aquí dentro hay un fichero index.php, gracias al cual ocurre gran parte de la magia de Laravel. De hecho, de cara a servir tu web o aplicación, ésta es la carpeta raíz de tu proyecto y, en cierto modo, la única a la que han de tener acceso tus usuarios (hopefully).</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>resources/</strong></td>
+      <td style="text-align: left">Aquí es donde un desarrollador de front end se tiene que pasar la mitad mejor de su vida. En resources se encuentran las subcarpetas relacionadas con las views (lo que ve el usuario), la subcarpeta lang con los ficheros que contienen el texto de nuestra web y sus traducciones, así como la carpeta assets, donde puedes escribir los ficheros less o sass que, para quien no lo sepa, se emplean para generar las hojas de estilo (.css) de toda la vida (si eres un troglodita las puedes escribir a pelo en <em>public/</em>).</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">storage/</td>
+      <td style="text-align: left">En esta carpeta ocurre parte de la magia del framework que, si todo va bien, no nos interesa demasiado. Si algo no va tan bien como esperamos, en cambio, es bueno saber que aquí dentro está la subcarpeta con los logs donde se guardan los errores y otros volcados de información útil.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">tests/</td>
+      <td style="text-align: left">¿Eres o te sientes un software engineer por casualidad? Pues ya sabes dónde hay que escribir y documentar el testing de tu código. Como esto es un ejercicio, un mero proyecto educativo, vamos a pasar olímpicamente de la parte aburrida… digo, profesional y necesaria, de tu trabajo como programador.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">vendor/</td>
+      <td style="text-align: left">Aquí es donde se instalan y guardan todas las dependencias de Laravel y de terceros. En principio no deberías modificar <strong>nunca</strong> el código que hay por aquí dentro, puesto que hay formas alternativas y mucho más transparentes de alterar el uso que le da tu aplicación a estas dependencias. Eso sí, ten muy presente esta carpeta a la hora de buscar referencias (“¿qué hace tal o cual cosa?”)” o, como mínimo, que lo tenga presente tu IDE.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="qu-es-eso-de-las-migrations-models-y-seeders">¿Qué es eso de las migrations, models y seeders?</h2>
+
+<p>Cuando se trabaja con equipos de desarrolladores de varias personas es necesario que en todo momento todos tengan la misma estructura de base de datos. Para lograr esto Laravel utiliza un sistema de <strong>migrations</strong>, que no es más que una forma de crear y modificar tablas de forma secuencial. Una migration es, por tanto, una acción sobre la base de datos: crear, eliminar, corregir, modificar algo… que una vez implementada no deberá ser <strong>nunca</strong> rectificada, <strong>salvo</strong> por otra migration, ya que sólo se ejecuta una vez. Por ejemplo: si yo creo una tabla <em>dummy</em> con una columna <em>useless</em> y, más adelante me doy cuenta de que esa columna no es necesaria, <strong>jamás</strong> deberé modificar la migration que creó la columna, en su lugar lo apropiado será crear otra migration que elimine esa columna. De esta manera cuando otra persona del grupo de desarrolladores se baje la nueva migration y la ejecute su base de datos será igual que la nuestra.</p>
+
+<p>Los modelos o <strong>models</strong> son clases (como las de cualquier otro lenguaje orientado a objetos) que están relacionadas con una tabla de la base de datos. Por ejemplo: si tengo una tabla <em>bicicletas</em> y otra tabla <em>pedales</em>, normalmente crearemos a continuación los modelos <em>Bicicleta</em> y <em>Pedal</em>, que harán referencia a las tablas y a las relaciones que existan entre ellas. Estos modelos nos permitirán trabajar con las bases de datos de forma muy ágil y sencilla.</p>
+
+<p>Finalmente, los <strong>seeders</strong> no son más que acciones que nos permiten rellenar las tablas con datos “falsos”. No es estrictamente necesario crear seeders para trabajar sobre un proyecto, pero es muy recomendable tanto para testear la propia base de datos como para ahorrarnos el tener que introducir los datos de forma manual.</p>
+
+<h2 id="nuestra-base-de-datos">Nuestra base de datos</h2>
+
+<p>Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en <a href="/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html">la primera parte</a> de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:</p>
+
+<p style="text-align:center; border: 1px solid black; background-color: white;"><img src="/images/db-diagram-1.jpg" alt="Diagrama aproximado de nuestra base de datos" /></p>
+
+<h2 id="creacin-de-migrations">Creación de migrations</h2>
+
+<p>Antes de hacer las migrations es necesario decirle a nuestra aplicación cómo acceder a nuestra base de datos. Para ello crea una base de datos, así como un usuario con los permisos pertinentes. Abre ahora el fichero .env en la carpeta raíz de nuestra aplicación y modifica las siguientes líneas introduciendo los datos apropiados:</p>
+
+<pre>
+DB_DATABASE=nombre_de_tu_nueva_base_de_datos
+DB_USERNAME=nombre_del_nuevo_usuario_con_permisos
+DB_PASSWORD=password_del_nuevo_usuario
+</pre>
+
+<p>A modo de referencia, a mí la cosa me ha quedado tal que así:</p>
+
+<pre>
+DB_DATABASE=my-porn-site
+DB_USERNAME=my-porn-site
+DB_PASSWORD=uVYB5vbN38UXmdQ4
+</pre>
+
+<p>Ahora ya podemos crear las migrations y ejecutarlas sin ningún miedo. Vayamos por faena. Ve a la carpeta database/migrations y observa que Laravel viene, ya por defecto, con dos migrations hechas: una para crear las tablas users y la otra para crear la tabla password_resets, ambas útiles y necesarias para gestionar el registro de nuestros futuros usuarios.</p>
+
+<p>Si observas el diagrama anterior verás que nosotros necesitamos crear las siguientes tablas:</p>
+
+<ul>
+  <li>tags</li>
+  <li>girls</li>
+  <li>videos</li>
+  <li>subscriptions</li>
+  <li>users</li>
+</ul>
+
+<p>Además, existe una relación many-to-many entre los tags y los videos y entre las girls y los videos. Esto es así porque en un vídeo pueden aparecer una o más actrices, así como una actriz puede aparecer en muchos vídeos, a este tipo de relación se le llama many-to-many en el mundillo de las bases de datos relacionales, y normalmente requieren de la creación de una tabla adicional cuyas filas representarán “relaciones” entre elementos de las dos tablas. Como ya he dicho, existe este tipo de relación entre los dos pares de elementos mencionados anteriormente, por ello crearemos dos tablas adicionales, siguiendo la convención <em>laraveliana</em> de nombrarlas a partir del nombre de cada una de las tablas que relaciona, en orden alfabético, en singular y separadas por un <em>underscore</em> _ , así pues, también crearemos las tablas:</p>
+
+<ul>
+  <li>girl_video</li>
+  <li>tag_video</li>
+</ul>
+
+<p>La forma más rápida de generar las migrations necesarias para crear tablas es escribir, por cada tabla que queremos crear, el siguiente comando:</p>
+
+<pre>
+php artisan make:migration create_table-name_table --create=table-name
+</pre>
+
+<p>A modo de referencia, yo he escrito y ejecutado el siguiente comando (que es una concatenación de los cinco comandos que debemos ejecutar):</p>
+
+<pre>
+php artisan make:migration create_tags_table --create=tags &amp;&amp; php artisan make:migration create_girls_table --create=girls &amp;&amp; php artisan make:migration create_videos_table --create=videos &amp;&amp; php artisan make:migration create_girl_video_table --create=girl_video &amp;&amp; php artisan make:migration create_tag_video_table --create=tag_video
+</pre>
+
+<p>Laravel tiene una dependencia que nos va a venir que ni pintada para gestionar nuestras suscripciones, se llama Cashier y se encargará de hacernos la vida más fácil a la hora de gestionar las suscripciones. Instalemos esta dependencia antes de continuar:</p>
+
+<pre>
+composer require laravel/cashier:"~6.0"  
+</pre>
+
+<p>Nótese que al ejecutar ese comando Laravel nos bajará la dependencia y la guardará en la carpeta <em>vendor/</em>.</p>
+
+<p>También es necesario añadir la siguiente línea al final del array <em>providers</em> del fichero <em>config/app.php</em>:</p>
+
+<pre>
+Laravel\Cashier\CashierServiceProvider::class,
+</pre>
+
+<p>A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma complicada de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un namespace y de publicar o copiar ciertos ficheros que nos acabamos de bajar a la carpeta resources/views si ejecutamos el comando <em>publish</em>. ¿Por qué no lo comprobamos? Escribe el siguiente comando:</p>
+
+<pre>
+php artisan vendor:publish
+</pre>
+
+<p>¿Ves cómo se han copiado ciertos ficheros de vendor/… a resources/views/… ? Pues eso. Más adelante ya hablaremos de lo que son las views, no te estreses.</p>
+
+<p>Ahora, tal como indica la documentación oficial de <a href="https://laravel.com/docs/5.2/billing">Cashier</a>, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration para modificar una tabla es un poco diferente del que hemos escrito antes para crearla. Los comandos respectivos, para modificar <em>users</em> y crear <em>subscriptions</em>, son:</p>
+
+<pre>
+php artisan make:migration add_cashier_columns_to_users_table --table=users
+</pre>
+
+<pre>
+php artisan make:migration create_subscriptions_table --create=subscriptions
+</pre>
+
+<p>Si todo está en orden deberíamos tener nueve migrations en nuestra carpeta database/migrations. Si no es así, asegúrate de haber seguido los pasos que he descrito más arriba.</p>
+
+<p>Ahora es necesario que rellenemos cada migration con las columnas que deseamos agregar en cada tabla. Las dos primeras migrations (en orden alfabético) son las que vienen en Laravel por defecto y no es necesario tocarlas, ya están bien.</p>
+
+<p>Echemos un vistazo ahora a la migration para para crear la tabla tags. Si te fijas, el comando que escribimos anteriormente no sólo ha creado el fichero de migration, sino que también le ha escrito las funciones necesarias para crear una tabla con las columnas id, updated_at y created_at (timestamps).</p>
+
+<p>Fíjate también que aparece una clase CreateTagsTable con los métodos up() y down(). up() es el método que se ejecuta cada vez que ejecutamos el comando <em>migrate</em>, mientras que el método down() se ejecuta cuando queremos dar marcha atrás en el proceso mediante el comando <em>rollback</em>. Para que haya coherencia al ir hacia delante o hacia atrás en el proceso, si en up() hacemos una cosa, en down() deberemos hacer siempre su contraria.</p>
+
+<p>Completemos ahora la migration para crear la tabla <em>tags</em> agregando el resto de columnas necesarias de acuerdo a nuestro diagrama:</p>
+
+<pre>
+Schema::create('tags', function (Blueprint $table) {
+	$table-&gt;increments('id');
+	<strong style="color:red;">$table-&gt;string('name');</strong>
+	<strong style="color:red;">$table-&gt;string('slug');</strong>
+	$table-&gt;timestamps();
+});
+</pre>
+
+<p>Análogamente, agreguemos las columnas que falta a la migration para crear la tabla girls:</p>
+
+<pre>
+Schema::create('girls', function (Blueprint $table) {
+	$table-&gt;increments('id');
+	<strong style="color:red;">$table-&gt;string('name');</strong>
+	<strong style="color:red;">$table-&gt;string('slug');</strong>
+	<strong style="color:red;">$table-&gt;integer('age');</strong>
+	<strong style="color:red;">$table-&gt;string('picture');</strong>
+	<strong style="color:red;">$table-&gt;text('description');</strong>	
+	$table-&gt;timestamps();
+});
+</pre>
+
+<p>¿Vas intuyendo lo que hace cada método de Blueprint? <a href="https://laravel.com/docs/5.2/migrations#creating-columns">Aquí</a> encontrarás una referencia detallada de cada uno. Si  te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:</p>
+
+<pre>
+Schema::create('videos', function (Blueprint $table) {
+	$table-&gt;increments('id');
+	<strong style="color:red;">$table-&gt;string('name');</strong>
+	<strong style="color:red;">$table-&gt;string('title');</strong>
+	<strong style="color:red;">$table-&gt;string('slug');</strong>
+	<strong style="color:red;">$table-&gt;string('filename');</strong>
+	<strong style="color:red;">$table-&gt;string('thumbnail');</strong>
+	<strong style="color:red;">$table-&gt;boolean('featured');</strong>
+	<strong style="color:red;">$table-&gt;string('trailer');</strong>
+	$table-&gt;timestamps();
+});
+</pre>
+
+<p>Completemos ahora la migration para crear la tabla subscription:</p>
+
+<pre>
+Schema::create('subscriptions', function ($table) {
+	$table-&gt;increments('id');
+	<strong style="color:red;">$table-&gt;integer('user_id');</strong>
+	<strong style="color:red;">$table-&gt;string('name');</strong>
+	<strong style="color:red;">$table-&gt;string('stripe_id');</strong>
+	<strong style="color:red;">$table-&gt;string('stripe_plan');</strong>
+	<strong style="color:red;">$table-&gt;integer('quantity');</strong>
+	<strong style="color:red;">$table-&gt;timestamp('trial_ends_at')-&gt;nullable();</strong>
+	<strong style="color:red;">$table-&gt;timestamp('ends_at')-&gt;nullable();</strong>
+	$table-&gt;timestamps();
+});
+</pre>
+
+<p>Ahora completemos las migrations para las tablas que relacionan girls con videos y tags con videos. A estas tablas normalmente se les llama de algún modo especial: asociativas, de cross-reference, junction, de enlace… Llámalas como tú quieras, la cuestión es que su función es resolver una relación many-to-many. Estas migrations deberían quedarnos de la siguiente manera:</p>
+
+<pre>
+Schema::create('girl_video', function ($table) {
+	$table-&gt;increments('id');
+	<strong style="color:red;">$table-&gt;integer('girl_id')-&gt;unsigned();</strong>
+	<strong style="color:red;">$table-&gt;foreign('girl_id')-&gt;references('id')-&gt;on('girls');</strong>
+	<strong style="color:red;">$table-&gt;integer('video_id')-&gt;unsigned();</strong>
+	<strong style="color:red;">$table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');</strong>
+});
+</pre>
+
+<pre>
+Schema::create('tag_video', function ($table) {
+	$table-&gt;increments('id');
+	<strong style="color:red;">$table-&gt;integer('tag_id')-&gt;unsigned();</strong>
+	<strong style="color:red;">$table-&gt;foreign('tag_id')-&gt;references('id')-&gt;on('tags');</strong>
+	<strong style="color:red;">$table-&gt;integer('video_id')-&gt;unsigned();</strong>
+	<strong style="color:red;">$table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');</strong>
+});
+</pre>
+
+<p>¡Ya sólo nos falta editar una migration para terminar! ¿Recuerdas aquella migration que creamos para modificar la tabla users? ¿Recuerdas que usamos un comando distinto para generarla? Si la abres y la comparas con el resto de migrations te darás cuenta de que ésta última utiliza la función <em>Schema::table</em> en lugar de <em>Schema::create</em>. Dentro de la función table() podemos crear columnas del mismo modo que hacíamos dentro de create(), con la diferencia de que con table() creamos columnas en tablas ya existentes.</p>
+
+<p>Puesto que dentro del método up() crearemos una serie de columnas en una tabla existente, dentro del método down() haremos lo contrario: eliminar las columnas de la tabla. Esto se hace de la siguiente manera:</p>
+
+<pre>
+public function up()
+{
+	Schema::table('users', function (Blueprint $table) {
+		<strong style="color:red;">$table-&gt;string('card_last_four')-&gt;after('password')-&gt;nullable();</strong>
+		<strong style="color:red;">$table-&gt;string('card_brand')-&gt;after('password')-&gt;nullable();</strong>
+		<strong style="color:red;">$table-&gt;string('stripe_id')-&gt;after('password')-&gt;nullable();</strong>
+	});
+}
+
+public function down()
+{
+	Schema::table('users', function (Blueprint $table) {
+		<strong style="color:red;">$table-&gt;dropColumn('stripe_id');</strong>
+		<strong style="color:red;">$table-&gt;dropColumn('card_brand');</strong>
+		<strong style="color:red;">$table-&gt;dropColumn('card_last_four');</strong>
+	});
+}
+</pre>
+
+<p>¡Parece que hemos terminado de editar nuestras migrations! Ahora viene la hora de la verdad. Abre una línea de comandos y escribe el comando que ejecuta todos esos métodos up() que hemos visto:</p>
+
+<pre>
+php artisan migrate
+</pre>
+
+<p>Si todo ha ido bien, no deberían aparecernos mensajes de error. Si comprobamos nuestra base de datos deberíamos ver ahora las ocho nuevas tablas que hemos creado mediante las migrations más una tabla adicional que Laravel utiliza para llevar la cuenta de las migrations que ya se han ejecutado. La próxima vez que ejecutes el comando <em>migrate</em> Laravel sólo ejecutará las migrations que no haya ejecutado anteriormente, de ahí que tengas que hacer nuevas migrations para modificar las anteriores si estás trabajando con más gente. Si trabajas sólo o aún no has compartido tu trabajo con el resto del equipo siempre puedes ir hacia atrás en el proceso con el comando <em>rollback</em>, modificar las migrations y volver a ejecutarlas.</p>
+
+<p>A modo de referencia dejo aquí apuntados los comandos más usados en relación con las migrations:</p>
+
+<pre>
+php artisan migrate           # migrates any new migration(s)
+php artisan migrate:rollback  # rollback the latest "batch" of migrations
+php artisan migrate:reset     # rollback all the migrations
+php artisan migrate:refresh   # rollback all the migrations and then migrate them all again (reset + migrate)
+</pre>
+
+<h2 id="creacin-de-models">Creación de models</h2>
+
+<p>Si has llegado hasta aquí es que ya tienes tu base de datos lista. Si es la primera vez que usas Laravel ¡te felicito! Ahora eso de las migrations ya no te asusta tanto, ¿a que no? Pues lo mismo te va a pasar con esto de los models. De hecho, si estás familiarizado con las Clases de cualquier lenguaje orientado a objetos, esto de los modelos te resultará más familiar que las migrations.</p>
+
+<p>En términos técnicos un Model no es más que una clase que extiende la clase <strong>Model</strong>, que es una clase que implementa un montonazo de métodos que son la mar de útiles. Ya lo iremos viendo. Si no sabes de OOP ignora lo que acabo de decir y presta atención a estas palabras: en términos prácticos, un Model no es más que una forma de representar en el código de nuestra aplicación las tablas que hemos creado anteriormente, así como las relaciones que existen entre ellas. ¿Te he aclarado algo? Si no es así, no te preocupes. Practicando es como verdaderamente se aprende, así que vamos allá:</p>
+
+<p>Salgamos de la carpeta database y vayamos ahora a la carpeta app/. Como ya dije al principio del post, esta carpeta es la leche de importante para el back end developer. Fíjate que en la raíz de la carpeta app/ encontrarás el fichero User.php. ¡Este fichero resulta que es un model! Si lo abres, sin embargo, verás que se trata de una clase que extiende la clase Authenticatable y no la clase Model. ¡Qué malo eres, Mitxel, tratando de engañarme! Bueno, en realidad es que la clase Authenticable extiende, a su vez, la clase Model y de ahí el engaño aparente. La razón de esta peculiaridad es que User es un modelo especial para Laravel, ya que el framework viene de fábrica con el sistema de autenticación bastante avanzado (y esto es bueno porque nos ahorrará trabajo).</p>
+
+<p>Pues nada, vamos a crear nuestros modelos. En concreto, vamos a crear los siguientes modelos:</p>
+
+<ul>
+  <li>Tag</li>
+  <li>Video</li>
+  <li>Girl</li>
+</ul>
+
+<p>Además, realizaremos ciertas modificaciones al modelo User.php ya existente.</p>
+
+<p>Pero antes… vamos a instalar otra dependencia. ¡Ya tenemos experiencia de antes con Cashier! Esta vez instalaremos la dependencia Sluggable, que básicamente nos permite crear slugs únicos, de forma automática, a partir de cualquier campo existente en cualquier tabla. ¿Recuerdas que en nuestras tablas creamos aquellas columnas slug? Pues ahora ya sabes para qué servirán. Ejecuta el siguiente comando:</p>
+
+<pre>
+composer require cviebrock/eloquent-sluggable
+</pre>
+
+<p>Registra el Service Provider de Sluggable, es decir, añade la siguiente línea al final del array providers en el fichero config/app.php:</p>
+
+<pre>
+Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+</pre>
+
+<p>Finalmente, ¿lo adivinas? Ejecuta el comando publish:</p>
+
+<pre>
+php artisan vendor:publish
+</pre>
+
+<p>A diferecia que Cashier, la dependencia Sluggable no publica views desde la carpeta vendor, sino que publica un fichero de configuración dentro de nuestra carpeta config/ . En principio no hay razón para cambiar la configuración que aparece ahí por defecto, pero no está de más que le eches un vistazo.</p>
+
+<p>Muy bien, ya podemos escribir nuestros models. Empecemos por Tag. Para crear este modelo básicamente crearemos un nuevo fichero Tag.php en la raíz del directorio app/ , es decir, en el mismo sitio donde se encuentra User.php . Una vez creado el fichero, edítalo tal como sigue:</p>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#tag">Tag.php</a></p>
+<div id="tag" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Tag</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
+<span class="p">{</span>
+	<span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
+	
+	<span class="sd">/**</span>
+<span class="sd">	* The field(s) we use to build the unique slug</span>
+<span class="sd">	* and the field where we store it</span>
+<span class="sd">	*</span>
+<span class="sd">	* @var array</span>
+<span class="sd">	*/</span>
+	<span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+	<span class="p">];</span>
+	
+	<span class="sd">/**</span>
+<span class="sd">	* The database table used by the model.</span>
+<span class="sd">	*</span>
+<span class="sd">	* @var string</span>
+<span class="sd">	*/</span>
+	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;tags&#39;</span><span class="p">;</span>
+	
+	<span class="sd">/**</span>
+<span class="sd">	* The attributes that are mass assignable.</span>
+<span class="sd">	*</span>
+<span class="sd">	* @var array</span>
+<span class="sd">	*/</span>
+	<span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
+	
+	<span class="sd">/**</span>
+<span class="sd">	* The attributes excluded from the model&#39;s JSON form.</span>
+<span class="sd">	*</span>
+<span class="sd">	* @var array</span>
+<span class="sd">	*/</span>
+	<span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
+	
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Relationships (with other models)</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">videos</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Video&#39;</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Accessors &amp; Mutators</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+	
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Scopes</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p>Date cuenta que he dejado en blanco el apartado para accessors, mutators y scopes. Más adelante (cuando los utilicemos) explicaremos de qué van, por ahora basta con que te suene la idea de que están relacionadas con los models.</p>
+
+<p>Lo que sí es importante entender ahora es la cuestión de las relaciones (relationships) entre modelos. Estas relaciones no son más que representaciones de las relaciones que existen entre las tablas. Al respeto, te dejo a continuación una pequeña.</p>
+
+<p>Existen, básicamente, tres tipos de relaciones entre tablas de una base de datos relacional:</p>
+
+<ol>
+  <li><strong>One to one:</strong> una relación uno a uno es, por ejemplo, la relación que existe entre tú y tu nariz; tú sólo tienes una nariz y tu nariz es poseída sólo por ti. En una base de datos este tipo de relación se revuelve creando una <strong>foreign key</strong> en una de las tablas de la relación, normalmente en la del objeto que es poseído por el otro objeto.</li>
+  <li><strong>One to many:</strong> una relación uno a muchos sería, por ejemplo, la relación que existe entre tú y tus pelos; tú tienes unos cuantos pelos (de cero a muchos) pero tus pelos sólo te tienen a ti como dueño. Este relación se resuelve en una base de datos del mismo modo que la one to one, sólo que la <strong>foreign key</strong> se ha de crear <strong>necesariamente</strong> en la tabla “pelos” del ejemplo, es decir, en la del objeto que es poseído por el otro objeto.</li>
+  <li><strong>Many to many:</strong> esta sería la relación entre tú y tus características como persona; puedes tener muchas características y, al mismo tiempo, una de esas características (por ejemplo: ser awesome) puede ser poseída por más de una persona. Este caso es el que hemos resuelto anteriormente creando una tabla asociativa entre dos tablas.</li>
+</ol>
+
+<p>Ahora veamos qué debemos escribir en los modelos para representar cualquier tipo de relación:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Relación</th>
+      <th style="text-align: left">Dirección</th>
+      <th style="text-align: left">Relational method returns…</th>
+      <th style="text-align: center">¿Tabla con foreign key?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">One to one</td>
+      <td style="text-align: left">This has one…</td>
+      <td style="text-align: left">$this-&gt;hasOne()</td>
+      <td style="text-align: center">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">One to one</td>
+      <td style="text-align: left">Inversa: this belongs to one…</td>
+      <td style="text-align: left">$this-&gt;belongsTo()</td>
+      <td style="text-align: center">Sí</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">One to many</td>
+      <td style="text-align: left">This has many…</td>
+      <td style="text-align: left">$this-&gt;hasMany()</td>
+      <td style="text-align: center">No</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">One to many</td>
+      <td style="text-align: left">Inversa: this belongs to one…</td>
+      <td style="text-align: left">$this-&gt;belongsTo()</td>
+      <td style="text-align: center">Sí</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Many to many</td>
+      <td style="text-align: left">En las dos direcciones</td>
+      <td style="text-align: left">$this-&gt;belongsToMany()</td>
+      <td style="text-align: center">Junction table</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Fíjate que en nuestro model Tag hemos escrito la función videos(), que devuelve el resultado de utilizar el método belongToMany() porque la relación entre Tag y Video era de many to many (tal como indico en la tabla). A partir de ahora, podremos escribir en cualquier parte de nuestro código:</p>
+
+<pre>
+$tag-&gt;videos()-&gt;get()
+</pre>
+<p>O aún mejor:</p>
+<pre>
+$tag-&gt;videos
+</pre>
+
+<p>Obtendremos así todos los vídeos relacionados con una tag específica. A este sistema para obtener información de nuestra base de datos, es decir, hacer consultas a nuestra base de datos, a través los models y la concatenación de métodos se le conoce como <strong>eloquent</strong> en lenguaje <em>laravelita</em>.</p>
+
+<p>Muy bien, ¡basta ya de aprender y sigamos trabajando! Tenemos que crear el resto de modelos: Video y Girl, ¿te atreves a hacerlos por tu cuenta? Un truco para terminar rápido es copiar lo que has escrito para Tag.php y hacer las modificaciones necesarias, es decir: cambiar el nombre de la clase, modificar el build_from que pasamos dentro del array del atributo $sluggable y, <strong>muy importante</strong>, reescribir las relationships adecuadamente (acuérdate que Video tiene <strong>dos</strong> relaciones en lugar de una, por lo que tendrás que escribirle sus dos métodos correspondientes).</p>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#video">Video.php</a></p>
+<div id="video" class="collapse"> 
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Video</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
+<span class="p">{</span>
+	<span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
+
+	<span class="sd">/**</span>
+<span class="sd">	 * The attribute(s) we use to build the slug</span>
+<span class="sd">	 * and the field name where we store it</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @var array</span>
+<span class="sd">	 */</span>
+	<span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+	<span class="p">];</span>
+
+	<span class="sd">/**</span>
+<span class="sd">	 * The database table used by the model.</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @var string</span>
+<span class="sd">	 */</span>
+	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;videos&#39;</span><span class="p">;</span>
+
+	<span class="sd">/**</span>
+<span class="sd">	 * The attributes that are mass assignable.</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @var array</span>
+<span class="sd">	 */</span>
+	<span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
+
+	<span class="sd">/**</span>
+<span class="sd">	 * The attributes excluded from the model&#39;s JSON form.</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @var array</span>
+<span class="sd">	 */</span>
+	<span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Relationships</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">tags</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Tag&#39;</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">girls</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Girl&#39;</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Accessors &amp; Mutators</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Scopes</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#girl">Girl.php</a></p>
+<div id="girl" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Girl</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
+<span class="p">{</span>
+	<span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
+
+	<span class="sd">/**</span>
+<span class="sd">	 * The attribute(s) we use to build the slug</span>
+<span class="sd">	 * and the field name where we store it</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @var array</span>
+<span class="sd">	 */</span>
+	<span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+	<span class="p">];</span>
+
+	<span class="sd">/**</span>
+<span class="sd">	 * The database table used by the model.</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @var string</span>
+<span class="sd">	 */</span>
+	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;girls&#39;</span><span class="p">;</span>
+
+	<span class="sd">/**</span>
+<span class="sd">	 * The attributes that are mass assignable.</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @var array</span>
+<span class="sd">	 */</span>
+	<span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
+
+	<span class="sd">/**</span>
+<span class="sd">	 * The attributes excluded from the model&#39;s JSON form.</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @var array</span>
+<span class="sd">	 */</span>
+	<span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Relationships</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">videos</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Video&#39;</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Accessors &amp; Mutators</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	| Scopes</span>
+<span class="cm">	|-----------------------------------------------</span>
+<span class="cm">	*/</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p>No es necesario que escribamos un model Subscription, ya que la dependencia Cashier que instalamos anteriormente ya se encarga del asunto. En su lugar, lo que sí debemos hacer es modificar el model User para que podamos acceder desde el propio model a los métodos de Cashier. Para ello lo que tenemos que hacer es agregarle el <strong>trait</strong> Billing al model User… ¿Whaaat? No te alarmes, en términos técnico-familiares un trait es una colección de métodos envueltos en una clase “especial” llamada trait (no kidding!), pensados para poder ser empleados por cualquier otra clase.</p>
+
+<p>En verdad todo este rollo que te he soltado se resuelve, en nuestro caso, abriendo User.php y agregando las siguientes líneas de código (marcadas en rojo pasión):</p>
+
+<pre>
+...
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+<strong style="color:red;">use Laravel\Cashier\Billable;</strong>
+
+class User extends Authenticatable
+{
+	<strong style="color:red;">use Billable;</strong>
+	
+	...
+</pre>
+
+<p>Pues me parece que ya hemos terminado con nuestros models. Para comprobar que todo funciona qué mejor manera que poblar nuestra base de datos con eloquent, es decir, a través de los models. Pasemos, por tanto, a la siguiente sección del curso.</p>
+
+<h2 id="creacin-de-seeders">Creación de seeders</h2>
+
+<p>Desde hace poco Laravel viene de serie con una dependencia muy útil llamada Faker que básicamente nos ayuda a generar datos falsos: nombres propios, direcciones de calles, fechas, combinaciones de números y letras, etc. Más adelante verás ejemplos de cómo usarla.</p>
+
+<p>Salgamos de la carpeta app/ y volvamos a la carpeta database/, por razones obvias esta vez abriremos la subcarpeta seeders/ en lugar de migrations/.</p>
+
+<p>Fíjate que aquí dentro podemos encontrar un fichero llamado DatabaseSeeder.php . Échale un vistazo. Se trata de una clase que extiende la clase Seeder y que tiene un método run(), no hay mucho más que ver. Pues bien, este fichero es un seeder, ni más ni menos. Todos nuestros seeders van a extender la clase Seeder y tendrás un método run().</p>
+
+<p>Para ser ordenados y limpios escribiremos un Seeder por cada tabla que queremos poblar y a continuación “enlazaremos” la ejecución de todos ellos escribiendo una llamada a cada seeder en el fichero DatabaseSeeder.php . Manos a la obra. Hagamos en primer lugar una recapitulación de las tablas que necesitamos poblar:</p>
+
+<ul>
+  <li>tags</li>
+  <li>girls</li>
+  <li>videos</li>
+  <li>users</li>
+  <li>subscriptions</li>
+</ul>
+
+<p>Una estrategia sólida para poblar nuestra web con contenidos de prueba será poblar primero las tags y las girls y a continuación los videos, para finalmente asociar, aleatoriamente, girls y tags con videos. Del lado usuario, poblaremos la tabla users con datos de prueba y crearemos diversos tipos de suscripción también con datos falsos.</p>
+
+<p>Antes de escribir el primer seeder, vamos a crear un fichero de configuración seeders.php en la carpeta config/ para tener en un mismo sitio, bien accesibles, los datos sobre la configuración de nuestros seeders, por ejemplo: número de filas que queremos crear en cada tabla, datos específicos para poblar algunas de las celdas, etc. Así de paso aprenderemos cómo se trabaja con los ficheros de esta carpeta.</p>
+
+<p>No te lo pienses dos veces, crea tu fichero seeders.php dentro de la carpeta config/ . Edítalo para que se parezca al mío y siéntete libre de modificarlo a tu gusto:</p>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#seeders">seeders.php</a></p>
+<div id="seeders" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">return</span> <span class="p">[</span>
+
+	<span class="c1">// Seed each of these tables with this numbers of rows</span>
+	<span class="s1">&#39;nGirls&#39;</span>    <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+	<span class="s1">&#39;nVideos&#39;</span>   <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+	<span class="s1">&#39;nUsers&#39;</span>    <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span>
+
+	<span class="c1">// How many tags should our videos have?</span>
+	<span class="s1">&#39;minTags&#39;</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+	<span class="s1">&#39;maxTags&#39;</span>   <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+
+	<span class="c1">// How many girls can be associated to a single video?</span>
+	<span class="s1">&#39;minGirls&#39;</span>  <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+	<span class="s1">&#39;maxGirls&#39;</span>  <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+
+	<span class="c1">// Fake information locale (en_US, es_ES, etc.)</span>
+	<span class="s1">&#39;locale&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;es_ES&#39;</span><span class="p">,</span>
+
+	<span class="c1">// Subscription plan types identifier</span>
+	<span class="s1">&#39;subscriptions&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+		<span class="s1">&#39;monthly&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;every-three-months&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;yearly&#39;</span><span class="p">,</span>
+	<span class="p">],</span>
+
+	<span class="c1">// Porn categories (courtesy of one random porn site)</span>
+	<span class="s1">&#39;pornCategories&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+		<span class="s1">&#39;3D Hentai&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;3D Stereoscopic&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;3D Toons&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Amateur&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Anal&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Arab&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Asian&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Babes&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Babysitters&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Ballbusting&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;BBW&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;BDSM&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Beach&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Big Butt&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Big Dick&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Big Tits&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Bisexual&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Black&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Blonde&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Blowjob&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Brazilian&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;British&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Brunette&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Bukkake&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Cartoon&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Casting&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Cat Fights&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Celebrities&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;CFNM&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Changing Room&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Chaturbate&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Cheerleaders&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Chinese&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Close-up&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;College&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Compilation&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Cosplay&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Cougar&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Couple&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Creampie&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Cuckold&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Cumshot&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Cunnilingus&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Czech&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Danish&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Deep Throat&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Dildos/Toys&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Doggy Style&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Double Penetration&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Downblouse&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Ebony&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Emo&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;European&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Face Sitting&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Facial&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Femdom&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Fetish&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Fingering&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Fisting&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Flashing&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Foot Fetish&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;French&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Fucking Machines&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Funny&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Gangbang&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Gaping&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;German&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Girlfriend&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Glory Holes&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Gothic&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Grannies&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Group Sex&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Hairy&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Handjob&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Hardcore&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;HD&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Hentai&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Hidden Cams&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Indian&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Interracial&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Italian&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Japanese&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;JOI&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Korean&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Latex&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Latina&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Lesbian&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Lingerie&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Live Show&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Massage&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Masturbation&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Mature&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Medical&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Midgets&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;MILF&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Military&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Natural Tits&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Nipples&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Oldy&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Orgasm&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Outdoor&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Panties&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Philippines&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Phone&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Piercing&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Pissing&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Pornstars&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;POV&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Pregnant&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Public&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Reality&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Redhead&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Retro&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Rimming&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Romantic&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Russian&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Selfshot&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Sharking&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Shaved&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Shower&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Skinny&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Small Tits&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Smoking&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Softcore&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Solo Girl&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Spanish&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Spanking&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Sports&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Squirting&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Stockings&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Strapon&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Strip&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Swallow&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Swedish&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Swingers&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Tattoos&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Thai&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Threesomes&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Turkish&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Underwater&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Uniform&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Upskirt&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Vintage&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Voyeur&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Webcam&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Wife&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Window&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;Yoga&#39;</span>
+	<span class="p">],</span>
+
+<span class="p">];</span></code></pre></figure>
+
+</div>
+
+<p>Ya tenemos nuestro fichero de configuración listo. Pasemos a escribir cada uno de los seeders. Empecemos por el de la tabla tags. Crea un fichero TagTableSeeder.php en la carpeta database/seeders/ tal como éste:</p>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#tagtableseeder">TagTableSeeder.php</a></p>
+<div id="tagtableseeder" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TagTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Run the database seeds.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return void</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+	    <span class="k">foreach</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.pornCategories&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$categoryName</span><span class="p">)</span>
+		    <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+			    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$categoryName</span><span class="p">,</span>
+		    <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p>Presta atención a eso de config(‘seeders.pornCategories’) . config() es una helper function de Laravel que nos permite acceder a los valores que hay en los ficheros de la carpeta config/ . Por ejemplo, nosotros acabamos de acceder a la lista de categorías de vídeos que teníamos en seeders.php , el fichero que hemos creado hace unos segundos. Muy práctico, ¿verdad?</p>
+
+<p>Fíjate en el resto del seeder. Nuestro nuevo seeder básicamente recorre el array con las categorías que hemos escrito en el fichero de configuración y, para cada una de ellas, ejecuta \App\Tag::create() .</p>
+
+<p>\App\Tag no es más que el model que escribimos anteriormente (Tag está en el namespace App, de ahí que lo escribamos de esa manera). Todos los models tienen un método create() al que podemos pasar, como primer argumento, un array de datos que serán utilizados para crear una nueva fila de la tabla de la base de datos relacionada con el modelo. Básicamente es una forma muy rápida de poblar la base de datos, ya que nos evitamos el tener que escribir las típicas queries. Esta es, precisamente, la razón de ser de <em>Eloquent</em> y uno de los motivos por los que encariñarse con Laravel.</p>
+
+<p>Muy bien, vamos a terminar de escribir el resto de seeders. En el siguiente vamos a tener la ocasión de utilizar la librería Faker, que nos permite generar datos falsos aleatorios para poblar la base de datos. Veámoslo en acción editando un nuevo fichero GirlTableSeeder.php :</p>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#girltableseeder">GirlTableSeeder.php</a></p>
+<div id="girltableseeder" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">GirlTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Run the database seeds.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return void</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+	    <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+
+			<span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nGirls&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+				<span class="nx">\App\Girl</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+					<span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;female&#39;</span><span class="p">),</span>
+					<span class="s1">&#39;age&#39;</span>           <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">numberBetween</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">90</span><span class="p">),</span>
+					<span class="s1">&#39;picture&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-profile-picture.jpg&#39;</span><span class="p">,</span>
+					<span class="s1">&#39;description&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span>
+				<span class="p">]);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p>Si tienes curiosidad sobre cómo funciona Faker y los muchos tipos de datos que podemos generar (nombres, números, direcciones, bloques de texto…) con la libreria, échale un vistazo a su <a href="https://github.com/fzaninotto/Faker">documentación</a>. Si te surgen dudas, puedes preguntar en el área de comentarios.</p>
+
+<p>Con el seeder para los vídeos VideoTableSeeder.php hemos hecho más de lo mismo, te lo dejo por aquí como ejemplo:</p>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#videotableseeder">VideoTableSeeder.php</a></p>
+<div id="videotableseeder" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">VideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Run the database seeds.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return void</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+	    <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+
+	    <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nVideos&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+		    <span class="nx">\App\Video</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+			    <span class="s1">&#39;title&#39;</span>         <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">sentence</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+			    <span class="s1">&#39;filename&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;example-video.flv&#39;</span><span class="p">,</span>
+			    <span class="s1">&#39;thumbnail&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;example-thumbnail.jpg&#39;</span><span class="p">,</span>
+			    <span class="s1">&#39;featured&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">boolean</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+	            <span class="s1">&#39;trailer&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-trailer.flv&#39;</span>
+		    <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p>Ahora vamos a escribir el seeder para crear relaciones entre tags y videos y entre girls y videos, yo le he llamado RelationshipsSeeder.php :</p>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#relationshipsseeder">RelationshipsSeeder.php</a></p>
+<div id="relationshipsseeder" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">RelationshipsSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Run the database seeds.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return void</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+		<span class="cm">/* Let&#39;s relate tags with videos first */</span>
+
+	    <span class="c1">// First we gather all tags and videos previously created</span>
+	    <span class="nv">$tags</span> <span class="o">=</span> <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
+	    <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+
+	    <span class="c1">// Now we iterate through all the videos in our DB</span>
+	    <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
+
+		    <span class="c1">// We select some random tag keys out of the array</span>
+		    <span class="nv">$selectedTagKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
+			    <span class="nv">$tags</span><span class="p">,</span>
+			    <span class="nb">mt_rand</span><span class="p">(</span>
+				    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.minTags&#39;</span><span class="p">),</span>
+				    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.maxTags&#39;</span><span class="p">)</span>
+			    <span class="p">)</span>
+		    <span class="p">);</span>
+		    
+		    <span class="c1">// Finally, we associate the selected tags to the current video</span>
+		    <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedTagKeys</span><span class="p">))</span>
+			    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$selectedTagKeys</span><span class="p">]);</span>
+		    <span class="k">else</span>
+			    <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedTagKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
+				    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
+	    <span class="p">}</span>
+
+	    <span class="cm">/* And now let&#39;s relate girls with videos */</span>
+
+	    <span class="c1">// First we gather all girls and videos previously created</span>
+	    <span class="nv">$girls</span> <span class="o">=</span> <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
+	    <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+
+	    <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
+
+		    <span class="c1">// We select some random keys from the girls array</span>
+		    <span class="nv">$selectedGirlKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
+			    <span class="nv">$girls</span><span class="p">,</span>
+			    <span class="nb">mt_rand</span><span class="p">(</span>
+				    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.minGirls&#39;</span><span class="p">),</span>
+				    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.maxGirls&#39;</span><span class="p">)</span>
+			    <span class="p">)</span>
+		    <span class="p">);</span>
+
+		    <span class="c1">// Finally, we associate the selected girls to the current video</span>
+		    <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span><span class="p">))</span>
+			    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$selectedGirlKeys</span><span class="p">]);</span>
+		    <span class="k">else</span>
+			    <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
+				    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
+	    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p>Este seeder parece algo más complicado que los anteriores, pero en realidad no es nada especial. Fíjate que empleando el método all() desde los models respectivos, podemos obtener todos los tags, girls y videos que ya existen en la base de datos. Siempre que hagamos \App\Modelo::all() obtendremos una Collection con todos los elementos de la base de datos relacionada con el Modelo.</p>
+
+<p>Con el método pluck(‘columna’) obtendremos una Collection sólo con los datos de una de las columnas de la tabla, mientras que el método toArray() nos sirve para transformar una Collection en un array de toda la vida. En Laravel una Collection es una especie de “abrigo” para un array que nos permite, por ejemplo, concatenar métodos para manipular el array que contiene. Cuando usamos toArray() en una Collection básicamente estamos quitándole ese abrigo, convirtiéndose en un array de toda la vida.</p>
+
+<p>El resto del seeder consiste en elegir de uno a muchos de los elementos del array de forma aleatoria. Ten presente que los valores del array son las id de la tabla tags (o, más adelante, las de la tabla girls). Finalmente relacionamos las tags y las girls con los videos usando el método attach(), que es el método indicado para hacer asociaciones entre objetos con relación del tipo many to many.</p>
+
+<p>Lo que acabamos de hacer es, en términos prácticos, poblar las tablas asociativas tag_video y girl_video.</p>
+
+<p>Nos quedan un par más de seeders para terminar. Editaremos un nuevo fichero UserTableSeeder.php para poblar nuestra tabla users y un nuevo fichero SubscriptionsSeeder.php para poblar nuestra tabla subscriptions con datos más falsos que un euro con la cara de Popeye.</p>
+
+<p>Aquí te dejo los que he escrito yo como referencia:</p>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#usertableseeders">UserTableSeeder.php</a></p>
+<div id="usertableseeders" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Run the database seeds.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return void</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+	    <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">\Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">();</span>
+
+		<span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nUsers&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+			<span class="nx">\App\User</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+				<span class="s1">&#39;name&#39;</span>              <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span>
+				<span class="s1">&#39;email&#39;</span>             <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">,</span>
+				<span class="s1">&#39;password&#39;</span>          <span class="o">=&gt;</span> <span class="nx">bcrypt</span><span class="p">(</span><span class="s1">&#39;wanker&#39;</span><span class="p">),</span>
+				<span class="s1">&#39;stripe_id&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;cus_7fj87t2BaVS4KN&#39;</span><span class="p">,</span>
+				<span class="s1">&#39;card_brand&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;Visa&#39;</span><span class="p">,</span>
+				<span class="s1">&#39;card_last_four&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;4242&#39;</span><span class="p">,</span>
+			<span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p><a href="javascript:" data-toggle="collapse" data-target="#subscriptionsseeder">SubscriptionsSeeder.php</a></p>
+<div id="subscriptionsseeder" class="collapse">
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SubscriptionsSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Run the database seeds.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return void</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+    <span class="p">{</span>
+		<span class="nv">$users</span> <span class="o">=</span> <span class="nx">\App\User</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+	    <span class="nv">$subscriptionPlanTypes</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptions&#39;</span><span class="p">);</span>
+
+	    <span class="k">foreach</span><span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+		    <span class="nv">$randomEndingDate</span> <span class="o">=</span> <span class="nx">\Carbon\Carbon</span><span class="o">::</span><span class="na">create</span><span class="p">(</span>
+			    <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span><span class="mi">2020</span><span class="p">),</span>
+			    <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>
+			    <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span>
+		    <span class="p">);</span>
+
+		    <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
+			    <span class="s1">&#39;user_id&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
+			    <span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
+			    <span class="s1">&#39;stripe_id&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+			    <span class="s1">&#39;stripe_plan&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$subscriptionPlanTypes</span><span class="p">[</span><span class="nb">array_rand</span><span class="p">(</span><span class="nv">$subscriptionPlanTypes</span><span class="p">)],</span>
+			    <span class="s1">&#39;quantity&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+			    <span class="s1">&#39;ends_at&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$randomEndingDate</span><span class="p">,</span>
+		    <span class="p">]);</span>
+	    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+</div>
+
+<p>La única diferencia significativa con respecto a los seeders anteriores es que en el seeder para la tabla subscriptions no hemos utilizado ningún modelo \App\Subscription para realizar las queries a base de datos, sencillamente porque no existe ningún modelo Subscripcion. En su lugar hemos utilizado la <strong>Facade</strong> DB, que nos permite ejecutar queries a nuestra base de datos sin necesidad de ningún modelo de por medio. Una Facade no es más que una forma de acceder a ciertas clases y a su respectiva familia de métodos sin dar muchas vueltas. Si echas un vistazo a config/app.php verás, abajo del todo, toda una lista de Facades a las que puedes acceder desde cualquier punto de tu código con tan sólo escribir el “alias” de la Facade.</p>
+
+<p>Para terminar de una vez por todas con nuestros seeders vamos a asegurarnos de que se ejecutarán todos una vez que escribamos el comando seed. Para ello tenemos que editar aquel fichero DatabaseSeeder.php que encontramos inicialmente en nuestra carpeta database/seeder/ , ¿lo recuerdas?</p>
+
+<p>Agrégale las siguientes líneas:</p>
+
+<pre>
+	public function run()
+	{
+	  <strong style="color:red;">$this-&gt;call(TagTableSeeder::class);</strong>
+	  <strong style="color:red;">$this-&gt;call(GirlTableSeeder::class);</strong>
+		<strong style="color:red;">$this-&gt;call(VideoTableSeeder::class);</strong>
+	  <strong style="color:red;">$this-&gt;call(RelationshipsSeeder::class);</strong>
+	  <strong style="color:red;">$this-&gt;call(UserTableSeeder::class);</strong>
+	  <strong style="color:red;">$this-&gt;call(SubscriptionsSeeder::class);</strong>
+	}
+}
+</pre>
+
+<p>¡Ya hemos terminado con los seeders! Crucemos los dedos y pasemos a escribir el comando para ejecutarlos:</p>
+
+<pre>
+php artisan db:seed
+</pre>
+
+<p>Si todo va bien deberíamos tener todas nuestras tablas llenitas de datos, compruébalo y congratúlate.</p>
+
+<p>Podría ocurrir que algún seeder nos diese error y se quedase la historia a medio hacer, en estos casos, una vez corregido nuestro código, un comando muy útil que resetea la base de datos y vuelve a intentar poblarla es el siguiente:</p>
+
+<pre>
+php artisan migrate:refresh --seed
+</pre>
+
+<p>Anótalo bien, porque yo he perdido la cuenta de las veces que lo he tenido que usar en esta fase de los proyectos.</p>
+
+<p>Pues nada, ya tenemos lista nuestra base de datos, espero que los ejemplos que estamos escribiendo te sirvan para hacerte con una idea lo suficientemente general para que tú mismo puedas crear y poblar todo tipo de tablas que se te ocurran para cualquier tipo de proyecto en el que trabajes en el futuro.</p>
+
+<p>Recuerda: si te surgen dudas, detectas errores en mi código o te surgen errores que no logras resolver, escríbeme un comentario más abajo</p>
+
+<p><strong>Próximamente</strong><br />
+Tu web porno con Laravel - III: Routes, resources y controllers</p>
+
+<!-- Links -->
+
+  </div>
+
+</article>
+
+        
+<div id="disqus_thread"></div>
+<script>
+     var disqus_config = function () {
+         this.page.url = 'http://mitxelmoriana.com/web/2016/01/05/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html';
+     };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//mitxelmoriana.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">MitxelMoriana</h2>
+
+    <div class="footer-col-wrapper">
+
+      <div class="footer-col footer-col-alt-1">
+
+        <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
+
+        <br>
+        <ul class="social-media-list">
+
+          
+          <li>
+            <a href="https://github.com/bitumin"><i class="fa fa-github-square"></i></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://facebook.com/mitxel.moriana"><i class="fa fa-facebook-official"></i></a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://linkedin.com/in/morianamitxel"><i class="fa fa-linkedin-square"></i></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/mitxelmoriana"><i class="fa fa-twitter-square"></i></a>
+
+          </li>
+          
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-alt-2">
+        <p>Hi there. I'm Mitxel Moriana, freelance developer, technophile, entrepeneur and blogger. This is the blog I use to talk mostly about my work, so you can expect to find many techy and programming related posts that I hope you'll find useful!
+</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+
+
+  </body>
+
+</html>

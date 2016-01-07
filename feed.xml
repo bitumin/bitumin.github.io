@@ -2,13 +2,1182 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MitxelMoriana</title>
-    <description>Hi there. I&#39;m Mitxel Moriana, developer, technophile, entrepeneur and blogger. This is the blog I use to talk about my work as a developer, so you can expect to find many programming related posts that I hope you&#39;ll find useful!
+    <description>Hi there. I&#39;m Mitxel Moriana, freelance developer, technophile, entrepeneur and blogger. This is the blog I use to talk mostly about my work, so you can expect to find many techy and programming related posts that I hope you&#39;ll find useful!
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Jan 2016 02:41:40 +0100</pubDate>
-    <lastBuildDate>Tue, 05 Jan 2016 02:41:40 +0100</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 02:23:02 +0100</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 02:23:02 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Tu web porno con Laravel - II: Migrations, models y seeders</title>
+        <description>&lt;h2 id=&quot;preparacin-previa&quot;&gt;Preparación previa&lt;/h2&gt;
+
+&lt;p&gt;Una vez configurado nuestro entorno de desarrollo de acuerdo a las &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot;&gt;especificaciones&lt;/a&gt; de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:&lt;/p&gt;
+
+&lt;pre&gt;
+laravel new porn-site-demo
+&lt;/pre&gt;
+
+&lt;p&gt;Este comando creará una nueva copia de la última versión del framework en la carpeta porn-site-demo. A continuación abre dicha carpeta en tu explorador de ficheros o IDE favorito y pasemos a analizar lo que se cuece ahí dentro.&lt;/p&gt;
+
+&lt;h2 id=&quot;la-estructura-de-directorios-de-laravel&quot;&gt;La estructura de directorios de Laravel&lt;/h2&gt;
+
+&lt;p&gt;Echemos un vistazo y aprendamos un poco sobre la estructura de carpetas de nuestro nuevo proyecto Laravel. Es posible que tu estructura sea un poco distinta a la mía si estás leyendo esto muchos meses o años después de que lo escribiese. Asumiendo que estás trabajando con una versión de Laravel entorno a la 5.2, deberías encontrar los siguientes directorios en el interior de tu carpeta raíz porn-site-demo (las carpetas &lt;strong&gt;importantes&lt;/strong&gt; van en negrita):&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Carpeta&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descripción&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;/&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;La raíz de nuestro proyecto, aquí encontraremos algunos ficheros importantes, como por ejemplo: el fichero &lt;em&gt;.env&lt;/em&gt; (de &lt;em&gt;environment&lt;/em&gt; variables) que nos permite asignar valores a algunas de las variables de configuración más importantes, o el fichero &lt;em&gt;composer.json&lt;/em&gt; que nos permite, entre otras cosas, instalar nuevas dependencias (algo así como plugins) para nuestro proyecto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;app/&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Posiblemente la carpeta donde pasaremos la mayor parte de nuestro tiempo escribiendo código. En &lt;em&gt;app/&lt;/em&gt; escribiremos nuestros models, routes, middleware, controllers… que, como veremos más adelante, son la quintaesencia del back end.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;bootstrap/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Aquí encontramos procedimientos relacionados con el inicio e instanciación de nuestra aplicación. Cuestiones que es improbable que toquemos durante nuestros primeros proyectos.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;config/&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Como su nombre indica, aquí encontramos la mayor parte de los arrays que contienen información sobre la configuración de nuestra aplicación y sus dependencias. Si en el futuro necesitas crear ficheros de configuración de alguna dependencia desarrollada por ti mismo el universo te agradecerá que los generes en esta carpeta.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;database/&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Dentro de esta carpeta escribiremos bastante durante los primeros días de desarrollo del back end, puesto que aquí es donde crearemos las migrations y los seeders (explicados más abajo), es decir, donde se cocina la base de datos de nuestra aplicación.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;public/&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Como su nombre indica, esta carpeta está destinada a aquel contenido que será accesible al “público”, lo que en el mundo web significa material gráfico, hojas de estilo, robots.txt, etc. Si prestas atención verás que aquí dentro hay un fichero index.php, gracias al cual ocurre gran parte de la magia de Laravel. De hecho, de cara a servir tu web o aplicación, ésta es la carpeta raíz de tu proyecto y, en cierto modo, la única a la que han de tener acceso tus usuarios (hopefully).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;resources/&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Aquí es donde un desarrollador de front end se tiene que pasar la mitad mejor de su vida. En resources se encuentran las subcarpetas relacionadas con las views (lo que ve el usuario), la subcarpeta lang con los ficheros que contienen el texto de nuestra web y sus traducciones, así como la carpeta assets, donde puedes escribir los ficheros less o sass que, para quien no lo sepa, se emplean para generar las hojas de estilo (.css) de toda la vida (si eres un troglodita las puedes escribir a pelo en &lt;em&gt;public/&lt;/em&gt;).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;storage/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;En esta carpeta ocurre parte de la magia del framework que, si todo va bien, no nos interesa demasiado. Si algo no va tan bien como esperamos, en cambio, es bueno saber que aquí dentro está la subcarpeta con los logs donde se guardan los errores y otros volcados de información útil.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;tests/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;¿Eres o te sientes un software engineer por casualidad? Pues ya sabes dónde hay que escribir y documentar el testing de tu código. Como esto es un ejercicio, un mero proyecto educativo, vamos a pasar olímpicamente de la parte aburrida… digo, profesional y necesaria, de tu trabajo como programador.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;vendor/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Aquí es donde se instalan y guardan todas las dependencias de Laravel y de terceros. En principio no deberías modificar &lt;strong&gt;nunca&lt;/strong&gt; el código que hay por aquí dentro, puesto que hay formas alternativas y mucho más transparentes de alterar el uso que le da tu aplicación a estas dependencias. Eso sí, ten muy presente esta carpeta a la hora de buscar referencias (“¿qué hace tal o cual cosa?”)” o, como mínimo, que lo tenga presente tu IDE.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;qu-es-eso-de-las-migrations-models-y-seeders&quot;&gt;¿Qué es eso de las migrations, models y seeders?&lt;/h2&gt;
+
+&lt;p&gt;Cuando se trabaja con equipos de desarrolladores de varias personas es necesario que en todo momento todos tengan la misma estructura de base de datos. Para lograr esto Laravel utiliza un sistema de &lt;strong&gt;migrations&lt;/strong&gt;, que no es más que una forma de crear y modificar tablas de forma secuencial. Una migration es, por tanto, una acción sobre la base de datos: crear, eliminar, corregir, modificar algo… que una vez implementada no deberá ser &lt;strong&gt;nunca&lt;/strong&gt; rectificada, &lt;strong&gt;salvo&lt;/strong&gt; por otra migration, ya que sólo se ejecuta una vez. Por ejemplo: si yo creo una tabla &lt;em&gt;dummy&lt;/em&gt; con una columna &lt;em&gt;useless&lt;/em&gt; y, más adelante me doy cuenta de que esa columna no es necesaria, &lt;strong&gt;jamás&lt;/strong&gt; deberé modificar la migration que creó la columna, en su lugar lo apropiado será crear otra migration que elimine esa columna. De esta manera cuando otra persona del grupo de desarrolladores se baje la nueva migration y la ejecute su base de datos será igual que la nuestra.&lt;/p&gt;
+
+&lt;p&gt;Los modelos o &lt;strong&gt;models&lt;/strong&gt; son clases (como las de cualquier otro lenguaje orientado a objetos) que están relacionadas con una tabla de la base de datos. Por ejemplo: si tengo una tabla &lt;em&gt;bicicletas&lt;/em&gt; y otra tabla &lt;em&gt;pedales&lt;/em&gt;, normalmente crearemos a continuación los modelos &lt;em&gt;Bicicleta&lt;/em&gt; y &lt;em&gt;Pedal&lt;/em&gt;, que harán referencia a las tablas y a las relaciones que existan entre ellas. Estos modelos nos permitirán trabajar con las bases de datos de forma muy ágil y sencilla.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, los &lt;strong&gt;seeders&lt;/strong&gt; no son más que acciones que nos permiten rellenar las tablas con datos “falsos”. No es estrictamente necesario crear seeders para trabajar sobre un proyecto, pero es muy recomendable tanto para testear la propia base de datos como para ahorrarnos el tener que introducir los datos de forma manual.&lt;/p&gt;
+
+&lt;h2 id=&quot;nuestra-base-de-datos&quot;&gt;Nuestra base de datos&lt;/h2&gt;
+
+&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot;&gt;la primera parte&lt;/a&gt; de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center; border: 1px solid black; background-color: white;&quot;&gt;&lt;img src=&quot;/images/db-diagram-1.jpg&quot; alt=&quot;Diagrama aproximado de nuestra base de datos&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;creacin-de-migrations&quot;&gt;Creación de migrations&lt;/h2&gt;
+
+&lt;p&gt;Antes de hacer las migrations es necesario decirle a nuestra aplicación cómo acceder a nuestra base de datos. Para ello crea una base de datos, así como un usuario con los permisos pertinentes. Abre ahora el fichero .env en la carpeta raíz de nuestra aplicación y modifica las siguientes líneas introduciendo los datos apropiados:&lt;/p&gt;
+
+&lt;pre&gt;
+DB_DATABASE=nombre_de_tu_nueva_base_de_datos
+DB_USERNAME=nombre_del_nuevo_usuario_con_permisos
+DB_PASSWORD=password_del_nuevo_usuario
+&lt;/pre&gt;
+
+&lt;p&gt;A modo de referencia, a mí la cosa me ha quedado tal que así:&lt;/p&gt;
+
+&lt;pre&gt;
+DB_DATABASE=my-porn-site
+DB_USERNAME=my-porn-site
+DB_PASSWORD=uVYB5vbN38UXmdQ4
+&lt;/pre&gt;
+
+&lt;p&gt;Ahora ya podemos crear las migrations y ejecutarlas sin ningún miedo. Vayamos por faena. Ve a la carpeta database/migrations y observa que Laravel viene, ya por defecto, con dos migrations hechas: una para crear las tablas users y la otra para crear la tabla password_resets, ambas útiles y necesarias para gestionar el registro de nuestros futuros usuarios.&lt;/p&gt;
+
+&lt;p&gt;Si observas el diagrama anterior verás que nosotros necesitamos crear las siguientes tablas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;tags&lt;/li&gt;
+  &lt;li&gt;girls&lt;/li&gt;
+  &lt;li&gt;videos&lt;/li&gt;
+  &lt;li&gt;subscriptions&lt;/li&gt;
+  &lt;li&gt;users&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Además, existe una relación many-to-many entre los tags y los videos y entre las girls y los videos. Esto es así porque en un vídeo pueden aparecer una o más actrices, así como una actriz puede aparecer en muchos vídeos, a este tipo de relación se le llama many-to-many en el mundillo de las bases de datos relacionales, y normalmente requieren de la creación de una tabla adicional cuyas filas representarán “relaciones” entre elementos de las dos tablas. Como ya he dicho, existe este tipo de relación entre los dos pares de elementos mencionados anteriormente, por ello crearemos dos tablas adicionales, siguiendo la convención &lt;em&gt;laraveliana&lt;/em&gt; de nombrarlas a partir del nombre de cada una de las tablas que relaciona, en orden alfabético, en singular y separadas por un &lt;em&gt;underscore&lt;/em&gt; _ , así pues, también crearemos las tablas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;girl_video&lt;/li&gt;
+  &lt;li&gt;tag_video&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La forma más rápida de generar las migrations necesarias para crear tablas es escribir, por cada tabla que queremos crear, el siguiente comando:&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan make:migration create_table-name_table --create=table-name
+&lt;/pre&gt;
+
+&lt;p&gt;A modo de referencia, yo he escrito y ejecutado el siguiente comando (que es una concatenación de los cinco comandos que debemos ejecutar):&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan make:migration create_tags_table --create=tags &amp;amp;&amp;amp; php artisan make:migration create_girls_table --create=girls &amp;amp;&amp;amp; php artisan make:migration create_videos_table --create=videos &amp;amp;&amp;amp; php artisan make:migration create_girl_video_table --create=girl_video &amp;amp;&amp;amp; php artisan make:migration create_tag_video_table --create=tag_video
+&lt;/pre&gt;
+
+&lt;p&gt;Laravel tiene una dependencia que nos va a venir que ni pintada para gestionar nuestras suscripciones, se llama Cashier y se encargará de hacernos la vida más fácil a la hora de gestionar las suscripciones. Instalemos esta dependencia antes de continuar:&lt;/p&gt;
+
+&lt;pre&gt;
+composer require laravel/cashier:&quot;~6.0&quot;  
+&lt;/pre&gt;
+
+&lt;p&gt;Nótese que al ejecutar ese comando Laravel nos bajará la dependencia y la guardará en la carpeta &lt;em&gt;vendor/&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;También es necesario añadir la siguiente línea al final del array &lt;em&gt;providers&lt;/em&gt; del fichero &lt;em&gt;config/app.php&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;
+Laravel\Cashier\CashierServiceProvider::class,
+&lt;/pre&gt;
+
+&lt;p&gt;A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma complicada de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un namespace y de publicar o copiar ciertos ficheros que nos acabamos de bajar a la carpeta resources/views si ejecutamos el comando &lt;em&gt;publish&lt;/em&gt;. ¿Por qué no lo comprobamos? Escribe el siguiente comando:&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan vendor:publish
+&lt;/pre&gt;
+
+&lt;p&gt;¿Ves cómo se han copiado ciertos ficheros de vendor/… a resources/views/… ? Pues eso. Más adelante ya hablaremos de lo que son las views, no te estreses.&lt;/p&gt;
+
+&lt;p&gt;Ahora, tal como indica la documentación oficial de &lt;a href=&quot;https://laravel.com/docs/5.2/billing&quot;&gt;Cashier&lt;/a&gt;, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration para modificar una tabla es un poco diferente del que hemos escrito antes para crearla. Los comandos respectivos, para modificar &lt;em&gt;users&lt;/em&gt; y crear &lt;em&gt;subscriptions&lt;/em&gt;, son:&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan make:migration add_cashier_columns_to_users_table --table=users
+&lt;/pre&gt;
+
+&lt;pre&gt;
+php artisan make:migration create_subscriptions_table --create=subscriptions
+&lt;/pre&gt;
+
+&lt;p&gt;Si todo está en orden deberíamos tener nueve migrations en nuestra carpeta database/migrations. Si no es así, asegúrate de haber seguido los pasos que he descrito más arriba.&lt;/p&gt;
+
+&lt;p&gt;Ahora es necesario que rellenemos cada migration con las columnas que deseamos agregar en cada tabla. Las dos primeras migrations (en orden alfabético) son las que vienen en Laravel por defecto y no es necesario tocarlas, ya están bien.&lt;/p&gt;
+
+&lt;p&gt;Echemos un vistazo ahora a la migration para para crear la tabla tags. Si te fijas, el comando que escribimos anteriormente no sólo ha creado el fichero de migration, sino que también le ha escrito las funciones necesarias para crear una tabla con las columnas id, updated_at y created_at (timestamps).&lt;/p&gt;
+
+&lt;p&gt;Fíjate también que aparece una clase CreateTagsTable con los métodos up() y down(). up() es el método que se ejecuta cada vez que ejecutamos el comando &lt;em&gt;migrate&lt;/em&gt;, mientras que el método down() se ejecuta cuando queremos dar marcha atrás en el proceso mediante el comando &lt;em&gt;rollback&lt;/em&gt;. Para que haya coherencia al ir hacia delante o hacia atrás en el proceso, si en up() hacemos una cosa, en down() deberemos hacer siempre su contraria.&lt;/p&gt;
+
+&lt;p&gt;Completemos ahora la migration para crear la tabla &lt;em&gt;tags&lt;/em&gt; agregando el resto de columnas necesarias de acuerdo a nuestro diagrama:&lt;/p&gt;
+
+&lt;pre&gt;
+Schema::create(&#39;tags&#39;, function (Blueprint $table) {
+	$table-&amp;gt;increments(&#39;id&#39;);
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;/strong&gt;
+	$table-&amp;gt;timestamps();
+});
+&lt;/pre&gt;
+
+&lt;p&gt;Análogamente, agreguemos las columnas que falta a la migration para crear la tabla girls:&lt;/p&gt;
+
+&lt;pre&gt;
+Schema::create(&#39;girls&#39;, function (Blueprint $table) {
+	$table-&amp;gt;increments(&#39;id&#39;);
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;age&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;picture&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;text(&#39;description&#39;);&lt;/strong&gt;	
+	$table-&amp;gt;timestamps();
+});
+&lt;/pre&gt;
+
+&lt;p&gt;¿Vas intuyendo lo que hace cada método de Blueprint? &lt;a href=&quot;https://laravel.com/docs/5.2/migrations#creating-columns&quot;&gt;Aquí&lt;/a&gt; encontrarás una referencia detallada de cada uno. Si  te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:&lt;/p&gt;
+
+&lt;pre&gt;
+Schema::create(&#39;videos&#39;, function (Blueprint $table) {
+	$table-&amp;gt;increments(&#39;id&#39;);
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;title&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;filename&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;thumbnail&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;boolean(&#39;featured&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;trailer&#39;);&lt;/strong&gt;
+	$table-&amp;gt;timestamps();
+});
+&lt;/pre&gt;
+
+&lt;p&gt;Completemos ahora la migration para crear la tabla subscription:&lt;/p&gt;
+
+&lt;pre&gt;
+Schema::create(&#39;subscriptions&#39;, function ($table) {
+	$table-&amp;gt;increments(&#39;id&#39;);
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;user_id&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;stripe_id&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;stripe_plan&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;quantity&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;timestamp(&#39;trial_ends_at&#39;)-&amp;gt;nullable();&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;timestamp(&#39;ends_at&#39;)-&amp;gt;nullable();&lt;/strong&gt;
+	$table-&amp;gt;timestamps();
+});
+&lt;/pre&gt;
+
+&lt;p&gt;Ahora completemos las migrations para las tablas que relacionan girls con videos y tags con videos. A estas tablas normalmente se les llama de algún modo especial: asociativas, de cross-reference, junction, de enlace… Llámalas como tú quieras, la cuestión es que su función es resolver una relación many-to-many. Estas migrations deberían quedarnos de la siguiente manera:&lt;/p&gt;
+
+&lt;pre&gt;
+Schema::create(&#39;girl_video&#39;, function ($table) {
+	$table-&amp;gt;increments(&#39;id&#39;);
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;girl_id&#39;)-&amp;gt;unsigned();&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;foreign(&#39;girl_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;girls&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;video_id&#39;)-&amp;gt;unsigned();&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;foreign(&#39;video_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;videos&#39;);&lt;/strong&gt;
+});
+&lt;/pre&gt;
+
+&lt;pre&gt;
+Schema::create(&#39;tag_video&#39;, function ($table) {
+	$table-&amp;gt;increments(&#39;id&#39;);
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;tag_id&#39;)-&amp;gt;unsigned();&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;foreign(&#39;tag_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;tags&#39;);&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;video_id&#39;)-&amp;gt;unsigned();&lt;/strong&gt;
+	&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;foreign(&#39;video_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;videos&#39;);&lt;/strong&gt;
+});
+&lt;/pre&gt;
+
+&lt;p&gt;¡Ya sólo nos falta editar una migration para terminar! ¿Recuerdas aquella migration que creamos para modificar la tabla users? ¿Recuerdas que usamos un comando distinto para generarla? Si la abres y la comparas con el resto de migrations te darás cuenta de que ésta última utiliza la función &lt;em&gt;Schema::table&lt;/em&gt; en lugar de &lt;em&gt;Schema::create&lt;/em&gt;. Dentro de la función table() podemos crear columnas del mismo modo que hacíamos dentro de create(), con la diferencia de que con table() creamos columnas en tablas ya existentes.&lt;/p&gt;
+
+&lt;p&gt;Puesto que dentro del método up() crearemos una serie de columnas en una tabla existente, dentro del método down() haremos lo contrario: eliminar las columnas de la tabla. Esto se hace de la siguiente manera:&lt;/p&gt;
+
+&lt;pre&gt;
+public function up()
+{
+	Schema::table(&#39;users&#39;, function (Blueprint $table) {
+		&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;card_last_four&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;card_brand&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;stripe_id&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;/strong&gt;
+	});
+}
+
+public function down()
+{
+	Schema::table(&#39;users&#39;, function (Blueprint $table) {
+		&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;dropColumn(&#39;stripe_id&#39;);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;dropColumn(&#39;card_brand&#39;);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;dropColumn(&#39;card_last_four&#39;);&lt;/strong&gt;
+	});
+}
+&lt;/pre&gt;
+
+&lt;p&gt;¡Parece que hemos terminado de editar nuestras migrations! Ahora viene la hora de la verdad. Abre una línea de comandos y escribe el comando que ejecuta todos esos métodos up() que hemos visto:&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan migrate
+&lt;/pre&gt;
+
+&lt;p&gt;Si todo ha ido bien, no deberían aparecernos mensajes de error. Si comprobamos nuestra base de datos deberíamos ver ahora las ocho nuevas tablas que hemos creado mediante las migrations más una tabla adicional que Laravel utiliza para llevar la cuenta de las migrations que ya se han ejecutado. La próxima vez que ejecutes el comando &lt;em&gt;migrate&lt;/em&gt; Laravel sólo ejecutará las migrations que no haya ejecutado anteriormente, de ahí que tengas que hacer nuevas migrations para modificar las anteriores si estás trabajando con más gente. Si trabajas sólo o aún no has compartido tu trabajo con el resto del equipo siempre puedes ir hacia atrás en el proceso con el comando &lt;em&gt;rollback&lt;/em&gt;, modificar las migrations y volver a ejecutarlas.&lt;/p&gt;
+
+&lt;p&gt;A modo de referencia dejo aquí apuntados los comandos más usados en relación con las migrations:&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan migrate           # migrates any new migration(s)
+php artisan migrate:rollback  # rollback the latest &quot;batch&quot; of migrations
+php artisan migrate:reset     # rollback all the migrations
+php artisan migrate:refresh   # rollback all the migrations and then migrate them all again (reset + migrate)
+&lt;/pre&gt;
+
+&lt;h2 id=&quot;creacin-de-models&quot;&gt;Creación de models&lt;/h2&gt;
+
+&lt;p&gt;Si has llegado hasta aquí es que ya tienes tu base de datos lista. Si es la primera vez que usas Laravel ¡te felicito! Ahora eso de las migrations ya no te asusta tanto, ¿a que no? Pues lo mismo te va a pasar con esto de los models. De hecho, si estás familiarizado con las Clases de cualquier lenguaje orientado a objetos, esto de los modelos te resultará más familiar que las migrations.&lt;/p&gt;
+
+&lt;p&gt;En términos técnicos un Model no es más que una clase que extiende la clase &lt;strong&gt;Model&lt;/strong&gt;, que es una clase que implementa un montonazo de métodos que son la mar de útiles. Ya lo iremos viendo. Si no sabes de OOP ignora lo que acabo de decir y presta atención a estas palabras: en términos prácticos, un Model no es más que una forma de representar en el código de nuestra aplicación las tablas que hemos creado anteriormente, así como las relaciones que existen entre ellas. ¿Te he aclarado algo? Si no es así, no te preocupes. Practicando es como verdaderamente se aprende, así que vamos allá:&lt;/p&gt;
+
+&lt;p&gt;Salgamos de la carpeta database y vayamos ahora a la carpeta app/. Como ya dije al principio del post, esta carpeta es la leche de importante para el back end developer. Fíjate que en la raíz de la carpeta app/ encontrarás el fichero User.php. ¡Este fichero resulta que es un model! Si lo abres, sin embargo, verás que se trata de una clase que extiende la clase Authenticatable y no la clase Model. ¡Qué malo eres, Mitxel, tratando de engañarme! Bueno, en realidad es que la clase Authenticable extiende, a su vez, la clase Model y de ahí el engaño aparente. La razón de esta peculiaridad es que User es un modelo especial para Laravel, ya que el framework viene de fábrica con el sistema de autenticación bastante avanzado (y esto es bueno porque nos ahorrará trabajo).&lt;/p&gt;
+
+&lt;p&gt;Pues nada, vamos a crear nuestros modelos. En concreto, vamos a crear los siguientes modelos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tag&lt;/li&gt;
+  &lt;li&gt;Video&lt;/li&gt;
+  &lt;li&gt;Girl&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Además, realizaremos ciertas modificaciones al modelo User.php ya existente.&lt;/p&gt;
+
+&lt;p&gt;Pero antes… vamos a instalar otra dependencia. ¡Ya tenemos experiencia de antes con Cashier! Esta vez instalaremos la dependencia Sluggable, que básicamente nos permite crear slugs únicos, de forma automática, a partir de cualquier campo existente en cualquier tabla. ¿Recuerdas que en nuestras tablas creamos aquellas columnas slug? Pues ahora ya sabes para qué servirán. Ejecuta el siguiente comando:&lt;/p&gt;
+
+&lt;pre&gt;
+composer require cviebrock/eloquent-sluggable
+&lt;/pre&gt;
+
+&lt;p&gt;Registra el Service Provider de Sluggable, es decir, añade la siguiente línea al final del array providers en el fichero config/app.php:&lt;/p&gt;
+
+&lt;pre&gt;
+Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+&lt;/pre&gt;
+
+&lt;p&gt;Finalmente, ¿lo adivinas? Ejecuta el comando publish:&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan vendor:publish
+&lt;/pre&gt;
+
+&lt;p&gt;A diferecia que Cashier, la dependencia Sluggable no publica views desde la carpeta vendor, sino que publica un fichero de configuración dentro de nuestra carpeta config/ . En principio no hay razón para cambiar la configuración que aparece ahí por defecto, pero no está de más que le eches un vistazo.&lt;/p&gt;
+
+&lt;p&gt;Muy bien, ya podemos escribir nuestros models. Empecemos por Tag. Para crear este modelo básicamente crearemos un nuevo fichero Tag.php en la raíz del directorio app/ , es decir, en el mismo sitio donde se encuentra User.php . Una vez creado el fichero, edítalo tal como sigue:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#tag&quot;&gt;Tag.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;tag&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cviebrock\EloquentSluggable\SluggableInterface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cviebrock\EloquentSluggable\SluggableTrait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Eloquent\Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Tag&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Model&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SluggableInterface&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SluggableTrait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* The field(s) we use to build the unique slug&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* and the field where we store it&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	*&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	*/&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$sluggable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;build_from&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;save_to&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;slug&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+	
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* The database table used by the model.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	*&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* @var string&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	*/&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tags&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* The attributes that are mass assignable.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	*&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	*/&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$fillable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+	
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* The attributes excluded from the model&amp;#39;s JSON form.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	*&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	* @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	*/&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$hidden&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+	
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Relationships (with other models)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;videos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;belongsToMany&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;App\Video&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Accessors &amp;amp; Mutators&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+	
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Scopes&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Date cuenta que he dejado en blanco el apartado para accessors, mutators y scopes. Más adelante (cuando los utilicemos) explicaremos de qué van, por ahora basta con que te suene la idea de que están relacionadas con los models.&lt;/p&gt;
+
+&lt;p&gt;Lo que sí es importante entender ahora es la cuestión de las relaciones (relationships) entre modelos. Estas relaciones no son más que representaciones de las relaciones que existen entre las tablas. Al respeto, te dejo a continuación una pequeña.&lt;/p&gt;
+
+&lt;p&gt;Existen, básicamente, tres tipos de relaciones entre tablas de una base de datos relacional:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;One to one:&lt;/strong&gt; una relación uno a uno es, por ejemplo, la relación que existe entre tú y tu nariz; tú sólo tienes una nariz y tu nariz es poseída sólo por ti. En una base de datos este tipo de relación se revuelve creando una &lt;strong&gt;foreign key&lt;/strong&gt; en una de las tablas de la relación, normalmente en la del objeto que es poseído por el otro objeto.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;One to many:&lt;/strong&gt; una relación uno a muchos sería, por ejemplo, la relación que existe entre tú y tus pelos; tú tienes unos cuantos pelos (de cero a muchos) pero tus pelos sólo te tienen a ti como dueño. Este relación se resuelve en una base de datos del mismo modo que la one to one, sólo que la &lt;strong&gt;foreign key&lt;/strong&gt; se ha de crear &lt;strong&gt;necesariamente&lt;/strong&gt; en la tabla “pelos” del ejemplo, es decir, en la del objeto que es poseído por el otro objeto.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Many to many:&lt;/strong&gt; esta sería la relación entre tú y tus características como persona; puedes tener muchas características y, al mismo tiempo, una de esas características (por ejemplo: ser awesome) puede ser poseída por más de una persona. Este caso es el que hemos resuelto anteriormente creando una tabla asociativa entre dos tablas.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ahora veamos qué debemos escribir en los modelos para representar cualquier tipo de relación:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Relación&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Dirección&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Relational method returns…&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;¿Tabla con foreign key?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;One to one&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;This has one…&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;$this-&amp;gt;hasOne()&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;One to one&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Inversa: this belongs to one…&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;$this-&amp;gt;belongsTo()&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sí&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;One to many&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;This has many…&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;$this-&amp;gt;hasMany()&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;One to many&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Inversa: this belongs to one…&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;$this-&amp;gt;belongsTo()&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sí&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Many to many&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;En las dos direcciones&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;$this-&amp;gt;belongsToMany()&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Junction table&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Fíjate que en nuestro model Tag hemos escrito la función videos(), que devuelve el resultado de utilizar el método belongToMany() porque la relación entre Tag y Video era de many to many (tal como indico en la tabla). A partir de ahora, podremos escribir en cualquier parte de nuestro código:&lt;/p&gt;
+
+&lt;pre&gt;
+$tag-&amp;gt;videos()-&amp;gt;get()
+&lt;/pre&gt;
+&lt;p&gt;O aún mejor:&lt;/p&gt;
+&lt;pre&gt;
+$tag-&amp;gt;videos
+&lt;/pre&gt;
+
+&lt;p&gt;Obtendremos así todos los vídeos relacionados con una tag específica. A este sistema para obtener información de nuestra base de datos, es decir, hacer consultas a nuestra base de datos, a través los models y la concatenación de métodos se le conoce como &lt;strong&gt;eloquent&lt;/strong&gt; en lenguaje &lt;em&gt;laravelita&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Muy bien, ¡basta ya de aprender y sigamos trabajando! Tenemos que crear el resto de modelos: Video y Girl, ¿te atreves a hacerlos por tu cuenta? Un truco para terminar rápido es copiar lo que has escrito para Tag.php y hacer las modificaciones necesarias, es decir: cambiar el nombre de la clase, modificar el build_from que pasamos dentro del array del atributo $sluggable y, &lt;strong&gt;muy importante&lt;/strong&gt;, reescribir las relationships adecuadamente (acuérdate que Video tiene &lt;strong&gt;dos&lt;/strong&gt; relaciones en lugar de una, por lo que tendrás que escribirle sus dos métodos correspondientes).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#video&quot;&gt;Video.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;video&quot; class=&quot;collapse&quot;&gt; 
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cviebrock\EloquentSluggable\SluggableInterface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cviebrock\EloquentSluggable\SluggableTrait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Eloquent\Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Video&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Model&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SluggableInterface&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SluggableTrait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * The attribute(s) we use to build the slug&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * and the field name where we store it&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$sluggable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;build_from&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;save_to&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;slug&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * The database table used by the model.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @var string&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;videos&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * The attributes that are mass assignable.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$fillable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * The attributes excluded from the model&amp;#39;s JSON form.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$hidden&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Relationships&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;belongsToMany&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;App\Tag&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;belongsToMany&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;App\Girl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Accessors &amp;amp; Mutators&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Scopes&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#girl&quot;&gt;Girl.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;girl&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cviebrock\EloquentSluggable\SluggableInterface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cviebrock\EloquentSluggable\SluggableTrait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Eloquent\Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Girl&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Model&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SluggableInterface&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SluggableTrait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * The attribute(s) we use to build the slug&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * and the field name where we store it&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$sluggable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;build_from&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;save_to&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;slug&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * The database table used by the model.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @var string&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;girls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * The attributes that are mass assignable.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$fillable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * The attributes excluded from the model&amp;#39;s JSON form.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @var array&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$hidden&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Relationships&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;videos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;belongsToMany&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;App\Video&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Accessors &amp;amp; Mutators&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+
+	&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	| Scopes&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	|-----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;	*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;No es necesario que escribamos un model Subscription, ya que la dependencia Cashier que instalamos anteriormente ya se encarga del asunto. En su lugar, lo que sí debemos hacer es modificar el model User para que podamos acceder desde el propio model a los métodos de Cashier. Para ello lo que tenemos que hacer es agregarle el &lt;strong&gt;trait&lt;/strong&gt; Billing al model User… ¿Whaaat? No te alarmes, en términos técnico-familiares un trait es una colección de métodos envueltos en una clase “especial” llamada trait (no kidding!), pensados para poder ser empleados por cualquier otra clase.&lt;/p&gt;
+
+&lt;p&gt;En verdad todo este rollo que te he soltado se resuelve, en nuestro caso, abriendo User.php y agregando las siguientes líneas de código (marcadas en rojo pasión):&lt;/p&gt;
+
+&lt;pre&gt;
+...
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+&lt;strong style=&quot;color:red;&quot;&gt;use Laravel\Cashier\Billable;&lt;/strong&gt;
+
+class User extends Authenticatable
+{
+	&lt;strong style=&quot;color:red;&quot;&gt;use Billable;&lt;/strong&gt;
+	
+	...
+&lt;/pre&gt;
+
+&lt;p&gt;Pues me parece que ya hemos terminado con nuestros models. Para comprobar que todo funciona qué mejor manera que poblar nuestra base de datos con eloquent, es decir, a través de los models. Pasemos, por tanto, a la siguiente sección del curso.&lt;/p&gt;
+
+&lt;h2 id=&quot;creacin-de-seeders&quot;&gt;Creación de seeders&lt;/h2&gt;
+
+&lt;p&gt;Desde hace poco Laravel viene de serie con una dependencia muy útil llamada Faker que básicamente nos ayuda a generar datos falsos: nombres propios, direcciones de calles, fechas, combinaciones de números y letras, etc. Más adelante verás ejemplos de cómo usarla.&lt;/p&gt;
+
+&lt;p&gt;Salgamos de la carpeta app/ y volvamos a la carpeta database/, por razones obvias esta vez abriremos la subcarpeta seeders/ en lugar de migrations/.&lt;/p&gt;
+
+&lt;p&gt;Fíjate que aquí dentro podemos encontrar un fichero llamado DatabaseSeeder.php . Échale un vistazo. Se trata de una clase que extiende la clase Seeder y que tiene un método run(), no hay mucho más que ver. Pues bien, este fichero es un seeder, ni más ni menos. Todos nuestros seeders van a extender la clase Seeder y tendrás un método run().&lt;/p&gt;
+
+&lt;p&gt;Para ser ordenados y limpios escribiremos un Seeder por cada tabla que queremos poblar y a continuación “enlazaremos” la ejecución de todos ellos escribiendo una llamada a cada seeder en el fichero DatabaseSeeder.php . Manos a la obra. Hagamos en primer lugar una recapitulación de las tablas que necesitamos poblar:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;tags&lt;/li&gt;
+  &lt;li&gt;girls&lt;/li&gt;
+  &lt;li&gt;videos&lt;/li&gt;
+  &lt;li&gt;users&lt;/li&gt;
+  &lt;li&gt;subscriptions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Una estrategia sólida para poblar nuestra web con contenidos de prueba será poblar primero las tags y las girls y a continuación los videos, para finalmente asociar, aleatoriamente, girls y tags con videos. Del lado usuario, poblaremos la tabla users con datos de prueba y crearemos diversos tipos de suscripción también con datos falsos.&lt;/p&gt;
+
+&lt;p&gt;Antes de escribir el primer seeder, vamos a crear un fichero de configuración seeders.php en la carpeta config/ para tener en un mismo sitio, bien accesibles, los datos sobre la configuración de nuestros seeders, por ejemplo: número de filas que queremos crear en cada tabla, datos específicos para poblar algunas de las celdas, etc. Así de paso aprenderemos cómo se trabaja con los ficheros de esta carpeta.&lt;/p&gt;
+
+&lt;p&gt;No te lo pienses dos veces, crea tu fichero seeders.php dentro de la carpeta config/ . Edítalo para que se parezca al mío y siéntete libre de modificarlo a tu gusto:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#seeders&quot;&gt;seeders.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;seeders&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Seed each of these tables with this numbers of rows&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;nGirls&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;nVideos&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;nUsers&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// How many tags should our videos have?&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;minTags&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;maxTags&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// How many girls can be associated to a single video?&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;minGirls&amp;#39;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;maxGirls&amp;#39;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Fake information locale (en_US, es_ES, etc.)&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;locale&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;es_ES&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Subscription plan types identifier&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;subscriptions&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;monthly&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;every-three-months&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;yearly&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Porn categories (courtesy of one random porn site)&lt;/span&gt;
+	&lt;span class=&quot;s1&quot;&gt;&amp;#39;pornCategories&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;3D Hentai&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;3D Stereoscopic&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;3D Toons&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Amateur&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Anal&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Arab&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Asian&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Babes&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Babysitters&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Ballbusting&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;BBW&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;BDSM&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Beach&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Big Butt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Big Dick&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Big Tits&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Bisexual&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Black&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Blonde&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Blowjob&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Brazilian&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;British&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Brunette&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Bukkake&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cartoon&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Casting&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cat Fights&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Celebrities&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;CFNM&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Changing Room&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Chaturbate&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cheerleaders&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Chinese&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Close-up&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;College&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Compilation&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cosplay&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cougar&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Couple&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Creampie&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cuckold&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cumshot&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cunnilingus&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Czech&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Danish&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Deep Throat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Dildos/Toys&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Doggy Style&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Double Penetration&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Downblouse&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Ebony&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Emo&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;European&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Face Sitting&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Facial&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Femdom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Fetish&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Fingering&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Fisting&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Flashing&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Foot Fetish&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;French&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Fucking Machines&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Funny&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Gangbang&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Gaping&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;German&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Girlfriend&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Glory Holes&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Gothic&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Grannies&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Group Sex&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hairy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Handjob&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hardcore&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;HD&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hentai&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hidden Cams&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Indian&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Interracial&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Italian&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Japanese&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;JOI&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Korean&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Latex&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Latina&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Lesbian&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Lingerie&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Live Show&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Massage&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Masturbation&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Mature&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Medical&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Midgets&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;MILF&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Military&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Natural Tits&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Nipples&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Oldy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Orgasm&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Outdoor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Panties&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Philippines&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Phone&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Piercing&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Pissing&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Pornstars&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;POV&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Pregnant&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Public&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Reality&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Redhead&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Retro&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Rimming&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Romantic&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Russian&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Selfshot&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Sharking&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Shaved&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Shower&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Skinny&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Small Tits&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Smoking&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Softcore&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Solo Girl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Spanish&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Spanking&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Sports&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Squirting&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Stockings&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Strapon&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Strip&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Swallow&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Swedish&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Swingers&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tattoos&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Thai&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Threesomes&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Turkish&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Underwater&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Uniform&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Upskirt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Vintage&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Voyeur&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Webcam&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Wife&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Window&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;&amp;#39;Yoga&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Ya tenemos nuestro fichero de configuración listo. Pasemos a escribir cada uno de los seeders. Empecemos por el de la tabla tags. Crea un fichero TagTableSeeder.php en la carpeta database/seeders/ tal como éste:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#tagtableseeder&quot;&gt;TagTableSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;tagtableseeder&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TagTableSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.pornCategories&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$categoryName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		    &lt;span class=&quot;nx&quot;&gt;\App\Tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$categoryName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Presta atención a eso de config(‘seeders.pornCategories’) . config() es una helper function de Laravel que nos permite acceder a los valores que hay en los ficheros de la carpeta config/ . Por ejemplo, nosotros acabamos de acceder a la lista de categorías de vídeos que teníamos en seeders.php , el fichero que hemos creado hace unos segundos. Muy práctico, ¿verdad?&lt;/p&gt;
+
+&lt;p&gt;Fíjate en el resto del seeder. Nuestro nuevo seeder básicamente recorre el array con las categorías que hemos escrito en el fichero de configuración y, para cada una de ellas, ejecuta \App\Tag::create() .&lt;/p&gt;
+
+&lt;p&gt;\App\Tag no es más que el model que escribimos anteriormente (Tag está en el namespace App, de ahí que lo escribamos de esa manera). Todos los models tienen un método create() al que podemos pasar, como primer argumento, un array de datos que serán utilizados para crear una nueva fila de la tabla de la base de datos relacionada con el modelo. Básicamente es una forma muy rápida de poblar la base de datos, ya que nos evitamos el tener que escribir las típicas queries. Esta es, precisamente, la razón de ser de &lt;em&gt;Eloquent&lt;/em&gt; y uno de los motivos por los que encariñarse con Laravel.&lt;/p&gt;
+
+&lt;p&gt;Muy bien, vamos a terminar de escribir el resto de seeders. En el siguiente vamos a tener la ocasión de utilizar la librería Faker, que nos permite generar datos falsos aleatorios para poblar la base de datos. Veámoslo en acción editando un nuevo fichero GirlTableSeeder.php :&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#girltableseeder&quot;&gt;GirlTableSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;girltableseeder&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GirlTableSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Faker\Factory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.locale&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.nGirls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+				&lt;span class=&quot;nx&quot;&gt;\App\Girl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+					&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+					&lt;span class=&quot;s1&quot;&gt;&amp;#39;age&amp;#39;&lt;/span&gt;           &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;numberBetween&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+					&lt;span class=&quot;s1&quot;&gt;&amp;#39;picture&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;example-profile-picture.jpg&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+					&lt;span class=&quot;s1&quot;&gt;&amp;#39;description&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Si tienes curiosidad sobre cómo funciona Faker y los muchos tipos de datos que podemos generar (nombres, números, direcciones, bloques de texto…) con la libreria, échale un vistazo a su &lt;a href=&quot;https://github.com/fzaninotto/Faker&quot;&gt;documentación&lt;/a&gt;. Si te surgen dudas, puedes preguntar en el área de comentarios.&lt;/p&gt;
+
+&lt;p&gt;Con el seeder para los vídeos VideoTableSeeder.php hemos hecho más de lo mismo, te lo dejo por aquí como ejemplo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#videotableseeder&quot;&gt;VideoTableSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;videotableseeder&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;VideoTableSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Faker\Factory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.locale&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.nVideos&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		    &lt;span class=&quot;nx&quot;&gt;\App\Video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sentence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;filename&amp;#39;&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;example-video.flv&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;thumbnail&amp;#39;&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;example-thumbnail.jpg&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;featured&amp;#39;&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+	            &lt;span class=&quot;s1&quot;&gt;&amp;#39;trailer&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;example-trailer.flv&amp;#39;&lt;/span&gt;
+		    &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Ahora vamos a escribir el seeder para crear relaciones entre tags y videos y entre girls y videos, yo le he llamado RelationshipsSeeder.php :&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#relationshipsseeder&quot;&gt;RelationshipsSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;relationshipsseeder&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RelationshipsSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;cm&quot;&gt;/* Let&amp;#39;s relate tags with videos first */&lt;/span&gt;
+
+	    &lt;span class=&quot;c1&quot;&gt;// First we gather all tags and videos previously created&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+	    &lt;span class=&quot;c1&quot;&gt;// Now we iterate through all the videos in our DB&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+		    &lt;span class=&quot;c1&quot;&gt;// We select some random tag keys out of the array&lt;/span&gt;
+		    &lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+			    &lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+				    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.minTags&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+				    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.maxTags&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		    
+		    &lt;span class=&quot;c1&quot;&gt;// Finally, we associate the selected tags to the current video&lt;/span&gt;
+		    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;is_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+			    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+		    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+			    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+				    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	    &lt;span class=&quot;cm&quot;&gt;/* And now let&amp;#39;s relate girls with videos */&lt;/span&gt;
+
+	    &lt;span class=&quot;c1&quot;&gt;// First we gather all girls and videos previously created&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Girl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+		    &lt;span class=&quot;c1&quot;&gt;// We select some random keys from the girls array&lt;/span&gt;
+		    &lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+			    &lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+				    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.minGirls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+				    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.maxGirls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+		    &lt;span class=&quot;c1&quot;&gt;// Finally, we associate the selected girls to the current video&lt;/span&gt;
+		    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;is_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+			    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+		    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+			    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+				    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Este seeder parece algo más complicado que los anteriores, pero en realidad no es nada especial. Fíjate que empleando el método all() desde los models respectivos, podemos obtener todos los tags, girls y videos que ya existen en la base de datos. Siempre que hagamos \App\Modelo::all() obtendremos una Collection con todos los elementos de la base de datos relacionada con el Modelo.&lt;/p&gt;
+
+&lt;p&gt;Con el método pluck(‘columna’) obtendremos una Collection sólo con los datos de una de las columnas de la tabla, mientras que el método toArray() nos sirve para transformar una Collection en un array de toda la vida. En Laravel una Collection es una especie de “abrigo” para un array que nos permite, por ejemplo, concatenar métodos para manipular el array que contiene. Cuando usamos toArray() en una Collection básicamente estamos quitándole ese abrigo, convirtiéndose en un array de toda la vida.&lt;/p&gt;
+
+&lt;p&gt;El resto del seeder consiste en elegir de uno a muchos de los elementos del array de forma aleatoria. Ten presente que los valores del array son las id de la tabla tags (o, más adelante, las de la tabla girls). Finalmente relacionamos las tags y las girls con los videos usando el método attach(), que es el método indicado para hacer asociaciones entre objetos con relación del tipo many to many.&lt;/p&gt;
+
+&lt;p&gt;Lo que acabamos de hacer es, en términos prácticos, poblar las tablas asociativas tag_video y girl_video.&lt;/p&gt;
+
+&lt;p&gt;Nos quedan un par más de seeders para terminar. Editaremos un nuevo fichero UserTableSeeder.php para poblar nuestra tabla users y un nuevo fichero SubscriptionsSeeder.php para poblar nuestra tabla subscriptions con datos más falsos que un euro con la cara de Popeye.&lt;/p&gt;
+
+&lt;p&gt;Aquí te dejo los que he escrito yo como referencia:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#usertableseeders&quot;&gt;UserTableSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;usertableseeders&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserTableSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\Faker\Factory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+		&lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.nUsers&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;\App\User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+				&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;              &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;s1&quot;&gt;&amp;#39;email&amp;#39;&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;s1&quot;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bcrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;wanker&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+				&lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_id&amp;#39;&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cus_7fj87t2BaVS4KN&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;s1&quot;&gt;&amp;#39;card_brand&amp;#39;&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Visa&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;s1&quot;&gt;&amp;#39;card_last_four&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;4242&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#subscriptionsseeder&quot;&gt;SubscriptionsSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;subscriptionsseeder&quot; class=&quot;collapse&quot;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SubscriptionsSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.subscriptions&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$users&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		    &lt;span class=&quot;nv&quot;&gt;$randomEndingDate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\Carbon\Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2015&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2020&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+		    &lt;span class=&quot;nx&quot;&gt;DB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;subscriptions&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;user_id&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_id&amp;#39;&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_plan&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)],&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;quantity&amp;#39;&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;ends_at&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$randomEndingDate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;La única diferencia significativa con respecto a los seeders anteriores es que en el seeder para la tabla subscriptions no hemos utilizado ningún modelo \App\Subscription para realizar las queries a base de datos, sencillamente porque no existe ningún modelo Subscripcion. En su lugar hemos utilizado la &lt;strong&gt;Facade&lt;/strong&gt; DB, que nos permite ejecutar queries a nuestra base de datos sin necesidad de ningún modelo de por medio. Una Facade no es más que una forma de acceder a ciertas clases y a su respectiva familia de métodos sin dar muchas vueltas. Si echas un vistazo a config/app.php verás, abajo del todo, toda una lista de Facades a las que puedes acceder desde cualquier punto de tu código con tan sólo escribir el “alias” de la Facade.&lt;/p&gt;
+
+&lt;p&gt;Para terminar de una vez por todas con nuestros seeders vamos a asegurarnos de que se ejecutarán todos una vez que escribamos el comando seed. Para ello tenemos que editar aquel fichero DatabaseSeeder.php que encontramos inicialmente en nuestra carpeta database/seeder/ , ¿lo recuerdas?&lt;/p&gt;
+
+&lt;p&gt;Agrégale las siguientes líneas:&lt;/p&gt;
+
+&lt;pre&gt;
+	public function run()
+	{
+	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(TagTableSeeder::class);&lt;/strong&gt;
+	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(GirlTableSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(VideoTableSeeder::class);&lt;/strong&gt;
+	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(RelationshipsSeeder::class);&lt;/strong&gt;
+	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(UserTableSeeder::class);&lt;/strong&gt;
+	  &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(SubscriptionsSeeder::class);&lt;/strong&gt;
+	}
+}
+&lt;/pre&gt;
+
+&lt;p&gt;¡Ya hemos terminado con los seeders! Crucemos los dedos y pasemos a escribir el comando para ejecutarlos:&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan db:seed
+&lt;/pre&gt;
+
+&lt;p&gt;Si todo va bien deberíamos tener todas nuestras tablas llenitas de datos, compruébalo y congratúlate.&lt;/p&gt;
+
+&lt;p&gt;Podría ocurrir que algún seeder nos diese error y se quedase la historia a medio hacer, en estos casos, una vez corregido nuestro código, un comando muy útil que resetea la base de datos y vuelve a intentar poblarla es el siguiente:&lt;/p&gt;
+
+&lt;pre&gt;
+php artisan migrate:refresh --seed
+&lt;/pre&gt;
+
+&lt;p&gt;Anótalo bien, porque yo he perdido la cuenta de las veces que lo he tenido que usar en esta fase de los proyectos.&lt;/p&gt;
+
+&lt;p&gt;Pues nada, ya tenemos lista nuestra base de datos, espero que los ejemplos que estamos escribiendo te sirvan para hacerte con una idea lo suficientemente general para que tú mismo puedas crear y poblar todo tipo de tablas que se te ocurran para cualquier tipo de proyecto en el que trabajes en el futuro.&lt;/p&gt;
+
+&lt;p&gt;Recuerda: si te surgen dudas, detectas errores en mi código o te surgen errores que no logras resolver, escríbeme un comentario más abajo&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Próximamente&lt;/strong&gt;&lt;br /&gt;
+Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
+
+&lt;!-- Links --&gt;
+</description>
+        <pubDate>Tue, 05 Jan 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/web/2016/01/05/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/05/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</guid>
+        
+        <category>web,</category>
+        
+        <category>desarrollo</category>
+        
+        <category>web</category>
+        
+        
+        <category>web</category>
+        
+      </item>
     
       <item>
         <title>Tu web porno con Laravel - I: Introducción y planificación</title>
@@ -100,15 +1269,12 @@
 
 &lt;p&gt;Una vez planificado el proyecto ya podemos darle vueltas a cuestiones más técnicas y prácticas. En el próximo post hablaré sobre cómo diseñar la base de datos teniendo en cuenta nuestra planificación y, una vez diseñada, cómo crear las tablas y sus relaciones mediante Laravel.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Próximamente en tu blog favorito…&lt;/strong&gt;&lt;br /&gt;
-Tu web porno con Laravel - II: Migrations, models y seeders&lt;/p&gt;
+&lt;p&gt;Vamos allá: &lt;a href=&quot;/web/2016/01/05/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html&quot;&gt;Tu web porno con Laravel - II: Migrations, models y seeders&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 04 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/web/2016/01/04/crea-tu-propia-web-porno.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/04/crea-tu-propia-web-porno.html</guid>
+        <link>http://mitxelmoriana.com/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</guid>
         
         <category>web,</category>
         
