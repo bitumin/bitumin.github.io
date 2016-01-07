@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Jan 2016 10:51:02 +0100</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 10:51:02 +0100</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 11:00:52 +0100</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 11:00:52 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -667,7 +667,7 @@ class User extends Authenticatable
   &lt;li&gt;subscriptions&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Una estrategia sólida para poblar nuestra web con contenidos de prueba será poblar primero las tags y las girls y a continuación los videos, para finalmente asociar, aleatoriamente, girls y tags con videos. Del lado usuario, poblaremos la tabla users con datos de prueba y crearemos diversos tipos de suscripción también con datos falsos.&lt;/p&gt;
+&lt;p&gt;Una estrategia sólida para poblar nuestra web con contenidos de prueba será poblar primero las tags y las girls y a continuación los videos, para finalmente asociar, aleatoriamente, girls y tags con videos. Por otro lado, poblaremos la tabla users con datos de prueba y crearemos diversos tipos de suscripción también con datos falsos.&lt;/p&gt;
 
 &lt;p&gt;Antes de escribir el primer seeder, vamos a crear un fichero de configuración seeders.php en la carpeta config/ para tener en un mismo sitio, bien accesibles, los datos sobre la configuración de nuestros seeders, como por ejemplo: el número de filas que queremos crear en cada tabla, ciertos datos específicos para poblar algunas de las celdas, etc. Así de paso también aprenderemos cómo se trabaja con config/ .&lt;/p&gt;
 
