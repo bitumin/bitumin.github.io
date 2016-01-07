@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Jan 2016 02:57:10 +0100</pubDate>
-    <lastBuildDate>Thu, 07 Jan 2016 02:57:10 +0100</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2016 10:38:04 +0100</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2016 10:38:04 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -48,7 +48,7 @@ laravel new porn-site-demo
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;config/&lt;/strong&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Como su nombre indica, aquí encontramos la mayor parte de los arrays que contienen información sobre la configuración de nuestra aplicación y sus dependencias. Si en el futuro necesitas crear ficheros de configuración de alguna dependencia desarrollada por ti mismo el universo te agradecerá que los generes en esta carpeta.&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Como su nombre indica, aquí encontramos la mayor parte de los arrays que contienen información sobre la configuración de nuestra aplicación y sus dependencias.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;database/&lt;/strong&gt;&lt;/td&gt;
@@ -56,19 +56,19 @@ laravel new porn-site-demo
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;public/&lt;/strong&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Como su nombre indica, esta carpeta está destinada a aquel contenido que será accesible al “público”, lo que en el mundo web significa material gráfico, hojas de estilo, robots.txt, etc. Si prestas atención verás que aquí dentro hay un fichero index.php, gracias al cual ocurre gran parte de la magia de Laravel. De hecho, de cara a servir tu web o aplicación, ésta es la carpeta raíz de tu proyecto y, en cierto modo, la única a la que han de tener acceso tus usuarios (hopefully).&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Como su nombre indica, esta carpeta está destinada a aquel contenido que será accesible al “público”, lo que en el mundo web significa material gráfico, hojas de estilo, robots.txt, etc. Si prestas atención verás que aquí dentro hay un fichero index.php, gracias al cual ocurre gran parte de la magia de Laravel. De hecho, de cara a servir tu web o aplicación, ésta es la carpeta raíz de tu proyecto y, en cierto modo, la única a la que han de tener acceso libre tus usuarios (hopefully).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;resources/&lt;/strong&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Aquí es donde un desarrollador de front end se tiene que pasar la mitad mejor de su vida. En resources se encuentran las subcarpetas relacionadas con las views (lo que ve el usuario), la subcarpeta lang con los ficheros que contienen el texto de nuestra web y sus traducciones, así como la carpeta assets, donde puedes escribir los ficheros less o sass que, para quien no lo sepa, se emplean para generar las hojas de estilo (.css) de toda la vida (si eres un troglodita las puedes escribir a pelo en &lt;em&gt;public/&lt;/em&gt;).&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Aquí es donde un desarrollador de front end se tiene que pasar la mitad mejor de su vida. En resources se encuentran los subdirectorios relacionadas con las views (lo que ve el usuario), el subdirectorio lang con los ficheros que contienen el texto de nuestra web y sus traducciones, así como el subdirectorio assets, donde puedes escribir los ficheros less o &lt;strong&gt;sass&lt;/strong&gt; que, para quien no lo sepa, se emplean para generar las hojas de estilo CSS de toda la vida (aunque, si eres un troglodita, las puedes escribir a pelo en public/).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;storage/&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;En esta carpeta ocurre parte de la magia del framework que, si todo va bien, no nos interesa demasiado. Si algo no va tan bien como esperamos, en cambio, es bueno saber que aquí dentro está la subcarpeta con los logs donde se guardan los errores y otros volcados de información útil.&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;En esta carpeta ocurre parte de la magia del framework y, si todo va bien, no la visitaremos demasiado. Si algo no va tan bien como esperamos, en cambio, es bueno saber que aquí dentro está el subdirectorio con los logs donde se guardan los errores y otros volcados útiles de información. Muchos &lt;em&gt;laravelitas&lt;/em&gt; utilizan este directorio para almacenar datos que quieren servir en el futuro pero cuyo acceso quieren restringir.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;tests/&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;¿Eres o te sientes un software engineer por casualidad? Pues ya sabes dónde hay que escribir y documentar el testing de tu código. Como esto es un ejercicio, un mero proyecto educativo, vamos a pasar olímpicamente de la parte aburrida… digo, profesional y necesaria, de tu trabajo como programador.&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;¿Eres o te sientes un software engineer por casualidad? Pues ya sabes dónde hay que escribir y documentar el testing de tu código. Como esto es un ejercicio, un mero proyecto educativo, vamos a pasar olímpicamente de la parte aburri… digo, profesional y necesaria, de tu trabajo como programador.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;vendor/&lt;/td&gt;
@@ -79,11 +79,11 @@ laravel new porn-site-demo
 
 &lt;h2 id=&quot;qu-es-eso-de-las-migrations-models-y-seeders&quot;&gt;¿Qué es eso de las migrations, models y seeders?&lt;/h2&gt;
 
-&lt;p&gt;Cuando se trabaja con equipos de desarrolladores de varias personas es necesario que en todo momento todos tengan la misma estructura de base de datos. Para lograr esto Laravel utiliza un sistema de &lt;strong&gt;migrations&lt;/strong&gt;, que no es más que una forma de crear y modificar tablas de forma secuencial. Una migration es, por tanto, una acción sobre la base de datos: crear, eliminar, corregir, modificar algo… que una vez implementada no deberá ser &lt;strong&gt;nunca&lt;/strong&gt; rectificada, &lt;strong&gt;salvo&lt;/strong&gt; por otra migration, ya que sólo se ejecuta una vez. Por ejemplo: si yo creo una tabla &lt;em&gt;dummy&lt;/em&gt; con una columna &lt;em&gt;useless&lt;/em&gt; y, más adelante me doy cuenta de que esa columna no es necesaria, &lt;strong&gt;jamás&lt;/strong&gt; deberé modificar la migration que creó la columna, en su lugar lo apropiado será crear otra migration que elimine esa columna. De esta manera cuando otra persona del grupo de desarrolladores se baje la nueva migration y la ejecute su base de datos será igual que la nuestra.&lt;/p&gt;
+&lt;p&gt;Cuando se trabaja con equipos de desarrolladores de varias personas es necesario que en todo momento todos tengan la misma estructura de base de datos. Para lograr esto Laravel utiliza un sistema de &lt;strong&gt;migrations&lt;/strong&gt;, que no es más que una forma de crear y modificar tablas de forma secuencial. Una migration es, por tanto, una acción sobre la base de datos: crear, eliminar, corregir, modificar algo… que una vez implementada no deberá ser &lt;strong&gt;nunca&lt;/strong&gt; rectificada, &lt;strong&gt;salvo&lt;/strong&gt; por otra migration, ya que sólo se ejecuta una vez. Por ejemplo: si yo creo una tabla &lt;em&gt;dummy&lt;/em&gt; con una columna &lt;em&gt;useless&lt;/em&gt; y, más adelante me doy cuenta de que esa columna no es necesaria, &lt;strong&gt;jamás&lt;/strong&gt; deberé modificar la migration que creó la columna, en su lugar lo apropiado será crear otra migration que elimine esa columna.&lt;/p&gt;
 
-&lt;p&gt;Los modelos o &lt;strong&gt;models&lt;/strong&gt; son clases (como las de cualquier otro lenguaje orientado a objetos) que están relacionadas con una tabla de la base de datos. Por ejemplo: si tengo una tabla &lt;em&gt;bicicletas&lt;/em&gt; y otra tabla &lt;em&gt;pedales&lt;/em&gt;, normalmente crearemos a continuación los modelos &lt;em&gt;Bicicleta&lt;/em&gt; y &lt;em&gt;Pedal&lt;/em&gt;, que harán referencia a las tablas y a las relaciones que existan entre ellas. Estos modelos nos permitirán trabajar con las bases de datos de forma muy ágil y sencilla.&lt;/p&gt;
+&lt;p&gt;Los modelos o &lt;strong&gt;models&lt;/strong&gt; son clases (como las de cualquier otro lenguaje orientado a objetos) que están relacionadas con una tabla de la base de datos. Por ejemplo: si tengo una tabla &lt;em&gt;bicicletas&lt;/em&gt; y otra tabla &lt;em&gt;pedales&lt;/em&gt;, normalmente crearemos a continuación los modelos &lt;em&gt;Bicicleta&lt;/em&gt; y &lt;em&gt;Pedal&lt;/em&gt;, que harán referencia a las tablas y a las relaciones que existan entre ellas. Estos modelos nos permitirán trabajar con las bases de datos de forma muy ágil.&lt;/p&gt;
 
-&lt;p&gt;Finalmente, los &lt;strong&gt;seeders&lt;/strong&gt; no son más que acciones que nos permiten rellenar las tablas con datos “falsos”. No es estrictamente necesario crear seeders para trabajar sobre un proyecto, pero es muy recomendable tanto para testear la propia base de datos como para ahorrarnos el tener que introducir los datos de forma manual.&lt;/p&gt;
+&lt;p&gt;Finalmente, los &lt;strong&gt;seeders&lt;/strong&gt; no son más que acciones que nos permiten rellenar las tablas con datos “falsos”. No es estrictamente necesario crear seeders para trabajar sobre un proyecto, pero es extremadamente recomendable tanto para ahorrarte de introducir los datos manualmente, como para prever y emular toda la casuística que probablemente nos encontraremos en un entorno de producción.&lt;/p&gt;
 
 &lt;h2 id=&quot;nuestra-base-de-datos&quot;&gt;Nuestra base de datos&lt;/h2&gt;
 
@@ -121,7 +121,7 @@ DB_PASSWORD=uVYB5vbN38UXmdQ4
   &lt;li&gt;users&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Además, existe una relación many-to-many entre los tags y los videos y entre las girls y los videos. Esto es así porque en un vídeo pueden aparecer una o más actrices, así como una actriz puede aparecer en muchos vídeos, a este tipo de relación se le llama many-to-many en el mundillo de las bases de datos relacionales, y normalmente requieren de la creación de una tabla adicional cuyas filas representarán “relaciones” entre elementos de las dos tablas. Como ya he dicho, existe este tipo de relación entre los dos pares de elementos mencionados anteriormente, por ello crearemos dos tablas adicionales, siguiendo la convención &lt;em&gt;laraveliana&lt;/em&gt; de nombrarlas a partir del nombre de cada una de las tablas que relaciona, en orden alfabético, en singular y separadas por un &lt;em&gt;underscore&lt;/em&gt; _ , así pues, también crearemos las tablas:&lt;/p&gt;
+&lt;p&gt;Además, existe una relación many-to-many entre los tags y los videos y entre las girls y los videos. Esto es así porque en un vídeo pueden aparecer una o más actrices, así como una actriz puede aparecer en muchos vídeos, a este tipo de relación se le llama many-to-many en el mundillo de las bases de datos relacionales y normalmente requieren de la creación de una tabla adicional cuyas filas representarán “relaciones” entre elementos de las dos tablas. Como ya he dicho, existe este tipo de relación entre los dos pares de elementos mencionados anteriormente, por ello crearemos dos tablas adicionales, siguiendo la convención &lt;em&gt;laraveliana&lt;/em&gt; de nombrarlas a partir de los nombres de cada una de las tablas que relacionan, en orden alfabético, en singular y separadas por un &lt;em&gt;underscore&lt;/em&gt; _ . En definitiva, también crearemos las tablas:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;girl_video&lt;/li&gt;
@@ -154,15 +154,15 @@ composer require laravel/cashier:&quot;~6.0&quot;
 Laravel\Cashier\CashierServiceProvider::class,
 &lt;/pre&gt;
 
-&lt;p&gt;A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma complicada de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un namespace y de publicar o copiar ciertos ficheros que nos acabamos de bajar a la carpeta resources/views si ejecutamos el comando &lt;em&gt;publish&lt;/em&gt;. ¿Por qué no lo comprobamos? Escribe el siguiente comando:&lt;/p&gt;
+&lt;p&gt;A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma muy pro de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un namespace y de asociar al comando publish la publicación o copia de ciertos ficheros que nos acabamos de bajar, desde el directorio vendor/ a cualquier otro direcotorio, en este caso de vendor/ a resources/views/ . ¿Por qué no lo comprobamos? Escribe el siguiente comando:&lt;/p&gt;
 
 &lt;pre&gt;
 php artisan vendor:publish
 &lt;/pre&gt;
 
-&lt;p&gt;¿Ves cómo se han copiado ciertos ficheros de vendor/… a resources/views/… ? Pues eso. Más adelante ya hablaremos de lo que son las views, no te estreses.&lt;/p&gt;
+&lt;p&gt;¿Ves cómo se han copiado ciertos ficheros de vendor/ a resources/views/ ? Pues eso. Más adelante ya hablaremos de qué va eso de las views, don’t you worry.&lt;/p&gt;
 
-&lt;p&gt;Ahora, tal como indica la documentación oficial de &lt;a href=&quot;https://laravel.com/docs/5.2/billing&quot;&gt;Cashier&lt;/a&gt;, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration para modificar una tabla es un poco diferente del que hemos escrito antes para crearla. Los comandos respectivos, para modificar &lt;em&gt;users&lt;/em&gt; y crear &lt;em&gt;subscriptions&lt;/em&gt;, son:&lt;/p&gt;
+&lt;p&gt;Ahora, tal como indica la documentación oficial de &lt;a href=&quot;https://laravel.com/docs/5.2/billing&quot;&gt;Cashier&lt;/a&gt;, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar &lt;em&gt;users&lt;/em&gt; y crear &lt;em&gt;subscriptions&lt;/em&gt;, son:&lt;/p&gt;
 
 &lt;pre&gt;
 php artisan make:migration add_cashier_columns_to_users_table --table=users
@@ -172,13 +172,11 @@ php artisan make:migration add_cashier_columns_to_users_table --table=users
 php artisan make:migration create_subscriptions_table --create=subscriptions
 &lt;/pre&gt;
 
-&lt;p&gt;Si todo está en orden deberíamos tener nueve migrations en nuestra carpeta database/migrations. Si no es así, asegúrate de haber seguido los pasos que he descrito más arriba.&lt;/p&gt;
+&lt;p&gt;Utilízalos. Si todo está en orden deberíamos tener ahora nueve migrations en nuestra carpeta database/migrations/ . Si no es así, asegúrate de haber seguido todos los pasos que hemos descrito hasta ahora.&lt;/p&gt;
 
-&lt;p&gt;Ahora es necesario que rellenemos cada migration con las columnas que deseamos agregar en cada tabla. Las dos primeras migrations (en orden alfabético) son las que vienen en Laravel por defecto y no es necesario tocarlas, ya están bien.&lt;/p&gt;
+&lt;p&gt;Ahora es necesario que rellenemos cada migration que hemos creado con las columnas que deseamos agregar o modificar en cada tabla. Echemos un vistazo a la migration para crear la tabla tags. Si te fijas, el comando que escribimos anteriormente no sólo ha creado el fichero de migration, sino que también le ha escrito las funciones necesarias para crear una tabla con las columnas id y las columnas updated_at y created_at (timestamps).&lt;/p&gt;
 
-&lt;p&gt;Echemos un vistazo ahora a la migration para para crear la tabla tags. Si te fijas, el comando que escribimos anteriormente no sólo ha creado el fichero de migration, sino que también le ha escrito las funciones necesarias para crear una tabla con las columnas id, updated_at y created_at (timestamps).&lt;/p&gt;
-
-&lt;p&gt;Fíjate también que aparece una clase CreateTagsTable con los métodos up() y down(). up() es el método que se ejecuta cada vez que ejecutamos el comando &lt;em&gt;migrate&lt;/em&gt;, mientras que el método down() se ejecuta cuando queremos dar marcha atrás en el proceso mediante el comando &lt;em&gt;rollback&lt;/em&gt;. Para que haya coherencia al ir hacia delante o hacia atrás en el proceso, si en up() hacemos una cosa, en down() deberemos hacer siempre su contraria.&lt;/p&gt;
+&lt;p&gt;Fíjate también que aparece una clase CreateTagsTable con los métodos up() y down(). up() es el método que se ejecuta cada vez que ejecutamos el comando &lt;em&gt;migrate&lt;/em&gt;, mientras que el método down() se ejecuta cuando queremos dar marcha atrás en el proceso, por ejemplo mediante el comando &lt;em&gt;rollback&lt;/em&gt;. Para que haya coherencia al ir hacia delante o hacia atrás en el proceso, si en up() hacemos una cosa, en down() debemos hacer su contraria.&lt;/p&gt;
 
 &lt;p&gt;Completemos ahora la migration para crear la tabla &lt;em&gt;tags&lt;/em&gt; agregando el resto de columnas necesarias de acuerdo a nuestro diagrama:&lt;/p&gt;
 
@@ -259,7 +257,7 @@ Schema::create(&#39;tag_video&#39;, function ($table) {
 });
 &lt;/pre&gt;
 
-&lt;p&gt;¡Ya sólo nos falta editar una migration para terminar! ¿Recuerdas aquella migration que creamos para modificar la tabla users? ¿Recuerdas que usamos un comando distinto para generarla? Si la abres y la comparas con el resto de migrations te darás cuenta de que ésta última utiliza la función &lt;em&gt;Schema::table&lt;/em&gt; en lugar de &lt;em&gt;Schema::create&lt;/em&gt;. Dentro de la función table() podemos crear columnas del mismo modo que hacíamos dentro de create(), con la diferencia de que con table() creamos columnas en tablas ya existentes.&lt;/p&gt;
+&lt;p&gt;¡Ya sólo nos falta editar una migration para terminar! ¿Recuerdas aquella migration que creamos para modificar la tabla users? ¿Recuerdas que usamos un comando distinto para generarla? Si la abres y la comparas con el resto de migrations te darás cuenta de que ésta última utiliza el método &lt;em&gt;table()&lt;/em&gt; en lugar de &lt;em&gt;create()&lt;/em&gt; . Dentro de la función table() podemos crear columnas del mismo modo que hacíamos dentro de create(), con la diferencia de que con table() modificamos columnas en tablas ya existentes.&lt;/p&gt;
 
 &lt;p&gt;Puesto que dentro del método up() crearemos una serie de columnas en una tabla existente, dentro del método down() haremos lo contrario: eliminar las columnas de la tabla. Esto se hace de la siguiente manera:&lt;/p&gt;
 
@@ -283,13 +281,13 @@ public function down()
 }
 &lt;/pre&gt;
 
-&lt;p&gt;¡Parece que hemos terminado de editar nuestras migrations! Ahora viene la hora de la verdad. Abre una línea de comandos y escribe el comando que ejecuta todos esos métodos up() que hemos visto:&lt;/p&gt;
+&lt;p&gt;¡Parece que hemos terminado de editar nuestras migrations! Ahora viene la hora de la verdad. Abre una línea de comandos y escribe:&lt;/p&gt;
 
 &lt;pre&gt;
 php artisan migrate
 &lt;/pre&gt;
 
-&lt;p&gt;Si todo ha ido bien, no deberían aparecernos mensajes de error. Si comprobamos nuestra base de datos deberíamos ver ahora las ocho nuevas tablas que hemos creado mediante las migrations más una tabla adicional que Laravel utiliza para llevar la cuenta de las migrations que ya se han ejecutado. La próxima vez que ejecutes el comando &lt;em&gt;migrate&lt;/em&gt; Laravel sólo ejecutará las migrations que no haya ejecutado anteriormente, de ahí que tengas que hacer nuevas migrations para modificar las anteriores si estás trabajando con más gente. Si trabajas sólo o aún no has compartido tu trabajo con el resto del equipo siempre puedes ir hacia atrás en el proceso con el comando &lt;em&gt;rollback&lt;/em&gt;, modificar las migrations y volver a ejecutarlas.&lt;/p&gt;
+&lt;p&gt;Si todo ha ido bien, no deberían aparecernos mensajes de error. Si comprobamos nuestra base de datos deberíamos ver ahora las ocho nuevas tablas que hemos creado mediante las migrations más una tabla adicional que Laravel utiliza para llevar la cuenta de las migrations que ya se han ejecutado. La próxima vez que ejecutes el comando &lt;em&gt;migrate&lt;/em&gt; Laravel sólo ejecutará las migrations que no hayan sido realizadas anteriormente, de ahí que tengas que hacer nuevas migrations para modificar las anteriores, si estás trabajando con más gente o modificando una base de datos que ya está en producción. Si trabajas sólo en fase de desarrollo y aún no has compartido tu trabajo con el resto del equipo siempre puedes ir hacia atrás en el proceso con el comando &lt;em&gt;rollback&lt;/em&gt;, modificar las migrations y volver a ejecutarlas.&lt;/p&gt;
 
 &lt;p&gt;A modo de referencia dejo aquí apuntados los comandos más usados en relación con las migrations:&lt;/p&gt;
 
@@ -297,7 +295,7 @@ php artisan migrate
 php artisan migrate           # migrates any new migration(s)
 php artisan migrate:rollback  # rollback the latest &quot;batch&quot; of migrations
 php artisan migrate:reset     # rollback all the migrations
-php artisan migrate:refresh   # rollback all the migrations and then migrate them all again (reset + migrate)
+php artisan migrate:refresh   # rollback all the migrations and then migrate them all again
 &lt;/pre&gt;
 
 &lt;h2 id=&quot;creacin-de-models&quot;&gt;Creación de models&lt;/h2&gt;
@@ -306,7 +304,7 @@ php artisan migrate:refresh   # rollback all the migrations and then migrate the
 
 &lt;p&gt;En términos técnicos un Model no es más que una clase que extiende la clase &lt;strong&gt;Model&lt;/strong&gt;, que es una clase que implementa un montonazo de métodos que son la mar de útiles. Ya lo iremos viendo. Si no sabes de OOP ignora lo que acabo de decir y presta atención a estas palabras: en términos prácticos, un Model no es más que una forma de representar en el código de nuestra aplicación las tablas que hemos creado anteriormente, así como las relaciones que existen entre ellas. ¿Te he aclarado algo? Si no es así, no te preocupes. Practicando es como verdaderamente se aprende, así que vamos allá:&lt;/p&gt;
 
-&lt;p&gt;Salgamos de la carpeta database y vayamos ahora a la carpeta app/. Como ya dije al principio del post, esta carpeta es la leche de importante para el back end developer. Fíjate que en la raíz de la carpeta app/ encontrarás el fichero User.php. ¡Este fichero resulta que es un model! Si lo abres, sin embargo, verás que se trata de una clase que extiende la clase Authenticatable y no la clase Model. ¡Qué malo eres, Mitxel, tratando de engañarme! Bueno, en realidad es que la clase Authenticable extiende, a su vez, la clase Model y de ahí el engaño aparente. La razón de esta peculiaridad es que User es un modelo especial para Laravel, ya que el framework viene de fábrica con el sistema de autenticación bastante avanzado (y esto es bueno porque nos ahorrará trabajo).&lt;/p&gt;
+&lt;p&gt;Salgamos de la carpeta database y vayamos ahora a la carpeta app/. Como ya dije al principio del post, esta carpeta es la leche de importante para el back end developer. Fíjate que en la raíz de la carpeta app/ encontrarás el fichero User.php . ¡Este fichero resulta que es un model! Si lo abres, sin embargo, verás que se trata de una clase que extiende la clase Authenticatable y no la clase Model. ¡Qué malo eres, Mitxel, tratando de engañarme! Bueno, en realidad es que la clase Authenticable extiende, a su vez, la clase Model y de ahí el engaño aparente.&lt;/p&gt;
 
 &lt;p&gt;Pues nada, vamos a crear nuestros modelos. En concreto, vamos a crear los siguientes modelos:&lt;/p&gt;
 
@@ -338,7 +336,7 @@ php artisan vendor:publish
 
 &lt;p&gt;A diferecia que Cashier, la dependencia Sluggable no publica views desde la carpeta vendor, sino que publica un fichero de configuración dentro de nuestra carpeta config/ . En principio no hay razón para cambiar la configuración que aparece ahí por defecto, pero no está de más que le eches un vistazo.&lt;/p&gt;
 
-&lt;p&gt;Muy bien, ya podemos escribir nuestros models. Empecemos por Tag. Para crear este modelo básicamente crearemos un nuevo fichero Tag.php en la raíz del directorio app/ , es decir, en el mismo sitio donde se encuentra User.php . Una vez creado el fichero, edítalo tal como sigue:&lt;/p&gt;
+&lt;p&gt;Muy bien, ya podemos escribir nuestros models. Empecemos por Tag. Para crear este modelo básicamente crearemos un nuevo fichero Tag.php en la raíz del directorio app/ , es decir, en el mismo sitio donde se encuentra User.php . Una vez creado el fichero, edítalo de la siguiente manera:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#tag&quot;&gt;Tag.php&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&quot;tag&quot; class=&quot;collapse&quot;&gt;
@@ -412,9 +410,9 @@ php artisan vendor:publish
 
 &lt;/div&gt;
 
-&lt;p&gt;Date cuenta que he dejado en blanco el apartado para accessors, mutators y scopes. Más adelante (cuando los utilicemos) explicaremos de qué van, por ahora basta con que te suene la idea de que están relacionadas con los models.&lt;/p&gt;
+&lt;p&gt;Date cuenta que he dejado en blanco el apartado para accessors, mutators y scopes. Más adelante (cuando los utilicemos) explicaremos de qué van, por ahora basta con que te suene lo de que están relacionadas con los models.&lt;/p&gt;
 
-&lt;p&gt;Lo que sí es importante entender ahora es la cuestión de las relaciones (relationships) entre modelos. Estas relaciones no son más que representaciones de las relaciones que existen entre las tablas. Al respeto, te dejo a continuación una pequeña.&lt;/p&gt;
+&lt;p&gt;Lo que sí es importante entender ahora es la cuestión de las relaciones (relationships) entre modelos. Estas relaciones no son más que representaciones de las relaciones que existen entre las tablas. Al respeto, te dejo a continuación una pequeña guía.&lt;/p&gt;
 
 &lt;p&gt;Existen, básicamente, tres tipos de relaciones entre tablas de una base de datos relacional:&lt;/p&gt;
 
@@ -424,14 +422,14 @@ php artisan vendor:publish
   &lt;li&gt;&lt;strong&gt;Many to many:&lt;/strong&gt; esta sería la relación entre tú y tus características como persona; puedes tener muchas características y, al mismo tiempo, una de esas características (por ejemplo: ser awesome) puede ser poseída por más de una persona. Este caso es el que hemos resuelto anteriormente creando una tabla asociativa entre dos tablas.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Ahora veamos qué debemos escribir en los modelos para representar cualquier tipo de relación:&lt;/p&gt;
+&lt;p&gt;Ahora vamos a ver en qué nos afectan las relaciones de cara a editar nuestras tables y models:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Relación&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Dirección&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Relational method returns…&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Method returns…&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;¿Tabla con foreign key?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -481,7 +479,7 @@ $tag-&amp;gt;videos
 
 &lt;p&gt;Obtendremos así todos los vídeos relacionados con una tag específica. A este sistema para obtener información de nuestra base de datos, es decir, hacer consultas a nuestra base de datos, a través los models y la concatenación de métodos se le conoce como &lt;strong&gt;eloquent&lt;/strong&gt; en lenguaje &lt;em&gt;laravelita&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Muy bien, ¡basta ya de aprender y sigamos trabajando! Tenemos que crear el resto de modelos: Video y Girl, ¿te atreves a hacerlos por tu cuenta? Un truco para terminar rápido es copiar lo que has escrito para Tag.php y hacer las modificaciones necesarias, es decir: cambiar el nombre de la clase, modificar el build_from que pasamos dentro del array $sluggable y, &lt;strong&gt;muy importante&lt;/strong&gt;, reescribir las relationships adecuadamente (acuérdate que Video tiene &lt;strong&gt;dos&lt;/strong&gt; relaciones en lugar de una, por lo que tendrás que escribirle sus dos métodos correspondientes).&lt;/p&gt;
+&lt;p&gt;Muy bien, ¡basta ya de aprender y sigamos trabajando! Tenemos que crear el resto de modelos: Video y Girl, ¿te atreves a hacerlos por tu cuenta? Un truco para terminar rápido es copiar lo que has escrito para Tag.php y hacer las modificaciones necesarias, es decir: cambiar el nombre de la clase, modificar el build_from que pasamos dentro del array $sluggable y, &lt;strong&gt;muy importante&lt;/strong&gt;, reescribir las relationships adecuadamente (acuérdate que Video tiene &lt;strong&gt;dos&lt;/strong&gt; relaciones en lugar de una).&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#video&quot;&gt;Video.php&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&quot;video&quot; class=&quot;collapse&quot;&gt; 
@@ -632,20 +630,18 @@ $tag-&amp;gt;videos
 
 &lt;/div&gt;
 
-&lt;p&gt;No es necesario que escribamos un model Subscription, ya que la dependencia Cashier que instalamos anteriormente ya se encarga del asunto. En su lugar, lo que sí debemos hacer es modificar el model User para que podamos acceder desde el propio model a los métodos de Cashier. Para ello lo que tenemos que hacer es agregarle el &lt;strong&gt;trait&lt;/strong&gt; Billing al model User… ¿Whaaat? No te alarmes, en términos técnico-familiares un trait es una colección de métodos envueltos en una clase “especial” llamada trait (no kidding!), pensados para poder ser empleados por cualquier otra clase.&lt;/p&gt;
+&lt;p&gt;No es necesario que escribamos un model Subscription, ya que la dependencia Cashier que instalamos anteriormente se encargará de manipular las filas de la tabla subscriptions. En su lugar, lo que sí debemos hacer es modificar el model User para que podamos acceder desde el propio model a los métodos de Cashier. Para ello lo que tenemos que hacer es agregarle el &lt;strong&gt;trait&lt;/strong&gt; Billing al model User… ¿What? No te alarmes, en términos técnico-familiares un trait es una colección de métodos envueltos en una clase “especial” llamada trait (no kidding!), pensados para poder ser empleados por otras clases.&lt;/p&gt;
 
 &lt;p&gt;En verdad todo este rollo que te he soltado se resuelve, en nuestro caso, abriendo User.php y agregando las siguientes líneas de código (marcadas en rojo pasión):&lt;/p&gt;
 
 &lt;pre&gt;
 ...
-
 use Illuminate\Foundation\Auth\User as Authenticatable;
 &lt;strong style=&quot;color:red;&quot;&gt;use Laravel\Cashier\Billable;&lt;/strong&gt;
 
 class User extends Authenticatable
 {
 	&lt;strong style=&quot;color:red;&quot;&gt;use Billable;&lt;/strong&gt;
-	
 	...
 &lt;/pre&gt;
 
@@ -657,7 +653,7 @@ class User extends Authenticatable
 
 &lt;p&gt;Salgamos de la carpeta app/ y volvamos a la carpeta database/, por razones obvias esta vez abriremos la subcarpeta seeders/ en lugar de migrations/.&lt;/p&gt;
 
-&lt;p&gt;Fíjate que aquí dentro podemos encontrar un fichero llamado DatabaseSeeder.php . Échale un vistazo. Se trata de una clase que extiende la clase Seeder y que tiene un método run(), no hay mucho más que ver. Pues bien, este fichero es un seeder, ni más ni menos. Todos nuestros seeders van a extender la clase Seeder y tendrán un método run().&lt;/p&gt;
+&lt;p&gt;Fíjate que aquí dentro podemos encontrar un fichero llamado DatabaseSeeder.php . Échale un vistazo. Se trata de una clase que extiende la clase Seeder y que tiene un método run(), no hay mucho más que ver. Pues bien, este fichero es un seeder, ni más ni menos. Todos nuestros seeders van a extender la clase Seeder y tendrán el mismo método run().&lt;/p&gt;
 
 &lt;p&gt;Para ser ordenados y limpios escribiremos un Seeder por cada tabla que queremos poblar y a continuación “enlazaremos” la ejecución de todos ellos escribiendo una llamada a cada seeder en el fichero DatabaseSeeder.php . Manos a la obra. Hagamos en primer lugar una recapitulación de las tablas que necesitamos poblar:&lt;/p&gt;
 
@@ -665,13 +661,15 @@ class User extends Authenticatable
   &lt;li&gt;tags&lt;/li&gt;
   &lt;li&gt;girls&lt;/li&gt;
   &lt;li&gt;videos&lt;/li&gt;
+  &lt;li&gt;tag_video&lt;/li&gt;
+  &lt;li&gt;girl_video&lt;/li&gt;
   &lt;li&gt;users&lt;/li&gt;
   &lt;li&gt;subscriptions&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Una estrategia sólida para poblar nuestra web con contenidos de prueba será poblar primero las tags y las girls y a continuación los videos, para finalmente asociar, aleatoriamente, girls y tags con videos. Del lado usuario, poblaremos la tabla users con datos de prueba y crearemos diversos tipos de suscripción también con datos falsos.&lt;/p&gt;
 
-&lt;p&gt;Antes de escribir el primer seeder, vamos a crear un fichero de configuración seeders.php en la carpeta config/ para tener en un mismo sitio, bien accesibles, los datos sobre la configuración de nuestros seeders, por ejemplo: número de filas que queremos crear en cada tabla, datos específicos para poblar algunas de las celdas, etc. Así de paso aprenderemos cómo se trabaja con los ficheros de esta carpeta.&lt;/p&gt;
+&lt;p&gt;Antes de escribir el primer seeder, vamos a crear un fichero de configuración seeders.php en la carpeta config/ para tener en un mismo sitio, bien accesibles, los datos sobre la configuración de nuestros seeders, como por ejemplo: el número de filas que queremos crear en cada tabla, ciertos datos específicos para poblar algunas de las celdas, etc. Así de paso también aprenderemos cómo se trabaja con config/ .&lt;/p&gt;
 
 &lt;p&gt;No te lo pienses dos veces, crea tu fichero seeders.php dentro de la carpeta config/ . Edítalo para que se parezca al mío y siéntete libre de modificarlo a tu gusto:&lt;/p&gt;
 
@@ -687,11 +685,11 @@ class User extends Authenticatable
 	&lt;span class=&quot;s1&quot;&gt;&amp;#39;nVideos&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	&lt;span class=&quot;s1&quot;&gt;&amp;#39;nUsers&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 
-	&lt;span class=&quot;c1&quot;&gt;// How many tags should our videos have?&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;// How many tags can be associated to each video?&lt;/span&gt;
 	&lt;span class=&quot;s1&quot;&gt;&amp;#39;minTags&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	&lt;span class=&quot;s1&quot;&gt;&amp;#39;maxTags&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 
-	&lt;span class=&quot;c1&quot;&gt;// How many girls can be associated to a single video?&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;// How many girls can be associated to each video?&lt;/span&gt;
 	&lt;span class=&quot;s1&quot;&gt;&amp;#39;minGirls&amp;#39;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	&lt;span class=&quot;s1&quot;&gt;&amp;#39;maxGirls&amp;#39;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 
@@ -888,13 +886,13 @@ class User extends Authenticatable
 
 &lt;/div&gt;
 
-&lt;p&gt;Presta atención a eso de config(‘seeders.pornCategories’) . config() es una helper function de Laravel que nos permite acceder a los valores que hay en los ficheros de la carpeta config/ . Por ejemplo, nosotros acabamos de acceder a la lista de categorías de vídeos que teníamos en seeders.php , el fichero que hemos creado hace unos segundos. Muy práctico, ¿verdad?&lt;/p&gt;
+&lt;p&gt;Presta atención a eso de config(‘seeders.pornCategories’) . config() es una helper function (¿función ayudante? traducir términos técnicos es un cachondeo) de Laravel que nos permite acceder a los valores que hay en los ficheros de la carpeta config/ . Por ejemplo, nosotros acabamos de acceder a la lista de categorías de vídeos que teníamos en seeders.php .&lt;/p&gt;
 
 &lt;p&gt;Fíjate en el resto del seeder. Nuestro nuevo seeder básicamente recorre el array con las categorías que hemos escrito en el fichero de configuración y, para cada una de ellas, ejecuta \App\Tag::create() .&lt;/p&gt;
 
-&lt;p&gt;\App\Tag no es más que el model que escribimos anteriormente (Tag está en el namespace App, de ahí que lo escribamos de esa manera). Todos los models tienen un método create() al que podemos pasar, como primer argumento, un array de datos que serán utilizados para crear una nueva fila de la tabla de la base de datos relacionada con el modelo. Básicamente es una forma muy rápida de poblar la base de datos, ya que nos evitamos el tener que escribir las típicas queries. Esta es, precisamente, la razón de ser de &lt;em&gt;Eloquent&lt;/em&gt; y uno de los motivos por los que encariñarse con Laravel.&lt;/p&gt;
+&lt;p&gt;\App\Tag no es más que el model que escribimos anteriormente (Tag está en el namespace App, de ahí que lo escribamos de esa manera). Todos los models tienen un método create() al que podemos pasar, como primer argumento, un array de datos que serán utilizados para crear una nueva fila de la tabla de la base de datos relacionada. Básicamente es una forma muy rápida de poblar la base de datos, ya que nos evitamos el tener que escribir la típica query INSERT. Esta es, precisamente, la razón de ser de &lt;em&gt;eloquent&lt;/em&gt; y uno de los motivos por los que deberías darle cariño a Laravel.&lt;/p&gt;
 
-&lt;p&gt;Muy bien, vamos a terminar de escribir el resto de seeders. En el siguiente vamos a tener la ocasión de utilizar la librería Faker, que nos permite generar datos falsos aleatorios para poblar la base de datos. Veámoslo en acción editando un nuevo fichero GirlTableSeeder.php :&lt;/p&gt;
+&lt;p&gt;Muy bien, vamos a terminar de escribir el resto de seeders. En el siguiente seeder vamos a tener la ocasión de utilizar la librería Faker, que nos permite generar datos falsos y aleatorios para poblar la base de datos. Veámoslo en acción editando un nuevo fichero GirlTableSeeder.php :&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#girltableseeder&quot;&gt;GirlTableSeeder.php&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&quot;girltableseeder&quot; class=&quot;collapse&quot;&gt;
@@ -928,7 +926,7 @@ class User extends Authenticatable
 
 &lt;/div&gt;
 
-&lt;p&gt;Si tienes curiosidad sobre cómo funciona Faker y los muchos tipos de datos que podemos generar (nombres, números, direcciones, bloques de texto…) con la libreria, échale un vistazo a su &lt;a href=&quot;https://github.com/fzaninotto/Faker&quot;&gt;documentación&lt;/a&gt;. Si te surgen dudas, puedes preguntar en el área de comentarios.&lt;/p&gt;
+&lt;p&gt;Si tienes curiosidad sobre cómo funciona Faker y los muchos tipos de datos que podemos generar (nombres, números, direcciones, bloques de texto…), échale un vistazo a la &lt;a href=&quot;https://github.com/fzaninotto/Faker&quot;&gt;documentación de Faker&lt;/a&gt;. Si te surgen dudas, puedes preguntar en el área de comentarios.&lt;/p&gt;
 
 &lt;p&gt;Con el seeder para los vídeos VideoTableSeeder.php hemos hecho más de lo mismo, te lo dejo por aquí como ejemplo:&lt;/p&gt;
 
@@ -963,84 +961,103 @@ class User extends Authenticatable
 
 &lt;/div&gt;
 
-&lt;p&gt;Ahora vamos a escribir el seeder para crear relaciones entre tags y videos y entre girls y videos, yo le he llamado RelationshipsSeeder.php :&lt;/p&gt;
+&lt;p&gt;Ahora vamos a escribir el seeder para crear relaciones entre tags y videos y entre girls y videos, yo les he llamado TagVideoTableSeeder.php y GirlVideoTableSeeder.php :&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#relationshipsseeder&quot;&gt;RelationshipsSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#relationshipsseeder&quot;&gt;TagVideoTableSeeder.php&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&quot;relationshipsseeder&quot; class=&quot;collapse&quot;&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RelationshipsSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TagVideoTableSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;     * Run the database seeds.&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;     *&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;     * @return void&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;     */&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;cm&quot;&gt;/* Let&amp;#39;s relate tags with videos first */&lt;/span&gt;
-
-	    &lt;span class=&quot;c1&quot;&gt;// First we gather all tags and videos previously created&lt;/span&gt;
-	    &lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-	    &lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-	    &lt;span class=&quot;c1&quot;&gt;// Now we iterate through all the videos in our DB&lt;/span&gt;
-	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-		    &lt;span class=&quot;c1&quot;&gt;// We select some random tag keys out of the array&lt;/span&gt;
-		    &lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-			    &lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-				    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.minTags&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-				    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.maxTags&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-			    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-		    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		    
-		    &lt;span class=&quot;c1&quot;&gt;// Finally, we associate the selected tags to the current video&lt;/span&gt;
-		    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;is_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-			    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-		    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-			    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-				    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-	    &lt;span class=&quot;cm&quot;&gt;/* And now let&amp;#39;s relate girls with videos */&lt;/span&gt;
-
-	    &lt;span class=&quot;c1&quot;&gt;// First we gather all girls and videos previously created&lt;/span&gt;
-	    &lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Girl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-	    &lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-		    &lt;span class=&quot;c1&quot;&gt;// We select some random keys from the girls array&lt;/span&gt;
-		    &lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-			    &lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-				    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.minGirls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-				    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.maxGirls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-			    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-		    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-		    &lt;span class=&quot;c1&quot;&gt;// Finally, we associate the selected girls to the current video&lt;/span&gt;
-		    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;is_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-			    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-		    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-			    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-				    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	  &lt;span class=&quot;c1&quot;&gt;// First we gather all tags and videos previously created&lt;/span&gt;
+	  &lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	  &lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	
+	  &lt;span class=&quot;c1&quot;&gt;// Now we iterate through all the videos in our DB&lt;/span&gt;
+	  &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	
+	    &lt;span class=&quot;c1&quot;&gt;// We select some random tag keys out of the array of tag&amp;#39;s ids&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+		    &lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+			    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.minTags&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+			    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.maxTags&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	    
+	    &lt;span class=&quot;c1&quot;&gt;// Finally, we associate the selected tags to the current video&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;is_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+		    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+		    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedTagKeys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;/div&gt;
 
-&lt;p&gt;Este seeder parece algo más complicado que los anteriores, pero en realidad no es nada especial. Fíjate que empleando el método all() desde los models respectivos, podemos obtener todos los tags, girls y videos que ya existen en la base de datos. Siempre que hagamos \App\Modelo::all() obtendremos una Collection con todos los elementos de la base de datos relacionada con el Modelo.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#relationshipsseeder2&quot;&gt;GirlVideoTableSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&quot;relationshipsseeder2&quot; class=&quot;collapse&quot;&gt;
 
-&lt;p&gt;Con el método pluck(‘columna’) obtendremos una Collection sólo con los datos de una de las columnas de la tabla, mientras que el método toArray() nos sirve para transformar una Collection en un array de toda la vida. En Laravel una Collection es una especie de “abrigo” para un array que nos permite, por ejemplo, concatenar métodos para manipular el array que contiene. Cuando usamos toArray() en una Collection básicamente estamos quitándole ese abrigo, convirtiéndose en un array de toda la vida.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
 
-&lt;p&gt;El resto del seeder consiste en elegir de uno a muchos de los elementos del array de forma aleatoria. Ten presente que los valores del array son las id de la tabla tags (o, más adelante, las de la tabla girls). Finalmente relacionamos las tags y las girls con los videos usando el método attach(), que es el método indicado para hacer asociaciones entre objetos con relación del tipo many to many.&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GirlVideoTableSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	  &lt;span class=&quot;c1&quot;&gt;// First we gather all girls and videos previously created&lt;/span&gt;
+	  &lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Girl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	  &lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\Video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	
+		&lt;span class=&quot;c1&quot;&gt;// Now we iterate through all the videos&lt;/span&gt;
+	  &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$videos&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	
+	    &lt;span class=&quot;c1&quot;&gt;// We select some random keys from the girl&amp;#39;s ids array&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+		    &lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+			    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.minGirls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+			    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.maxGirls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+	    &lt;span class=&quot;c1&quot;&gt;// Finally, we associate the selected girls to the current video&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;is_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+		    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+		    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$selectedGirlKeys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			    &lt;span class=&quot;nv&quot;&gt;$video&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$girls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tagKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Estos seeders quizá te parezcan algo más complicados que los anteriores, pero en realidad no son nada especial. Fíjate que empleando el método all() desde los models respectivos, podemos obtener todos los tags, girls y videos que ya existen en la base de datos. Siempre que hagamos \App\Modelo::all() obtendremos una Collection con todos los elementos de la base de datos relacionada con el Modelo.&lt;/p&gt;
+
+&lt;p&gt;Con el método pluck(‘columna’) obtendremos una Collection sólo con los datos de una de las columnas de la tabla, mientras que el método toArray() nos sirve para transformar una Collection en un array de toda la vida.&lt;/p&gt;
+
+&lt;p&gt;En Laravel una &lt;strong&gt;Collection&lt;/strong&gt; es una especie de “abrigo” para un array que nos permite, por ejemplo, concatenar métodos para manipular el array que contiene. Cuando usamos toArray() en una Collection básicamente estamos quitándole ese abrigo, transformando la Collection en un array normal y corriente.&lt;/p&gt;
+
+&lt;p&gt;El resto del código consiste en elegir entre uno y muchos ids de las tablas tags y girls y relacionarlos con los videos usando el método attach(), que es el método indicado para hacer asociaciones entre objetos con relación del tipo many to many.&lt;/p&gt;
 
 &lt;p&gt;Lo que acabamos de hacer es, en términos prácticos, poblar las tablas asociativas tag_video y girl_video.&lt;/p&gt;
 
@@ -1071,7 +1088,7 @@ class User extends Authenticatable
 				&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;              &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 				&lt;span class=&quot;s1&quot;&gt;&amp;#39;email&amp;#39;&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 				&lt;span class=&quot;s1&quot;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bcrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;wanker&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-				&lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_id&amp;#39;&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cus_7fj87t2BaVS4KN&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_id&amp;#39;&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cus_&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 				&lt;span class=&quot;s1&quot;&gt;&amp;#39;card_brand&amp;#39;&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Visa&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 				&lt;span class=&quot;s1&quot;&gt;&amp;#39;card_last_four&amp;#39;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;4242&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 			&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
@@ -1080,47 +1097,50 @@ class User extends Authenticatable
 
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#subscriptionsseeder&quot;&gt;SubscriptionsSeeder.php&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;javascript:&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#subscriptionsseeder&quot;&gt;SubscriptionTableSeeder.php&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&quot;subscriptionsseeder&quot; class=&quot;collapse&quot;&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Illuminate\Database\Seeder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SubscriptionsSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SubscriptionTableSeeder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seeder&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;     * Run the database seeds.&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;     *&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;     * @return void&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;     */&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;sd&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * Run the database seeds.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 *&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 * @return void&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;	 */&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;nv&quot;&gt;$users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\App\User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-	    &lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.subscriptions&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$users&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		    &lt;span class=&quot;nv&quot;&gt;$randomEndingDate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\Carbon\Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2015&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2020&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-			    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-		    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-		    &lt;span class=&quot;nx&quot;&gt;DB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;subscriptions&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
-			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;user_id&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_id&amp;#39;&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_plan&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)],&lt;/span&gt;
-			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;quantity&amp;#39;&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-			    &lt;span class=&quot;s1&quot;&gt;&amp;#39;ends_at&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$randomEndingDate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		    &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	  &lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;seeders.subscriptions&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+	  &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$users&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$randomSubscriptionPlan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;array_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$subscriptionPlanTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)];&lt;/span&gt;
+	    &lt;span class=&quot;nv&quot;&gt;$randomEndingDate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;\Carbon\Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+		    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2015&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2020&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+		    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+		    &lt;span class=&quot;nb&quot;&gt;mt_rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	
+	    &lt;span class=&quot;nx&quot;&gt;DB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;subscriptions&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+		    &lt;span class=&quot;s1&quot;&gt;&amp;#39;user_id&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;          &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_id&amp;#39;&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;s1&quot;&gt;&amp;#39;stripe_plan&amp;#39;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$randomSubscriptionPlan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;s1&quot;&gt;&amp;#39;quantity&amp;#39;&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		    &lt;span class=&quot;s1&quot;&gt;&amp;#39;ends_at&amp;#39;&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$randomEndingDate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;/div&gt;
 
-&lt;p&gt;La única diferencia significativa con respecto a los seeders anteriores es que en el seeder para la tabla subscriptions no hemos utilizado ningún modelo \App\Subscription para realizar las queries a base de datos, sencillamente porque no existe ningún modelo Subscripcion. En su lugar hemos utilizado la &lt;strong&gt;Facade&lt;/strong&gt; DB, que nos permite ejecutar queries a nuestra base de datos sin necesidad de ningún modelo de por medio. Una Facade no es más que una forma de acceder a ciertas clases y a su respectiva familia de métodos sin dar muchas vueltas. Si echas un vistazo a config/app.php verás, abajo del todo, toda una lista de Facades a las que puedes acceder desde cualquier punto de tu código con tan sólo escribir el “alias” de la Facade.&lt;/p&gt;
+&lt;p&gt;La única diferencia significativa con respecto a los seeders anteriores es que en el seeder para la tabla subscriptions no hemos utilizado ningún modelo \App\Subscription para manipular la base de datos, sencillamente porque no existe ningún modelo Subscripcion. En su lugar hemos utilizado la Facade DB, que nos permite ejecutar queries a nuestra base de datos sin necesidad de ningún modelo de por medio.&lt;/p&gt;
+
+&lt;p&gt;Una &lt;strong&gt;Facade&lt;/strong&gt; no es más que una forma de acceder a ciertas clases y a su respectiva familia de métodos sin dar muchas vueltas. Si echas un vistazo a config/app.php verás, abajo del todo, toda una lista de Facades a las que puedes acceder desde cualquier punto de tu código con tan sólo escribir el “alias” de la Facade.&lt;/p&gt;
 
 &lt;p&gt;Para terminar de una vez por todas con nuestros seeders vamos a asegurarnos de que se ejecutarán todos una vez que escribamos el comando seed. Para ello tenemos que editar aquel fichero DatabaseSeeder.php que encontramos inicialmente en nuestra carpeta database/seeder/ , ¿lo recuerdas?&lt;/p&gt;
 
@@ -1132,9 +1152,10 @@ class User extends Authenticatable
 		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(TagTableSeeder::class);&lt;/strong&gt;
 		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(GirlTableSeeder::class);&lt;/strong&gt;
 		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(VideoTableSeeder::class);&lt;/strong&gt;
-		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(RelationshipsSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(TagVideoTableSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(GirlVideoTableSeeder::class);&lt;/strong&gt;
 		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(UserTableSeeder::class);&lt;/strong&gt;
-		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(SubscriptionsSeeder::class);&lt;/strong&gt;
+		&lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(SubscriptionTableSeeder::class);&lt;/strong&gt;
 	}
 }
 &lt;/pre&gt;
@@ -1150,10 +1171,10 @@ php artisan db:seed
 &lt;p&gt;Podría ocurrir que algún seeder nos diese error y se quedase la historia a medio hacer, en estos casos, una vez corregido nuestro código, un comando muy útil que resetea la base de datos y vuelve a intentar poblarla es el siguiente:&lt;/p&gt;
 
 &lt;pre&gt;
-php artisan migrate:refresh --seed
+php artisan migrate:refresh --seed #Si lo usas en el entorno de producción irás al infierno
 &lt;/pre&gt;
 
-&lt;p&gt;Anótalo bien, porque yo he perdido la cuenta de las veces que lo he tenido que usar en esta fase de los proyectos.&lt;/p&gt;
+&lt;p&gt;Anótalo bien, porque yo he perdido la cuenta de las veces que lo he tenido que usar en la fase de desarrollo de los proyectos.&lt;/p&gt;
 
 &lt;p&gt;Pues nada, ya tenemos lista nuestra base de datos, espero que los ejemplos que estamos escribiendo te sirvan para hacerte con una idea lo suficientemente general para que tú mismo puedas crear y poblar todo tipo de tablas que se te ocurran para cualquier tipo de proyecto en el que trabajes en el futuro.&lt;/p&gt;
 
