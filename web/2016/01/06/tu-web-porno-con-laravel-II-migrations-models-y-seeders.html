@@ -764,8 +764,11 @@ class User extends Authenticatable
 	<span class="c1">// Fake information locale (en_US, es_ES, etc.)</span>
 	<span class="s1">&#39;locale&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;es_ES&#39;</span><span class="p">,</span>
 
-	<span class="c1">// Subscription plan types identifier</span>
-	<span class="s1">&#39;subscriptions&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+	<span class="c1">// Subscription name</span>
+	<span class="s1">&#39;subscriptionName&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
+
+	<span class="c1">// Subscription plan types</span>
+	<span class="s1">&#39;subscriptionPlans&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
 		<span class="s1">&#39;monthly&#39;</span><span class="p">,</span>
 		<span class="s1">&#39;every-three-months&#39;</span><span class="p">,</span>
 		<span class="s1">&#39;yearly&#39;</span><span class="p">,</span>
@@ -1142,15 +1145,15 @@ class User extends Authenticatable
 
 <span class="k">class</span> <span class="nc">UserTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
-    <span class="sd">/**</span>
-<span class="sd">     * Run the database seeds.</span>
-<span class="sd">     *</span>
-<span class="sd">     * @return void</span>
-<span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
-    <span class="p">{</span>
-	    <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">\Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">();</span>
-
+	<span class="sd">/**</span>
+<span class="sd">	 * Run the database seeds.</span>
+<span class="sd">	 *</span>
+<span class="sd">	 * @return void</span>
+<span class="sd">	 */</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+	<span class="p">{</span>
+	  <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+	
 		<span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nUsers&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
 			<span class="nx">\App\User</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
 				<span class="s1">&#39;name&#39;</span>              <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span>
@@ -1160,7 +1163,7 @@ class User extends Authenticatable
 				<span class="s1">&#39;card_brand&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;Visa&#39;</span><span class="p">,</span>
 				<span class="s1">&#39;card_last_four&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;4242&#39;</span><span class="p">,</span>
 			<span class="p">]);</span>
-    <span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
 </div>
@@ -1172,7 +1175,7 @@ class User extends Authenticatable
 
 <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
 
-<span class="k">class</span> <span class="nc">SubscriptionTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="k">class</span> <span class="nc">SubscriptionsSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
 	<span class="sd">/**</span>
 <span class="sd">	 * Run the database seeds.</span>
@@ -1182,23 +1185,17 @@ class User extends Authenticatable
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
 	<span class="p">{</span>
 		<span class="nv">$users</span> <span class="o">=</span> <span class="nx">\App\User</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
-	  <span class="nv">$subscriptionPlanTypes</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptions&#39;</span><span class="p">);</span>
+		<span class="nv">$subscriptionPlans</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptionPlans&#39;</span><span class="p">);</span>
+		<span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
 	
 	  <span class="k">foreach</span><span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="nv">$randomSubscriptionPlan</span> <span class="o">=</span> <span class="nv">$subscriptionPlanTypes</span><span class="p">[</span><span class="nb">array_rand</span><span class="p">(</span><span class="nv">$subscriptionPlanTypes</span><span class="p">)];</span>
-	    <span class="nv">$randomEndingDate</span> <span class="o">=</span> <span class="nx">\Carbon\Carbon</span><span class="o">::</span><span class="na">create</span><span class="p">(</span>
-		    <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span><span class="mi">2020</span><span class="p">),</span>
-		    <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>
-		    <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span>
-	    <span class="p">);</span>
-	
 	    <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
 		    <span class="s1">&#39;user_id&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
-		    <span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
+		    <span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptionName&#39;</span><span class="p">),</span>
 		    <span class="s1">&#39;stripe_id&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-		    <span class="s1">&#39;stripe_plan&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$randomSubscriptionPlan</span><span class="p">,</span>
+		    <span class="s1">&#39;stripe_plan&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$subscriptionPlans</span><span class="p">[</span><span class="nb">array_rand</span><span class="p">(</span><span class="nv">$subscriptionPlans</span><span class="p">)],</span>
 		    <span class="s1">&#39;quantity&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
-		    <span class="s1">&#39;ends_at&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$randomEndingDate</span><span class="p">,</span>
+		    <span class="s1">&#39;ends_at&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">dateTimeBetween</span><span class="p">(</span><span class="s1">&#39;-3 months&#39;</span><span class="p">,</span><span class="s1">&#39;1 year&#39;</span><span class="p">),</span>
 	    <span class="p">]);</span>
 	  <span class="p">}</span>
 	<span class="p">}</span>
