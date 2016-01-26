@@ -6,9 +6,210 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Jan 2016 18:53:24 +0100</pubDate>
-    <lastBuildDate>Fri, 08 Jan 2016 18:53:24 +0100</lastBuildDate>
+    <pubDate>Tue, 26 Jan 2016 18:14:05 +0100</pubDate>
+    <lastBuildDate>Tue, 26 Jan 2016 18:14:05 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Introducción al control de versiones con Git: comandos básicos en tu entorno local</title>
+        <description>&lt;h1 id=&quot;qu-es-el-control-de-versiones&quot;&gt;¿Qué es el control de versiones?&lt;/h1&gt;
+
+&lt;p&gt;¿Alguna vez te has fijado que los sistemas operativos (SO) van evolucionando con el tiempo? Por ejemplo: en Windows hemos tenido en los últimos años el Windows 7, el 8 y el 10. Con el SO Android para móviles o con Linux y sus distribuciones (Arch, Ubuntu, Debian, etc.) ocurre exactamente lo mismo. A veces las nuevas versiones suponen pequeñas mejoras y otras veces cambios radicales, enormes saltos cualitativos que pretenden ser a mejor (no siempre lo consiguen).&lt;/p&gt;
+
+&lt;p&gt;Si eres un gamer aficionado a los videojuegos te habrás dado cuenta que con los juegos ocurre algo parecido: periódicamente salen nuevos parches y updates de tus juegos favoritos. Con las app para móviles tres cuartos de lo mismo. En general, esto de ir sacando nuevas versiones ocurre con todo tipo de software.&lt;/p&gt;
+
+&lt;p&gt;Ocurre que, a menudo, en todo tipo de proyectos de desarrollo de software se acaban generando decenas, cientos, miles de ficheros de código y, de una versión a otra, se han de modificar unos cuantos de ellos. Sería extremadamente laborioso llevar la cuenta, manualmente, de las líneas de código que se han modificado de una versión a otra. Si además trabajas en equipos de desarrolladores, imagínate lo complejo que sería coordinar los cambios realizados por dos o más programadores sobre los mismos ficheros. La implementación de nuevas versiones llevaría horas o incluso días de coordinación de cambios. Y por si no te has dado cuenta aún, te lo digo yo: en el mundillo de la programación de aplicaciones el ahorro de tiempo y el aumento de la productividad son más importantes que el oro, la plata y que todo el mercado de stocks mundial y aún me estoy quedando corto.&lt;/p&gt;
+
+&lt;p&gt;Por lo tanto tenemos una necesidad: poder automatizar y coordinar las versiones. Y de ahí nace lo que conocemos como el control de versiones y los sistemas de control de versiones (VCS), que básicamente son estrategias para realizar esa gestión de cambios. ¿Te ha quedado claro?&lt;/p&gt;
+
+&lt;h1 id=&quot;qu-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h1&gt;
+
+&lt;p&gt;Git es un sistema de control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí, algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismo fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí, que no se enfade nadie si me equivoco). Además, sabiendo más o menos de qué va Git, la terminología del control de versiones y los conceptos generales (merge, branch, pull, push…), aprender un nuevo VCS es coser y cantar.&lt;/p&gt;
+
+&lt;h1 id=&quot;git-bsico-bsico&quot;&gt;Git básico, básico&lt;/h1&gt;
+
+&lt;p&gt;Como decía un compañero mío de universidad: “para aprender a andar primero hay que aprender a gatear” (o algo así). Y como para aprender a gatear primero hay que nacer, qué mejor que empezar por el principio de todito todo: que vendría a ser la instalación de git.&lt;/p&gt;
+
+&lt;h2 id=&quot;nacer-instalar-git-en-tu-ordenador&quot;&gt;Nacer: instalar Git en tu ordenador&lt;/h2&gt;
+
+&lt;p&gt;Básicamente si usas Linux lo puedes instalar con tu gestor de paquetes habitual:&lt;/p&gt;
+&lt;pre&gt;sudo yum install git-all&lt;/pre&gt;
+&lt;p&gt;o&lt;/p&gt;
+&lt;pre&gt;sudo apt-get install git-all&lt;/pre&gt;
+
+&lt;p&gt;Si usas Mac te lo puedes bajar de &lt;a href=&quot;http://git-scm.com/download/mac&quot;&gt;aquí&lt;/a&gt;. Si usas Windows te puedes bajar el instalador &lt;a href=&quot;http://git-scm.com/download/win&quot;&gt;aquí&lt;/a&gt; y te será muy útil agregar la carpeta donde se te instale el ejecutable git al PATH de Windows (para poder ejecutar git desde cualquier línea de comandos que abras).&lt;/p&gt;
+
+&lt;p&gt;Si necesitas más detalles sobre cómo instalarlo, casos especiales y concretos… ya sabes que Google es tu amigo. También puedes preguntar más abajo e intentaré ayudarte.&lt;/p&gt;
+
+&lt;p&gt;Si todo ha ido bien cuando escribas en tu terminal o línea de comandos &amp;lt;pre&amp;gt;git version&amp;lt;/pre&amp;gt; y debería devolverte la versión del Git que has instalado en tu SO. Por ejemplo, en mi Ubuntu Linux a mí me aparece:&lt;/p&gt;
+&lt;pre&gt;
+$ git version
+git version 2.5.0
+&lt;/pre&gt;
+&lt;p&gt;En la versión de Git para mi Windows me aparece&lt;/p&gt;
+&lt;pre&gt;
+C:&amp;#92;&amp;#62; git version
+git version 1.9.5
+&lt;/pre&gt;
+
+&lt;p&gt;No te preocupes si tu versión no es exactamente la misma que la mía (¡de hecho, la tuya debería ser más actual!).&lt;/p&gt;
+
+&lt;h2 id=&quot;aprendiendo-a-gatear-usar-git-en-tu-entorno-local&quot;&gt;Aprendiendo a gatear: usar Git en tu entorno local&lt;/h2&gt;
+
+&lt;p&gt;La gracia de los sistemas de control de versiones (VCS) está, sobretodo, en la gestión de repositorios remotos, a los cuales puede acceder un equipo de desarrollo (repositorios privados) o incluso cualquier persona que desee colaborar en el desarrollo de un proyecto de código abierto (repositorios públicos). Los repositorios son, sencillamente, los lugares donde se guarda el código de nuestro proyecto, se coordinan y se registran los cambios que se van haciendo (qué cambios se han hecho, quién los ha hecho, cuándo…).&lt;/p&gt;
+
+&lt;p&gt;Pero qué mejor manera de aprender a trabajar con repositorios remotos que aprendiendo primero a trabajar con las versiones de nuestro propio código en nuestro entorno local.&lt;/p&gt;
+
+&lt;p&gt;Por aquello de aprender practicando, vamos a crear un fichero de texto vacío en una nueva carpeta. El fichero de texto vacío representa un programa nuestro (un script, una aplicación, lo que sea…), que iremos modificando para “simular” lo que serían modificaciones en la aplicación o, en definitiva, nuevas versiones.&lt;/p&gt;
+
+&lt;p&gt;En mi Windows yo he creado una carpeta en c:\myFakeProject\ y he creado dentro un fichero txt vacío llamado thisIsAnAppYouBetterBelieveIt.txt . Nunca antes desarrollar aplicaciones fue tan rápido. Ahora abramos nuestra magnífica aplicación nueva con apariencia de fichero de texto vacío con cualquier editor de texto (notepad, gedit, cualquier cosa sencilla que tengas a mano).&lt;/p&gt;
+
+&lt;p&gt;Escribamos alguna nueva línea de código, por ejemplo: “Hola mundo!”. Guarda el fichero. Ahora borra la palabra “mundo” y sustitúyela por “Paco”. Guarda y cierra el fichero.&lt;/p&gt;
+
+&lt;p&gt;Muy bien, volvamos a abrir el fichero (¿qué locura es ésta? paciencia…). Ahora intenta deshacer la última modificación (Ctrl+z), si tu editor no es más listo de lo habitual no debería poder hacerlo. Resulta que has pedido para siempre la palabra mundo, si no la hubieses escrito tú mismo hace unos segundo jamás sabrías qué había allí escrito antes de la última modificación… Imagínate que en vez de un .txt se trata de una aplicación de verdad y que la nueva línea de código funciona peor que la original o aún peor, que has eliminado línea de código anteriores sin querer. Estarías perdido, te tocaría volver a reescribir el código y, en general, te tocaría perder el tiempo precioso que no tienes.&lt;/p&gt;
+
+&lt;p&gt;Bien, vamos a poner solución a este problema con nuestro Git, nuestro flamante nuevo sistema de control de versiones. Comprueba que en tu terminal o línea de comandos estés en el directorio raíz de tu proyecto. En mi caso c:\myFakeProject\ y escribe&lt;/p&gt;
+
+&lt;pre&gt;git init&lt;/pre&gt;
+
+&lt;p&gt;Imaginemos que estamos desarrollando una aplicación en la carpeta /mi-proyecto/ (lo que sea: un script en python, C… cualquier cosa). Una vez tienes Git instalado y funcionando en tu terminal, basta con que te sitúes en la carpeta raíz de tu proyecto y ejecutes el comando:&lt;/p&gt;
+
+&lt;pre&gt;git init&lt;/pre&gt;
+
+&lt;p&gt;Este comando creará una nueva carpeta oculta /.git en la raíz de tu proyecto, donde Git guardará toda la información necesaria del estado pasado y actual de tus versiones. De hecho, acabas de estrenar un sistema de control de versiones para tu nuevo proyecto. ¡Felicidades!&lt;/p&gt;
+
+&lt;p&gt;Siempre que queramos saber en qué estado se encuentra nuestro entorno de trabajo local, debemos escribir:&lt;/p&gt;
+
+&lt;pre&gt;git status&lt;/pre&gt;
+
+&lt;p&gt;Hazlo. Te aparecerán cuatro o cinco líneas de información, entre las cuales se debería hacer referencia a los siguientes asuntillos importantes (que en principio te sonarán a checo antiguo):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;La rama o branch sobre la que estás trabajando, por ejemplo “On branch &lt;strong&gt;master&lt;/strong&gt;”&lt;/li&gt;
+  &lt;li&gt;El commit o confirmación en cabeza (current HEAD commit). Por ejemplo: “Initial commit” (aún no has hecho ningún commit)&lt;/li&gt;
+  &lt;li&gt;Una lista de ficheros con cambios respecto al último commit (como no has hecho ningún cambio desde el git init, no debería aparecer nada de esto ahora).&lt;/li&gt;
+  &lt;li&gt;Una lista de ficheros que no están tracked (Git no está controlándolos). Estos suelen ser ficheros que acabas de crear, como el fichero .txt de nuestro ejemplo. Si te fijas, el nombre de tu .txt de ejemplo debería aparecerte en pantalla después de “Untracked files:”.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bien, vayamos por partes. ¿Qué es eso de la branch? Una branch (mejor que te familiarices con los términos en inglés) es una ramificación en el seguimiento de las versiones. Suponte que tú y otro desarrollador tenéis que trabajar sobre la misma aplicación y que no queréis tener que estar constantemente actualizando vuestra entorno de trabajo local con los cambios que realiza cada uno a diario sobre la misma rama. Una manera de trabajar en estos casos podría ser, por ejemplo, crear una rama nueva para cada desarrollador, que más tarde, al cabo de unos días, se fusionarán en una sola rama, es decir, se integrarán los dos cambios hechos por separado en una sola rama. A esto de fusionar ramas se le conoce como &lt;strong&gt;merging&lt;/strong&gt;. Sobre crear una branch, trabajar en ella y hacer merging de branches hablaremos más adelante.&lt;/p&gt;
+
+&lt;p&gt;¿Qué es eso del commit? Un commit es la forma de decir con Git “guárdame los cambios que he hecho hasta ahora porque he terminado y son importantes”. Suponte que estás corrigiendo un error y modificas cinco ficheros de tu proyecto. Cuando acabas de modificarlo, testeas la aplicación y todo funciona: puedes dar por terminado el arreglo. Es muy buena idea, entonces, hacer un commit y ponerle un titulillo hermosamente explicativo como por ejemplo “fixed bug #6576”.&lt;/p&gt;
+
+&lt;p&gt;Podemos hacer lo mismo si acabamos de crear un proyecto o acabamos de crear nuevos ficheros dentro del proyecto. ¡De hecho, este es el caso en el que estamos ahora. Si intentas hacer un commit ahora, sin embargo, te aparecerá un mensajito preocupante, pruébalo:&lt;/p&gt;
+
+&lt;pre&gt;
+git commit -m &quot;My first commit&quot;
+...
+nothing added to commit but untracked files present
+&lt;/pre&gt;
+
+&lt;p&gt;Nada se ha añadido en nuestro commit. La razón es porque el único fichero que tenemos en nuestro proyecto no está siendo seguido por Git. Normalmente, siempre que crees un nuevo fichero dentro de tu proyecto has de decirle a Git que lo empiece a seguir. Esto se hace, en nuestro caso, de la siguiente forma:&lt;/p&gt;
+
+&lt;pre&gt;
+git add thisIsAnAppYouBetterBelieveIt.txt
+&lt;/pre&gt;
+
+&lt;p&gt;A esto se le llama hacer hacer staging de nuestros cambios (staging se puede traducir como “puesta en escena”). Pruébalo y haz un git status. Ahora deberías ver una diferencia importante respecto al principio. Ya no aparecen ficheros untracked en tus directorios de trabajo, en su lugar aparece una nueva línea tras “Changes to be committed”&lt;/p&gt;
+
+&lt;pre&gt;
+new file:   thisIsAnAppYouBetterBelieveIt.txt
+&lt;/pre&gt;
+
+&lt;p&gt;Lo que significa que nuestro fichero está listo para ser confirmado, es decir, para ser incluido en el próximo commit que hagamos. Vamos allá:&lt;/p&gt;
+
+&lt;pre&gt;
+git commit -m &quot;My first commit&quot;
+&lt;/pre&gt;
+
+&lt;p&gt;Una vez hecho esto volvamos a hacer un git status. Ahora git nos dirá que nuestro árbol de directorios de trabajo está libre de modificaciones desde el último commit (el que acabamos de hacer).&lt;/p&gt;
+
+&lt;p&gt;Bien, modifiquemos ahora nuestro querido fichero .txt. Ábrelo y cambia, por ejemplo, “Paco” por “Pedro”. Ahora guarda y sal de tu editor de texto. Volvamos a la línea de comandos. Haz un git status.&lt;/p&gt;
+
+&lt;p&gt;Ahora debería informarte git de que has modificado un fichero respecto al commit que tienes en cabeza (en nuestro caso, respeto al último commit que realizaste). ¿Recuerdas que la última vez que modificamos nuestro txt no tuvimos forma de ver qué había cambiado respecto al texto original? Con git, nunca jamás. Escribre:&lt;/p&gt;
+
+&lt;pre&gt;git diff&lt;/pre&gt;
+
+&lt;p&gt;Ahora debería aparecerte algo como esto&lt;/p&gt;
+
+&lt;pre&gt;
+diff --git a/thisIsAnAppYouBetterBelieveIt.txt b/thisIsAnAppYouBetterBelieveIt.txt
+index 5d8a8b4..4955b9f 100644
+--- a/thisIsAnAppYouBetterBelieveIt.txt
++++ b/thisIsAnAppYouBetterBelieveIt.txt
+@@ -1 +1 @@
+-Hola Paco
+\ No newline at end of file
++Hola Pedro
+\ No newline at end of file
+&lt;/pre&gt;
+
+&lt;p&gt;Para salir de esta visualización de los cambios pulsa la tecla Q.&lt;/p&gt;
+
+&lt;p&gt;Precisamente git nos informa de los cambios que se han realizado. En este caso los cambios que aún no han sido staged con respecto al commit en cabeza. Al igual que cuando creamos un fichero, cuando modificamos uno existente debemos hacer un staging de los cambios, por tanto, podemos volver a escribir:&lt;/p&gt;
+
+&lt;pre&gt;
+git add thisIsAnAppYouBetterBelieveIt.txt
+&lt;/pre&gt;
+
+&lt;p&gt;Y a continuación&lt;/p&gt;
+&lt;pre&gt;
+git commit -m &quot;I changed the name for the lulz&quot;
+&lt;/pre&gt;
+
+&lt;p&gt;Ahora quizá estés pensando… Joder, Mitxel… ¿Y si creo 200 ficheros, elimino 100 y modifico 500? ¿Tengo que hacer el staging uno a uno? Y la respuecta es que obviamente no. Aquí te dejo unos comandos muy útiles que te servirán para hacer el staging de cambios en masa:&lt;/p&gt;
+
+&lt;pre&gt;
+git add -u    # Staging de ficheros modificados o eliminados (sin los nuevos)
+git add .     # Staging de ficheros modificados o recién creados (sin los eliminados)
+git add -A    # Staging de ficheros modificados, eliminados o recién creados
+&lt;/pre&gt;
+
+&lt;p&gt;Por supuesto, no te olvides de hacer el commit después de hacer el staging, si estás contento con los cambios realizados. Por ahora puedes pensar en el staging como un paso previo en el que repasar los cambios realizados antes de realizar un commit o confirmación. De hecho, en un entorno profesional deberías tomarte bastante en serio lo de realizar un commit o, dicho de otro modo, nuca hagas un commit sin estar 100% seguro de que los cambios que has realizado son los definitivos para resolver el asunto que te traes entre manos (implementar una nueva funcionalidad, corregir un bug…).&lt;/p&gt;
+
+&lt;p&gt;De todos modos no sufras demasiado si cometes un error al estilo “se me olvidó modificar este fichero”. Siempre puedes hacer nuevos commits corrigiendo errores o, aún mejor, enmendar el último commit realizado escribiendo:&lt;/p&gt;
+
+&lt;pre&gt;
+git add fichero_que_se_me_olvidó_modificar
+git commit --ammend
+&lt;/pre&gt;
+
+&lt;p&gt;Esto sustituirá el último commit realizado por un commit idéntico pero que incluirá el fichero que olvidaste modificar/crear/eliminar.&lt;/p&gt;
+
+&lt;p&gt;En fin, espero que esta introducción te haya servido para empezar a moverte por el mundo de los VCS, en concreto por Git. Aunque aún no hemos tratado el asunto de los branch y los repositorios piensa que ya estás capacitado para hacer un seguimiento de tus proyectos a nivel local. ¡Ya no tienes excusa para olvidar modificaciones realizadas en el pasado!&lt;/p&gt;
+
+&lt;h1 id=&quot;consejillos&quot;&gt;Consejillos&lt;/h1&gt;
+
+&lt;p&gt;Y ahora un par de consejos para facilitarte la vida:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;En tus proyectos de desarrollo utiliza un IDE compatible con el VCS que utilices. Hay IDEs muy buenos que te permiten automatizar la ejecución de comandos git (como los que acabamos de aprender) o ejecutarlos con un par de clicks. Mi IDE, por ejemplo, me pinta sobre mi árbol de directorios los nombres de los ficheros modificados de azul o los recién creados y no staged en rojo. ¡Una tontería muy útil!&lt;/li&gt;
+&lt;li&gt;Puedes utilizar alguna interfaz visual para Git que, como mínimo, te ayudará a visualizar los cambios realizados en los fichero, hay montones y muy buenas: GitHub Desktop, SourceTree, git-cola... Cuando aprendas a manejarte con los repositorios remotos les sacarás mucho partido.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;prximamente&quot;&gt;Próximamente…&lt;/h1&gt;
+&lt;p&gt;En el próximo post sobre Git hablaré de cómo manejar las branches y cómo intercambiar datos con los repositorios remotos: la auténtica belleza de todo este asuntillo.&lt;/p&gt;
+
+&lt;p&gt;No te olvidas de comentarme cositas que no te hayan quedado claras, dudas, errores o lo que se te ocurra.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 13 Jan 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/programaci%C3%B3n/2016/01/13/introduccion-al-control-de-versiones-con-git.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/programaci%C3%B3n/2016/01/13/introduccion-al-control-de-versiones-con-git.html</guid>
+        
+        <category>control</category>
+        
+        <category>de</category>
+        
+        <category>versiones,</category>
+        
+        <category>programación</category>
+        
+        
+        <category>programación</category>
+        
+      </item>
     
       <item>
         <title>Tu web porno con Laravel - II: Migrations, models y seeders</title>
@@ -1190,7 +1391,11 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
         
         <category>desarrollo</category>
         
-        <category>web</category>
+        <category>web,</category>
+        
+        <category>laravel,</category>
+        
+        <category>php</category>
         
         
         <category>web</category>
@@ -1298,7 +1503,11 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
         
         <category>desarrollo</category>
         
-        <category>web</category>
+        <category>web,</category>
+        
+        <category>laravel,</category>
+        
+        <category>php</category>
         
         
         <category>web</category>
@@ -1310,8 +1519,8 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
         <description>&lt;h2 id=&quot;breve-introduccin&quot;&gt;Breve introducción&lt;/h2&gt;
 &lt;p&gt;Cualquier desarrollador web estará de acuerdo conmigo en que elegir la tecnología apropiada a la magnitud, complejidad y características de cada proyecto es de una importancia difícil de sobrevalorar. Además, es lo primero que debe hacerse  incluso antes de comenzar a trabajar en un proyecto. Por eso, he decidido estrenar mi blog comenzando por el principio, es decir, hablando sobre estrategias de desarrollo web.&lt;/p&gt;
 
-&lt;h2 id=&quot;wordpress-y-todo-lo-dems&quot;&gt;WordPress y todo lo demás&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://wordpress.org/download/&quot;&gt;WordPress&lt;/a&gt;&lt;/strong&gt; es muy útil para crear blogs con docenas de funcionalidades. Si además le instalas &lt;strong&gt;&lt;a href=&quot;https://www.woothemes.com/woocommerce/&quot;&gt;woocommerce&lt;/a&gt;&lt;/strong&gt; o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, hay que reconocer que la versatilidad y sencillez de Wordpress deja poco espacio para cualquier otra plataforma de desarrollo web salvo en dos casos:&lt;/p&gt;
+&lt;h2 id=&quot;wordpress-cms-y-todo-lo-dems&quot;&gt;WordPress, CMS y todo lo demás&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://wordpress.org/download/&quot;&gt;WordPress&lt;/a&gt;&lt;/strong&gt;, gracias a su enorme comunidad de desarrolladores de plugins, es muy útil para crear blogs y páginas web con docenas de funcionalidades. Si además le instalas &lt;strong&gt;&lt;a href=&quot;https://www.woothemes.com/woocommerce/&quot;&gt;woocommerce&lt;/a&gt;&lt;/strong&gt; o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, hay que reconocer que la versatilidad y sencillez de Wordpress y otros CMS similares dejan poco espacio para cualquier otra plataforma de desarrollo web salvo en dos casos:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Desarrollo de grandes sitios o aplicaciones web con bases de datos enormes o muy personalizadas&lt;/li&gt;
@@ -1323,12 +1532,14 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;En estos casos yo recomiendo utilizar &lt;strong&gt;&lt;a href=&quot;https://laravel.com/&quot;&gt;Laravel&lt;/a&gt;&lt;/strong&gt; si uno está familiarizado con PHP, o &lt;strong&gt;&lt;a href=&quot;http://www.rubyonrails.org.es/&quot;&gt;Ruby on Rails&lt;/a&gt;&lt;/strong&gt; (aka RoR) si uno prefiere Ruby. Aunque yo soy un fan confeso de Laravel, me consta que los dos frameworks tienen una comunidad de desarrolladores enorme, es decir: los dos tienen muy buen soporte y montones de repositorios que nos vendrán que ni pintados.&lt;/p&gt;
 
+&lt;p&gt;Por supuesto, esta es también la opción ideal para desarrollar webservices o APIs, pequeñas o grandes, donde ni siquiera es necesario un frontend, propiamente hablando.&lt;/p&gt;
+
 &lt;h2 id=&quot;blogs-sencillos-pginas-corporativas&quot;&gt;Blogs sencillos, páginas corporativas…&lt;/h2&gt;
 &lt;p&gt;Si, por otro lado, uno desea hacerse un blog personal o una pequeña página corporativa o, en general, cualquier web con contenido principalmente estático, a mi parecer, tiene tres opciones:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;La primera opción es usar &lt;strong&gt;WordPress&lt;/strong&gt;, en cuyo caso podrá customizar el aspecto y editar nuevos contenidos a una velocidad muy razonable. Por contra, los contenidos se servirán bastante lentamente en relación al poco peso que en realidad tienen y WordPress en sí consumirá muchos más recursos del servidor de los estrictamente necesarios, lo cual hay que tener en cuenta si nuestro cliente o nosotros mismos pagamos un hosting a razón de los servicios que ofrece (PHP, SQL) o los recursos que consume (CPU, espacio).&lt;/p&gt;
+    &lt;p&gt;La primera opción es usar &lt;strong&gt;WordPress&lt;/strong&gt; o similares, en cuyo caso podrá customizar el aspecto y editar nuevos contenidos a una velocidad muy razonable. Por contra, los contenidos se servirán bastante lentamente en relación al poco peso que en realidad tienen y el CMS en sí consumirá muchos más recursos del servidor de los estrictamente necesarios, lo cual hay que tener en cuenta si nuestro cliente o nosotros mismos pagamos un hosting a razón de los servicios que ofrece (PHP, SQL) o los recursos que consume (CPU, espacio).&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;La segunda opción, óptima para webs-anuncios, landing pages o pequeñas webs corporativas con 2-5 páginas distintas, es sencillamente editar a pelo algún template html/css/js existente. Al respecto, los templates basados en &lt;strong&gt;&lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt;&lt;/strong&gt; y similares son ideales: fáciles de entender, responsive, cross-browser…&lt;/p&gt;
@@ -1338,9 +1549,9 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
     &lt;p&gt;La única pega de esta estrategia es que agregar una nueva página no supondrá ningún ahorro de tiempo respecto a la anterior. Por tanto, si hubiese que hacer muchas páginas o si quisiéramos ciertas funcionalidades complejas (de blog, de e-shop…), esta estrategia no sería la más adecuada.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;La tercera y última opción es utilizar &lt;strong&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt;, una especie de intérprete/generador de webs de contenido estático, al que sólo hay que pasarle el contenido de cada página convenientemente estructurado (markdown). Jekyll genera y actualiza (incluso en tiempo real) la totalidad de nuestro sitio web conforme uno lo escribe en cualquier editor de texto o IDE favorito.&lt;/p&gt;
+    &lt;p&gt;La tercera y última opción es utilizar &lt;strong&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt; o algún otro generador de sitios estáticos similar, a los que sólo hay que pasarles el contenido de cada página convenientemente estructurado (markdown). Estas aplicaciones generan y actualizan (incluso en tiempo real) la totalidad de nuestro sitio web conforme uno lo escribe en cualquier editor de texto o IDE favorito.&lt;/p&gt;
 
-    &lt;p&gt;Los sitios así generados no requieren del propio Jekyll para ser servidos, con lo cual en nuestro entorno de producción no es necesario tener bases de datos, ni Ruby, ni PHP… lo que implica un consumo de recursos mínimo, con el consiguiente ahorro de dinerito.&lt;/p&gt;
+    &lt;p&gt;Los sitios así generados no requieren del propio generador para ser servidos, con lo cual en nuestro entorno de producción no es necesario tener bases de datos, ni Ruby, ni PHP… lo que implica un consumo de recursos mínimo, con el consiguiente ahorro de dinerito.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1353,8 +1564,8 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Type of project vs Technology&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Framework&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;WordPress&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Jekyll&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;CMS&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Static site generator&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Template&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -1384,7 +1595,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 &lt;/table&gt;
 
 &lt;h2 id=&quot;dudas-sugerencias&quot;&gt;Dudas, sugerencias…&lt;/h2&gt;
-&lt;p&gt;Estoy seguro que me dejo un montón de tecnologías aplicable a tipologías de proyectos muy variadas. A bote pronto me vienen a la mente la gran cantidad de content managers que existen para montar portales, e-shops o blogs. ¡Te animo a que me sugieras todos los que tú conoces y consideres excepcionalmente buenos!&lt;/p&gt;
+&lt;p&gt;Estoy seguro que me dejo un montón de tecnologías aplicable a tipologías de proyectos muy variadas. A bote pronto me vienen a la mente la gran cantidad de content managers que existen para montar portales, e-shops o blogs y que no he mencionado. O los múltiples frameworks basados en Python, Javascript o Java, para realizar aplicaciones de todo tipo. ¡Te animo a que me sugieras todas las tecnologías que tú conoces y consideres excepcionalmente buenas!&lt;/p&gt;
 
 &lt;p&gt;En cualquier caso, espero que este par de pinceladas sobre estrategias de desarrollo web resulte útil a aquellos que comienzan. Si tienes algunda duda, no dudes en preguntar.&lt;/p&gt;
 
@@ -1394,6 +1605,14 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
         <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/02/estrategias-de-desarrollo-web.html</guid>
         
         <category>web,</category>
+        
+        <category>desarrollo</category>
+        
+        <category>web,</category>
+        
+        <category>estrategias</category>
+        
+        <category>de</category>
         
         <category>desarrollo</category>
         
