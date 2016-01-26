@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Jan 2016 20:13:56 +0100</pubDate>
-    <lastBuildDate>Tue, 26 Jan 2016 20:13:56 +0100</lastBuildDate>
+    <pubDate>Tue, 26 Jan 2016 20:16:24 +0100</pubDate>
+    <lastBuildDate>Tue, 26 Jan 2016 20:16:24 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -20,7 +20,7 @@
 
 &lt;p&gt;Ocurre que, a menudo, en todo tipo de proyectos de desarrollo de software se acaban generando decenas, cientos, miles de ficheros de código y, de una versión a otra se han de modificar unos cuantos de ellos. Sería extremadamente laborioso llevar la cuenta, manualmente, de las líneas de código que se han modificado de una versión a otra. Si además trabajases en equipos de desarrolladores, imagínate lo complejo que sería coordinar los cambios realizados por dos o más programadores sobre los mismos ficheros. La implementación de nuevas versiones llevaría horas o incluso días de coordinación de cambios. Y por si no te has dado cuenta aún, te lo digo yo: en el mundillo de la programación de aplicaciones el ahorro de tiempo y el aumento de la productividad son más valiosos que el oro, la plata y que todo el mercado de stocks mundial y aún me quedo corto.&lt;/p&gt;
 
-&lt;p&gt;Por lo tanto tenemos una necesidad: poder automatizar y coordinar las versiones. Y de ahí nace lo que conocemos como el control de versiones y los sistemas de control de versiones (VCS), que básicamente son estrategias y software para realizar esa gestión de cambios. ¿TTodo claro hasta aquí?&lt;/p&gt;
+&lt;p&gt;Por lo tanto tenemos una necesidad: poder automatizar y coordinar las versiones. Y de ahí nace lo que conocemos como el control de versiones y los sistemas de control de versiones (VCS), que básicamente son estrategias y software para realizar esa gestión de cambios.&lt;/p&gt;
 
 &lt;h1 id=&quot;qu-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h1&gt;
 
