@@ -6,13 +6,13 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Jan 2016 20:16:24 +0100</pubDate>
-    <lastBuildDate>Tue, 26 Jan 2016 20:16:24 +0100</lastBuildDate>
+    <pubDate>Tue, 26 Jan 2016 23:11:18 +0100</pubDate>
+    <lastBuildDate>Tue, 26 Jan 2016 23:11:18 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Introducción al control de versiones con Git: comandos básicos en entorno local</title>
-        <description>&lt;h1 id=&quot;qu-es-el-control-de-versiones&quot;&gt;¿Qué es el control de versiones?&lt;/h1&gt;
+        <description>&lt;h2 id=&quot;qu-es-el-control-de-versiones&quot;&gt;¿Qué es el control de versiones?&lt;/h2&gt;
 
 &lt;p&gt;¿Alguna vez te has fijado que los sistemas operativos (SO) van evolucionando con el tiempo? Por ejemplo: en Windows hemos tenido en los últimos años el Windows 7, el 8 y el 10. Con el SO Android o con Linux y sus distribuciones (Arch, Ubuntu, Debian, etc.) ocurre exactamente lo mismo. A veces las nuevas versiones suponen pequeñas mejoras y otras veces cambios radicales, casi siempre para mejor.&lt;/p&gt;
 
@@ -22,17 +22,17 @@
 
 &lt;p&gt;Por lo tanto tenemos una necesidad: poder automatizar y coordinar las versiones. Y de ahí nace lo que conocemos como el control de versiones y los sistemas de control de versiones (VCS), que básicamente son estrategias y software para realizar esa gestión de cambios.&lt;/p&gt;
 
-&lt;h1 id=&quot;qu-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h1&gt;
+&lt;h2 id=&quot;qu-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h2&gt;
 
 &lt;p&gt;Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí, algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismo fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí). Además, sabiendo más o menos de qué va Git, la terminología del control de versiones y los conceptos generales (merge, branch, pull, push…), aprender a hacer lo mismo con un nuevo VCS es coser y cantar.&lt;/p&gt;
 
-&lt;h1 id=&quot;git-bsico-bsico&quot;&gt;Git básico, básico&lt;/h1&gt;
+&lt;h2 id=&quot;git-bsico-bsico&quot;&gt;Git básico, básico&lt;/h2&gt;
 
 &lt;p&gt;Como decía un compañero mío de universidad: “para aprender a andar primero hay que aprender a gatear”, y como para aprender a gatear primero hay que nacer, qué mejor que empezar por el principio de todo: la instalación de git.&lt;/p&gt;
 
-&lt;h2 id=&quot;nacer-instalar-git-en-tu-ordenador&quot;&gt;Nacer: instalar Git en tu ordenador&lt;/h2&gt;
+&lt;h3 id=&quot;nacer-instalar-git-en-tu-ordenador&quot;&gt;Nacer: instalar Git en tu ordenador&lt;/h3&gt;
 
 &lt;p&gt;Básicamente si usas Linux lo puedes instalar con tu gestor de paquetes habitual:&lt;/p&gt;
 &lt;pre&gt;sudo yum install git-all&lt;/pre&gt;
@@ -54,7 +54,7 @@ C:&amp;#92;&amp;#62; git version
 git version 1.9.5
 &lt;/pre&gt;
 
-&lt;h2 id=&quot;aprendiendo-a-gatear-usar-git-en-tu-entorno-local&quot;&gt;Aprendiendo a gatear: usar Git en tu entorno local&lt;/h2&gt;
+&lt;h3 id=&quot;aprendiendo-a-gatear-usar-git-en-tu-entorno-local&quot;&gt;Aprendiendo a gatear: usar Git en tu entorno local&lt;/h3&gt;
 
 &lt;p&gt;La gracia de los sistemas de control de versiones (VCS) está, sobretodo, en la gestión de repositorios remotos, a los cuales puede acceder un equipo de desarrolladores (repositorios privados) o incluso cualquier persona que desee colaborar en el desarrollo de un proyecto de código abierto (repositorios públicos). Los repositorios son, sencillamente, los lugares donde se guarda el código de nuestro proyecto, se coordinan y se registran los cambios que se van haciendo (qué cambios se han hecho, quién los ha hecho, cuándo…).&lt;/p&gt;
 
@@ -175,7 +175,7 @@ git commit --ammend
 
 &lt;p&gt;En fin, espero que esta introducción te haya servido para empezar a moverte por el mundo de los VCS y, en particular, con Git. Aunque aún no hemos tratado el asunto de los branch y los repositorios piensa que ya estás capacitado para hacer un seguimiento de los cambios en tus proyectos en tu espacio de trabajo local. ¡Ya no tienes excusa para olvidar modificaciones realizadas en el pasado!&lt;/p&gt;
 
-&lt;h1 id=&quot;consejillos&quot;&gt;Consejillos&lt;/h1&gt;
+&lt;h2 id=&quot;consejillos&quot;&gt;Consejillos&lt;/h2&gt;
 
 &lt;p&gt;Y ahora un par de consejos para facilitarte la vida:&lt;/p&gt;
 
@@ -185,7 +185,7 @@ git commit --ammend
 &lt;li&gt;Puedes utilizar alguna interfaz gráfica para git que, como mínimo, te ayudará a visualizar los cambios realizados en los distintos ficheros antes o después de hacer el staging o el commit. Hay montones y muy buenas GUI: GitHub Desktop, SourceTree, git-cola... De nuevo, Google es tu amigo. Cuando aprendas a manejarte con los repositorios remotos les sacarás mucho partido.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;prximamente&quot;&gt;Próximamente…&lt;/h1&gt;
+&lt;h2 id=&quot;prximamente&quot;&gt;Próximamente…&lt;/h2&gt;
 &lt;p&gt;En el próximo post sobre Git hablaré de cómo manejar las branches y cómo intercambiar datos con los repositorios remotos: la auténtica belleza de todo este asuntillo.&lt;/p&gt;
 
 &lt;p&gt;Recuerda que puedes preguntarme sobre cualquier cosa que no te haya quedado clara, sobre errores que te van surgiendo o indicarme correcciones aquí abajo, en el área de comentarios.&lt;/p&gt;
