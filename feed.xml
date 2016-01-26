@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Jan 2016 19:07:48 +0100</pubDate>
-    <lastBuildDate>Tue, 26 Jan 2016 19:07:48 +0100</lastBuildDate>
+    <pubDate>Tue, 26 Jan 2016 19:14:59 +0100</pubDate>
+    <lastBuildDate>Tue, 26 Jan 2016 19:14:59 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -66,9 +66,9 @@ git version 1.9.5
 
 &lt;p&gt;En mi Windows yo he creado una carpeta en c:\myFakeProject\ y he creado dentro un fichero txt vacío llamado thisIsAnAppYouBetterBelieveIt.txt . Nunca antes desarrollar aplicaciones fue tan rápido. Ahora abramos nuestra magnífica aplicación nueva con apariencia de fichero de texto vacío con cualquier editor de texto (notepad, gedit, cualquier cosa sencilla que tengas a mano).&lt;/p&gt;
 
-&lt;p&gt;Escribamos alguna nueva línea de código, por ejemplo: “Hola mundo!”. Guarda el fichero. Ahora borra la palabra “mundo” y sustitúyela por “Paco”. Guarda y cierra el fichero.&lt;/p&gt;
+&lt;p&gt;Escribamos alguna nueva línea de código, por ejemplo: “Hola mundo!”. Ahora borra la palabra “mundo” y sustitúyela por “Paco”. Guarda y cierra el fichero.&lt;/p&gt;
 
-&lt;p&gt;Muy bien, volvamos a abrir el fichero (¿qué locura es ésta? paciencia…). Ahora intenta deshacer la última modificación (Ctrl+z), si tu editor no es más listo de lo habitual no debería poder hacerlo. Resulta que has pedido para siempre la palabra mundo, si no la hubieses escrito tú mismo hace unos segundo jamás sabrías qué había allí escrito antes de la última modificación… Imagínate que en vez de un .txt se trata de una aplicación de verdad y que la nueva línea de código funciona peor que la original o aún peor, que has eliminado línea de código anteriores sin querer. Estarías perdido, te tocaría volver a reescribir el código y, en general, te tocaría perder un tiempo precioso que no tienes.&lt;/p&gt;
+&lt;p&gt;Muy bien, ahora vuelve a abrir el fichero (¿qué locura es ésta?) e intenta deshacer la última modificación (Ctrl+z), si tu editor no es más listo de lo habitual no deberías poder deshacer el último cambio realizado. Resulta que has perdido para siempre la palabra “mundo” (te has cargado el mundo, estarás orgulloso). Si no hubieses escrito el cambio tú mismo hace unos segundo jamás sabrías qué había allí escrito antes de la última modificación. Imagínate que en vez de un .txt se trata de una aplicación de verdad y que la nueva línea de código funciona peor que la original o que has eliminado línea de código anteriores sin querer. Estarías perdido, te volverías loco buscando el error y te tocaría volver a reescribir el código. Es decir, que en general te tocaría perder un tiempo precioso que no tienes.&lt;/p&gt;
 
 &lt;p&gt;Bien, vamos a poner solución a este problema con nuestro Git, nuestro flamante nuevo sistema de control de versiones. Comprueba que en tu terminal o línea de comandos estés en el directorio raíz de tu proyecto. En mi caso c:\myFakeProject\ y escribe&lt;/p&gt;
 
