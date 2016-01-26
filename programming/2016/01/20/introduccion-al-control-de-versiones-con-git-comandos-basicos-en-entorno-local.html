@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="¿Qué es el control de versiones?">
 
-  <title>Introducción al control de versiones con Git: comandos básicos en tu entorno local</title>
+  <title>Introducción al control de versiones con Git: comandos básicos en entorno local</title>
 
   <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mitxelmoriana.com/programaci%C3%B3n/2016/01/13/introduccion-al-control-de-versiones-con-git.html">
+  <link rel="canonical" href="http://mitxelmoriana.com/programming/2016/01/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html">
   <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
   <link rel="icon" type="image/png" href="/favicon.png">
 </head>
@@ -70,13 +70,13 @@
 
   
   <headerimagewrapper>
-    <headerimage style="background-image: url('/headers/git.jpg');"></headerimage>
+    <headerimage style="background-image: url('/headers/git.png');"></headerimage>
   </headerimagewrapper>
   
 
   <header class="post-header wrapper">
-    <h1 class="post-title" itemprop="name headline">Introducción al control de versiones con Git: comandos básicos en tu entorno local</h1>
-    <p class="post-meta"><time datetime="2016-01-13T00:00:00+01:00" itemprop="datePublished">Jan 13, 2016</time></p>
+    <h1 class="post-title" itemprop="name headline">Introducción al control de versiones con Git: comandos básicos en entorno local</h1>
+    <p class="post-meta"><time datetime="2016-01-20T00:00:00+01:00" itemprop="datePublished">Jan 20, 2016</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
@@ -98,7 +98,7 @@
 
 <h1 id="git-bsico-bsico">Git básico, básico</h1>
 
-<p>Como decía un compañero mío de universidad: “para aprender a andar primero hay que aprender a gatear” (o algo así). Y como para aprender a gatear primero hay que nacer, qué mejor que empezar por el principio de todito todo: que vendría a ser la instalación de git.</p>
+<p>Como decía un compañero mío de universidad: “para aprender a andar primero hay que aprender a gatear” (o algo así). Y como para aprender a gatear primero hay que nacer, qué mejor que empezar por el principio de todito todo: la instalación de git.</p>
 
 <h2 id="nacer-instalar-git-en-tu-ordenador">Nacer: instalar Git en tu ordenador</h2>
 
@@ -111,12 +111,12 @@
 
 <p>Si necesitas más detalles sobre cómo instalarlo, casos especiales y concretos… ya sabes que Google es tu amigo. También puedes preguntar más abajo e intentaré ayudarte.</p>
 
-<p>Si todo ha ido bien cuando escribas en tu terminal o línea de comandos &lt;pre&gt;git version&lt;/pre&gt; y debería devolverte la versión del Git que has instalado en tu SO. Por ejemplo, en mi Ubuntu Linux a mí me aparece:</p>
+<p>Si todo ha ido bien cuando escribas en tu terminal el comando <em>git version</em>, debería devolverte la versión del Git que has instalado en tu SO. Por ejemplo, en mi Ubuntu a mí me aparece:</p>
 <pre>
 $ git version
 git version 2.5.0
 </pre>
-<p>En la versión de Git para mi Windows me aparece</p>
+<p>Mientras que en la versión de Git para mi Windows me aparece</p>
 <pre>
 C:&#92;&#62; git version
 git version 1.9.5
@@ -136,13 +136,9 @@ git version 1.9.5
 
 <p>Escribamos alguna nueva línea de código, por ejemplo: “Hola mundo!”. Guarda el fichero. Ahora borra la palabra “mundo” y sustitúyela por “Paco”. Guarda y cierra el fichero.</p>
 
-<p>Muy bien, volvamos a abrir el fichero (¿qué locura es ésta? paciencia…). Ahora intenta deshacer la última modificación (Ctrl+z), si tu editor no es más listo de lo habitual no debería poder hacerlo. Resulta que has pedido para siempre la palabra mundo, si no la hubieses escrito tú mismo hace unos segundo jamás sabrías qué había allí escrito antes de la última modificación… Imagínate que en vez de un .txt se trata de una aplicación de verdad y que la nueva línea de código funciona peor que la original o aún peor, que has eliminado línea de código anteriores sin querer. Estarías perdido, te tocaría volver a reescribir el código y, en general, te tocaría perder el tiempo precioso que no tienes.</p>
+<p>Muy bien, volvamos a abrir el fichero (¿qué locura es ésta? paciencia…). Ahora intenta deshacer la última modificación (Ctrl+z), si tu editor no es más listo de lo habitual no debería poder hacerlo. Resulta que has pedido para siempre la palabra mundo, si no la hubieses escrito tú mismo hace unos segundo jamás sabrías qué había allí escrito antes de la última modificación… Imagínate que en vez de un .txt se trata de una aplicación de verdad y que la nueva línea de código funciona peor que la original o aún peor, que has eliminado línea de código anteriores sin querer. Estarías perdido, te tocaría volver a reescribir el código y, en general, te tocaría perder un tiempo precioso que no tienes.</p>
 
 <p>Bien, vamos a poner solución a este problema con nuestro Git, nuestro flamante nuevo sistema de control de versiones. Comprueba que en tu terminal o línea de comandos estés en el directorio raíz de tu proyecto. En mi caso c:\myFakeProject\ y escribe</p>
-
-<pre>git init</pre>
-
-<p>Imaginemos que estamos desarrollando una aplicación en la carpeta /mi-proyecto/ (lo que sea: un script en python, C… cualquier cosa). Una vez tienes Git instalado y funcionando en tu terminal, basta con que te sitúes en la carpeta raíz de tu proyecto y ejecutes el comando:</p>
 
 <pre>git init</pre>
 
@@ -195,7 +191,7 @@ git commit -m "My first commit"
 
 <p>Bien, modifiquemos ahora nuestro querido fichero .txt. Ábrelo y cambia, por ejemplo, “Paco” por “Pedro”. Ahora guarda y sal de tu editor de texto. Volvamos a la línea de comandos. Haz un git status.</p>
 
-<p>Ahora debería informarte git de que has modificado un fichero respecto al commit que tienes en cabeza (en nuestro caso, respeto al último commit que realizaste). ¿Recuerdas que la última vez que modificamos nuestro txt no tuvimos forma de ver qué había cambiado respecto al texto original? Con git, nunca jamás. Escribre:</p>
+<p>Ahora debería informarte git de que has modificado un fichero respecto al commit que tienes en cabeza (en nuestro caso, respeto al último commit que realizaste). ¿Recuerdas que la última vez que modificamos nuestro txt no tuvimos forma de ver qué había cambiado respecto al texto original? Con git nunca jamás. Escribe:</p>
 
 <pre>git diff</pre>
 
@@ -215,7 +211,7 @@ index 5d8a8b4..4955b9f 100644
 
 <p>Para salir de esta visualización de los cambios pulsa la tecla Q.</p>
 
-<p>Precisamente git nos informa de los cambios que se han realizado. En este caso los cambios que aún no han sido staged con respecto al commit en cabeza. Al igual que cuando creamos un fichero, cuando modificamos uno existente debemos hacer un staging de los cambios, por tanto, podemos volver a escribir:</p>
+<p>Precisamente git nos informa de los cambios que se han realizado, incluyendo las líneas del fichero donde se han realizado. En este caso los cambios que aún no han sido staged con respecto al commit en cabeza. Al igual que cuando creamos un fichero, cuando modificamos uno existente debemos hacer un staging de los cambios, por tanto, debemos volver a escribir:</p>
 
 <pre>
 git add thisIsAnAppYouBetterBelieveIt.txt
@@ -229,9 +225,9 @@ git commit -m "I changed the name for the lulz"
 <p>Ahora quizá estés pensando… Joder, Mitxel… ¿Y si creo 200 ficheros, elimino 100 y modifico 500? ¿Tengo que hacer el staging uno a uno? Y la respuecta es que obviamente no. Aquí te dejo unos comandos muy útiles que te servirán para hacer el staging de cambios en masa:</p>
 
 <pre>
-git add -u    # Staging de ficheros modificados o eliminados (sin los nuevos)
-git add .     # Staging de ficheros modificados o recién creados (sin los eliminados)
-git add -A    # Staging de ficheros modificados, eliminados o recién creados
+git add -u    # Staging de todos los ficheros modificados o eliminados (sin los nuevos)
+git add .     # Staging de todos los ficheros modificados o recién creados (sin los eliminados)
+git add -A    # Staging de todos los ficheros modificados, eliminados o recién creados
 </pre>
 
 <p>Por supuesto, no te olvides de hacer el commit después de hacer el staging, si estás contento con los cambios realizados. Por ahora puedes pensar en el staging como un paso previo en el que repasar los cambios realizados antes de realizar un commit o confirmación. De hecho, en un entorno profesional deberías tomarte bastante en serio lo de realizar un commit o, dicho de otro modo, nuca hagas un commit sin estar 100% seguro de que los cambios que has realizado son los definitivos para resolver el asunto que te traes entre manos (implementar una nueva funcionalidad, corregir un bug…).</p>
@@ -245,21 +241,22 @@ git commit --ammend
 
 <p>Esto sustituirá el último commit realizado por un commit idéntico pero que incluirá el fichero que olvidaste modificar/crear/eliminar.</p>
 
-<p>En fin, espero que esta introducción te haya servido para empezar a moverte por el mundo de los VCS, en concreto por Git. Aunque aún no hemos tratado el asunto de los branch y los repositorios piensa que ya estás capacitado para hacer un seguimiento de tus proyectos a nivel local. ¡Ya no tienes excusa para olvidar modificaciones realizadas en el pasado!</p>
+<p>En fin, espero que esta introducción te haya servido para empezar a moverte por el mundo de los VCS, en concreto por Git. Aunque aún no hemos tratado el asunto de los branch y los repositorios piensa que ya estás capacitado para hacer un seguimiento de los cambios en tus proyectos a nivel local. ¡Ya no tienes excusa para olvidar modificaciones realizadas en el pasado!</p>
 
 <h1 id="consejillos">Consejillos</h1>
 
 <p>Y ahora un par de consejos para facilitarte la vida:</p>
 
 <ul>
-<li>En tus proyectos de desarrollo utiliza un IDE compatible con el VCS que utilices. Hay IDEs muy buenos que te permiten automatizar la ejecución de comandos git (como los que acabamos de aprender) o ejecutarlos con un par de clicks. Mi IDE, por ejemplo, me pinta sobre mi árbol de directorios los nombres de los ficheros modificados de azul o los recién creados y no staged en rojo. ¡Una tontería muy útil!</li>
-<li>Puedes utilizar alguna interfaz visual para Git que, como mínimo, te ayudará a visualizar los cambios realizados en los fichero, hay montones y muy buenas: GitHub Desktop, SourceTree, git-cola... Cuando aprendas a manejarte con los repositorios remotos les sacarás mucho partido.</li>
+<li>Siempre que comiences un nuevo proyecto, por pequeño y personal que sea, haz el seguimiento de cambios con tu VCS favorito. No subestimes la utilidad de saber los cambios realizados haces meses en un proyecto que tenías abandonado y que vuelves a retomar.</li> 
+<li>En tus proyectos de desarrollo utiliza un IDE compatible con el VCS que utilices. Hay IDEs muy buenos que te permiten automatizar la ejecución de comandos git (como los que acabamos de aprender y otros cuantos) o ejecutarlos con un par de clicks. Mi IDE, por ejemplo, me pinta sobre mi árbol de directorios los nombres de los ficheros modificados de azul o los recién creados y no staged en rojo. ¡Una tontería, pero es la leche de útil!</li>
+<li>Puedes utilizar alguna interfaz visual para git que, como mínimo, te ayudará a visualizar los cambios realizados en los fichero. Hay montones y muy buenas: GitHub Desktop, SourceTree, git-cola... Cuando aprendas a manejarte con los repositorios remotos les sacarás mucho partido.</li>
 </ul>
 
 <h1 id="prximamente">Próximamente…</h1>
 <p>En el próximo post sobre Git hablaré de cómo manejar las branches y cómo intercambiar datos con los repositorios remotos: la auténtica belleza de todo este asuntillo.</p>
 
-<p>No te olvidas de comentarme cositas que no te hayan quedado claras, dudas, errores o lo que se te ocurra.</p>
+<p>No te olvidas de comentarme cositas que no te hayan quedado claras, dudas, errores o lo que se te ocurra. Como si quieres hablarme del tiempo.</p>
 
 
   </div>
@@ -270,7 +267,7 @@ git commit --ammend
 <div id="disqus_thread"></div>
 <script>
      var disqus_config = function () {
-         this.page.url = 'http://mitxelmoriana.com/programaci%C3%B3n/2016/01/13/introduccion-al-control-de-versiones-con-git.html';
+         this.page.url = 'http://mitxelmoriana.com/programming/2016/01/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html';
      };
     (function() {
         var d = document, s = d.createElement('script');
