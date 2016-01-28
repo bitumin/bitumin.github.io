@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Jan 2016 23:11:18 +0100</pubDate>
-    <lastBuildDate>Tue, 26 Jan 2016 23:11:18 +0100</lastBuildDate>
+    <pubDate>Thu, 28 Jan 2016 10:28:50 +0100</pubDate>
+    <lastBuildDate>Thu, 28 Jan 2016 10:28:50 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -18,15 +18,15 @@
 
 &lt;p&gt;Si eres un gamer aficionado a los videojuegos te habrás dado cuenta que con los juegos ocurre algo parecido: periódicamente salen nuevos parches y updates de tus juegos favoritos. Con las app para móviles tres cuartos de lo mismo. En general, esto de ir sacando nuevas versiones ocurre con todo tipo de software.&lt;/p&gt;
 
-&lt;p&gt;Ocurre que, a menudo, en todo tipo de proyectos de desarrollo de software se acaban generando decenas, cientos, miles de ficheros de código y, de una versión a otra se han de modificar unos cuantos de ellos. Sería extremadamente laborioso llevar la cuenta, manualmente, de las líneas de código que se han modificado de una versión a otra. Si además trabajases en equipos de desarrolladores, imagínate lo complejo que sería coordinar los cambios realizados por dos o más programadores sobre los mismos ficheros. La implementación de nuevas versiones llevaría horas o incluso días de coordinación de cambios. Y por si no te has dado cuenta aún, te lo digo yo: en el mundillo de la programación de aplicaciones el ahorro de tiempo y el aumento de la productividad son más valiosos que el oro, la plata y que todo el mercado de stocks mundial y aún me quedo corto.&lt;/p&gt;
+&lt;p&gt;Ocurre que en todo tipo de proyectos de desarrollo de software se acaban generando decenas, cientos, miles de ficheros de código y, de una versión a otra se han de modificar unos cuantos de ellos. Sería extremadamente laborioso llevar la cuenta, manualmente, de las líneas de código que se han modificado de una versión a otra. Si además trabajases en equipos de desarrolladores, imagínate lo complejo que sería coordinar los cambios realizados por dos o más programadores sobre los mismos ficheros. La implementación de nuevas versiones llevaría horas o incluso días de coordinación de cambios.&lt;/p&gt;
 
 &lt;p&gt;Por lo tanto tenemos una necesidad: poder automatizar y coordinar las versiones. Y de ahí nace lo que conocemos como el control de versiones y los sistemas de control de versiones (VCS), que básicamente son estrategias y software para realizar esa gestión de cambios.&lt;/p&gt;
 
 &lt;h2 id=&quot;qu-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h2&gt;
 
-&lt;p&gt;Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí, algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismo fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí: algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismo fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí). Además, sabiendo más o menos de qué va Git, la terminología del control de versiones y los conceptos generales (merge, branch, pull, push…), aprender a hacer lo mismo con un nuevo VCS es coser y cantar.&lt;/p&gt;
+&lt;p&gt;Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí). Además, sabiendo más o menos de qué va Git, la terminología y los conceptos generales (merge, branch, pull, push…), aprender a hacer lo mismo con un nuevo VCS es coser y cantar.&lt;/p&gt;
 
 &lt;h2 id=&quot;git-bsico-bsico&quot;&gt;Git básico, básico&lt;/h2&gt;
 
@@ -56,17 +56,17 @@ git version 1.9.5
 
 &lt;h3 id=&quot;aprendiendo-a-gatear-usar-git-en-tu-entorno-local&quot;&gt;Aprendiendo a gatear: usar Git en tu entorno local&lt;/h3&gt;
 
-&lt;p&gt;La gracia de los sistemas de control de versiones (VCS) está, sobretodo, en la gestión de repositorios remotos, a los cuales puede acceder un equipo de desarrolladores (repositorios privados) o incluso cualquier persona que desee colaborar en el desarrollo de un proyecto de código abierto (repositorios públicos). Los repositorios son, sencillamente, los lugares donde se guarda el código de nuestro proyecto, se coordinan y se registran los cambios que se van haciendo (qué cambios se han hecho, quién los ha hecho, cuándo…).&lt;/p&gt;
+&lt;p&gt;La gracia de los sistemas de control de versiones (VCS) está, sobretodo, en la gestión de repositorios remotos, a los cuales puede acceder un equipo de desarrolladores (repositorios privados) o incluso cualquier persona que desee colaborar en el desarrollo de un proyecto de código abierto (repositorios públicos). Los repositorios son, sencillamente, los lugares donde se guarda el código de nuestro proyecto, donde se coordinan y se registran los cambios que se van haciendo (qué cambios se han hecho, quién los ha hecho, cuándo…).&lt;/p&gt;
 
 &lt;p&gt;Pero qué mejor manera de aprender a trabajar con repositorios remotos que aprendiendo primero a trabajar con las versiones de nuestro propio código en nuestro entorno local.&lt;/p&gt;
 
 &lt;p&gt;Por aquello de aprender practicando, vamos a crear un fichero de texto vacío en una nueva carpeta. El fichero de texto vacío representa un programa que iremos modificando para simular lo que serían modificaciones en la aplicación de verdad,&lt;/p&gt;
 
-&lt;p&gt;En mi Windows yo he creado una nueva carpeta en c:\myFakeProject\ y he creado dentro un nuevo fichero .txt vacío con el nombre thisIsAnAppYouBetterBelieveIt.txt . Nunca antes desarrollar aplicaciones fue tan rápido. Ahora abramos nuestra magnífica aplicación con apariencia de fichero de texto vacío con cualquier editor de texto (notepad, gedit o cualquier editor sencillo y rápido que tengas más a mano).&lt;/p&gt;
+&lt;p&gt;En mi Windows yo he creado una nueva carpeta en c:\myFakeProject\ y he creado dentro un nuevo fichero .txt vacío con el nombre &lt;em&gt;thisIsAnAppYouBetterBelieveIt.txt&lt;/em&gt;. Ahora abramos nuestra magnífica aplicación con apariencia de fichero de texto vacío con cualquier editor de texto (notepad, gedit o cualquier editor sencillo y rápido que tengas más a mano).&lt;/p&gt;
 
-&lt;p&gt;Escribamos alguna nueva línea de “código”, por ejemplo: “Hola mundo!”. Ahora borra la palabra “mundo” y sustitúyela por “Paco”. Guarda y cierra el fichero…&lt;/p&gt;
+&lt;p&gt;Escribamos alguna nueva línea de “código”, por ejemplo: “Hola mundo!”. Ahora borra la palabra “mundo” y sustitúyela por “Paco”. Guarda y cierra el fichero.&lt;/p&gt;
 
-&lt;p&gt;Muy bien, ahora vuelve a abrir el fichero (¿qué locura es ésta?) e intenta deshacer la última modificación (Ctrl+z), si tu editor no es más listo de lo habitual no deberías poder deshacer el último cambio realizado. Resulta que has perdido para siempre la palabra “mundo” (te has cargado el mundo, ¡estarás orgulloso de ti mismo!). Si no hubieses escrito esta modificación hace unos segundo seguramente no recordarías qué había allí escrito originalmente.&lt;/p&gt;
+&lt;p&gt;Muy bien, ahora vuelve a abrir el fichero e intenta deshacer la última modificación (Ctrl+z), si tu editor no es más listo de lo habitual no deberías poder deshacer el último cambio realizado. Resulta que has perdido para siempre la palabra “mundo” (te has cargado el mundo, ¡estarás orgulloso de ti mismo!). Si no hubieses escrito esta modificación hace unos segundos, seguramente no recordarías qué había allí escrito originalmente.&lt;/p&gt;
 
 &lt;p&gt;Imagínate que en vez de un .txt se trata de una aplicación de verdad y que, por error, modificaste la línea hace unas semanas. Te tocaría perder un tiempo precioso buscando la modificación que introdujiste sin querer.&lt;/p&gt;
 
@@ -74,7 +74,7 @@ git version 1.9.5
 
 &lt;pre&gt;git init&lt;/pre&gt;
 
-&lt;p&gt;Este comando creará una nueva carpeta oculta /.git en la raíz de tu proyecto, donde Git guarda toda la información necesaria del estado pasado y actual de tus versiones. De hecho, acabas de estrenar un sistema de control de versiones para tu nuevo proyecto. ¡Felicidades!&lt;/p&gt;
+&lt;p&gt;Este comando creará una nueva carpeta oculta /.git en la raíz de tu proyecto, donde Git guarda toda la información necesaria del estado pasado y actual las versiones. De hecho, acabas de estrenar un sistema de control de versiones para tu nuevo proyecto. ¡Felicidades!&lt;/p&gt;
 
 &lt;p&gt;Siempre que queramos saber en qué estado se encuentra nuestro espacio de trabajo, debemos escribir:&lt;/p&gt;
 
@@ -89,11 +89,11 @@ git version 1.9.5
   &lt;li&gt;Una lista de ficheros que están untracked (ficheros que Git no está controlando). Estos suelen ser ficheros que acabas de crear, como el fichero .txt de nuestro ejemplo. Si te fijas, el nombre de tu .txt de ejemplo debería aparecerte en pantalla después de “Untracked files:”.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Bien, vayamos por partes. ¿Qué es eso de la branch? Una branch o rama es una ramificación en el seguimiento de las versiones. Suponte que tú y otro desarrollador tenéis que trabajar sobre la misma aplicación y que no queréis tener que estar constantemente actualizando vuestra entorno de trabajo local con los cambios que realiza cada uno a diario sobre la misma rama. Una manera de trabajar en estos casos podría ser, por ejemplo, crear una rama nueva para cada desarrollador, que más tarde, al cabo de unos días, se fusionarán en una sola rama, es decir, se integrarán los dos cambios hechos por separado en una sola rama. A esto de fusionar ramas se le conoce como &lt;strong&gt;merging&lt;/strong&gt;. Sobre branching y merging hablaremos en el próximo post, por ahora basta con que te suene.&lt;/p&gt;
+&lt;p&gt;Bien, vayamos por partes. ¿Qué es eso de la branch? Una &lt;strong&gt;branch&lt;/strong&gt; o rama es una ramificación en el seguimiento de las versiones. Suponte que tú y otro desarrollador tenéis que trabajar sobre la misma aplicación y que no queréis tener que estar constantemente actualizando vuestra entorno de trabajo local con los cambios que realiza cada uno, a diario, sobre la misma rama. Una manera de trabajar en estos casos podría ser, por ejemplo, crear una rama nueva para cada desarrollador, que más tarde, al cabo de unos días, se fusionarán en una sola rama, es decir, se integrarán los dos cambios hechos por separado en una sola rama. A esto de fusionar ramas se le conoce como &lt;strong&gt;merge&lt;/strong&gt;. Sobre branching y merging hablaremos en el próximo post, por ahora basta con que te suene.&lt;/p&gt;
 
-&lt;p&gt;¿Qué es eso del commit? Un commit o confirmación es la forma de decir con Git “confirmo los cambios que he hecho hasta ahora porque he terminado con este asunto y estoy seguro de que el asunto está resuelto”. Suponte que estás corrigiendo un error y modificas cinco ficheros de tu proyecto. Cuando acabas de modificarlo, testeas la aplicación y todo funciona: puedes dar por terminado el arreglo. Es muy buena idea, entonces, hacer un commit y ponerle un titulillo hermosamente explicativo como por ejemplo “fixed bug #6576”.&lt;/p&gt;
+&lt;p&gt;¿Qué es eso del commit? Un &lt;strong&gt;commit&lt;/strong&gt; o confirmación es la forma de decir con Git “confirmo los cambios que he hecho hasta ahora porque he terminado con este asunto y el asunto está resuelto”. Suponte que estás corrigiendo un error y modificas cinco ficheros de tu proyecto. Cuando acabas de modificarlo, testeas la aplicación y todo funciona como tú esperas: puedes dar por terminado el arreglo. Es muy buena idea, entonces, hacer un commit y ponerle un titulillo hermosamente explicativo como por ejemplo “fixed bug #6576”.&lt;/p&gt;
 
-&lt;p&gt;Podemos hacer lo mismo si acabamos de crear un proyecto o acabamos de crear nuevos ficheros dentro del proyecto. ¡De hecho, este es el caso en el que estamos ahora. Si intentas hacer un commit ahora, sin embargo, te aparecerá un mensajito preocupante, pruébalo:&lt;/p&gt;
+&lt;p&gt;Podemos hacer lo mismo si acabamos de crear un proyecto o acabamos de crear nuevos ficheros dentro del proyecto. ¡De hecho, este es el caso en el que estamos ahora!. Si intentas hacer un commit ahora, sin embargo, te aparecerá un mensajito preocupante, pruébalo:&lt;/p&gt;
 
 &lt;pre&gt;
 git commit -m &quot;My first commit&quot;
@@ -101,13 +101,13 @@ git commit -m &quot;My first commit&quot;
 nothing added to commit but untracked files present
 &lt;/pre&gt;
 
-&lt;p&gt;Nada se ha añadido en nuestro commit. La razón es porque Git tiene un sistema de dos pasos para realizar el commit (stage + commit). Primero hemos de &lt;em&gt;stagear&lt;/em&gt; los cambios realizados y luego realizar el commit. En el caso de un fichero recién creado podemos escribir:&lt;/p&gt;
+&lt;p&gt;Nada se ha añadido en nuestro commit. La razón es porque Git tiene un sistema de dos pasos para realizar el commit (&lt;strong&gt;stage&lt;/strong&gt; + commit). Primero hemos de &lt;em&gt;stagear&lt;/em&gt; los cambios realizados y luego realizar el commit. Esto se hace con el commando &lt;em&gt;git add&lt;/em&gt;. Por ejemplo, nosotros podemos escribir:&lt;/p&gt;
 
 &lt;pre&gt;
 git add thisIsAnAppYouBetterBelieveIt.txt
 &lt;/pre&gt;
 
-&lt;p&gt;Como decía, a esto se le llama hacer staging de nuestros cambios (staging se puede traducir como “puesta en escena”). Pruébalo y haz un git status. Ahora deberías ver una diferencia importante respecto al principio. Ya no aparecen ficheros untracked en tus directorios de trabajo, en su lugar aparece una nueva línea tras “Changes to be committed”&lt;/p&gt;
+&lt;p&gt;Como decía, a esto se le llama hacer staging de nuestros cambios (staging se puede traducir como “puesta en escena”). Pruébalo y haz un &lt;em&gt;git status&lt;/em&gt;. Ahora deberías ver una diferencia importante respecto al principio. Ya no aparecen ficheros &lt;em&gt;untracked&lt;/em&gt; en tu espacio de trabajo, en su lugar aparece una nueva línea como ésta tras &lt;em&gt;Changes to be committed&lt;/em&gt;:&lt;/p&gt;
 
 &lt;pre&gt;
 new file:   thisIsAnAppYouBetterBelieveIt.txt
@@ -119,11 +119,11 @@ new file:   thisIsAnAppYouBetterBelieveIt.txt
 git commit -m &quot;My first commit&quot;
 &lt;/pre&gt;
 
-&lt;p&gt;Una vez hecho esto volvamos a hacer un git status. Ahora git nos dirá que nuestro árbol de directorios de trabajo está libre de modificaciones desde el último commit (el que acabamos de hacer).&lt;/p&gt;
+&lt;p&gt;¡Felicidades por tu primer commit!. Ahora volvamos a hacer un &lt;em&gt;git status&lt;/em&gt;. Git nos dirá esta vez que nuestro espacio de trabajo está libre de nuevas modificaciones desde el último commit (claro, lo acabamos de hacer).&lt;/p&gt;
 
-&lt;p&gt;Bien, modifiquemos ahora nuestro querido fichero .txt. Ábrelo y cambia, por ejemplo, “Paco” por “Pedro”. Ahora guarda y sal de tu editor de texto. Volvamos a la línea de comandos. Haz un git status.&lt;/p&gt;
+&lt;p&gt;Bien, modifiquemos ahora nuestro querido fichero .txt. Ábrelo y cambia, por ejemplo, “Paco” por “Pedro”. Ahora guarda y sal de tu editor de texto. Volvamos a la línea de comandos. Haz un &lt;em&gt;git status&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Ahora debería informarte git de que has modificado un fichero respecto al commit que tienes en cabeza (en nuestro caso, respeto al último commit que realizaste). ¿Recuerdas que la última vez que modificamos nuestro .txt no tuvimos forma de ver qué había cambiado respecto al texto original? Con git nunca jamás. Escribe:&lt;/p&gt;
+&lt;p&gt;Ahora debería informarte Git de que has modificado un fichero respecto al commit que tienes en cabeza (en nuestro caso, respeto al último commit realizado). ¿Recuerdas que la última vez que modificamos nuestro .txt no tuvimos forma de ver qué había cambiado respecto al texto original? Con git eso deja de ser un problema. Escribe:&lt;/p&gt;
 
 &lt;pre&gt;git diff&lt;/pre&gt;
 
@@ -141,20 +141,24 @@ index 5d8a8b4..4955b9f 100644
 \ No newline at end of file
 &lt;/pre&gt;
 
-&lt;p&gt;Para salir de esta pantalla de visualización de los cambios pulsa la tecla Q.&lt;/p&gt;
+&lt;p&gt;Para salir de la pantalla de visualización de cambios pulsa la tecla Q.&lt;/p&gt;
 
-&lt;p&gt;Precisamente git nos informa de los cambios que se han realizado, incluyendo las líneas del fichero donde se han realizado. En este caso los cambios que aún no han sido staged con respecto al commit en cabeza. Al igual que cuando creamos un fichero, cuando modificamos uno existente debemos hacer un staging de los cambios, por tanto, debemos volver a escribir:&lt;/p&gt;
+&lt;p&gt;Precisamente git nos informa de los cambios que se han realizado, incluyendo las líneas del fichero donde se han realizado. En este caso los cambios que aún no están &lt;em&gt;staged&lt;/em&gt; con respecto al commit en cabeza, por lo que sería inútil intentar hacer un commit ahora.&lt;/p&gt;
+
+&lt;p&gt;Al igual que cuando creamos un fichero, cuando modificamos uno existente debemos hacer un &lt;em&gt;staging&lt;/em&gt; de los cambios previamente al &lt;em&gt;commit&lt;/em&gt;. Por suerte, no tienes que memorizar ningún nuevo comando porque todo tipo de staging se hace, al igual que antes, con &lt;em&gt;git add&lt;/em&gt;, ¡también en el caso de eliminar ficheros o cambiarles el nombre de fichero!:&lt;/p&gt;
 
 &lt;pre&gt;
 git add thisIsAnAppYouBetterBelieveIt.txt
 &lt;/pre&gt;
 
-&lt;p&gt;Y a continuación&lt;/p&gt;
+&lt;p&gt;A continuación escribe:&lt;/p&gt;
 &lt;pre&gt;
 git commit -m &quot;I changed the name for the lulz&quot;
 &lt;/pre&gt;
 
-&lt;p&gt;Ahora quizá estés pensando… Joder, Mitxel… ¿Y si creo 200 ficheros, elimino 100 y modifico 500? ¿Tengo que hacer el staging uno a uno? Y la respuecta es que obviamente no. Aquí te dejo unos comandos muy útiles que te servirán para hacer el staging de cambios de múltiples ficheros al mismo tiempo:&lt;/p&gt;
+&lt;p&gt;Perfecto, en tu segundo commit has confirmado el cambio del nombre en esa línea de código.&lt;/p&gt;
+
+&lt;p&gt;Ahora quizá estés pensando: ¿y si creo 200 ficheros, elimino 100 y modifico 500? ¿Tengo que hacer el staging uno a uno? Y la respuesta es que no. Aquí te dejo unos comandos muy útiles que te servirán para hacer el staging de cambios de múltiples ficheros al mismo tiempo:&lt;/p&gt;
 
 &lt;pre&gt;
 git add -u    # Staging de todos los ficheros modificados o eliminados (sin los nuevos)
@@ -173,7 +177,19 @@ git commit --ammend
 
 &lt;p&gt;Esto sustituirá el último commit realizado por un commit idéntico pero que incluirá el fichero que olvidaste modificar/crear/eliminar.&lt;/p&gt;
 
-&lt;p&gt;En fin, espero que esta introducción te haya servido para empezar a moverte por el mundo de los VCS y, en particular, con Git. Aunque aún no hemos tratado el asunto de los branch y los repositorios piensa que ya estás capacitado para hacer un seguimiento de los cambios en tus proyectos en tu espacio de trabajo local. ¡Ya no tienes excusa para olvidar modificaciones realizadas en el pasado!&lt;/p&gt;
+&lt;p&gt;Otro comando que te puede ser útil es el opuesto al &lt;em&gt;git add&lt;/em&gt;, es decir, el que utilizamos para hacer lo opuesto al stage de un fichero. Este comando podría serte útil si deseas hacer un &lt;em&gt;commit&lt;/em&gt; sólo con algunos ficheros modificados y te has equivocado y los has &lt;em&gt;stageado&lt;/em&gt; todos:&lt;/p&gt;
+
+&lt;pre&gt;
+git reset HEAD nombre_del_fichero_a_unstagear   # Lo contrario a *git add* de un fichero 
+&lt;/pre&gt;
+
+&lt;p&gt;Y para el caso de querer hacer un unstage de múltiples ficheros o, mejor dicho, de TODOS los ficheros en estado &lt;em&gt;staged&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;
+git reset   # Lo contrario a *git add -A* 
+&lt;/pre&gt;
+
+&lt;p&gt;En fin, espero que esta introducción te haya servido para empezar a moverte por el mundo de los VCS y, en particular, con Git. Aunque aún no hemos tratado el asunto de los branch y los repositorios piensa que ya estás capacitado para hacer un seguimiento de los cambios en tus proyectos en tu entorno local.&lt;/p&gt;
 
 &lt;h2 id=&quot;consejillos&quot;&gt;Consejillos&lt;/h2&gt;
 
@@ -181,12 +197,12 @@ git commit --ammend
 
 &lt;ul&gt;
 &lt;li&gt;Siempre que comiences un nuevo proyecto, por pequeño y personal que sea, haz el seguimiento de cambios con tu VCS favorito. No subestimes la utilidad de saber los cambios realizados haces meses en un proyecto que tenías abandonado y que vuelves a retomar.&lt;/li&gt; 
-&lt;li&gt;En tus proyectos de desarrollo utiliza un IDE compatible con el VCS que utilices. Hay IDEs muy buenos que te permiten automatizar la ejecución de comandos git (como los que acabamos de aprender y otros cuantos) o ejecutarlos con un par de clicks. Mi IDE, por ejemplo, me pinta sobre mi árbol de directorios los nombres de los ficheros modificados de azul o los recién creados y no staged en rojo y los staged en verde. ¡Parece una tontería pero es la leche de útil!&lt;/li&gt;
-&lt;li&gt;Puedes utilizar alguna interfaz gráfica para git que, como mínimo, te ayudará a visualizar los cambios realizados en los distintos ficheros antes o después de hacer el staging o el commit. Hay montones y muy buenas GUI: GitHub Desktop, SourceTree, git-cola... De nuevo, Google es tu amigo. Cuando aprendas a manejarte con los repositorios remotos les sacarás mucho partido.&lt;/li&gt;
+&lt;li&gt;En tus proyectos de desarrollo utiliza un IDE compatible con el VCS que utilices. Hay IDEs muy buenos que te permiten automatizar la ejecución de comandos git (como los que acabamos de aprender) o ejecutarlos con un par de clicks. Mi IDE, por ejemplo, me pinta sobre mi árbol de directorios los nombres de los ficheros modificados de azul o los recién creados y no staged en rojo y los staged en verde. ¡Es la leche de útil!&lt;/li&gt;
+&lt;li&gt;Puedes utilizar alguna interfaz gráfica para git que, como mínimo, te ayudará a visualizar los cambios realizados en los distintos ficheros antes o después de hacer el staging o el commit. Hay montones y muy buenas GUI para todos los SO: GitHub Desktop, SourceTree, git-cola... De nuevo, Google es tu amigo.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;prximamente&quot;&gt;Próximamente…&lt;/h2&gt;
-&lt;p&gt;En el próximo post sobre Git hablaré de cómo manejar las branches y cómo intercambiar datos con los repositorios remotos: la auténtica belleza de todo este asuntillo.&lt;/p&gt;
+&lt;p&gt;En el próximo post sobre Git hablaré de cómo manejar las &lt;em&gt;branches&lt;/em&gt; y cómo intercambiar datos con los repositorios remotos: la auténtica belleza de todo este asuntillo.&lt;/p&gt;
 
 &lt;p&gt;Recuerda que puedes preguntarme sobre cualquier cosa que no te haya quedado clara, sobre errores que te van surgiendo o indicarme correcciones aquí abajo, en el área de comentarios.&lt;/p&gt;
 
