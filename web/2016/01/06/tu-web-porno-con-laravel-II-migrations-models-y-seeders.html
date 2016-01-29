@@ -69,9 +69,9 @@
         <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
 
   
-  <headerimagewrapper>
-    <headerimage style="background-image: url('/headers/porn-2.jpg');"></headerimage>
-  </headerimagewrapper>
+  <div id="header-image-wrapper">
+    <div id="header-image" style="background-image: url('/headers/porn-2.jpg');"></div>
+  </div>
   
 
   <header class="post-header wrapper">
@@ -202,7 +202,7 @@ DB_PASSWORD=uVYB5vbN38UXmdQ4
 php artisan make:migration create_table-name_table --create=table-name
 </pre>
 
-<p>A modo de referencia, yo he escrito y ejecutado el siguiente comando (que es una concatenación de los cinco comandos que debemos ejecutar):</p>
+<p>A modo de referencia, yo he escrito y ejecutado el siguiente comando (que es una concatenación de los cinco comandos que debes ejecutar):</p>
 
 <pre>
 php artisan make:migration create_tags_table --create=tags &amp;&amp; php artisan make:migration create_girls_table --create=girls &amp;&amp; php artisan make:migration create_videos_table --create=videos &amp;&amp; php artisan make:migration create_girl_video_table --create=girl_video &amp;&amp; php artisan make:migration create_tag_video_table --create=tag_video
@@ -250,10 +250,10 @@ php artisan make:migration create_subscriptions_table --create=subscriptions
 
 <pre>
 Schema::create('tags', function (Blueprint $table) {
-	$table-&gt;increments('id');
-	<strong style="color:red;">$table-&gt;string('name');</strong>
-	<strong style="color:red;">$table-&gt;string('slug');</strong>
-	$table-&gt;timestamps();
+    $table-&gt;increments('id');
+    <strong style="color:red;">$table-&gt;string('name');</strong>
+    <strong style="color:red;">$table-&gt;string('slug');</strong>
+    $table-&gt;timestamps();
 });
 </pre>
 
@@ -421,59 +421,59 @@ php artisan vendor:publish
 <span class="p">{</span>
 	<span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
 	
-	<span class="sd">/**</span>
-<span class="sd">	* The field(s) we use to build the unique slug</span>
-<span class="sd">	* and the field where we store it</span>
-<span class="sd">	*</span>
-<span class="sd">	* @var array</span>
-<span class="sd">	*/</span>
+	<span class="sd">/**
+	* The field(s) we use to build the unique slug
+	* and the field where we store it
+	*
+	* @var array
+	*/</span>
 	<span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
-		<span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+		<span class="s1">'build_from'</span> <span class="o">=&gt;</span> <span class="s1">'name'</span><span class="p">,</span>
+		<span class="s1">'save_to'</span>    <span class="o">=&gt;</span> <span class="s1">'slug'</span><span class="p">,</span>
 	<span class="p">];</span>
 	
-	<span class="sd">/**</span>
-<span class="sd">	* The database table used by the model.</span>
-<span class="sd">	*</span>
-<span class="sd">	* @var string</span>
-<span class="sd">	*/</span>
-	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;tags&#39;</span><span class="p">;</span>
+	<span class="sd">/**
+	* The database table used by the model.
+	*
+	* @var string
+	*/</span>
+	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">'tags'</span><span class="p">;</span>
 	
-	<span class="sd">/**</span>
-<span class="sd">	* The attributes that are mass assignable.</span>
-<span class="sd">	*</span>
-<span class="sd">	* @var array</span>
-<span class="sd">	*/</span>
+	<span class="sd">/**
+	* The attributes that are mass assignable.
+	*
+	* @var array
+	*/</span>
 	<span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
 	
-	<span class="sd">/**</span>
-<span class="sd">	* The attributes excluded from the model&#39;s JSON form.</span>
-<span class="sd">	*</span>
-<span class="sd">	* @var array</span>
-<span class="sd">	*/</span>
+	<span class="sd">/**
+	* The attributes excluded from the model's JSON form.
+	*
+	* @var array
+	*/</span>
 	<span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
 	
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Relationships (with other models)</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Relationships (with other models)
+	|-----------------------------------------------
+	*/</span>
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">videos</span><span class="p">()</span>
 	<span class="p">{</span>
-		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Video&#39;</span><span class="p">);</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">'App\Video'</span><span class="p">);</span>
 	<span class="p">}</span>
 	
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Accessors &amp; Mutators</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Accessors &amp; Mutators
+	|-----------------------------------------------
+	*/</span>
 	
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Scopes</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Scopes
+	|-----------------------------------------------
+	*/</span>
 <span class="p">}</span></code></pre></figure>
 
 </div>
@@ -564,64 +564,64 @@ $tag-&gt;videos
 <span class="p">{</span>
 	<span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
 
-	<span class="sd">/**</span>
-<span class="sd">	 * The attribute(s) we use to build the slug</span>
-<span class="sd">	 * and the field name where we store it</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @var array</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * The attribute(s) we use to build the slug
+	 * and the field name where we store it
+	 *
+	 * @var array
+	 */</span>
 	<span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
-		<span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+		<span class="s1">'build_from'</span> <span class="o">=&gt;</span> <span class="s1">'title'</span><span class="p">,</span>
+		<span class="s1">'save_to'</span>    <span class="o">=&gt;</span> <span class="s1">'slug'</span><span class="p">,</span>
 	<span class="p">];</span>
 
-	<span class="sd">/**</span>
-<span class="sd">	 * The database table used by the model.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @var string</span>
-<span class="sd">	 */</span>
-	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;videos&#39;</span><span class="p">;</span>
+	<span class="sd">/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">'videos'</span><span class="p">;</span>
 
-	<span class="sd">/**</span>
-<span class="sd">	 * The attributes that are mass assignable.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @var array</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */</span>
 	<span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
 
-	<span class="sd">/**</span>
-<span class="sd">	 * The attributes excluded from the model&#39;s JSON form.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @var array</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */</span>
 	<span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
 
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Relationships</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Relationships
+	|-----------------------------------------------
+	*/</span>
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">tags</span><span class="p">()</span>
 	<span class="p">{</span>
-		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Tag&#39;</span><span class="p">);</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">'App\Tag'</span><span class="p">);</span>
 	<span class="p">}</span>
 
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">girls</span><span class="p">()</span>
 	<span class="p">{</span>
-		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Girl&#39;</span><span class="p">);</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">'App\Girl'</span><span class="p">);</span>
 	<span class="p">}</span>
 
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Accessors &amp; Mutators</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Accessors &amp; Mutators
+	|-----------------------------------------------
+	*/</span>
 
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Scopes</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Scopes
+	|-----------------------------------------------
+	*/</span>
 <span class="p">}</span></code></pre></figure>
 
 </div>
@@ -641,59 +641,59 @@ $tag-&gt;videos
 <span class="p">{</span>
 	<span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
 
-	<span class="sd">/**</span>
-<span class="sd">	 * The attribute(s) we use to build the slug</span>
-<span class="sd">	 * and the field name where we store it</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @var array</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * The attribute(s) we use to build the slug
+	 * and the field name where we store it
+	 *
+	 * @var array
+	 */</span>
 	<span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
-		<span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+		<span class="s1">'build_from'</span> <span class="o">=&gt;</span> <span class="s1">'name'</span><span class="p">,</span>
+		<span class="s1">'save_to'</span>    <span class="o">=&gt;</span> <span class="s1">'slug'</span><span class="p">,</span>
 	<span class="p">];</span>
 
-	<span class="sd">/**</span>
-<span class="sd">	 * The database table used by the model.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @var string</span>
-<span class="sd">	 */</span>
-	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;girls&#39;</span><span class="p">;</span>
+	<span class="sd">/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */</span>
+	<span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">'girls'</span><span class="p">;</span>
 
-	<span class="sd">/**</span>
-<span class="sd">	 * The attributes that are mass assignable.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @var array</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */</span>
 	<span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
 
-	<span class="sd">/**</span>
-<span class="sd">	 * The attributes excluded from the model&#39;s JSON form.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @var array</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */</span>
 	<span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
 
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Relationships</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Relationships
+	|-----------------------------------------------
+	*/</span>
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">videos</span><span class="p">()</span>
 	<span class="p">{</span>
-		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Video&#39;</span><span class="p">);</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">'App\Video'</span><span class="p">);</span>
 	<span class="p">}</span>
 
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Accessors &amp; Mutators</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Accessors &amp; Mutators
+	|-----------------------------------------------
+	*/</span>
 
-	<span class="cm">/*</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	| Scopes</span>
-<span class="cm">	|-----------------------------------------------</span>
-<span class="cm">	*/</span>
+	<span class="cm">/*
+	|-----------------------------------------------
+	| Scopes
+	|-----------------------------------------------
+	*/</span>
 <span class="p">}</span></code></pre></figure>
 
 </div>
@@ -748,182 +748,182 @@ class User extends Authenticatable
 
 <span class="k">return</span> <span class="p">[</span>
 
-	<span class="c1">// Seed each of these tables with this numbers of rows</span>
-	<span class="s1">&#39;nGirls&#39;</span>    <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
-	<span class="s1">&#39;nVideos&#39;</span>   <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
-	<span class="s1">&#39;nUsers&#39;</span>    <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span>
+	<span class="c1">// Seed each of these tables with this numbers of rows
+</span>	<span class="s1">'nGirls'</span>    <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+	<span class="s1">'nVideos'</span>   <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+	<span class="s1">'nUsers'</span>    <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span>
 
-	<span class="c1">// How many tags can be associated to each video?</span>
-	<span class="s1">&#39;minTags&#39;</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-	<span class="s1">&#39;maxTags&#39;</span>   <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+	<span class="c1">// How many tags can be associated to each video?
+</span>	<span class="s1">'minTags'</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+	<span class="s1">'maxTags'</span>   <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
 
-	<span class="c1">// How many girls can be associated to each video?</span>
-	<span class="s1">&#39;minGirls&#39;</span>  <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-	<span class="s1">&#39;maxGirls&#39;</span>  <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+	<span class="c1">// How many girls can be associated to each video?
+</span>	<span class="s1">'minGirls'</span>  <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+	<span class="s1">'maxGirls'</span>  <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
 
-	<span class="c1">// Fake information locale (en_US, es_ES, etc.)</span>
-	<span class="s1">&#39;locale&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;es_ES&#39;</span><span class="p">,</span>
+	<span class="c1">// Fake information locale (en_US, es_ES, etc.)
+</span>	<span class="s1">'locale'</span>    <span class="o">=&gt;</span> <span class="s1">'es_ES'</span><span class="p">,</span>
 
-	<span class="c1">// Subscription name</span>
-	<span class="s1">&#39;subscriptionName&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
+	<span class="c1">// Subscription name
+</span>	<span class="s1">'subscriptionName'</span>  <span class="o">=&gt;</span> <span class="s1">'main'</span><span class="p">,</span>
 
-	<span class="c1">// Subscription plan types</span>
-	<span class="s1">&#39;subscriptionPlans&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-		<span class="s1">&#39;monthly&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;every-three-months&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;yearly&#39;</span><span class="p">,</span>
+	<span class="c1">// Subscription plan types
+</span>	<span class="s1">'subscriptionPlans'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+		<span class="s1">'monthly'</span><span class="p">,</span>
+		<span class="s1">'every-three-months'</span><span class="p">,</span>
+		<span class="s1">'yearly'</span><span class="p">,</span>
 	<span class="p">],</span>
 
-	<span class="c1">// Porn categories (courtesy of one random porn site)</span>
-	<span class="s1">&#39;pornCategories&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-		<span class="s1">&#39;3D Hentai&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;3D Stereoscopic&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;3D Toons&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Amateur&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Anal&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Arab&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Asian&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Babes&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Babysitters&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Ballbusting&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;BBW&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;BDSM&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Beach&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Big Butt&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Big Dick&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Big Tits&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Bisexual&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Black&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Blonde&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Blowjob&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Brazilian&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;British&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Brunette&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Bukkake&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Cartoon&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Casting&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Cat Fights&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Celebrities&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;CFNM&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Changing Room&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Chaturbate&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Cheerleaders&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Chinese&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Close-up&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;College&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Compilation&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Cosplay&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Cougar&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Couple&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Creampie&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Cuckold&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Cumshot&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Cunnilingus&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Czech&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Danish&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Deep Throat&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Dildos/Toys&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Doggy Style&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Double Penetration&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Downblouse&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Ebony&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Emo&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;European&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Face Sitting&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Facial&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Femdom&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Fetish&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Fingering&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Fisting&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Flashing&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Foot Fetish&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;French&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Fucking Machines&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Funny&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Gangbang&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Gaping&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;German&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Girlfriend&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Glory Holes&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Gothic&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Grannies&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Group Sex&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Hairy&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Handjob&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Hardcore&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;HD&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Hentai&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Hidden Cams&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Indian&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Interracial&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Italian&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Japanese&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;JOI&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Korean&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Latex&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Latina&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Lesbian&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Lingerie&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Live Show&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Massage&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Masturbation&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Mature&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Medical&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Midgets&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;MILF&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Military&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Natural Tits&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Nipples&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Oldy&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Orgasm&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Outdoor&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Panties&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Philippines&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Phone&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Piercing&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Pissing&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Pornstars&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;POV&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Pregnant&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Public&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Reality&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Redhead&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Retro&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Rimming&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Romantic&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Russian&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Selfshot&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Sharking&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Shaved&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Shower&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Skinny&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Small Tits&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Smoking&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Softcore&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Solo Girl&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Spanish&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Spanking&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Sports&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Squirting&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Stockings&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Strapon&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Strip&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Swallow&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Swedish&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Swingers&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Tattoos&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Thai&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Threesomes&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Turkish&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Underwater&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Uniform&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Upskirt&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Vintage&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Voyeur&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Webcam&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Wife&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Window&#39;</span><span class="p">,</span>
-		<span class="s1">&#39;Yoga&#39;</span>
+	<span class="c1">// Porn categories (courtesy of one random porn site)
+</span>	<span class="s1">'pornCategories'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+		<span class="s1">'3D Hentai'</span><span class="p">,</span>
+		<span class="s1">'3D Stereoscopic'</span><span class="p">,</span>
+		<span class="s1">'3D Toons'</span><span class="p">,</span>
+		<span class="s1">'Amateur'</span><span class="p">,</span>
+		<span class="s1">'Anal'</span><span class="p">,</span>
+		<span class="s1">'Arab'</span><span class="p">,</span>
+		<span class="s1">'Asian'</span><span class="p">,</span>
+		<span class="s1">'Babes'</span><span class="p">,</span>
+		<span class="s1">'Babysitters'</span><span class="p">,</span>
+		<span class="s1">'Ballbusting'</span><span class="p">,</span>
+		<span class="s1">'BBW'</span><span class="p">,</span>
+		<span class="s1">'BDSM'</span><span class="p">,</span>
+		<span class="s1">'Beach'</span><span class="p">,</span>
+		<span class="s1">'Big Butt'</span><span class="p">,</span>
+		<span class="s1">'Big Dick'</span><span class="p">,</span>
+		<span class="s1">'Big Tits'</span><span class="p">,</span>
+		<span class="s1">'Bisexual'</span><span class="p">,</span>
+		<span class="s1">'Black'</span><span class="p">,</span>
+		<span class="s1">'Blonde'</span><span class="p">,</span>
+		<span class="s1">'Blowjob'</span><span class="p">,</span>
+		<span class="s1">'Brazilian'</span><span class="p">,</span>
+		<span class="s1">'British'</span><span class="p">,</span>
+		<span class="s1">'Brunette'</span><span class="p">,</span>
+		<span class="s1">'Bukkake'</span><span class="p">,</span>
+		<span class="s1">'Cartoon'</span><span class="p">,</span>
+		<span class="s1">'Casting'</span><span class="p">,</span>
+		<span class="s1">'Cat Fights'</span><span class="p">,</span>
+		<span class="s1">'Celebrities'</span><span class="p">,</span>
+		<span class="s1">'CFNM'</span><span class="p">,</span>
+		<span class="s1">'Changing Room'</span><span class="p">,</span>
+		<span class="s1">'Chaturbate'</span><span class="p">,</span>
+		<span class="s1">'Cheerleaders'</span><span class="p">,</span>
+		<span class="s1">'Chinese'</span><span class="p">,</span>
+		<span class="s1">'Close-up'</span><span class="p">,</span>
+		<span class="s1">'College'</span><span class="p">,</span>
+		<span class="s1">'Compilation'</span><span class="p">,</span>
+		<span class="s1">'Cosplay'</span><span class="p">,</span>
+		<span class="s1">'Cougar'</span><span class="p">,</span>
+		<span class="s1">'Couple'</span><span class="p">,</span>
+		<span class="s1">'Creampie'</span><span class="p">,</span>
+		<span class="s1">'Cuckold'</span><span class="p">,</span>
+		<span class="s1">'Cumshot'</span><span class="p">,</span>
+		<span class="s1">'Cunnilingus'</span><span class="p">,</span>
+		<span class="s1">'Czech'</span><span class="p">,</span>
+		<span class="s1">'Danish'</span><span class="p">,</span>
+		<span class="s1">'Deep Throat'</span><span class="p">,</span>
+		<span class="s1">'Dildos/Toys'</span><span class="p">,</span>
+		<span class="s1">'Doggy Style'</span><span class="p">,</span>
+		<span class="s1">'Double Penetration'</span><span class="p">,</span>
+		<span class="s1">'Downblouse'</span><span class="p">,</span>
+		<span class="s1">'Ebony'</span><span class="p">,</span>
+		<span class="s1">'Emo'</span><span class="p">,</span>
+		<span class="s1">'European'</span><span class="p">,</span>
+		<span class="s1">'Face Sitting'</span><span class="p">,</span>
+		<span class="s1">'Facial'</span><span class="p">,</span>
+		<span class="s1">'Femdom'</span><span class="p">,</span>
+		<span class="s1">'Fetish'</span><span class="p">,</span>
+		<span class="s1">'Fingering'</span><span class="p">,</span>
+		<span class="s1">'Fisting'</span><span class="p">,</span>
+		<span class="s1">'Flashing'</span><span class="p">,</span>
+		<span class="s1">'Foot Fetish'</span><span class="p">,</span>
+		<span class="s1">'French'</span><span class="p">,</span>
+		<span class="s1">'Fucking Machines'</span><span class="p">,</span>
+		<span class="s1">'Funny'</span><span class="p">,</span>
+		<span class="s1">'Gangbang'</span><span class="p">,</span>
+		<span class="s1">'Gaping'</span><span class="p">,</span>
+		<span class="s1">'German'</span><span class="p">,</span>
+		<span class="s1">'Girlfriend'</span><span class="p">,</span>
+		<span class="s1">'Glory Holes'</span><span class="p">,</span>
+		<span class="s1">'Gothic'</span><span class="p">,</span>
+		<span class="s1">'Grannies'</span><span class="p">,</span>
+		<span class="s1">'Group Sex'</span><span class="p">,</span>
+		<span class="s1">'Hairy'</span><span class="p">,</span>
+		<span class="s1">'Handjob'</span><span class="p">,</span>
+		<span class="s1">'Hardcore'</span><span class="p">,</span>
+		<span class="s1">'HD'</span><span class="p">,</span>
+		<span class="s1">'Hentai'</span><span class="p">,</span>
+		<span class="s1">'Hidden Cams'</span><span class="p">,</span>
+		<span class="s1">'Indian'</span><span class="p">,</span>
+		<span class="s1">'Interracial'</span><span class="p">,</span>
+		<span class="s1">'Italian'</span><span class="p">,</span>
+		<span class="s1">'Japanese'</span><span class="p">,</span>
+		<span class="s1">'JOI'</span><span class="p">,</span>
+		<span class="s1">'Korean'</span><span class="p">,</span>
+		<span class="s1">'Latex'</span><span class="p">,</span>
+		<span class="s1">'Latina'</span><span class="p">,</span>
+		<span class="s1">'Lesbian'</span><span class="p">,</span>
+		<span class="s1">'Lingerie'</span><span class="p">,</span>
+		<span class="s1">'Live Show'</span><span class="p">,</span>
+		<span class="s1">'Massage'</span><span class="p">,</span>
+		<span class="s1">'Masturbation'</span><span class="p">,</span>
+		<span class="s1">'Mature'</span><span class="p">,</span>
+		<span class="s1">'Medical'</span><span class="p">,</span>
+		<span class="s1">'Midgets'</span><span class="p">,</span>
+		<span class="s1">'MILF'</span><span class="p">,</span>
+		<span class="s1">'Military'</span><span class="p">,</span>
+		<span class="s1">'Natural Tits'</span><span class="p">,</span>
+		<span class="s1">'Nipples'</span><span class="p">,</span>
+		<span class="s1">'Oldy'</span><span class="p">,</span>
+		<span class="s1">'Orgasm'</span><span class="p">,</span>
+		<span class="s1">'Outdoor'</span><span class="p">,</span>
+		<span class="s1">'Panties'</span><span class="p">,</span>
+		<span class="s1">'Philippines'</span><span class="p">,</span>
+		<span class="s1">'Phone'</span><span class="p">,</span>
+		<span class="s1">'Piercing'</span><span class="p">,</span>
+		<span class="s1">'Pissing'</span><span class="p">,</span>
+		<span class="s1">'Pornstars'</span><span class="p">,</span>
+		<span class="s1">'POV'</span><span class="p">,</span>
+		<span class="s1">'Pregnant'</span><span class="p">,</span>
+		<span class="s1">'Public'</span><span class="p">,</span>
+		<span class="s1">'Reality'</span><span class="p">,</span>
+		<span class="s1">'Redhead'</span><span class="p">,</span>
+		<span class="s1">'Retro'</span><span class="p">,</span>
+		<span class="s1">'Rimming'</span><span class="p">,</span>
+		<span class="s1">'Romantic'</span><span class="p">,</span>
+		<span class="s1">'Russian'</span><span class="p">,</span>
+		<span class="s1">'Selfshot'</span><span class="p">,</span>
+		<span class="s1">'Sharking'</span><span class="p">,</span>
+		<span class="s1">'Shaved'</span><span class="p">,</span>
+		<span class="s1">'Shower'</span><span class="p">,</span>
+		<span class="s1">'Skinny'</span><span class="p">,</span>
+		<span class="s1">'Small Tits'</span><span class="p">,</span>
+		<span class="s1">'Smoking'</span><span class="p">,</span>
+		<span class="s1">'Softcore'</span><span class="p">,</span>
+		<span class="s1">'Solo Girl'</span><span class="p">,</span>
+		<span class="s1">'Spanish'</span><span class="p">,</span>
+		<span class="s1">'Spanking'</span><span class="p">,</span>
+		<span class="s1">'Sports'</span><span class="p">,</span>
+		<span class="s1">'Squirting'</span><span class="p">,</span>
+		<span class="s1">'Stockings'</span><span class="p">,</span>
+		<span class="s1">'Strapon'</span><span class="p">,</span>
+		<span class="s1">'Strip'</span><span class="p">,</span>
+		<span class="s1">'Swallow'</span><span class="p">,</span>
+		<span class="s1">'Swedish'</span><span class="p">,</span>
+		<span class="s1">'Swingers'</span><span class="p">,</span>
+		<span class="s1">'Tattoos'</span><span class="p">,</span>
+		<span class="s1">'Thai'</span><span class="p">,</span>
+		<span class="s1">'Threesomes'</span><span class="p">,</span>
+		<span class="s1">'Turkish'</span><span class="p">,</span>
+		<span class="s1">'Underwater'</span><span class="p">,</span>
+		<span class="s1">'Uniform'</span><span class="p">,</span>
+		<span class="s1">'Upskirt'</span><span class="p">,</span>
+		<span class="s1">'Vintage'</span><span class="p">,</span>
+		<span class="s1">'Voyeur'</span><span class="p">,</span>
+		<span class="s1">'Webcam'</span><span class="p">,</span>
+		<span class="s1">'Wife'</span><span class="p">,</span>
+		<span class="s1">'Window'</span><span class="p">,</span>
+		<span class="s1">'Yoga'</span>
 	<span class="p">],</span>
 
 <span class="p">];</span></code></pre></figure>
@@ -941,16 +941,16 @@ class User extends Authenticatable
 
 <span class="k">class</span> <span class="nc">TagTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
-    <span class="sd">/**</span>
-<span class="sd">     * Run the database seeds.</span>
-<span class="sd">     *</span>
-<span class="sd">     * @return void</span>
-<span class="sd">     */</span>
+    <span class="sd">/**
+     * Run the database seeds.
+     *
+     * @return void
+     */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
     <span class="p">{</span>
-	    <span class="k">foreach</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.pornCategories&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$categoryName</span><span class="p">)</span>
+	    <span class="k">foreach</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.pornCategories'</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$categoryName</span><span class="p">)</span>
 		    <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-			    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$categoryName</span><span class="p">,</span>
+			    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="nv">$categoryName</span><span class="p">,</span>
 		    <span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
@@ -975,22 +975,22 @@ class User extends Authenticatable
 <span class="k">class</span> <span class="nc">GirlTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
 
-    <span class="sd">/**</span>
-<span class="sd">     * Run the database seeds.</span>
-<span class="sd">     *</span>
-<span class="sd">     * @return void</span>
-<span class="sd">     */</span>
+    <span class="sd">/**
+     * Run the database seeds.
+     *
+     * @return void
+     */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
     <span class="p">{</span>
-	    <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+	    <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.locale'</span><span class="p">));</span>
 
-			<span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nGirls&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
-				<span class="nx">\App\Girl</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-					<span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;female&#39;</span><span class="p">),</span>
-					<span class="s1">&#39;age&#39;</span>           <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">numberBetween</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">90</span><span class="p">),</span>
-					<span class="s1">&#39;picture&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-profile-picture.jpg&#39;</span><span class="p">,</span>
-					<span class="s1">&#39;description&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span>
-				<span class="p">]);</span>
+        <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.nGirls'</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+            <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+                <span class="s1">'name'</span>          <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">'female'</span><span class="p">),</span>
+                <span class="s1">'age'</span>           <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">numberBetween</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">90</span><span class="p">),</span>
+                <span class="s1">'picture'</span>       <span class="o">=&gt;</span> <span class="s1">'example-profile-picture.jpg'</span><span class="p">,</span>
+                <span class="s1">'description'</span>   <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span>
+            <span class="p">]);</span>
     <span class="p">}</span>
 
 <span class="p">}</span></code></pre></figure>
@@ -1010,22 +1010,22 @@ class User extends Authenticatable
 
 <span class="k">class</span> <span class="nc">VideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
-    <span class="sd">/**</span>
-<span class="sd">     * Run the database seeds.</span>
-<span class="sd">     *</span>
-<span class="sd">     * @return void</span>
-<span class="sd">     */</span>
+    <span class="sd">/**
+     * Run the database seeds.
+     *
+     * @return void
+     */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
     <span class="p">{</span>
-	    <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+	    <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.locale'</span><span class="p">));</span>
 
-	    <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nVideos&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+	    <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.nVideos'</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
 		    <span class="nx">\App\Video</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-			    <span class="s1">&#39;title&#39;</span>         <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">sentence</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-			    <span class="s1">&#39;filename&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;example-video.flv&#39;</span><span class="p">,</span>
-			    <span class="s1">&#39;thumbnail&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;example-thumbnail.jpg&#39;</span><span class="p">,</span>
-			    <span class="s1">&#39;featured&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">boolean</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-          <span class="s1">&#39;trailer&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-trailer.flv&#39;</span>
+			    <span class="s1">'title'</span>         <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">sentence</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+			    <span class="s1">'filename'</span>      <span class="o">=&gt;</span> <span class="s1">'example-video.flv'</span><span class="p">,</span>
+			    <span class="s1">'thumbnail'</span>     <span class="o">=&gt;</span> <span class="s1">'example-thumbnail.jpg'</span><span class="p">,</span>
+			    <span class="s1">'featured'</span>      <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">boolean</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+                <span class="s1">'trailer'</span>       <span class="o">=&gt;</span> <span class="s1">'example-trailer.flv'</span>
 		    <span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
@@ -1043,31 +1043,31 @@ class User extends Authenticatable
 
 <span class="k">class</span> <span class="nc">TagVideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
-	<span class="sd">/**</span>
-<span class="sd">	 * Run the database seeds.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @return void</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */</span>
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
 	<span class="p">{</span>
-	  <span class="c1">// First we gather all tags and videos previously created</span>
-	  <span class="nv">$tags</span> <span class="o">=</span> <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
+	  <span class="c1">// First we gather all tags and videos previously created
+</span>	  <span class="nv">$tags</span> <span class="o">=</span> <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
 	  <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
 	
-	  <span class="c1">// Now we iterate through all the videos in our DB</span>
-	  <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
+	  <span class="c1">// Now we iterate through all the videos in our DB
+</span>	  <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
 	
-	    <span class="c1">// We select some random tag keys out of the array of tag&#39;s ids</span>
-	    <span class="nv">$selectedTagKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
+	    <span class="c1">// We select some random tag keys out of the array of tag's ids
+</span>	    <span class="nv">$selectedTagKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
 		    <span class="nv">$tags</span><span class="p">,</span>
 		    <span class="nb">mt_rand</span><span class="p">(</span>
-			    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.minTags&#39;</span><span class="p">),</span>
-			    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.maxTags&#39;</span><span class="p">)</span>
+			    <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.minTags'</span><span class="p">),</span>
+			    <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.maxTags'</span><span class="p">)</span>
 		    <span class="p">)</span>
 	    <span class="p">);</span>
 	    
-	    <span class="c1">// Finally, we associate the selected tags to the current video</span>
-	    <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedTagKeys</span><span class="p">))</span>
+	    <span class="c1">// Finally, we associate the selected tags to the current video
+</span>	    <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedTagKeys</span><span class="p">))</span>
 		    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$selectedTagKeys</span><span class="p">]);</span>
 	    <span class="k">else</span>
 		    <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedTagKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
@@ -1087,31 +1087,31 @@ class User extends Authenticatable
 
 <span class="k">class</span> <span class="nc">GirlVideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
-	<span class="sd">/**</span>
-<span class="sd">	 * Run the database seeds.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @return void</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */</span>
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
 	<span class="p">{</span>
-	  <span class="c1">// First we gather all girls and videos previously created</span>
-	  <span class="nv">$girls</span> <span class="o">=</span> <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
+	  <span class="c1">// First we gather all girls and videos previously created
+</span>	  <span class="nv">$girls</span> <span class="o">=</span> <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
 	  <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
 	
-		<span class="c1">// Now we iterate through all the videos</span>
-	  <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// Now we iterate through all the videos
+</span>	  <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
 	
-	    <span class="c1">// We select some random keys from the girl&#39;s ids array</span>
-	    <span class="nv">$selectedGirlKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
+	    <span class="c1">// We select some random keys from the girl's ids array
+</span>	    <span class="nv">$selectedGirlKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
 		    <span class="nv">$girls</span><span class="p">,</span>
 		    <span class="nb">mt_rand</span><span class="p">(</span>
-			    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.minGirls&#39;</span><span class="p">),</span>
-			    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.maxGirls&#39;</span><span class="p">)</span>
+			    <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.minGirls'</span><span class="p">),</span>
+			    <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.maxGirls'</span><span class="p">)</span>
 		    <span class="p">)</span>
 	    <span class="p">);</span>
 	
-	    <span class="c1">// Finally, we associate the selected girls to the current video</span>
-	    <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span><span class="p">))</span>
+	    <span class="c1">// Finally, we associate the selected girls to the current video
+</span>	    <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span><span class="p">))</span>
 		    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$selectedGirlKeys</span><span class="p">]);</span>
 	    <span class="k">else</span>
 		    <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
@@ -1122,7 +1122,7 @@ class User extends Authenticatable
 
 </div>
 
-<p>Estos seeders quizá te parezcan algo más complicados que los anteriores, pero en realidad no son nada especial. Fíjate que empleando el método all() desde los models respectivos, podemos obtener todos los tags, girls y videos que ya existen en la base de datos. Siempre que hagamos \App\Modelo::all() obtendremos una Collection con todos los elementos de la base de datos relacionada con el Modelo.</p>
+<p>Estos seeders quizá te parezcan algo más complicados que los anteriores, pero en realidad no son nada especial. Fíjate que empleando el método all() desde los models respectivos, podemos obtener todos los tags, girls y videos que ya existen en la base de datos. Siempre que hagamos \App\Modelo::all() obtendremos una Collection con todos los elementos de la base de datos relacionada con el Model.</p>
 
 <p>Con el método pluck(‘columna’) obtendremos una Collection sólo con los datos de una de las columnas de la tabla, mientras que el método toArray() nos sirve para transformar una Collection en un array de toda la vida.</p>
 
@@ -1130,7 +1130,7 @@ class User extends Authenticatable
 
 <p>El resto del código consiste en elegir entre uno y muchos ids de las tablas tags y girls y relacionarlos con los videos usando el método attach(), que es el método indicado para hacer asociaciones entre objetos con relación del tipo many to many.</p>
 
-<p>Lo que acabamos de hacer es, en términos prácticos, poblar las tablas asociativas tag_video y girl_video.</p>
+<p>Lo que acabamos de hacer es, en definitiva, poblar las tablas asociativas tag_video y girl_video.</p>
 
 <p>Nos quedan un par más de seeders para terminar. Editaremos un nuevo fichero UserTableSeeder.php para poblar nuestra tabla users y un nuevo fichero SubscriptionsSeeder.php para poblar nuestra tabla subscriptions con datos más falsos que un euro con la cara de Popeye.</p>
 
@@ -1145,24 +1145,24 @@ class User extends Authenticatable
 
 <span class="k">class</span> <span class="nc">UserTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
-	<span class="sd">/**</span>
-<span class="sd">	 * Run the database seeds.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @return void</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */</span>
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
 	<span class="p">{</span>
-	  <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+        <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.locale'</span><span class="p">));</span>
 	
-		<span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nUsers&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
-			<span class="nx">\App\User</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-				<span class="s1">&#39;name&#39;</span>              <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span>
-				<span class="s1">&#39;email&#39;</span>             <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">,</span>
-				<span class="s1">&#39;password&#39;</span>          <span class="o">=&gt;</span> <span class="nx">bcrypt</span><span class="p">(</span><span class="s1">&#39;wanker&#39;</span><span class="p">),</span>
-				<span class="s1">&#39;stripe_id&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;cus_&#39;</span><span class="o">.</span><span class="nv">$i</span><span class="p">,</span>
-				<span class="s1">&#39;card_brand&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;Visa&#39;</span><span class="p">,</span>
-				<span class="s1">&#39;card_last_four&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;4242&#39;</span><span class="p">,</span>
-			<span class="p">]);</span>
+        <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.nUsers'</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+            <span class="nx">\App\User</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+                <span class="s1">'name'</span>              <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span>
+                <span class="s1">'email'</span>             <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">,</span>
+                <span class="s1">'password'</span>          <span class="o">=&gt;</span> <span class="nx">bcrypt</span><span class="p">(</span><span class="s1">'wanker'</span><span class="p">),</span>
+                <span class="s1">'stripe_id'</span>         <span class="o">=&gt;</span> <span class="s1">'cus_'</span><span class="o">.</span><span class="nv">$i</span><span class="p">,</span>
+                <span class="s1">'card_brand'</span>        <span class="o">=&gt;</span> <span class="s1">'Visa'</span><span class="p">,</span>
+                <span class="s1">'card_last_four'</span>    <span class="o">=&gt;</span> <span class="s1">'4242'</span><span class="p">,</span>
+            <span class="p">]);</span>
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
@@ -1177,27 +1177,26 @@ class User extends Authenticatable
 
 <span class="k">class</span> <span class="nc">SubscriptionsSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
 <span class="p">{</span>
-	<span class="sd">/**</span>
-<span class="sd">	 * Run the database seeds.</span>
-<span class="sd">	 *</span>
-<span class="sd">	 * @return void</span>
-<span class="sd">	 */</span>
+	<span class="sd">/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */</span>
 	<span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
 	<span class="p">{</span>
 		<span class="nv">$users</span> <span class="o">=</span> <span class="nx">\App\User</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
-		<span class="nv">$subscriptionPlans</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptionPlans&#39;</span><span class="p">);</span>
-		<span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+		<span class="nv">$subscriptionPlans</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.subscriptionPlans'</span><span class="p">);</span>
+		<span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.locale'</span><span class="p">));</span>
 	
-	  <span class="k">foreach</span><span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
-		    <span class="s1">&#39;user_id&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
-		    <span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptionName&#39;</span><span class="p">),</span>
-		    <span class="s1">&#39;stripe_id&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-		    <span class="s1">&#39;stripe_plan&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$subscriptionPlans</span><span class="p">[</span><span class="nb">array_rand</span><span class="p">(</span><span class="nv">$subscriptionPlans</span><span class="p">)],</span>
-		    <span class="s1">&#39;quantity&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
-		    <span class="s1">&#39;ends_at&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">dateTimeBetween</span><span class="p">(</span><span class="s1">&#39;-3 months&#39;</span><span class="p">,</span><span class="s1">&#39;1 year&#39;</span><span class="p">),</span>
-	    <span class="p">]);</span>
-	  <span class="p">}</span>
+	    <span class="k">foreach</span><span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span>
+            <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">'subscriptions'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
+                <span class="s1">'user_id'</span>       <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
+                <span class="s1">'name'</span>          <span class="o">=&gt;</span> <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.subscriptionName'</span><span class="p">),</span>
+                <span class="s1">'stripe_id'</span>     <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+                <span class="s1">'stripe_plan'</span>   <span class="o">=&gt;</span> <span class="nv">$subscriptionPlans</span><span class="p">[</span><span class="nb">array_rand</span><span class="p">(</span><span class="nv">$subscriptionPlans</span><span class="p">)],</span>
+                <span class="s1">'quantity'</span>      <span class="o">=&gt;</span> <span class="s1">'1'</span><span class="p">,</span>
+                <span class="s1">'ends_at'</span>       <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">dateTimeBetween</span><span class="p">(</span><span class="s1">'-3 months'</span><span class="p">,</span><span class="s1">'1 year'</span><span class="p">),</span>
+            <span class="p">]);</span>
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
@@ -1212,17 +1211,16 @@ class User extends Authenticatable
 <p>Agrégale las siguientes líneas:</p>
 
 <pre>
-	public function run()
-	{
-		<strong style="color:red;">$this-&gt;call(TagTableSeeder::class);</strong>
-		<strong style="color:red;">$this-&gt;call(GirlTableSeeder::class);</strong>
-		<strong style="color:red;">$this-&gt;call(VideoTableSeeder::class);</strong>
-		<strong style="color:red;">$this-&gt;call(TagVideoTableSeeder::class);</strong>
-		<strong style="color:red;">$this-&gt;call(GirlVideoTableSeeder::class);</strong>
-		<strong style="color:red;">$this-&gt;call(UserTableSeeder::class);</strong>
-		<strong style="color:red;">$this-&gt;call(SubscriptionTableSeeder::class);</strong>
-	}
-}
+    public function run()
+    {
+        <strong style="color:red;">$this-&gt;call(TagTableSeeder::class);</strong>
+        <strong style="color:red;">$this-&gt;call(GirlTableSeeder::class);</strong>
+        <strong style="color:red;">$this-&gt;call(VideoTableSeeder::class);</strong>
+        <strong style="color:red;">$this-&gt;call(TagVideoTableSeeder::class);</strong>
+        <strong style="color:red;">$this-&gt;call(GirlVideoTableSeeder::class);</strong>
+        <strong style="color:red;">$this-&gt;call(UserTableSeeder::class);</strong>
+        <strong style="color:red;">$this-&gt;call(SubscriptionTableSeeder::class);</strong>
+    }
 </pre>
 
 <p>¡Ya hemos terminado con los seeders! Crucemos los dedos y pasemos a escribir el comando para ejecutarlos:</p>
@@ -1243,12 +1241,11 @@ php artisan migrate:refresh --seed # Si lo usas en el entorno de producción ir�
 
 <p>Pues nada, ya tenemos lista nuestra base de datos, espero que los ejemplos que estamos escribiendo te sirvan para hacerte con una idea lo suficientemente general para que tú mismo puedas crear y poblar todo tipo de tablas que se te ocurran para cualquier tipo de proyecto en el que trabajes en el futuro.</p>
 
-<p>Recuerda: si te surgen dudas, detectas errores en mi código o te surgen errores que no logras resolver, escríbeme un comentario más abajo</p>
+<p>Recuerda: si te surgen dudas o detectas errores puedes escribirme un comentario más abajo.</p>
 
 <p><strong>Próximamente</strong><br />
 Tu web porno con Laravel - III: Routes, resources y controllers</p>
 
-<!-- Links -->
 
   </div>
 

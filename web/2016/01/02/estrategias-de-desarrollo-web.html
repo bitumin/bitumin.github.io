@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Breve introducciónCualquier desarrollador web estará de acuerdo conmigo en que elegir la tecnología apropiada a la magnitud, complejidad y características de...">
+  <meta name="description" content="Breve introducción">
 
   <title>Estrategias de desarrollo web</title>
 
@@ -69,9 +69,9 @@
         <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
 
   
-  <headerimagewrapper>
-    <headerimage style="background-image: url('/headers/strategy.jpg');"></headerimage>
-  </headerimagewrapper>
+  <div id="header-image-wrapper">
+    <div id="header-image" style="background-image: url('/headers/strategy.jpg');"></div>
+  </div>
   
 
   <header class="post-header wrapper">
@@ -81,39 +81,43 @@
 
   <div class="post-content" itemprop="articleBody">
     <h2 id="breve-introduccin">Breve introducción</h2>
+
 <p>Cualquier desarrollador web estará de acuerdo conmigo en que elegir la tecnología apropiada a la magnitud, complejidad y características de cada proyecto es de una importancia difícil de sobrevalorar. Además, es lo primero que debe hacerse  incluso antes de comenzar a trabajar en un proyecto. Por eso, he decidido estrenar mi blog comenzando por el principio, es decir, hablando sobre estrategias de desarrollo web.</p>
 
 <h2 id="wordpress-cms-y-todo-lo-dems">WordPress, CMS y todo lo demás</h2>
-<p><strong><a href="https://wordpress.org/download/">WordPress</a></strong>, gracias a su enorme comunidad de desarrolladores de plugins, es muy útil para crear blogs y páginas web con docenas de funcionalidades. Si además le instalas <strong><a href="https://www.woothemes.com/woocommerce/">woocommerce</a></strong> o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, hay que reconocer que la versatilidad y sencillez de Wordpress y otros CMS similares dejan poco espacio para cualquier otra plataforma de desarrollo web salvo en dos casos:</p>
+
+<p><strong><a href="https://wordpress.org/download/">WordPress</a></strong>, gracias a su enorme comunidad de desarrolladores de plugins, es muy útil para crear blogs y páginas web con docenas de funcionalidades. Si además le instalas <strong><a href="https://www.woothemes.com/woocommerce/">WooCommerce</a></strong> o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, la versatilidad y sencillez de Wordpress y de otros CMS por el estilo deja poco espacio para cualquier otra plataforma de desarrollo web salvo en ciertos casos:</p>
 
 <ul>
-  <li>Desarrollo de grandes sitios o aplicaciones web con bases de datos enormes o muy personalizadas</li>
-  <li>Desarrollo de pequeñas webs o blogs con contenido principalmente estático</li>
+  <li>Desarrollo de aplicaciones estilo webservices o grandes aplicaciones con bases de datos muy personalizadas</li>
+  <li>Desarrollo de pequeñas webs, landing pages o incluso blogs con contenido principalmente estático</li>
 </ul>
 
-<h2 id="apps-complejas-y-personalizadas">Apps complejas y personalizadas</h2>
-<p>Si, por ejemplo, uno desea desarrollar una app social, un nuevo facebook, un nuevo twitter, etc., donde el back end (lo que no se ve) nos va a llevar muchas semanas de desarrollo, lo más apropiado es utilizar un <strong>framework</strong>, cuya raison d’être es, precisamente, ayudarnos a escribir el menor número de líneas de código posible para realizar el mayor número de tareas posible (consultas a base de datos, validación de datos, servir páginas, enviar correos…).</p>
+<h2 id="apps-complejas-o-para-usos-muy-especficos">Apps complejas o para usos muy específicos</h2>
 
-<p>En estos casos yo recomiendo utilizar <strong><a href="https://laravel.com/">Laravel</a></strong> si uno está familiarizado con PHP, o <strong><a href="http://www.rubyonrails.org.es/">Ruby on Rails</a></strong> (aka RoR) si uno prefiere Ruby. Aunque yo soy un fan confeso de Laravel, me consta que los dos frameworks tienen una comunidad de desarrolladores enorme, es decir: los dos tienen muy buen soporte y montones de repositorios que nos vendrán que ni pintados.</p>
+<p>Si, por ejemplo, uno desea desarrollar un webservice o una app social, un nuevo facebook, una nueva wikipedia, un nuevo WordPress… donde el back end (lo que no se ve) nos va a llevar muchas semanas de desarrollo, lo más apropiado es utilizar un <strong>framework</strong>, cuya raison d’être es, precisamente, ayudarnos a escribir el menor número de líneas de código posible para realizar el mayor número de tareas posible (consultas a base de datos, validación de datos, servir páginas, enviar correos…).</p>
 
-<p>Por supuesto, esta es también la opción ideal para desarrollar webservices o APIs, pequeñas o grandes, donde ni siquiera es necesario un frontend, propiamente hablando.</p>
+<p>En estos casos yo recomiendo utilizar cualquiera de los frameworks más populares basados en cualquiera de los lenguajes de programación que uno domine, por ejemplo: <strong><a href="https://laravel.com/">Laravel</a></strong> si uno está familiarizado con PHP, <strong><a href="http://www.rubyonrails.org.es/">Ruby on Rails</a></strong> (aka RoR) si uno prefiere Ruby, etc.</p>
+
+<p>Aunque yo soy un fan confeso de Laravel, cualquier framework es una buena opción si consta de una comunidad de desarrolladores lo suficientemente grande como para permitirnos encontrar fácilmente tanto plugins adicionales como respuesta a problemas que nos puedan ir  surgiendo.</p>
 
 <h2 id="blogs-sencillos-pginas-corporativas">Blogs sencillos, páginas corporativas…</h2>
+
 <p>Si, por otro lado, uno desea hacerse un blog personal o una pequeña página corporativa o, en general, cualquier web con contenido principalmente estático, a mi parecer, tiene tres opciones:</p>
 
 <ol>
   <li>
-    <p>La primera opción es usar <strong>WordPress</strong> o similares, en cuyo caso podrá customizar el aspecto y editar nuevos contenidos a una velocidad muy razonable. Por contra, los contenidos se servirán bastante lentamente en relación al poco peso que en realidad tienen y el CMS en sí consumirá muchos más recursos del servidor de los estrictamente necesarios, lo cual hay que tener en cuenta si nuestro cliente o nosotros mismos pagamos un hosting a razón de los servicios que ofrece (PHP, SQL) o los recursos que consume (CPU, espacio).</p>
+    <p>La primera opción es usar <strong>WordPress</strong> o algún otro CMS popular, en cuyo caso podrá customizar el aspecto y editar nuevos contenidos a una velocidad muy razonable. Por contra, los contenidos se servirán bastante lentamente en relación al poco peso que en realidad tienen y el CMS en sí consumirá muchos más recursos del servidor de los estrictamente necesarios, lo cual hay que tener en cuenta si nuestro cliente o nosotros mismos pagamos un hosting a razón de los servicios que ofrece (PHP, SQL) o los recursos que consume (CPU, espacio).</p>
   </li>
   <li>
     <p>La segunda opción, óptima para webs-anuncios, landing pages o pequeñas webs corporativas con 2-5 páginas distintas, es sencillamente editar a pelo algún template html/css/js existente. Al respecto, los templates basados en <strong><a href="http://getbootstrap.com/">Bootstrap</a></strong> y similares son ideales: fáciles de entender, responsive, cross-browser…</p>
 
-    <p>El desarrollo de proyectos bajo este enfoque tan sólo nos debería llevar 1-2 jornadas de trabajo, incluyendo la optimización de la velocidad de carga y el SEO. El resultado debería ser una web extremadamente optimizada y que consumirá menos recursos que un mechero.</p>
+    <p>El desarrollo de proyectos bajo este enfoque tan sólo nos debería llevar 1-2 jornadas de trabajo, incluyendo la optimización de la velocidad de carga y el SEO. El resultado debería ser una web extremadamente optimizada y que consumirá los recursos estrictamente necesarios.</p>
 
     <p>La única pega de esta estrategia es que agregar una nueva página no supondrá ningún ahorro de tiempo respecto a la anterior. Por tanto, si hubiese que hacer muchas páginas o si quisiéramos ciertas funcionalidades complejas (de blog, de e-shop…), esta estrategia no sería la más adecuada.</p>
   </li>
   <li>
-    <p>La tercera y última opción es utilizar <strong><a href="https://jekyllrb.com/">Jekyll</a></strong> o algún otro generador de sitios estáticos similar, a los que sólo hay que pasarles el contenido de cada página convenientemente estructurado (markdown). Estas aplicaciones generan y actualizan (incluso en tiempo real) la totalidad de nuestro sitio web conforme uno lo escribe en cualquier editor de texto o IDE favorito.</p>
+    <p>La tercera y última opción es utilizar <strong><a href="https://jekyllrb.com/">Jekyll</a></strong> o algún otro generador de sitios estáticos similar, a los que sólo hay que pasarles el contenido de cada página convenientemente estructurado (por ejemplo, con markdown). Estas aplicaciones generan y actualizan, incluso en tiempo real, la totalidad de nuestro sitio web conforme uno lo escribe en cualquier editor de texto o IDE favorito.</p>
 
     <p>Los sitios así generados no requieren del propio generador para ser servidos, con lo cual en nuestro entorno de producción no es necesario tener bases de datos, ni Ruby, ni PHP… lo que implica un consumo de recursos mínimo, con el consiguiente ahorro de dinerito.</p>
   </li>
@@ -135,22 +139,22 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Simple site, static content</td>
+      <td style="text-align: left">Simple static content</td>
       <td style="text-align: center"> </td>
-      <td style="text-align: center">*</td>
-      <td style="text-align: center">***</td>
-      <td style="text-align: center">**</td>
+      <td style="text-align: center"><i class="fa fa-star"></i></td>
+      <td style="text-align: center"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td>
+      <td style="text-align: center"><i class="fa fa-star"></i><i class="fa fa-star"></i></td>
     </tr>
     <tr>
       <td style="text-align: left">Standard site</td>
       <td style="text-align: center"> </td>
-      <td style="text-align: center">***</td>
+      <td style="text-align: center"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Complex web app</td>
-      <td style="text-align: center">***</td>
+      <td style="text-align: left">Custom web app</td>
+      <td style="text-align: center"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
@@ -159,7 +163,8 @@
 </table>
 
 <h2 id="dudas-sugerencias">Dudas, sugerencias…</h2>
-<p>Estoy seguro que me dejo un montón de tecnologías aplicable a tipologías de proyectos muy variadas. A bote pronto me vienen a la mente la gran cantidad de content managers que existen para montar portales, e-shops o blogs y que no he mencionado. O los múltiples frameworks basados en Python, Javascript o Java, para realizar aplicaciones de todo tipo. ¡Te animo a que me sugieras todas las tecnologías que tú conoces y consideres excepcionalmente buenas!</p>
+
+<p>Estoy seguro de que me dejo en el tintero un montón de tecnologías aplicable a tipologías de proyectos muy variadas. A bote pronto me vienen a la mente la gran cantidad de CMS que existen para montar portales, e-shops o blogs y que no he mencionado o los múltiples frameworks basados en Python, Javascript o Java, para realizar aplicaciones de todo tipo. ¡Te animo a que me sugieras todas las tecnologías que tú conoces y consideres excepcionalmente buenas!</p>
 
 <p>En cualquier caso, espero que este par de pinceladas sobre estrategias de desarrollo web resulte útil a aquellos que comienzan. Si tienes algunda duda, no dudes en preguntar.</p>
 

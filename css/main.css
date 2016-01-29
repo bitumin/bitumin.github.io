@@ -481,7 +481,7 @@ a:hover {
 /**
  * Posts header with background image
  */
-headerimagewrapper {
+#header-image-wrapper {
   height: 400px;
   width: 100%;
   background-color: #000;
@@ -491,7 +491,7 @@ headerimagewrapper {
   display: block;
   z-index: -1; }
 
-headerimage {
+#header-image {
   opacity: 0.5;
   height: 100%;
   width: 100%;
