@@ -1050,29 +1050,29 @@ class User extends Authenticatable
      */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
     <span class="p">{</span>
-      <span class="c1">// First we gather all tags and videos previously created
-</span>      <span class="nv">$tags</span> <span class="o">=</span> <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
-      <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
-    
-      <span class="c1">// Now we iterate through all the videos in our DB
-</span>      <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
-    
-        <span class="c1">// We select some random tag keys out of the array of tag's ids
-</span>        <span class="nv">$selectedTagKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
-            <span class="nv">$tags</span><span class="p">,</span>
-            <span class="nb">mt_rand</span><span class="p">(</span>
-                <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.minTags'</span><span class="p">),</span>
-                <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.maxTags'</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="p">);</span>
-        
-        <span class="c1">// Finally, we associate the selected tags to the current video
-</span>        <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedTagKeys</span><span class="p">))</span>
-            <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$selectedTagKeys</span><span class="p">]);</span>
-        <span class="k">else</span>
-            <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedTagKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
-                <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
-      <span class="p">}</span>
+        <span class="c1">// First we gather all tags and videos previously created
+</span>        <span class="nv">$tags</span> <span class="o">=</span> <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
+        <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+      
+        <span class="c1">// Now we iterate through all the videos in our DB
+</span>        <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
+      
+            <span class="c1">// We select some random tag keys out of the array of tag's ids
+</span>            <span class="nv">$selectedTagKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
+                <span class="nv">$tags</span><span class="p">,</span>
+                <span class="nb">mt_rand</span><span class="p">(</span>
+                    <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.minTags'</span><span class="p">),</span>
+                    <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.maxTags'</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">);</span>
+            
+            <span class="c1">// Finally, we associate the selected tags to the current video
+</span>            <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedTagKeys</span><span class="p">))</span>
+                <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$selectedTagKeys</span><span class="p">]);</span>
+            <span class="k">else</span>
+                <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedTagKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
+                    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
@@ -1094,29 +1094,29 @@ class User extends Authenticatable
      */</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
     <span class="p">{</span>
-      <span class="c1">// First we gather all girls and videos previously created
-</span>      <span class="nv">$girls</span> <span class="o">=</span> <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
-      <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
-    
+        <span class="c1">// First we gather all girls and videos previously created
+</span>        <span class="nv">$girls</span> <span class="o">=</span> <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
+        <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+
         <span class="c1">// Now we iterate through all the videos
-</span>      <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
-    
-        <span class="c1">// We select some random keys from the girl's ids array
-</span>        <span class="nv">$selectedGirlKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
-            <span class="nv">$girls</span><span class="p">,</span>
-            <span class="nb">mt_rand</span><span class="p">(</span>
-                <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.minGirls'</span><span class="p">),</span>
-                <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.maxGirls'</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="p">);</span>
-    
-        <span class="c1">// Finally, we associate the selected girls to the current video
-</span>        <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span><span class="p">))</span>
-            <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$selectedGirlKeys</span><span class="p">]);</span>
-        <span class="k">else</span>
-            <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
-                <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
-      <span class="p">}</span>
+</span>        <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="c1">// We select some random keys from the girl's ids array
+</span>            <span class="nv">$selectedGirlKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
+                <span class="nv">$girls</span><span class="p">,</span>
+                <span class="nb">mt_rand</span><span class="p">(</span>
+                    <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.minGirls'</span><span class="p">),</span>
+                    <span class="nx">config</span><span class="p">(</span><span class="s1">'seeders.maxGirls'</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">);</span>
+
+            <span class="c1">// Finally, we associate the selected girls to the current video
+</span>            <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span><span class="p">))</span>
+                <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$selectedGirlKeys</span><span class="p">]);</span>
+            <span class="k">else</span>
+                <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
+                    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
