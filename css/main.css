@@ -295,7 +295,8 @@ pre {
   line-height: 60px; }
   @media screen and (max-width: 800px) {
     .post-title {
-      font-size: 36px; } }
+      font-size: 36px;
+      line-height: 42px; } }
 
 .post-content {
   margin-bottom: 30px; }
