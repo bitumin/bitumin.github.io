@@ -6,13 +6,13 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 30 Jan 2016 19:34:21 +0100</pubDate>
-    <lastBuildDate>Sat, 30 Jan 2016 19:34:21 +0100</lastBuildDate>
+    <pubDate>Sat, 30 Jan 2016 19:41:41 +0100</pubDate>
+    <lastBuildDate>Sat, 30 Jan 2016 19:41:41 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
     
       <item>
-        <title>Bash script para hacer stage, commit y push rápidamente</title>
-        <description>&lt;p&gt;Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme de escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de ahorradores).&lt;/p&gt;
+        <title>Bash script para hacer git add, commit y push rápidamente</title>
+        <description>&lt;p&gt;Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de agarraos).&lt;/p&gt;
 
 &lt;p&gt;Lo de agregarle la comprobación de que se han pasado el número de argumentos correctos y la pijadilla de los colores es algo que he visto en otros scripts y me ha hecho gracia copiarlo descaradamente.&lt;/p&gt;
 
@@ -20,11 +20,9 @@
 
 &lt;p&gt;Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) &lt;strong&gt;fastcommit&lt;/strong&gt;. Pon el fichero, con permisos de ejecución, en la carpeta raíz de tu proyeto con git. A continuación escribe:&lt;/p&gt;
 
-&lt;pre&gt;
-./fastcommit &quot;Mensaje_para_el_commit&quot;     # Sólo admite un (1) argumento
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;./fastcommit &lt;span class=&quot;s2&quot;&gt;&quot;Mensaje_para_el_commit&quot;&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;# Sólo admite un (1) argumento&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;el-script-fastcommit&quot;&gt;El script: fastcommit&lt;/h2&gt;
+&lt;h2 id=&quot;el-script&quot;&gt;El script&lt;/h2&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#=====================================&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# Stage all, commit and push to master&lt;/span&gt;
@@ -54,29 +52,47 @@ git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/sp
 
 &lt;span class=&quot;c&quot;&gt;#End of the script&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;aviso-legal-probablemente-innecesario&quot;&gt;Aviso legal probablemente innecesario&lt;/h2&gt;
+&lt;h2 id=&quot;aviso-probablemente-innecesario&quot;&gt;Aviso probablemente innecesario&lt;/h2&gt;
 
-&lt;p&gt;No me hago responsable de las consecuencias buenas o malas de que uses el script. Esto incluye, aunque no de forma exclusiva: que no funcione, que te explote el PC, que haga algo que no te guste, que te perjudique algún fichero, que te abduzcan los extraterrestres, que invoque a un espíritu del averno o que te deje tu pareja.&lt;/p&gt;
+&lt;p&gt;No me hago responsable de los daños causados por el uso de este script, incluyendo, aunque no de forma exclusiva: que no funcione, que te explote el PC, que haga algo que no te guste, que te perjudique algún fichero, que te abduzcan los extraterrestres, que invoque a un espíritu del averno o que te deje tu pareja.&lt;/p&gt;
 
 &lt;p&gt;Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-stage-commit-y-push-rapidamente.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-stage-commit-y-push-rapidamente.html</guid>
+        <link>http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</guid>
         
-        <category>version</category>
+        <category>bash</category>
         
-        <category>control</category>
-        
-        <category>system,</category>
+        <category>script,</category>
         
         <category>git,</category>
         
         <category>github,</category>
         
+        <category>bitbucket,</category>
+        
         <category>VCS,</category>
         
-        <category>programming</category>
+        <category>programming,</category>
+        
+        <category>git</category>
+        
+        <category>commit,</category>
+        
+        <category>git</category>
+        
+        <category>push,</category>
+        
+        <category>git</category>
+        
+        <category>add,</category>
+        
+        <category>commit,</category>
+        
+        <category>push,</category>
+        
+        <category>add</category>
         
         
         <category>programming</category>

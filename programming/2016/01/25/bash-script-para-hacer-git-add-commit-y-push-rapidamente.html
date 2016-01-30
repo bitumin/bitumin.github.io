@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a...">
 
-  <title>Bash script para hacer stage, commit y push rápidamente</title>
+  <title>Bash script para hacer git add, commit y push rápidamente</title>
 
   <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-stage-commit-y-push-rapidamente.html">
+  <link rel="canonical" href="http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html">
   <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
   <link rel="icon" type="image/png" href="/favicon.png">
 </head>
@@ -75,12 +75,12 @@
   
 
   <header class="post-header wrapper">
-    <h1 class="post-title" itemprop="name headline">Bash script para hacer stage, commit y push rápidamente</h1>
+    <h1 class="post-title" itemprop="name headline">Bash script para hacer git add, commit y push rápidamente</h1>
     <p class="post-meta"><time datetime="2016-01-25T00:00:00+01:00" itemprop="datePublished">Jan 25, 2016</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme de escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de ahorradores).</p>
+    <p>Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de agarraos).</p>
 
 <p>Lo de agregarle la comprobación de que se han pasado el número de argumentos correctos y la pijadilla de los colores es algo que he visto en otros scripts y me ha hecho gracia copiarlo descaradamente.</p>
 
@@ -88,11 +88,9 @@
 
 <p>Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) <strong>fastcommit</strong>. Pon el fichero, con permisos de ejecución, en la carpeta raíz de tu proyeto con git. A continuación escribe:</p>
 
-<pre>
-./fastcommit "Mensaje_para_el_commit"     # Sólo admite un (1) argumento
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">./fastcommit <span class="s2">"Mensaje_para_el_commit"</span>     <span class="c"># Sólo admite un (1) argumento</span></code></pre></figure>
 
-<h2 id="el-script-fastcommit">El script: fastcommit</h2>
+<h2 id="el-script">El script</h2>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#=====================================</span>
 <span class="c"># Stage all, commit and push to master</span>
@@ -122,9 +120,9 @@ git push origin master <span class="o">&amp;&amp;</span> <span class="nb">echo</
 
 <span class="c">#End of the script</span></code></pre></figure>
 
-<h2 id="aviso-legal-probablemente-innecesario">Aviso legal probablemente innecesario</h2>
+<h2 id="aviso-probablemente-innecesario">Aviso probablemente innecesario</h2>
 
-<p>No me hago responsable de las consecuencias buenas o malas de que uses el script. Esto incluye, aunque no de forma exclusiva: que no funcione, que te explote el PC, que haga algo que no te guste, que te perjudique algún fichero, que te abduzcan los extraterrestres, que invoque a un espíritu del averno o que te deje tu pareja.</p>
+<p>No me hago responsable de los daños causados por el uso de este script, incluyendo, aunque no de forma exclusiva: que no funcione, que te explote el PC, que haga algo que no te guste, que te perjudique algún fichero, que te abduzcan los extraterrestres, que invoque a un espíritu del averno o que te deje tu pareja.</p>
 
 <p>Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.</p>
 
@@ -136,7 +134,7 @@ git push origin master <span class="o">&amp;&amp;</span> <span class="nb">echo</
 <div id="disqus_thread"></div>
 <script>
      var disqus_config = function () {
-         this.page.url = 'http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-stage-commit-y-push-rapidamente.html';
+         this.page.url = 'http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html';
      };
     (function() {
         var d = document, s = d.createElement('script');
