@@ -1,0 +1,27 @@
+#=====================================
+# Stage all, commit and push to master
+#=====================================
+#!/bin/bash
+
+red='\033[01;31m'
+blue='\033[01;34m'
+green='\033[01;32m'
+norm='\033[00m'
+
+EXPECTED_ARGS=1
+E_BADARGS=65
+
+if [ $# -ne $EXPECTED_ARGS ]
+then
+echo -e "\nUsage: $0 \"Commit message\"\n"
+exit $E_BADARGS
+fi
+
+echo -e "\n${blue}- Staging all changes within the working space${norm}\n${blue}- Commit with the message ${red}${1}${norm}\n${blue}- Pushing to origin, master branch\n${norm}"
+
+git add -A && echo -e "${blue}Stage ---> [${green}OK${blue}]${norm}" || echo -e "${blue}Stage ---> [${red}BAD${blue}]${norm}"
+git commit -m "${1}" && echo -e "${blue}Commit ---> [${green}OK${blue}]${norm}" || echo -e "${blue}Commit ---> [${red}BAD${blue}]${norm}"
+git push origin master && echo -e "${blue}Push ---> [${green}OK${blue}]${norm}" || echo -e "${blue}Push ---> [${red}BAD${blue}]${norm}"
+echo -e " "
+
+#End of the script
