@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 21:36:22 +0100</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 21:36:22 +0100</lastBuildDate>
+    <pubDate>Sun, 31 Jan 2016 21:55:20 +0100</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 21:55:20 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
     
       <item>
@@ -128,7 +128,7 @@
 
 &lt;p&gt;Aunque no se aprecia en este gráfico, es sensato suponer que el declive de jQuery también tiene mucho que ver con la reciente aparición de nuevas tecnologías para desarrollo de UI basados en Java o la incipiente amenaza de las tecnologías basadas en el desarrollo de Web Components.&lt;/p&gt;
 
-&lt;p&gt;Es difícil saber qué ocurrirá en el mundillo estrictamente front end, pero una cosa está clara: jQuery tiene los años de liderazgo contados. Como apuesta a futuro yo me quedo con &lt;strong&gt;AngularJS&lt;/strong&gt; y recomiendo seguir de cerca a tecnologías como ReactJS, sin perder de vista al resto de librerías.&lt;/p&gt;
+&lt;p&gt;Es difícil saber qué ocurrirá en el mundillo estrictamente front end, pero una cosa está clara: jQuery tiene los años de liderazgo contados. Como apuesta de futuro yo me quedo con &lt;strong&gt;AngularJS&lt;/strong&gt; y recomiendo seguir de cerca a tecnologías como ReactJS, sin perder de vista al resto de librerías.&lt;/p&gt;
 
 &lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&quot;&gt;&lt;/iframe&gt;--&gt;
 &lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
@@ -139,7 +139,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Hace unos años no me hubiese podido creer que JavaScript sería la base para tecnologías del lado servidor como mínimo tan buenas como cualquier otra. Habría sido inimaginable leer post como [éste][nodejs-da-best] en los que se habla de Node.JS (un JS runtime environment, una plataforma de ejecución de código JS del lado servidor) como la gran panacea del desarrollo web.&lt;/p&gt;
+&lt;p&gt;Hace unos años no me hubiese podido creer que JavaScript sería la base para tecnologías del lado servidor como mínimo tan buenas como cualquier otra. Habría sido inimaginable leer post como &lt;a href=&quot;http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/&quot;&gt;éste&lt;/a&gt; en los que se habla de Node.JS (un JS runtime environment, una plataforma de ejecución de código JS del lado servidor) como la gran panacea del desarrollo web.&lt;/p&gt;
 
 &lt;p&gt;A primar vista la gráfica sugiere que en este relativamente nuevo mundillo de los full-stack frameworks basados en tecnologías JavaScript/Node.JS parece haber una competencia feroz por hacerse con el primer puesto.&lt;/p&gt;
 
