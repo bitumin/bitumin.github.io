@@ -6,9 +6,139 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 30 Jan 2016 20:09:27 +0100</pubDate>
-    <lastBuildDate>Sat, 30 Jan 2016 20:09:27 +0100</lastBuildDate>
+    <pubDate>Sun, 31 Jan 2016 16:15:41 +0100</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 16:15:41 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
+    
+      <item>
+        <title>La invasión de los frameworks</title>
+        <description>&lt;h2 id=&quot;introduccin-de-rigor&quot;&gt;Introducción de rigor&lt;/h2&gt;
+
+&lt;p&gt;Hace ya unos días escribí un post sobre &lt;a href=&quot;/web/2016/01/02/estrategias-de-desarrollo-web.html&quot;&gt;estrategias de desarrollo web&lt;/a&gt; en el que recomendaba escoger diferentes tecnologías de desarrollo web en función del tipo de proyecto al que nos enfrentamos: CMS, frameworks, templates, static site generators… Y mencionaba, de pasada, alguna de las aplicaciones más populares en cada campo.&lt;/p&gt;
+
+&lt;p&gt;Por suerte para el consumidor, cada vez es más sencillo y barato desarrollar sitios webs estándar: gracias a los miles de templates y decenas de CMS disponibles no es necesario tener prácticamente ningún conocimiento técnico para producir casi cualquier tipo de web habitual (portales de noticias, foros, blogs, e-shops, etc.). De hecho, &lt;strong&gt;existen proyectos de AI que prometen diseñar y generar sitios webs automáticamente, sin intervención humana&lt;/strong&gt; más allá de ir agregando contenidos, al respecto véase &lt;a href=&quot;https://thegrid.io/&quot;&gt;TheGrid&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;El mundo del desarrollo web, por fuerza, se ha visto empujado o bien hacia el desarrollo de apps, plugins, extensiones o templates para aquellos CMS, o bien hacia áreas mucho más técnicas o especializadas, como por ejemplo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Desarrollo de UI sobresalientes, en el menor tiempo posible y con componentes reutilizables.&lt;/li&gt;
+  &lt;li&gt;Desarrollo de web services intermediarios entre aplicaciones existentes o nuevas aplicaciones web para startups o empresas con necesidad de herramientas a medida.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Y como es natural, durante los últimos años han venido surgiendo herramientas para agilizar y normalizar el desarrollo en esas áreas de trabajo. Mejor dicho: no es que hayan venido surgiendo herramientas ¡es que se están reproduciendo como conejos! De ahí lo que yo he venido a llamar…&lt;/p&gt;
+
+&lt;h2 id=&quot;la-invasin-de-los-frameworks&quot;&gt;La invasión de los frameworks&lt;/h2&gt;
+
+&lt;p&gt;Ya sea para aplicar al mundo del front end las buenas maneras, abstracción y modularidad típicas del desarrollo back end, como para agilizar el desarrollo web en general y evitar el famoso “reinventar la rueda”, los frameworks han venido para hacernos la vida más fácil. A cambio, &lt;em&gt;sólo&lt;/em&gt; nos piden el esfuerzo de estudiar sus particularidades y diferencias (casi na’).&lt;/p&gt;
+
+&lt;p&gt;Existen frameworks de todos los tamaños: desde &lt;strong&gt;full-stack frameworks&lt;/strong&gt; para desarrollar íntegramente cualquier tipo de aplicación web hasta &lt;strong&gt;microframeworks&lt;/strong&gt; destinados a correr servicios web con el mínimo consumo de recursos posible. Algunos frameworks se centran solamente en el front end o el manejo de las vistas, mientras que otros te permiten el desarrollo integral back y front, a menudo procurando disciplinarte en el uso del patrón Modelo-Vista-Controlador.&lt;/p&gt;
+
+&lt;p&gt;También podemos clasificar los frameworks según los lenguajes de programación en que están escritos o el lenguaje en que debemos escribir nuestras aplicaciones cuando los usamos: PHP, Ruby, Python, Java, Groovy, Scala, JavaScript, CoffeeScript, Perl… you name it.&lt;/p&gt;
+
+&lt;p&gt;Pero a la vista que las web apps más populares (wikipedia, youtube, facebook, github, ebay, twitter, netflix…) están escritas usando diferentes lenguajes y al margen de las preferencias personales, &lt;strong&gt;el lenguaje de programación subyacente a los frameworks debería ser un dato irrelevante a la hora de elegir cuál de ellos usar&lt;/strong&gt;.. Mucho más importante es la naturaleza del proyecto que debemos afrontar, por ejemplo: ¿se trata de una nueva aplicación que hay que desarrollar íntegramente, hay que trabajar con grandes bases de datos, es principalmente una app interactiva, es un web service o sólo hay que mejorar una interfaz con problemas de rendimiento?&lt;/p&gt;
+
+&lt;p&gt;Una vez respondidas ese tipo de preguntas y realizada la primera criba de frameworks, nos hemos de enfrentar al hecho de que &lt;strong&gt;existen montones de alternativas ¡incluso con el mismo lenguaje de programación!&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;A modo de referencia rápida, estos son algunos de los frameworks más conocidos a día de hoy clasificados según el lenguaje de programación o la tecnología subyacente. He marcado en negrita los que me parecen a mí lo más populares que vienen siendo los más populares durante los últimos años. Ni mucho menos se trata de una lista exhaustiva:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PHP frameworks: 
+  &lt;strong&gt;Zend&lt;/strong&gt;, &lt;strong&gt;CodeIgniter&lt;/strong&gt;, &lt;strong&gt;CakePHP&lt;/strong&gt;, &lt;strong&gt;Laravel&lt;/strong&gt; y Lumen (micro), &lt;strong&gt;Nette&lt;/strong&gt;, Yii, Slim (micro), Kohana, Typo3 Flow, FuelPHP…&lt;/li&gt;
+  &lt;li&gt;Python frameworks: 
+  &lt;strong&gt;Django&lt;/strong&gt;, CherryPy, TurboGears, Flask (micro), Pyramid, Bottle (micro)…&lt;/li&gt;
+  &lt;li&gt;JavaScript UI/client-side/web components frameworks/libraries/others:
+  &lt;strong&gt;AngularJS&lt;/strong&gt;, &lt;strong&gt;jQuery&lt;/strong&gt; (lib), MooTools, KnockoutJS,  ReactJS, Dojo Toolkit (lib), Underscore.js (lib), Prototype, Spry Framework, AuraJS (components wrapper), X-Tag (components dev), Polymer (components dev), Handlebars (templating)…&lt;/li&gt;
+  &lt;li&gt;JavaScript/CoffeeScript/Node.JS frameworks:
+  &lt;strong&gt;Express&lt;/strong&gt;, &lt;strong&gt;BackboneJS&lt;/strong&gt;, &lt;strong&gt;Ember.js&lt;/strong&gt;, Meteor, Sails.js, Koa, Flatiron, Batman.js, Total.js, SpineJS, Hapi, DerbyJS…&lt;/li&gt;
+  &lt;li&gt;Java/Groovy/Scala frameworks:
+  &lt;strong&gt;Spring Framework&lt;/strong&gt;, &lt;strong&gt;Stripes&lt;/strong&gt;, &lt;strong&gt;Struts&lt;/strong&gt;, &lt;strong&gt;Play&lt;/strong&gt;, &lt;strong&gt;Tapestry&lt;/strong&gt;, &lt;strong&gt;Grails&lt;/strong&gt;, Wicket, Vaadin, DropWizard (micro)…&lt;/li&gt;
+  &lt;li&gt;Perl frameworks: &lt;strong&gt;Catalyst&lt;/strong&gt;, Dancer, Mojolicious…&lt;/li&gt;
+  &lt;li&gt;Ruby frameworks: &lt;strong&gt;Ruby on Rails&lt;/strong&gt;, Sinatra, Cramp, Padrino, Ramaze (micro), Cuba (micro), Camping (micro)…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;No hay que olvidar tampoco los frameworks tipo “propietario” como Adobe ColdFusion o Microsoft ASP.NET, o rarezas como  Seaside escrito en Smalltalk.&lt;/p&gt;
+
+&lt;p&gt;Otras tecnologías que merecen mención son los Java UI frameworks &lt;strong&gt;JavaServer Faces&lt;/strong&gt; (JSF) y PrimeFaces, &lt;strong&gt;Google Web Toolkit&lt;/strong&gt; (GWT), o curiosidades como &lt;strong&gt;Babel&lt;/strong&gt;, un “traductor” o trans-compiler (de ES6 a ES5) para poder usar versiones punteras de JavaScript en proyectos actuales.&lt;/p&gt;
+
+&lt;p&gt;A mi modo de ver, en ausencia de condicionantes externos &lt;strong&gt;el mejor criterio para decantarse por el uso de uno u otro framework es la popularidad presente y futura&lt;/strong&gt; de la herramienta. En primer lugar, porque en un mundo tan competitivo como el del desarrollo web, la popularidad suele correlacionarse con la utilidad/calidad. Y en segundo lugar porque a mayor popularidad se sigue que habrá una mayor comunidad de desarrolladores, mejor documentación, más ayuda a la hora de solventar problemas y mayor cantidad y de plugins.&lt;/p&gt;
+
+&lt;p&gt;Por eso me ha parecido una buena idea realizar una comparativa de los frameworks, librerías y herramientas de desarrollo de aplicaciones, en lo que respecta a la popularidad y su tendencia en el tiempo. Teniendo en cuenta que todo el mundillo de los web frameworks se mueve a través de internet: ¿qué mejor herramienta para valorar su popularidad que Google Trends?&lt;/p&gt;
+
+&lt;h2 id=&quot;popularidad-de-los-frameworks-segn-google-trends&quot;&gt;Popularidad de los frameworks según Google Trends&lt;/h2&gt;
+
+&lt;h3 id=&quot;interpretando-los-grficos&quot;&gt;Interpretando los gráficos&lt;/h3&gt;
+
+&lt;p&gt;Antes de bombardearte con gráficos creo que es conveniente recordar que Google Trends compara de forma relativa la búsqueda de términos o temas, lo que significa que el eje vertical de los gráficos es una escala 0% a 100% y no búsquedas en números absolutos. Esto tiene la ventaja de que podemos comparar el interés entre diferentes tecnologías en un mismo gráfico, pero no tendría sentido comparar dos gráficos distintos entre sí.&lt;/p&gt;
+
+&lt;p&gt;Otro dato a tener en cuenta es que Google Trends no asocia con precisión las búsquedas de palabras con los diferente temas que representan, o dicho con un ejemplo: herramientas con nombres “comunes” como &lt;em&gt;Django&lt;/em&gt;, &lt;em&gt;Cuba&lt;/em&gt; o &lt;em&gt;Express&lt;/em&gt;, que además de software son una película, un país o un adjetivo, respectivamente, arrojan resultados “contaminados”, mucho menos fiables que los de herramientas como &lt;em&gt;Laravel&lt;/em&gt; o &lt;em&gt;AngularJS&lt;/em&gt;. En la medida de lo posible he tratado de depurar los resultados para hacerlos comparables (agregando o excluyendo términos de búsqueda).&lt;/p&gt;
+
+&lt;p&gt;En cualquier caso, no olvides que es tan importante la popularidad relativa entre herramientas como la &lt;strong&gt;tendencia&lt;/strong&gt; que sigue esa popularidad, lo que nos permite identificar nuevas herramientas que están ganando terreno a viejas herramientas que están cayendo en desuso.&lt;/p&gt;
+
+&lt;h3 id=&quot;comparativas&quot;&gt;Comparativas:&lt;/h3&gt;
+
+&lt;p&gt;PHP frameworks&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Python frameworks&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;JavaScript client-side frameworks/libraries&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Javascript/CoffeeScript/server-side JS frameworks&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Ruby frameworks&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Java/Groovy/Scala frameworks&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Full-stack web frameworks cross-tech&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Front-end tools cross-tech&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+
+</description>
+        <pubDate>Sun, 31 Jan 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/web/2016/01/31/tecnologias-de-desarrollo-web-tendencias.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/31/tecnologias-de-desarrollo-web-tendencias.html</guid>
+        
+        <category>web</category>
+        
+        <category>technologies,</category>
+        
+        <category>web</category>
+        
+        <category>app,</category>
+        
+        <category>web,</category>
+        
+        <category>web</category>
+        
+        <category>programming,</category>
+        
+        <category>app</category>
+        
+        <category>programming,</category>
+        
+        <category>programming,</category>
+        
+        <category>trends</category>
+        
+        
+        <category>web</category>
+        
+      </item>
     
       <item>
         <title>Bash script para hacer git add, commit y push rápidamente</title>

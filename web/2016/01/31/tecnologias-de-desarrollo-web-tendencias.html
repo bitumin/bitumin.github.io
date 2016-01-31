@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Introducción de rigor">
+
+  <title>La invasión de los frameworks</title>
+
+  <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mitxelmoriana.com/web/2016/01/31/tecnologias-de-desarrollo-web-tendencias.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+
+  <body>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-71923540-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">MitxelMoriana</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+  <div id="header-image-wrapper">
+    <div id="header-image" style="background-image: url('/headers/framework.jpg');"></div>
+  </div>
+  
+
+  <header class="post-header wrapper">
+    <h1 class="post-title" itemprop="name headline">La invasión de los frameworks</h1>
+    <p class="post-meta"><time datetime="2016-01-31T00:00:00+01:00" itemprop="datePublished">Jan 31, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="introduccin-de-rigor">Introducción de rigor</h2>
+
+<p>Hace ya unos días escribí un post sobre <a href="/web/2016/01/02/estrategias-de-desarrollo-web.html">estrategias de desarrollo web</a> en el que recomendaba escoger diferentes tecnologías de desarrollo web en función del tipo de proyecto al que nos enfrentamos: CMS, frameworks, templates, static site generators… Y mencionaba, de pasada, alguna de las aplicaciones más populares en cada campo.</p>
+
+<p>Por suerte para el consumidor, cada vez es más sencillo y barato desarrollar sitios webs estándar: gracias a los miles de templates y decenas de CMS disponibles no es necesario tener prácticamente ningún conocimiento técnico para producir casi cualquier tipo de web habitual (portales de noticias, foros, blogs, e-shops, etc.). De hecho, <strong>existen proyectos de AI que prometen diseñar y generar sitios webs automáticamente, sin intervención humana</strong> más allá de ir agregando contenidos, al respecto véase <a href="https://thegrid.io/">TheGrid</a>.</p>
+
+<p>El mundo del desarrollo web, por fuerza, se ha visto empujado o bien hacia el desarrollo de apps, plugins, extensiones o templates para aquellos CMS, o bien hacia áreas mucho más técnicas o especializadas, como por ejemplo:</p>
+
+<ul>
+  <li>Desarrollo de UI sobresalientes, en el menor tiempo posible y con componentes reutilizables.</li>
+  <li>Desarrollo de web services intermediarios entre aplicaciones existentes o nuevas aplicaciones web para startups o empresas con necesidad de herramientas a medida.</li>
+</ul>
+
+<p>Y como es natural, durante los últimos años han venido surgiendo herramientas para agilizar y normalizar el desarrollo en esas áreas de trabajo. Mejor dicho: no es que hayan venido surgiendo herramientas ¡es que se están reproduciendo como conejos! De ahí lo que yo he venido a llamar…</p>
+
+<h2 id="la-invasin-de-los-frameworks">La invasión de los frameworks</h2>
+
+<p>Ya sea para aplicar al mundo del front end las buenas maneras, abstracción y modularidad típicas del desarrollo back end, como para agilizar el desarrollo web en general y evitar el famoso “reinventar la rueda”, los frameworks han venido para hacernos la vida más fácil. A cambio, <em>sólo</em> nos piden el esfuerzo de estudiar sus particularidades y diferencias (casi na’).</p>
+
+<p>Existen frameworks de todos los tamaños: desde <strong>full-stack frameworks</strong> para desarrollar íntegramente cualquier tipo de aplicación web hasta <strong>microframeworks</strong> destinados a correr servicios web con el mínimo consumo de recursos posible. Algunos frameworks se centran solamente en el front end o el manejo de las vistas, mientras que otros te permiten el desarrollo integral back y front, a menudo procurando disciplinarte en el uso del patrón Modelo-Vista-Controlador.</p>
+
+<p>También podemos clasificar los frameworks según los lenguajes de programación en que están escritos o el lenguaje en que debemos escribir nuestras aplicaciones cuando los usamos: PHP, Ruby, Python, Java, Groovy, Scala, JavaScript, CoffeeScript, Perl… you name it.</p>
+
+<p>Pero a la vista que las web apps más populares (wikipedia, youtube, facebook, github, ebay, twitter, netflix…) están escritas usando diferentes lenguajes y al margen de las preferencias personales, <strong>el lenguaje de programación subyacente a los frameworks debería ser un dato irrelevante a la hora de elegir cuál de ellos usar</strong>.. Mucho más importante es la naturaleza del proyecto que debemos afrontar, por ejemplo: ¿se trata de una nueva aplicación que hay que desarrollar íntegramente, hay que trabajar con grandes bases de datos, es principalmente una app interactiva, es un web service o sólo hay que mejorar una interfaz con problemas de rendimiento?</p>
+
+<p>Una vez respondidas ese tipo de preguntas y realizada la primera criba de frameworks, nos hemos de enfrentar al hecho de que <strong>existen montones de alternativas ¡incluso con el mismo lenguaje de programación!</strong>.</p>
+
+<p>A modo de referencia rápida, estos son algunos de los frameworks más conocidos a día de hoy clasificados según el lenguaje de programación o la tecnología subyacente. He marcado en negrita los que me parecen a mí lo más populares que vienen siendo los más populares durante los últimos años. Ni mucho menos se trata de una lista exhaustiva:</p>
+
+<ul>
+  <li>PHP frameworks: 
+  <strong>Zend</strong>, <strong>CodeIgniter</strong>, <strong>CakePHP</strong>, <strong>Laravel</strong> y Lumen (micro), <strong>Nette</strong>, Yii, Slim (micro), Kohana, Typo3 Flow, FuelPHP…</li>
+  <li>Python frameworks: 
+  <strong>Django</strong>, CherryPy, TurboGears, Flask (micro), Pyramid, Bottle (micro)…</li>
+  <li>JavaScript UI/client-side/web components frameworks/libraries/others:
+  <strong>AngularJS</strong>, <strong>jQuery</strong> (lib), MooTools, KnockoutJS,  ReactJS, Dojo Toolkit (lib), Underscore.js (lib), Prototype, Spry Framework, AuraJS (components wrapper), X-Tag (components dev), Polymer (components dev), Handlebars (templating)…</li>
+  <li>JavaScript/CoffeeScript/Node.JS frameworks:
+  <strong>Express</strong>, <strong>BackboneJS</strong>, <strong>Ember.js</strong>, Meteor, Sails.js, Koa, Flatiron, Batman.js, Total.js, SpineJS, Hapi, DerbyJS…</li>
+  <li>Java/Groovy/Scala frameworks:
+  <strong>Spring Framework</strong>, <strong>Stripes</strong>, <strong>Struts</strong>, <strong>Play</strong>, <strong>Tapestry</strong>, <strong>Grails</strong>, Wicket, Vaadin, DropWizard (micro)…</li>
+  <li>Perl frameworks: <strong>Catalyst</strong>, Dancer, Mojolicious…</li>
+  <li>Ruby frameworks: <strong>Ruby on Rails</strong>, Sinatra, Cramp, Padrino, Ramaze (micro), Cuba (micro), Camping (micro)…</li>
+</ul>
+
+<p>No hay que olvidar tampoco los frameworks tipo “propietario” como Adobe ColdFusion o Microsoft ASP.NET, o rarezas como  Seaside escrito en Smalltalk.</p>
+
+<p>Otras tecnologías que merecen mención son los Java UI frameworks <strong>JavaServer Faces</strong> (JSF) y PrimeFaces, <strong>Google Web Toolkit</strong> (GWT), o curiosidades como <strong>Babel</strong>, un “traductor” o trans-compiler (de ES6 a ES5) para poder usar versiones punteras de JavaScript en proyectos actuales.</p>
+
+<p>A mi modo de ver, en ausencia de condicionantes externos <strong>el mejor criterio para decantarse por el uso de uno u otro framework es la popularidad presente y futura</strong> de la herramienta. En primer lugar, porque en un mundo tan competitivo como el del desarrollo web, la popularidad suele correlacionarse con la utilidad/calidad. Y en segundo lugar porque a mayor popularidad se sigue que habrá una mayor comunidad de desarrolladores, mejor documentación, más ayuda a la hora de solventar problemas y mayor cantidad y de plugins.</p>
+
+<p>Por eso me ha parecido una buena idea realizar una comparativa de los frameworks, librerías y herramientas de desarrollo de aplicaciones, en lo que respecta a la popularidad y su tendencia en el tiempo. Teniendo en cuenta que todo el mundillo de los web frameworks se mueve a través de internet: ¿qué mejor herramienta para valorar su popularidad que Google Trends?</p>
+
+<h2 id="popularidad-de-los-frameworks-segn-google-trends">Popularidad de los frameworks según Google Trends</h2>
+
+<h3 id="interpretando-los-grficos">Interpretando los gráficos</h3>
+
+<p>Antes de bombardearte con gráficos creo que es conveniente recordar que Google Trends compara de forma relativa la búsqueda de términos o temas, lo que significa que el eje vertical de los gráficos es una escala 0% a 100% y no búsquedas en números absolutos. Esto tiene la ventaja de que podemos comparar el interés entre diferentes tecnologías en un mismo gráfico, pero no tendría sentido comparar dos gráficos distintos entre sí.</p>
+
+<p>Otro dato a tener en cuenta es que Google Trends no asocia con precisión las búsquedas de palabras con los diferente temas que representan, o dicho con un ejemplo: herramientas con nombres “comunes” como <em>Django</em>, <em>Cuba</em> o <em>Express</em>, que además de software son una película, un país o un adjetivo, respectivamente, arrojan resultados “contaminados”, mucho menos fiables que los de herramientas como <em>Laravel</em> o <em>AngularJS</em>. En la medida de lo posible he tratado de depurar los resultados para hacerlos comparables (agregando o excluyendo términos de búsqueda).</p>
+
+<p>En cualquier caso, no olvides que es tan importante la popularidad relativa entre herramientas como la <strong>tendencia</strong> que sigue esa popularidad, lo que nos permite identificar nuevas herramientas que están ganando terreno a viejas herramientas que están cayendo en desuso.</p>
+
+<h3 id="comparativas">Comparativas:</h3>
+
+<p>PHP frameworks</p>
+
+<script type="text/javascript" src="//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330"></script>
+
+<p>Python frameworks</p>
+
+<script type="text/javascript" src="//www.google.es/trends/embed.js?hl=es&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330"></script>
+
+<p>JavaScript client-side frameworks/libraries</p>
+
+<script type="text/javascript" src="//www.google.es/trends/embed.js?hl=es&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330"></script>
+
+<p>Javascript/CoffeeScript/server-side JS frameworks</p>
+
+<script type="text/javascript" src="//www.google.es/trends/embed.js?hl=es&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330"></script>
+
+<p>Ruby frameworks</p>
+
+<script type="text/javascript" src="//www.google.es/trends/embed.js?hl=es&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330"></script>
+
+<p>Java/Groovy/Scala frameworks</p>
+
+<script type="text/javascript" src="//www.google.es/trends/embed.js?hl=es&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330"></script>
+
+<p>Full-stack web frameworks cross-tech</p>
+
+<script type="text/javascript" src="//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330"></script>
+
+<p>Front-end tools cross-tech</p>
+
+<script type="text/javascript" src="//www.google.es/trends/embed.js?hl=es&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330"></script>
+
+
+  </div>
+
+</article>
+
+        
+<div id="disqus_thread"></div>
+<script>
+     var disqus_config = function () {
+         this.page.url = 'http://mitxelmoriana.com/web/2016/01/31/tecnologias-de-desarrollo-web-tendencias.html';
+     };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//mitxelmoriana.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+    <div class="wrapper">
+
+        <h2 class="footer-heading">MitxelMoriana</h2>
+
+        <div class="footer-col-wrapper">
+
+            <div class="footer-col footer-col-alt-1">
+
+                <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
+
+                <br>
+                <ul class="social-media-list">
+
+                    
+                    <li>
+                        <a href="https://github.com/bitumin"><i class="fa fa-github-square"></i></a>
+
+                    </li>
+                    
+
+                    
+                    <li>
+                        <a href="https://facebook.com/mitxel.moriana"><i class="fa fa-facebook-official"></i></a>
+                    </li>
+                    
+
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/morianamitxel"><i class="fa fa-linkedin-square"></i></a>
+
+                    </li>
+                    
+
+                    
+                    <li>
+                        <a href="https://twitter.com/mitxelmoriana"><i class="fa fa-twitter-square"></i></a>
+
+                    </li>
+                    
+
+                </ul>
+            </div>
+
+            <div class="footer-col footer-col-alt-2">
+                <p>Hi there. I'm Mitxel Moriana, freelance developer, technophile, entrepeneur and blogger. This is the blog I use to talk mostly about my work, so you can expect to find many techy and programming related posts that I hope you'll find useful!
+</p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+
+
+  </body>
+
+</html>
