@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 16:27:25 +0100</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 16:27:25 +0100</lastBuildDate>
+    <pubDate>Sun, 31 Jan 2016 16:40:44 +0100</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 16:40:44 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
     
       <item>
@@ -42,20 +42,34 @@
 &lt;p&gt;A modo de referencia rápida, estos son algunos de los frameworks más conocidos a día de hoy clasificados según el lenguaje de programación o la tecnología subyacente. Ni mucho menos se trata de una lista exhaustiva:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;PHP frameworks:&lt;br /&gt;
-  &lt;strong&gt;Zend&lt;/strong&gt;, &lt;strong&gt;CodeIgniter&lt;/strong&gt;, &lt;strong&gt;CakePHP&lt;/strong&gt;, &lt;strong&gt;Laravel&lt;/strong&gt; y Lumen (micro), &lt;strong&gt;Nette&lt;/strong&gt;, Yii, Slim (micro), Kohana, Typo3 Flow, FuelPHP…&lt;/li&gt;
-  &lt;li&gt;Python frameworks:&lt;br /&gt; 
-  &lt;strong&gt;Django&lt;/strong&gt;, CherryPy, TurboGears, Flask (micro), Pyramid, Bottle (micro)…&lt;/li&gt;
-  &lt;li&gt;JavaScript UI/client-side/web components frameworks/libraries/others:&lt;br /&gt; 
-  &lt;strong&gt;AngularJS&lt;/strong&gt;, &lt;strong&gt;jQuery&lt;/strong&gt; (lib), MooTools, KnockoutJS,  ReactJS, Dojo Toolkit (lib), Underscore.js (lib), Prototype, Spry Framework, AuraJS (components wrapper), X-Tag (components dev), Polymer (components dev), Handlebars (templating)…&lt;/li&gt;
-  &lt;li&gt;JavaScript/CoffeeScript/Node.JS frameworks:&lt;br /&gt; 
-  &lt;strong&gt;Express&lt;/strong&gt;, &lt;strong&gt;BackboneJS&lt;/strong&gt;, &lt;strong&gt;Ember.js&lt;/strong&gt;, Meteor, Sails.js, Koa, Flatiron, Batman.js, Total.js, SpineJS, Hapi, DerbyJS…&lt;/li&gt;
-  &lt;li&gt;Java/Groovy/Scala frameworks:&lt;br /&gt; 
-  &lt;strong&gt;Spring Framework&lt;/strong&gt;, &lt;strong&gt;Stripes&lt;/strong&gt;, &lt;strong&gt;Struts&lt;/strong&gt;, &lt;strong&gt;Play&lt;/strong&gt;, &lt;strong&gt;Tapestry&lt;/strong&gt;, &lt;strong&gt;Grails&lt;/strong&gt;, Wicket, Vaadin, DropWizard (micro)…&lt;/li&gt;
-  &lt;li&gt;Perl frameworks:&lt;br /&gt; 
-  &lt;strong&gt;Catalyst&lt;/strong&gt;, Dancer, Mojolicious…&lt;/li&gt;
-  &lt;li&gt;Ruby frameworks:&lt;br /&gt;
-  &lt;strong&gt;Ruby on Rails&lt;/strong&gt;, Sinatra, Cramp, Padrino, Ramaze (micro), Cuba (micro), Camping (micro)…&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PHP frameworks:&lt;br /&gt;
+  &lt;strong&gt;Zend&lt;/strong&gt;, &lt;strong&gt;CodeIgniter&lt;/strong&gt;, &lt;strong&gt;CakePHP&lt;/strong&gt;, &lt;strong&gt;Laravel&lt;/strong&gt; y Lumen (micro), &lt;strong&gt;Nette&lt;/strong&gt;, Yii, Slim (micro), Kohana, Typo3 Flow, FuelPHP…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Python frameworks:&lt;br /&gt; 
+  &lt;strong&gt;Django&lt;/strong&gt;, CherryPy, TurboGears, Flask (micro), Pyramid, Bottle (micro)…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JavaScript UI/client-side/web components frameworks/libraries/others:&lt;br /&gt; 
+  &lt;strong&gt;AngularJS&lt;/strong&gt;, &lt;strong&gt;jQuery&lt;/strong&gt; (lib), MooTools, KnockoutJS,  ReactJS, Dojo Toolkit (lib), Underscore.js (lib), Prototype, Spry Framework, AuraJS (components wrapper), X-Tag (components dev), Polymer (components dev), Handlebars (templating)…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JavaScript/CoffeeScript/Node.JS frameworks:&lt;br /&gt; 
+  &lt;strong&gt;Express&lt;/strong&gt;, &lt;strong&gt;BackboneJS&lt;/strong&gt;, &lt;strong&gt;Ember.js&lt;/strong&gt;, Meteor, Sails.js, Koa, Flatiron, Batman.js, Total.js, SpineJS, Hapi, DerbyJS…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Java/Groovy/Scala frameworks:&lt;br /&gt; 
+  &lt;strong&gt;Spring Framework&lt;/strong&gt;, &lt;strong&gt;Stripes&lt;/strong&gt;, &lt;strong&gt;Struts&lt;/strong&gt;, &lt;strong&gt;Play&lt;/strong&gt;, &lt;strong&gt;Tapestry&lt;/strong&gt;, &lt;strong&gt;Grails&lt;/strong&gt;, Wicket, Vaadin, DropWizard (micro)…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Perl frameworks:&lt;br /&gt; 
+  &lt;strong&gt;Catalyst&lt;/strong&gt;, Dancer, Mojolicious…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ruby frameworks:&lt;br /&gt;
+  &lt;strong&gt;Ruby on Rails&lt;/strong&gt;, Sinatra, Cramp, Padrino, Ramaze (micro), Cuba (micro), Camping (micro)…&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;No hay que olvidar tampoco los frameworks tipo “propietario” como Adobe ColdFusion o Microsoft ASP.NET, o rarezas como  Seaside escrito en Smalltalk.&lt;/p&gt;
@@ -80,35 +94,51 @@
 
 &lt;p&gt;PHP frameworks&lt;/p&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&quot;&gt;&lt;/iframe&gt;
+
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 &lt;p&gt;Python frameworks&lt;/p&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&quot;&gt;&lt;/iframe&gt;
+
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 &lt;p&gt;JavaScript client-side frameworks/libraries&lt;/p&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&quot;&gt;&lt;/iframe&gt;
+
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 &lt;p&gt;Javascript/CoffeeScript/server-side JS frameworks&lt;/p&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot;&gt;&lt;/iframe&gt;
+
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 &lt;p&gt;Ruby frameworks&lt;/p&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&quot;&gt;&lt;/iframe&gt;
+
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 &lt;p&gt;Java/Groovy/Scala frameworks&lt;/p&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot;&gt;&lt;/iframe&gt;
+
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 &lt;p&gt;Full-stack web frameworks cross-tech&lt;/p&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&quot;&gt;&lt;/iframe&gt;
+
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 &lt;p&gt;Front-end tools cross-tech&lt;/p&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&amp;amp;cmpt=q&amp;amp;tz=Etc/GMT-1&amp;amp;tz=Etc/GMT-1&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;amp;export=5&amp;amp;w=500&amp;amp;h=330&quot;&gt;&lt;/script&gt;
+&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&quot;&gt;&lt;/iframe&gt;
+
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 +0100</pubDate>
