@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 16:40:44 +0100</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 16:40:44 +0100</lastBuildDate>
+    <pubDate>Sun, 31 Jan 2016 17:25:28 +0100</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 17:25:28 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
     
       <item>
@@ -90,55 +90,64 @@
 
 &lt;p&gt;En cualquier caso, no olvides que es tan importante la popularidad relativa entre herramientas como la &lt;strong&gt;tendencia&lt;/strong&gt; que sigue esa popularidad, lo que nos permite identificar nuevas herramientas que están ganando terreno a otras más viejas y que están cayendo en desuso.&lt;/p&gt;
 
-&lt;h3 id=&quot;comparativas&quot;&gt;Comparativas:&lt;/h3&gt;
+&lt;h3 id=&quot;comparativas-en-google-trendsgoogle-trends&quot;&gt;Comparativas en &lt;a href=&quot;https://www.google.com/trends/explore&quot;&gt;Google Trends&lt;/a&gt;:&lt;/h3&gt;
 
 &lt;p&gt;PHP frameworks&lt;/p&gt;
 
-&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcphp.png&quot; alt=&quot;PHP frameworks&quot; /&gt;
+[Haz click aquí para ver el gráfico interactivo][http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp]&lt;/p&gt;
 
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&quot;&gt;&lt;/iframe&gt;--&gt;
 &lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
 
 &lt;p&gt;Python frameworks&lt;/p&gt;
 
-&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&quot;&gt;&lt;/iframe&gt;
-
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcpythong.png&quot; alt=&quot;Python frameworks&quot; /&gt;
+[Haz click aquí para ver el gráfico interactivo][http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework]
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;&lt;/p&gt;
 
 &lt;p&gt;JavaScript client-side frameworks/libraries&lt;/p&gt;
 
-&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&quot;&gt;&lt;/iframe&gt;
-
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcJSfront.png&quot; alt=&quot;JavaScript client-side frameworks/libraries&quot; /&gt;
+[Haz click aquí para ver el gráfico interactivo][http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1]
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;&lt;/p&gt;
 
 &lt;p&gt;Javascript/CoffeeScript/server-side JS frameworks&lt;/p&gt;
 
-&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot;&gt;&lt;/iframe&gt;
-
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcJS.png&quot; alt=&quot;Javascript/CoffeeScript/server-side JS frameworks&quot; /&gt;
+[Haz click aquí para ver el gráfico interactivo][http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS]
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;&lt;/p&gt;
 
 &lt;p&gt;Ruby frameworks&lt;/p&gt;
 
-&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&quot;&gt;&lt;/iframe&gt;
-
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/&quot; alt=&quot;My helpful screenshot&quot; /&gt;
+[Haz click aquí para ver el gráfico interactivo][]
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;&lt;/p&gt;
 
 &lt;p&gt;Java/Groovy/Scala frameworks&lt;/p&gt;
 
-&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot;&gt;&lt;/iframe&gt;
-
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcjava.png&quot; alt=&quot;Java/Groovy/Scala frameworks&quot; /&gt;
+[Haz click aquí para ver el gráfico interactivo][http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64]
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;&lt;/p&gt;
 
 &lt;p&gt;Full-stack web frameworks cross-tech&lt;/p&gt;
 
-&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&quot;&gt;&lt;/iframe&gt;
-
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcALL.png&quot; alt=&quot;Full-stack web frameworks cross-tech&quot; /&gt;
+[Haz click aquí para ver el gráfico interactivo][http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b]
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;&lt;/p&gt;
 
 &lt;p&gt;Front-end tools cross-tech&lt;/p&gt;
 
-&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&quot;&gt;&lt;/iframe&gt;
-
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcfrontALL.png&quot; alt=&quot;Front-end tools cross-tech&quot; /&gt;
+[Haz click aquí para ver el gráfico interactivo][http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components]
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 +0100</pubDate>
