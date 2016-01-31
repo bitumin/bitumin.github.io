@@ -82,7 +82,7 @@
   <div class="post-content" itemprop="articleBody">
     <h2 id="preparacin-previa">Preparación previa</h2>
 
-<p>Una vez configurado nuestro entorno de desarrollo de acuerdo a las <a href="https://laravel.com/docs/5.2/installation">especificaciones</a> de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:</p>
+<p>Una vez configurado nuestro entorno de desarrollo de acuerdo a las <a href="https://laravel.com/docs/5.2/installation" target="_blank">especificaciones</a> de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:</p>
 
 <pre>
 laravel new porn-site-demo
@@ -155,7 +155,7 @@ laravel new porn-site-demo
 
 <h2 id="nuestra-base-de-datos">Nuestra base de datos</h2>
 
-<p>Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en <a href="/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html">la primera parte</a> de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:</p>
+<p>Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en <a href="/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html" target="_blank">la primera parte</a> de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:</p>
 
 <p style="text-align:center; border: 1px solid black; background-color: white;"><img src="/images/db-diagram-1.jpg" alt="Diagrama aproximado de nuestra base de datos" /></p>
 
@@ -230,7 +230,7 @@ php artisan vendor:publish
 
 <p>¿Ves cómo se han copiado ciertos ficheros de vendor/ a resources/views/ ? Pues eso. Más adelante ya hablaremos de qué va eso de las views, don’t you worry.</p>
 
-<p>Ahora, tal como indica la documentación oficial de <a href="https://laravel.com/docs/5.2/billing">Cashier</a>, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar <em>users</em> y crear <em>subscriptions</em>, son:</p>
+<p>Ahora, tal como indica la documentación oficial de <a href="https://laravel.com/docs/5.2/billing" target="_blank">Cashier</a>, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar <em>users</em> y crear <em>subscriptions</em>, son:</p>
 
 <pre>
 php artisan make:migration add_cashier_columns_to_users_table --table=users
@@ -271,7 +271,7 @@ Schema::create('girls', function (Blueprint $table) {
 });
 </pre>
 
-<p>¿Vas intuyendo lo que hace cada método de Blueprint? <a href="https://laravel.com/docs/5.2/migrations#creating-columns">Aquí</a> encontrarás una referencia detallada de cada uno. Si  te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:</p>
+<p>¿Vas intuyendo lo que hace cada método de Blueprint? <a href="https://laravel.com/docs/5.2/migrations#creating-columns" target="_blank">Aquí</a> encontrarás una referencia detallada de cada uno. Si te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:</p>
 
 <pre>
 Schema::create('videos', function (Blueprint $table) {
@@ -997,7 +997,7 @@ class User extends Authenticatable
 
 </div>
 
-<p>Si tienes curiosidad sobre cómo funciona Faker y los muchos tipos de datos que podemos generar (nombres, números, direcciones, bloques de texto…), échale un vistazo a la <a href="https://github.com/fzaninotto/Faker">documentación de Faker</a>. Si te surgen dudas, puedes preguntar en el área de comentarios.</p>
+<p>Si tienes curiosidad sobre cómo funciona Faker y los muchos tipos de datos que podemos generar (nombres, números, direcciones, bloques de texto…), échale un vistazo a la <a href="https://github.com/fzaninotto/Faker" target="_blank">documentación de Faker</a>. Si te surgen dudas, puedes preguntar en el área de comentarios.</p>
 
 <p>Con el seeder para los vídeos VideoTableSeeder.php hemos hecho más de lo mismo, te lo dejo por aquí como ejemplo:</p>
 

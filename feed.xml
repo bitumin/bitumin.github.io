@@ -6,17 +6,17 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 21:55:20 +0100</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 21:55:20 +0100</lastBuildDate>
+    <pubDate>Sun, 31 Jan 2016 23:12:27 +0100</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 23:12:27 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
     
       <item>
         <title>La invasión de los frameworks: tendencias en tecnologías de desarrollo de web apps</title>
         <description>&lt;h2 id=&quot;introduccin-de-rigor&quot;&gt;Introducción de rigor&lt;/h2&gt;
 
-&lt;p&gt;Hace ya unos días escribí un post sobre &lt;a href=&quot;/web/2016/01/02/estrategias-de-desarrollo-web.html&quot;&gt;estrategias de desarrollo web&lt;/a&gt; en el que recomendaba escoger diferentes tecnologías de desarrollo web en función del tipo de proyecto al que nos enfrentamos: CMS, frameworks, templates, static site generators… Y mencionaba, de pasada, alguna de las aplicaciones más populares en cada campo.&lt;/p&gt;
+&lt;p&gt;Hace ya unos días escribí un post sobre &lt;a href=&quot;/web/2016/01/02/estrategias-de-desarrollo-web.html&quot; target=&quot;_blank&quot;&gt;estrategias de desarrollo web&lt;/a&gt; en el que recomendaba escoger diferentes tecnologías de desarrollo web en función del tipo de proyecto al que nos enfrentamos: CMS, frameworks, templates, static site generators… Y mencionaba, de pasada, alguna de las aplicaciones más populares en cada campo.&lt;/p&gt;
 
-&lt;p&gt;Por suerte para el consumidor, cada vez es más sencillo y barato desarrollar sitios webs estándar: gracias a los miles de templates y decenas de CMS disponibles no es necesario tener prácticamente ningún conocimiento técnico para producir casi cualquier tipo de web habitual (portales de noticias, foros, blogs, e-shops, etc.). De hecho, &lt;strong&gt;existen proyectos de AI que prometen diseñar y generar sitios webs automáticamente, sin intervención humana&lt;/strong&gt; más allá de ir agregando contenidos, al respecto véase &lt;a href=&quot;https://thegrid.io/&quot;&gt;TheGrid&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Por suerte para el consumidor, cada vez es más sencillo y barato desarrollar sitios webs estándar: gracias a los miles de templates y decenas de CMS disponibles no es necesario tener prácticamente ningún conocimiento técnico para producir casi cualquier tipo de web habitual (portales de noticias, foros, blogs, e-shops, etc.). De hecho, &lt;strong&gt;existen proyectos de AI que prometen diseñar y generar sitios webs automáticamente, sin intervención humana&lt;/strong&gt; más allá de ir agregando contenidos, al respecto véase &lt;a href=&quot;https://thegrid.io/&quot; target=&quot;_blank&quot;&gt;TheGrid&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;El mundo del desarrollo web, por fuerza, se ha visto empujado o bien hacia el desarrollo de apps, plugins, extensiones o templates para aquellos CMS, o bien hacia áreas mucho más técnicas o especializadas, como por ejemplo:&lt;/p&gt;
 
@@ -98,7 +98,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;En una encuesta realizada en Marzo del año pasado (ver &lt;a href=&quot;http://www.sitepoint.com/best-php-framework-2015-sitepoint-survey-results/&quot;&gt;aquí&lt;/a&gt;) Laravel se situaba a la cabeza de los frameworks PHP más usados, seguido de Nette, Yii (1 y 2), CodeIgniter, Zend (1 y 2) y CakePHP. Este gráfico parece confirmar los datos de la encuesta, pero además nos ofrece una perspectiva temporal interesantísima:&lt;/p&gt;
+&lt;p&gt;En una encuesta realizada en Marzo del año pasado (ver &lt;a href=&quot;http://www.sitepoint.com/best-php-framework-2015-sitepoint-survey-results/&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;) Laravel se situaba a la cabeza de los frameworks PHP más usados, seguido de Nette, Yii (1 y 2), CodeIgniter, Zend (1 y 2) y CakePHP. Este gráfico parece confirmar los datos de la encuesta, pero además nos ofrece una perspectiva temporal interesantísima:&lt;/p&gt;
 
 &lt;p&gt;Laravel, en tan sólo tres años, se ha hecho con el liderazgo de los frameworks PHP y, no sólo eso, sino que todo ellos parecen estar perdiendo popularidad al mismo tiempo que Laravel la gana. En cuestiones de frameworks PHP, por tanto, apostar por &lt;strong&gt;Laravel&lt;/strong&gt; sería la apuesta más segura.&lt;/p&gt;
 
@@ -139,7 +139,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Hace unos años no me hubiese podido creer que JavaScript sería la base para tecnologías del lado servidor como mínimo tan buenas como cualquier otra. Habría sido inimaginable leer post como &lt;a href=&quot;http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/&quot;&gt;éste&lt;/a&gt; en los que se habla de Node.JS (un JS runtime environment, una plataforma de ejecución de código JS del lado servidor) como la gran panacea del desarrollo web.&lt;/p&gt;
+&lt;p&gt;Hace unos años no me hubiese podido creer que JavaScript sería la base para tecnologías del lado servidor como mínimo tan buenas como cualquier otra. Habría sido inimaginable leer post como &lt;a href=&quot;http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/&quot; target=&quot;_blank&quot;&gt;éste&lt;/a&gt; en los que se habla de Node.JS (un JS runtime environment, una plataforma de ejecución de código JS del lado servidor) como la gran panacea del desarrollo web.&lt;/p&gt;
 
 &lt;p&gt;A primar vista la gráfica sugiere que en este relativamente nuevo mundillo de los full-stack frameworks basados en tecnologías JavaScript/Node.JS parece haber una competencia feroz por hacerse con el primer puesto.&lt;/p&gt;
 
@@ -243,7 +243,7 @@
         <title>Bash script para hacer git add, commit y push rápidamente</title>
         <description>&lt;p&gt;Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de agarraos).&lt;/p&gt;
 
-&lt;p&gt;Lo de agregarle la comprobación de que se han pasado el número de argumentos correctos y la pijadilla de los colores es algo que he visto en otros scripts y me ha hecho gracia copiarlo descaradamente.&lt;/p&gt;
+&lt;p&gt;Lo de agregarle la comprobación de que se han pasado el número de argumentos correctos y la pijadilla de los colores es algo que he visto en otros scripts y he copiado descaradamente.&lt;/p&gt;
 
 &lt;h2 id=&quot;cmo-funciona&quot;&gt;¿Cómo funciona?&lt;/h2&gt;
 
@@ -342,7 +342,7 @@ git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/sp
 
 &lt;h2 id=&quot;qu-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h2&gt;
 
-&lt;p&gt;Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí: algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismo fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí: algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismo fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí). Además, sabiendo más o menos de qué va Git, la terminología y los conceptos generales (merge, branch, pull, push…), aprender a hacer lo mismo con un nuevo VCS es coser y cantar.&lt;/p&gt;
 
@@ -357,7 +357,7 @@ git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/sp
 &lt;p&gt;o&lt;/p&gt;
 &lt;pre&gt;sudo apt-get install git-all&lt;/pre&gt;
 
-&lt;p&gt;Si usas Mac te lo puedes bajar de &lt;a href=&quot;http://git-scm.com/download/mac&quot;&gt;aquí&lt;/a&gt;. Si usas Windows te puedes bajar el instalador &lt;a href=&quot;http://git-scm.com/download/win&quot;&gt;aquí&lt;/a&gt; y te será muy útil agregar la carpeta donde se te instale el ejecutable git al PATH de Windows para poder ejecutar git desde cualquier línea de comandos que abras.&lt;/p&gt;
+&lt;p&gt;Si usas Mac te lo puedes bajar de &lt;a href=&quot;http://git-scm.com/download/mac&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;. Si usas Windows te puedes bajar el instalador &lt;a href=&quot;http://git-scm.com/download/win&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt; y te será muy útil agregar la carpeta donde se te instale el ejecutable git al PATH de Windows para poder ejecutar git desde cualquier línea de comandos que abras.&lt;/p&gt;
 
 &lt;p&gt;Si necesitas más detalles sobre cómo instalarlo, problemas, casos especiales… ya sabes que Google es tu amigo. También puedes preguntar más abajo e intentaré ayudarte.&lt;/p&gt;
 
@@ -555,7 +555,7 @@ git reset   # Lo contrario a *git add -A*
         <title>Tu web porno con Laravel - II: Migrations, models y seeders</title>
         <description>&lt;h2 id=&quot;preparacin-previa&quot;&gt;Preparación previa&lt;/h2&gt;
 
-&lt;p&gt;Una vez configurado nuestro entorno de desarrollo de acuerdo a las &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot;&gt;especificaciones&lt;/a&gt; de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:&lt;/p&gt;
+&lt;p&gt;Una vez configurado nuestro entorno de desarrollo de acuerdo a las &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot; target=&quot;_blank&quot;&gt;especificaciones&lt;/a&gt; de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:&lt;/p&gt;
 
 &lt;pre&gt;
 laravel new porn-site-demo
@@ -628,7 +628,7 @@ laravel new porn-site-demo
 
 &lt;h2 id=&quot;nuestra-base-de-datos&quot;&gt;Nuestra base de datos&lt;/h2&gt;
 
-&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot;&gt;la primera parte&lt;/a&gt; de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:&lt;/p&gt;
+&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot; target=&quot;_blank&quot;&gt;la primera parte&lt;/a&gt; de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center; border: 1px solid black; background-color: white;&quot;&gt;&lt;img src=&quot;/images/db-diagram-1.jpg&quot; alt=&quot;Diagrama aproximado de nuestra base de datos&quot; /&gt;&lt;/p&gt;
 
@@ -703,7 +703,7 @@ php artisan vendor:publish
 
 &lt;p&gt;¿Ves cómo se han copiado ciertos ficheros de vendor/ a resources/views/ ? Pues eso. Más adelante ya hablaremos de qué va eso de las views, don’t you worry.&lt;/p&gt;
 
-&lt;p&gt;Ahora, tal como indica la documentación oficial de &lt;a href=&quot;https://laravel.com/docs/5.2/billing&quot;&gt;Cashier&lt;/a&gt;, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar &lt;em&gt;users&lt;/em&gt; y crear &lt;em&gt;subscriptions&lt;/em&gt;, son:&lt;/p&gt;
+&lt;p&gt;Ahora, tal como indica la documentación oficial de &lt;a href=&quot;https://laravel.com/docs/5.2/billing&quot; target=&quot;_blank&quot;&gt;Cashier&lt;/a&gt;, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar &lt;em&gt;users&lt;/em&gt; y crear &lt;em&gt;subscriptions&lt;/em&gt;, son:&lt;/p&gt;
 
 &lt;pre&gt;
 php artisan make:migration add_cashier_columns_to_users_table --table=users
@@ -744,7 +744,7 @@ Schema::create(&#39;girls&#39;, function (Blueprint $table) {
 });
 &lt;/pre&gt;
 
-&lt;p&gt;¿Vas intuyendo lo que hace cada método de Blueprint? &lt;a href=&quot;https://laravel.com/docs/5.2/migrations#creating-columns&quot;&gt;Aquí&lt;/a&gt; encontrarás una referencia detallada de cada uno. Si  te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:&lt;/p&gt;
+&lt;p&gt;¿Vas intuyendo lo que hace cada método de Blueprint? &lt;a href=&quot;https://laravel.com/docs/5.2/migrations#creating-columns&quot; target=&quot;_blank&quot;&gt;Aquí&lt;/a&gt; encontrarás una referencia detallada de cada uno. Si te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:&lt;/p&gt;
 
 &lt;pre&gt;
 Schema::create(&#39;videos&#39;, function (Blueprint $table) {
@@ -1470,7 +1470,7 @@ class User extends Authenticatable
 
 &lt;/div&gt;
 
-&lt;p&gt;Si tienes curiosidad sobre cómo funciona Faker y los muchos tipos de datos que podemos generar (nombres, números, direcciones, bloques de texto…), échale un vistazo a la &lt;a href=&quot;https://github.com/fzaninotto/Faker&quot;&gt;documentación de Faker&lt;/a&gt;. Si te surgen dudas, puedes preguntar en el área de comentarios.&lt;/p&gt;
+&lt;p&gt;Si tienes curiosidad sobre cómo funciona Faker y los muchos tipos de datos que podemos generar (nombres, números, direcciones, bloques de texto…), échale un vistazo a la &lt;a href=&quot;https://github.com/fzaninotto/Faker&quot; target=&quot;_blank&quot;&gt;documentación de Faker&lt;/a&gt;. Si te surgen dudas, puedes preguntar en el área de comentarios.&lt;/p&gt;
 
 &lt;p&gt;Con el seeder para los vídeos VideoTableSeeder.php hemos hecho más de lo mismo, te lo dejo por aquí como ejemplo:&lt;/p&gt;
 
@@ -1753,7 +1753,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;h2 id=&quot;a-quin-va-dirigido-el-curso&quot;&gt;¿A quién va dirigido el curso?&lt;/h2&gt;
 
-&lt;p&gt;A cualquier persona que tenga conocimientos básicos de desarrollo web. Es necesario tener un entorno de desarrollo adecuado: un servidor web (por ej. Apache o Nginx), PHP y base de datos (por ej. MySQL). También es necesario saber instalar y tener preparada una nueva copia de Laravel. Si nunca has usado Laravel te invito a que sigas los pasos de la web oficial para su instalación &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot;&gt;aquí&lt;/a&gt;. Si durante la instalación de Laravel o durante el seguimiento del curso te surgen dudas o detectas errores, házmelo saber más abajo, en el área de comentarios.&lt;/p&gt;
+&lt;p&gt;A cualquier persona que tenga conocimientos básicos de desarrollo web. Es necesario tener un entorno de desarrollo adecuado: un servidor web (por ej. Apache o Nginx), PHP y base de datos (por ej. MySQL). También es necesario saber instalar y tener preparada una nueva copia de Laravel. Si nunca has usado Laravel te invito a que sigas los pasos de la web oficial para su instalación &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;. Si durante la instalación de Laravel o durante el seguimiento del curso te surgen dudas o detectas errores, házmelo saber más abajo, en el área de comentarios.&lt;/p&gt;
 
 &lt;h2 id=&quot;qu-aspectos-de-laravel-voy-a-tratar-durante-el-desarrollo&quot;&gt;¿Qué aspectos de Laravel voy a tratar durante el desarrollo?&lt;/h2&gt;
 
@@ -1859,7 +1859,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;h2 id=&quot;wordpress-cms-y-todo-lo-dems&quot;&gt;WordPress, CMS y todo lo demás&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://wordpress.org/download/&quot;&gt;WordPress&lt;/a&gt;&lt;/strong&gt;, gracias a su enorme comunidad de desarrolladores de plugins, es muy útil para crear blogs y páginas web con docenas de funcionalidades. Si además le instalas &lt;strong&gt;&lt;a href=&quot;https://www.woothemes.com/woocommerce/&quot;&gt;WooCommerce&lt;/a&gt;&lt;/strong&gt; o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, la versatilidad y sencillez de Wordpress y de otros CMS por el estilo deja poco espacio para cualquier otra plataforma de desarrollo web salvo en ciertos casos:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://wordpress.org/download/&quot; target=&quot;_blank&quot;&gt;WordPress&lt;/a&gt;&lt;/strong&gt;, gracias a su enorme comunidad de desarrolladores de plugins, es muy útil para crear blogs y páginas web con docenas de funcionalidades. Si además le instalas &lt;strong&gt;&lt;a href=&quot;https://www.woothemes.com/woocommerce/&quot; target=&quot;_blank&quot;&gt;WooCommerce&lt;/a&gt;&lt;/strong&gt; o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, la versatilidad y sencillez de Wordpress y de otros CMS por el estilo deja poco espacio para cualquier otra plataforma de desarrollo web salvo en ciertos casos:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Desarrollo de aplicaciones estilo webservices o grandes aplicaciones con bases de datos muy personalizadas&lt;/li&gt;
@@ -1870,7 +1870,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Si, por ejemplo, uno desea desarrollar un webservice o una app social, un nuevo facebook, una nueva wikipedia, un nuevo WordPress… donde el back end (lo que no se ve) nos va a llevar muchas semanas de desarrollo, lo más apropiado es utilizar un &lt;strong&gt;framework&lt;/strong&gt;, cuya raison d’être es, precisamente, ayudarnos a escribir el menor número de líneas de código posible para realizar el mayor número de tareas posible (consultas a base de datos, validación de datos, servir páginas, enviar correos…).&lt;/p&gt;
 
-&lt;p&gt;En estos casos yo recomiendo utilizar cualquiera de los frameworks más populares basados en cualquiera de los lenguajes de programación que uno domine, por ejemplo: &lt;strong&gt;&lt;a href=&quot;https://laravel.com/&quot;&gt;Laravel&lt;/a&gt;&lt;/strong&gt; si uno está familiarizado con PHP, &lt;strong&gt;&lt;a href=&quot;http://www.rubyonrails.org.es/&quot;&gt;Ruby on Rails&lt;/a&gt;&lt;/strong&gt; (aka RoR) si uno prefiere Ruby, etc.&lt;/p&gt;
+&lt;p&gt;En estos casos yo recomiendo utilizar cualquiera de los frameworks más populares basados en cualquiera de los lenguajes de programación que uno domine, por ejemplo: &lt;strong&gt;&lt;a href=&quot;https://laravel.com/&quot; target=&quot;_blank&quot;&gt;Laravel&lt;/a&gt;&lt;/strong&gt; si uno está familiarizado con PHP, &lt;strong&gt;&lt;a href=&quot;http://www.rubyonrails.org.es/&quot; target=&quot;_blank&quot;&gt;Ruby on Rails&lt;/a&gt;&lt;/strong&gt; (aka RoR) si uno prefiere Ruby, etc.&lt;/p&gt;
 
 &lt;p&gt;Aunque yo soy un fan confeso de Laravel, cualquier framework es una buena opción si consta de una comunidad de desarrolladores lo suficientemente grande como para permitirnos encontrar fácilmente tanto plugins adicionales como respuesta a problemas que nos puedan ir  surgiendo.&lt;/p&gt;
 
@@ -1883,14 +1883,14 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
     &lt;p&gt;La primera opción es usar &lt;strong&gt;WordPress&lt;/strong&gt; o algún otro CMS popular, en cuyo caso podrá customizar el aspecto y editar nuevos contenidos a una velocidad muy razonable. Por contra, los contenidos se servirán bastante lentamente en relación al poco peso que en realidad tienen y el CMS en sí consumirá muchos más recursos del servidor de los estrictamente necesarios, lo cual hay que tener en cuenta si nuestro cliente o nosotros mismos pagamos un hosting a razón de los servicios que ofrece (PHP, SQL) o los recursos que consume (CPU, espacio).&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;La segunda opción, óptima para webs-anuncios, landing pages o pequeñas webs corporativas con 2-5 páginas distintas, es sencillamente editar a pelo algún template html/css/js existente. Al respecto, los templates basados en &lt;strong&gt;&lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt;&lt;/strong&gt; y similares son ideales: fáciles de entender, responsive, cross-browser…&lt;/p&gt;
+    &lt;p&gt;La segunda opción, óptima para webs-anuncios, landing pages o pequeñas webs corporativas con 2-5 páginas distintas, es sencillamente editar a pelo algún template html/css/js existente. Al respecto, los templates basados en &lt;strong&gt;&lt;a href=&quot;http://getbootstrap.com/&quot; target=&quot;_blank&quot;&gt;Bootstrap&lt;/a&gt;&lt;/strong&gt; y similares son ideales: fáciles de entender, responsive, cross-browser…&lt;/p&gt;
 
     &lt;p&gt;El desarrollo de proyectos bajo este enfoque tan sólo nos debería llevar 1-2 jornadas de trabajo, incluyendo la optimización de la velocidad de carga y el SEO. El resultado debería ser una web extremadamente optimizada y que consumirá los recursos estrictamente necesarios.&lt;/p&gt;
 
     &lt;p&gt;La única pega de esta estrategia es que agregar una nueva página no supondrá ningún ahorro de tiempo respecto a la anterior. Por tanto, si hubiese que hacer muchas páginas o si quisiéramos ciertas funcionalidades complejas (de blog, de e-shop…), esta estrategia no sería la más adecuada.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;La tercera y última opción es utilizar &lt;strong&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt; o algún otro generador de sitios estáticos similar, a los que sólo hay que pasarles el contenido de cada página convenientemente estructurado (por ejemplo, con markdown). Estas aplicaciones generan y actualizan, incluso en tiempo real, la totalidad de nuestro sitio web conforme uno lo escribe en cualquier editor de texto o IDE favorito.&lt;/p&gt;
+    &lt;p&gt;La tercera y última opción es utilizar &lt;strong&gt;&lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt; o algún otro generador de sitios estáticos similar, a los que sólo hay que pasarles el contenido de cada página convenientemente estructurado (por ejemplo, con markdown). Estas aplicaciones generan y actualizan, incluso en tiempo real, la totalidad de nuestro sitio web conforme uno lo escribe en cualquier editor de texto o IDE favorito.&lt;/p&gt;
 
     &lt;p&gt;Los sitios así generados no requieren del propio generador para ser servidos, con lo cual en nuestro entorno de producción no es necesario tener bases de datos, ni Ruby, ni PHP… lo que implica un consumo de recursos mínimo, con el consiguiente ahorro de dinerito.&lt;/p&gt;
   &lt;/li&gt;
