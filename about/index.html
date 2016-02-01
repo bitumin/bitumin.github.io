@@ -7,13 +7,13 @@
   <meta name="description" content="Hi there. I'm Mitxel Moriana, freelance developer, technophile, entrepeneur and blogger. This is the blog I use to talk mostly about my work, so you can expect to find many techy and programming related posts that I hope you'll find useful!
 ">
 
-  <title>MitxelMoriana</title>
+  <title>Sobre mí</title>
 
   <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mitxelmoriana.com/">
+  <link rel="canonical" href="http://mitxelmoriana.com/about/">
   <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
   <link rel="icon" type="image/png" href="/favicon.png">
 </head>
@@ -57,66 +57,74 @@
 </header>
         <div class="page-content">
             <div class="wrapper">
-                <div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
+                <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Sobre mí</h1>
+  </header>
+  <div class="post-content">
+    <script>
+var marriageSpan = function() {
+    var today = new Date();
+    var marriageDay = new Date(2013,8,1);
+    var diff = Math.floor(today.getTime() - marriageDay.getTime());
+    var dayUnit = 1000 * 60 * 60 * 24;
+    var spanInDays = Math.floor(diff/dayUnit);
+    var yearsUgly = spanInDays/365.25;
+    var monthsUgly = (yearsUgly - Math.floor(yearsUgly)) * 12;
+    var daysUgly = (monthsUgly - Math.floor(monthsUgly)) * 30.42;
+    var years = Math.floor(yearsUgly);
+    var months = Math.floor(monthsUgly);
+    var days = Math.floor(daysUgly);
     
-      <li>
-        <span class="post-meta">Jan 31, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/web/2016/01/31/la-invasion-de-los-frameworks-tendencias-en-tecnologias-de-desarrollo-de-web-apps.html">La invasión de los frameworks</a>
-        </h2>
-      </li>
+    var span = "";
+    if(years>0)                             { span += years + " años"; }
+    if(!days>0 && months>0 && years>0)      { span += " y "; } 
+    else if(days>0 && months>0 && years>0)  { span += ", "; }
+    if(months>0)                            { span += months + " meses"; }
+    if(days>0 && (months>0 || years>0))     { span += " y "; }
+    if(days>0)                              { span += days + " días"; }
     
-      <li>
-        <span class="post-meta">Jan 25, 2016</span>
+    return span;
+};
+</script>
 
-        <h2>
-          <a class="post-link" href="/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html">Bash script para hacer git add, commit y push rápidamente</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 20, 2016</span>
+<ul>
+  <li>Estoy casado con Marzie desde hace <strong><script>document.write(marriageSpan());</script><noscript>años</noscript></strong>.</li>
+  <li>He escrito un script para calcular el dato anterior.</li>
+  <li>Trabajo como <strong>desarrollador web freelance</strong> y en <strong>NarwalTech</strong>.</li>
+  <li>Me encanta trabajar con <strong>startups</strong>, aunque mi mujer preferiría que trabajase para alguna multinacional.</li>
+  <li>Mi motor principal en esta vida es la <strong>curiosidad</strong>.</li>
+  <li>Soy <strong>catalán</strong> de nacimiento, <strong>andaluz</strong> de familia y <strong>vasco</strong> de nombre. Vivo en Barcelona.
+<!--* Estudio el último curso de **ingeniería civil** en la **UPC**. De hecho, tengo un blog con los apuntes de mi carrera colgados.--></li>
+  <li>Aunque he sido aficionado al desarrollo web desde pequeño, me dedico profesionalmente desde el 2014.</li>
+  <li>Cuelgo mis repositorios normalmente en <strong>BitBucket</strong>, pero en el futuro prometo compartir más código abierto en <strong>GitHub</strong>.</li>
+  <li>Estoy muy activo en <strong>Facebook</strong>, actualizo mi perfil de <strong>Linkedin</strong> periódicamente y me paso una vez cada tres o cuatro años por Google+ y Twitter.
+<!--* Si necesitas mi CV en formato formal puedes descargártelo de aquí.--></li>
+</ul>
 
-        <h2>
-          <a class="post-link" href="/programming/2016/01/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html">Introducción al control de versiones con Git</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 6, 2016</span>
+<h2 id="contacto">Contacto:</h2>
 
-        <h2>
-          <a class="post-link" href="/web/2016/01/06/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html">Tu web porno con Laravel - II</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 4, 2016</span>
+<p>Si necesitas presupuesto para algún trabajo de desarrollo web o de mobile apps, contáctame a través de <a href="mailto:mitxel@narwal.tech">mitxel@narwal.tech</a>. Por otro lado, si quieres que colabore en algún proyecto, buscas gente para sacar adelante una startup o formas parte de alguna ONG o, en general, alguna asociación con buenas intenciones y poco dinero, mejor escríbeme a mi correo personal <a href="mailto:moriana.mitxel@gmail.com">moriana.mitxel@gmail.com</a>. También puedes interceptarme libremente en cualquiera de las redes sociales.</p>
 
-        <h2>
-          <a class="post-link" href="/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html">Tu web porno con Laravel - I</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 2, 2016</span>
+<h2 id="sobre-mitxelmorianacom">Sobre MitxelMoriana.com</h2>
 
-        <h2>
-          <a class="post-link" href="/web/2016/01/02/estrategias-de-desarrollo-web.html">Estrategias de desarrollo web</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>Comencé a escribir este blog a comienzos del 2016, ¡hace nada!. Mi primera intención es dedicarlo exclusivamente a asuntos relacionados con el mundillo de la programación o la tecnología: novedades, curiosidades, tutoriales, análisis, mi <em>pastebin</em> particular…</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p>Por si te interesan los aspectos técnicos del blog: lo he generado usando <strong>Jekyll 3</strong>. Voy customizándolo progresivamente, normalmente al mismo tiempo que escribo algún nuevo post. Por ahora he ampliado el template que venía por defecto con:</p>
 
-</div>
+<ul>
+  <li>Social share buttons.</li>
+  <li>Disqus comments.</li>
+  <li>Un par de plugins de Jekyll: uno para datatables, otro para font-awesome.</li>
+  <li>Headers de los posts con imágenes y títulos/subtítulos.</li>
+  <li>Montones de retoques visuales de todo tipo con Sass.</li>
+  <li>He compilado una parte de bootstrap para</li>
+</ul>
 
+<p>Los posts los escribo usando mardown, lo que me permite escribir centrándome en los contenidos y sabiendo que el html que generará Jekyll será exactamente tal como yo lo indico. En fin, me gusta Jekyll, te lo recomiendo.</p>
+
+  </div>
+</article>
             </div>
         </div>
         <footer class="site-footer">

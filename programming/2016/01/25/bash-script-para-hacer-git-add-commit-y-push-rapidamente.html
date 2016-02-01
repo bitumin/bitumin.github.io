@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
     <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,35 +16,23 @@
   <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
   <link rel="icon" type="image/png" href="/favicon.png">
 </head>
-
-
     <body>
         <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
     ga('create', 'UA-71923540-1', 'auto');
     ga('send', 'pageview');
-
 </script>
-        <!--facebook-->
-<div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=184462238579593";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
-<!--Twitter-->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<!--Linkedin-->
-<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: es_ES</script>
-<!--Google+-->
-<!--<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>-->
-
-
+        <!--Sharing buttons JS-->
+<!--Facebook--><div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=184462238579593";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+<!--Twitter--><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--Linkedin--><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: es_ES</script>
+<!--Google+--><!--<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>-->
         <header class="site-header">
-
   <div class="wrapper">
-
     <a class="site-title" href="/">MitxelMoriana</a>
-
     <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">
@@ -54,9 +41,12 @@
           <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
         </svg>
       </a>
-
       <div class="trigger">
         
+          
+        
+          
+          <a class="page-link" href="/about/">Sobre mí</a>
           
         
           
@@ -67,33 +57,22 @@
         
       </div>
     </nav>
-
   </div>
-
 </header>
-
-
         <div class="page-content">
             <div class="wrapper">
                 <div id="sharing-btns-wrapper">
-    <!--facebook-->
-    <div class="fb-share-button" data-href="http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html" data-layout="button"></div>
-    <!--Twitter-->
-    <a href="https://twitter.com/share" class="twitter-share-button"{count} data-lang="es">Twittear</a>
-    <!--Linkedin-->
-    <script type="IN/Share"></script>
-    <!--Google+-->
-    <!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
+    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html" data-layout="button"></div>
+    <!--Twitter--><a href="https://twitter.com/share" class="twitter-share-button" data-lang="es"></a>
+    <!--Linkedin--><script type="IN/Share"></script>
+    <!--Google+--><!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
 </div>
-
                 <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
-
     
     <div id="header-image-wrapper">
         <div id="header-image" style="background-image: url('/headers/git_boss.png');"></div>
     </div>
     
-
     <header class="post-header wrapper">
         <h1 class="post-title" itemprop="name headline">
             Bash script para hacer git add, commit y push rápidamente
@@ -101,7 +80,6 @@
         </h1>
         <p class="post-meta"><time datetime="2016-01-25T00:00:00+01:00" itemprop="datePublished">Jan 25, 2016</time></p>
     </header>
-
     <div class="post-content" itemprop="articleBody">
         <p>Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de agarraos).</p>
 
@@ -111,64 +89,37 @@
 
 <p>Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) <strong>fastcommit</strong>. Pon el fichero, con permisos de ejecución, en la carpeta raíz de tu proyeto con git. A continuación escribe:</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">./fastcommit <span class="s2">"Mensaje_para_el_commit"</span>     <span class="c"># Sólo admite un (1) argumento</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./fastcommit <span class="s2">&quot;Mensaje_para_el_commit&quot;</span>     <span class="c"># Sólo admite un (1) argumento</span></code></pre></figure>
 
 <h2 id="el-script">El script</h2>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27</pre></td><td class="code"><pre><span class="c">#=====================================</span>
-<span class="c"># Stage all, commit and push to master</span>
-<span class="c">#=====================================</span>
-<span class="c">#!/bin/bash</span>
-
-<span class="nv">red</span><span class="o">=</span><span class="s1">'\033[01;31m'</span>
-<span class="nv">blue</span><span class="o">=</span><span class="s1">'\033[01;34m'</span>
-<span class="nv">green</span><span class="o">=</span><span class="s1">'\033[01;32m'</span>
-<span class="nv">norm</span><span class="o">=</span><span class="s1">'\033[00m'</span>
-
-<span class="nv">EXPECTED_ARGS</span><span class="o">=</span>1
-<span class="nv">E_BADARGS</span><span class="o">=</span>65
-
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-ne <span class="nv">$EXPECTED_ARGS</span> <span class="o">]</span>
-<span class="k">then
-</span><span class="nb">echo</span> -e <span class="s2">"</span><span class="se">\n</span><span class="s2">Usage: </span><span class="nv">$0</span><span class="s2"> </span><span class="se">\"</span><span class="s2">Commit message</span><span class="se">\"\n</span><span class="s2">"</span>
-<span class="nb">exit</span> <span class="nv">$E_BADARGS</span>
-<span class="k">fi
-
-</span><span class="nb">echo</span> -e <span class="s2">"</span><span class="se">\n</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">- Staging all changes within the working space</span><span class="k">${</span><span class="nv">norm</span><span class="k">}</span><span class="se">\n</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">- Commit with the message </span><span class="k">${</span><span class="nv">red</span><span class="k">}${</span><span class="nv">1</span><span class="k">}${</span><span class="nv">norm</span><span class="k">}</span><span class="se">\n</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">- Pushing to origin, master branch</span><span class="se">\n</span><span class="k">${</span><span class="nv">norm</span><span class="k">}</span><span class="s2">"</span>
-
-git add -A <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">Stage ---&gt; [</span><span class="k">${</span><span class="nv">green</span><span class="k">}</span><span class="s2">OK</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">]</span><span class="k">${</span><span class="nv">norm</span><span class="k">}</span><span class="s2">"</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">Stage ---&gt; [</span><span class="k">${</span><span class="nv">red</span><span class="k">}</span><span class="s2">BAD</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">]</span><span class="k">${</span><span class="nv">norm</span><span class="k">}</span><span class="s2">"</span>
-git commit -m <span class="s2">"</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">Commit ---&gt; [</span><span class="k">${</span><span class="nv">green</span><span class="k">}</span><span class="s2">OK</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">]</span><span class="k">${</span><span class="nv">norm</span><span class="k">}</span><span class="s2">"</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">Commit ---&gt; [</span><span class="k">${</span><span class="nv">red</span><span class="k">}</span><span class="s2">BAD</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">]</span><span class="k">${</span><span class="nv">norm</span><span class="k">}</span><span class="s2">"</span>
-git push origin master <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">Push ---&gt; [</span><span class="k">${</span><span class="nv">green</span><span class="k">}</span><span class="s2">OK</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">]</span><span class="k">${</span><span class="nv">norm</span><span class="k">}</span><span class="s2">"</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">"</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">Push ---&gt; [</span><span class="k">${</span><span class="nv">red</span><span class="k">}</span><span class="s2">BAD</span><span class="k">${</span><span class="nv">blue</span><span class="k">}</span><span class="s2">]</span><span class="k">${</span><span class="nv">norm</span><span class="k">}</span><span class="s2">"</span>
-<span class="nb">echo</span> -e <span class="s2">" "</span>
-
-<span class="c">#End of the script</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="c">#=====================================</span>
+<span class="lineno"> 2</span> <span class="c"># Stage all, commit and push to master</span>
+<span class="lineno"> 3</span> <span class="c">#=====================================</span>
+<span class="lineno"> 4</span> <span class="c">#!/bin/bash</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="nv">red</span><span class="o">=</span><span class="s1">&#39;\033[01;31m&#39;</span>
+<span class="lineno"> 7</span> <span class="nv">blue</span><span class="o">=</span><span class="s1">&#39;\033[01;34m&#39;</span>
+<span class="lineno"> 8</span> <span class="nv">green</span><span class="o">=</span><span class="s1">&#39;\033[01;32m&#39;</span>
+<span class="lineno"> 9</span> <span class="nv">norm</span><span class="o">=</span><span class="s1">&#39;\033[00m&#39;</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="nv">EXPECTED_ARGS</span><span class="o">=</span>1
+<span class="lineno">12</span> <span class="nv">E_BADARGS</span><span class="o">=</span>65
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-ne <span class="nv">$EXPECTED_ARGS</span> <span class="o">]</span>
+<span class="lineno">15</span> <span class="k">then</span>
+<span class="lineno">16</span> <span class="nb">echo</span> -e <span class="s2">&quot;\nUsage: $0 \&quot;Commit message\&quot;\n&quot;</span>
+<span class="lineno">17</span> <span class="nb">exit</span> <span class="nv">$E_BADARGS</span>
+<span class="lineno">18</span> <span class="k">fi</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n${blue}- Staging all changes within the working space${norm}\n${blue}- Commit with the message ${red}${1}${norm}\n${blue}- Pushing to origin, master branch\n${norm}&quot;</span>
+<span class="lineno">21</span> 
+<span class="lineno">22</span> git add -A <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Stage ---&gt; [${green}OK${blue}]${norm}&quot;</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Stage ---&gt; [${red}BAD${blue}]${norm}&quot;</span>
+<span class="lineno">23</span> git commit -m <span class="s2">&quot;${1}&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Commit ---&gt; [${green}OK${blue}]${norm}&quot;</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Commit ---&gt; [${red}BAD${blue}]${norm}&quot;</span>
+<span class="lineno">24</span> git push origin master <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Push ---&gt; [${green}OK${blue}]${norm}&quot;</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Push ---&gt; [${red}BAD${blue}]${norm}&quot;</span>
+<span class="lineno">25</span> <span class="nb">echo</span> -e <span class="s2">&quot; &quot;</span>
+<span class="lineno">26</span> 
+<span class="lineno">27</span> <span class="c">#End of the script</span></code></pre></figure>
 
 <h2 id="aviso-probablemente-innecesario">Aviso probablemente innecesario</h2>
 
@@ -177,9 +128,7 @@ git push origin master <span class="o">&amp;&amp;</span> <span class="nb">echo</
 <p>Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.</p>
 
     </div>
-
 </article>
-
                 
 <div id="disqus_thread"></div>
 <script>
@@ -195,68 +144,50 @@ git push origin master <span class="o">&amp;&amp;</span> <span class="nb">echo</
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-
-
             </div>
         </div>
-
         <footer class="site-footer">
     <div class="wrapper">
-
         <h2 class="footer-heading">MitxelMoriana</h2>
-
         <div class="footer-col-wrapper">
-
             <div class="footer-col footer-col-alt-1">
-
                 <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
-
                 <br>
                 <ul class="social-media-list">
-
                     
                     <li>
                         <a href="https://github.com/bitumin"><i class="fa fa-github-square"></i></a>
 
                     </li>
                     
-
                     
                     <li>
                         <a href="https://facebook.com/mitxel.moriana"><i class="fa fa-facebook-official"></i></a>
                     </li>
                     
-
                     
                     <li>
                         <a href="https://linkedin.com/in/morianamitxel"><i class="fa fa-linkedin-square"></i></a>
 
                     </li>
                     
-
                     
                     <li>
                         <a href="https://twitter.com/mitxelmoriana"><i class="fa fa-twitter-square"></i></a>
 
                     </li>
                     
-
                 </ul>
             </div>
-
             <div class="footer-col footer-col-alt-2">
                 <p>Hi there. I'm Mitxel Moriana, freelance developer, technophile, entrepeneur and blogger. This is the blog I use to talk mostly about my work, so you can expect to find many techy and programming related posts that I hope you'll find useful!
 </p>
             </div>
-
         </div>
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="/assets/bootstrap.min.js"></script>
-
-
     </body>
-
 </html>
