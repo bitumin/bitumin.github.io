@@ -6,9 +6,9 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Feb 2016 10:44:38 +0100</pubDate>
-    <lastBuildDate>Mon, 01 Feb 2016 10:44:38 +0100</lastBuildDate>
-    <generator>Jekyll v3.0.1</generator>
+    <pubDate>Mon, 01 Feb 2016 12:50:12 +0100</pubDate>
+    <lastBuildDate>Mon, 01 Feb 2016 12:50:12 +0100</lastBuildDate>
+    <generator>Jekyll v3.1.0</generator>
     
       <item>
         <title>La invasión de los frameworks</title>
@@ -139,7 +139,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Hace unos años no me hubiese podido creer que JavaScript sería la base para tecnologías del lado servidor como mínimo tan buenas como cualquier otra. Habría sido inimaginable leer post como &lt;a href=&quot;http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/&quot; target=&quot;_blank&quot;&gt;éste&lt;/a&gt; en los que se habla de Node.JS (un JS runtime environment, una plataforma de ejecución de código JS del lado servidor) como la gran panacea del desarrollo web.&lt;/p&gt;
+&lt;p&gt;Hace unos años no me hubiese podido creer que JavaScript sería la base para tecnologías del lado servidor como mínimo tan buenas como cualquier otra. Habría sido inimaginable leer posts como &lt;a href=&quot;http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/&quot; target=&quot;_blank&quot;&gt;éste&lt;/a&gt; en los que se habla de Node.JS (un JS runtime environment, una plataforma de ejecución de código JS del lado servidor) como la gran panacea del desarrollo web.&lt;/p&gt;
 
 &lt;p&gt;A primar vista la gráfica sugiere que en este relativamente nuevo mundillo de los full-stack frameworks basados en tecnologías JavaScript/Node.JS parece haber una competencia feroz por hacerse con el primer puesto.&lt;/p&gt;
 
@@ -171,9 +171,9 @@
 
 &lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Creo que esta gráfica, donde aparece una caída generalizada en la popularidad de los frameworks basados en Java, podría inducir a extraer conclusiones precipitadas y erróneas. El mundillo del desarrollo web en Java está fuertemente influenciado por el desarrollo de apps para móbiles y teniendo en cuenta que el desarrollo para Android y demás no hace más que crecer, lo más sensato es suponer que los web frameworks basados en Java o intermediarios entre Java y tecnologías más próximas a las tradicionales, tienen aún mucha pelea que dar.&lt;/p&gt;
+&lt;p&gt;Creo que esta gráfica, donde se aprecia caída generalizada en la popularidad de los frameworks basados en Java, podría inducir a extraer conclusiones precipitadas y erróneas. El mundillo del desarrollo web en Java está fuertemente influenciado por el desarrollo de apps para móviles y teniendo en cuenta que el desarrollo para dispositivos portátiles no hace más que crecer, lo más sensato es suponer que los web frameworks basados en Java o intermediarios entre Java y tecnologías más próximas a las tradicionales tienen aún mucha pelea que dar.&lt;/p&gt;
 
-&lt;p&gt;Mantengámonos atentos.&lt;/p&gt;
+&lt;p&gt;Yo creo que lo más prudente será estar al tanto respecto a las novedades en esta categoría.&lt;/p&gt;
 
 &lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot;&gt;&lt;/iframe&gt;--&gt;
 &lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
@@ -562,9 +562,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Una vez configurado nuestro entorno de desarrollo de acuerdo a las &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot; target=&quot;_blank&quot;&gt;especificaciones&lt;/a&gt; de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:&lt;/p&gt;
 
-&lt;pre&gt;
-laravel new porn-site-demo
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;laravel new porn-site-demo&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Este comando creará una nueva copia de la última versión del framework en la carpeta porn-site-demo. A continuación abre dicha carpeta en tu explorador de ficheros o IDE favorito y pasemos a analizar lo que se cuece ahí dentro.&lt;/p&gt;
 
@@ -641,19 +639,15 @@ laravel new porn-site-demo
 
 &lt;p&gt;Antes de hacer las migrations es necesario decirle a nuestra aplicación cómo acceder a nuestra base de datos. Para ello crea una base de datos, así como un usuario con los permisos pertinentes. Abre ahora el fichero .env en la carpeta raíz de nuestra aplicación y modifica las siguientes líneas introduciendo los datos apropiados:&lt;/p&gt;
 
-&lt;pre&gt;
-DB_DATABASE=nombre_de_tu_nueva_base_de_datos
-DB_USERNAME=nombre_del_nuevo_usuario_con_permisos
-DB_PASSWORD=password_del_nuevo_usuario
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nv&quot;&gt;DB_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nombre_de_tu_nueva_base_de_datos
+&lt;span class=&quot;nv&quot;&gt;DB_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nombre_del_nuevo_usuario_con_permisos
+&lt;span class=&quot;nv&quot;&gt;DB_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;password_del_nuevo_usuario&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;A modo de referencia, a mí la cosa me ha quedado tal que así:&lt;/p&gt;
 
-&lt;pre&gt;
-DB_DATABASE=my-porn-site
-DB_USERNAME=my-porn-site
-DB_PASSWORD=uVYB5vbN38UXmdQ4
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nv&quot;&gt;DB_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;my-porn-site
+&lt;span class=&quot;nv&quot;&gt;DB_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;my-porn-site
+&lt;span class=&quot;nv&quot;&gt;DB_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;uVYB5vbN38UXmdQ4&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Ahora ya podemos crear las migrations y ejecutarlas sin ningún miedo. Vayamos por faena. Ve a la carpeta database/migrations y observa que Laravel viene, ya por defecto, con dos migrations hechas: una para crear las tablas users y la otra para crear la tabla password_resets, ambas útiles y necesarias para gestionar el registro de nuestros futuros usuarios.&lt;/p&gt;
 
@@ -676,47 +670,33 @@ DB_PASSWORD=uVYB5vbN38UXmdQ4
 
 &lt;p&gt;La forma más rápida de generar las migrations necesarias para crear tablas es escribir, por cada tabla que queremos crear, el siguiente comando:&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan make:migration create_table-name_table --create=table-name
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan make:migration create_table-name_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;table-name&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;A modo de referencia, yo he escrito y ejecutado el siguiente comando (que es una concatenación de los cinco comandos que debes ejecutar):&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan make:migration create_tags_table --create=tags &amp;amp;&amp;amp; php artisan make:migration create_girls_table --create=girls &amp;amp;&amp;amp; php artisan make:migration create_videos_table --create=videos &amp;amp;&amp;amp; php artisan make:migration create_girl_video_table --create=girl_video &amp;amp;&amp;amp; php artisan make:migration create_tag_video_table --create=tag_video
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan make:migration create_tags_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tags &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:migration create_girls_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;girls &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:migration create_videos_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;videos &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:migration create_girl_video_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;girl_video &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:migration create_tag_video_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tag_video&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Laravel tiene una dependencia que nos va a venir que ni pintada para gestionar nuestras suscripciones, se llama Cashier y se encargará de hacernos la vida más fácil a la hora de gestionar las suscripciones. Instalemos esta dependencia antes de continuar:&lt;/p&gt;
 
-&lt;pre&gt;
-composer require laravel/cashier:&quot;~6.0&quot;  
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;composer require laravel/cashier:&lt;span class=&quot;s2&quot;&gt;&quot;~6.0&quot;&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Nótese que al ejecutar ese comando Laravel nos bajará la dependencia y la guardará en la carpeta &lt;em&gt;vendor/&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;También es necesario añadir la siguiente línea al final del array &lt;em&gt;providers&lt;/em&gt; del fichero &lt;em&gt;config/app.php&lt;/em&gt;:&lt;/p&gt;
 
-&lt;pre&gt;
-Laravel\Cashier\CashierServiceProvider::class,
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Laravel\Cashier\CashierServiceProvider::class,&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma muy pro de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un namespace y de asociar al comando publish la publicación o copia de ciertos ficheros que nos acabamos de bajar, desde el directorio vendor/ a cualquier otro direcotorio, en este caso de vendor/ a resources/views/ . ¿Por qué no lo comprobamos? Escribe el siguiente comando:&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan vendor:publish
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan vendor:publish&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;¿Ves cómo se han copiado ciertos ficheros de vendor/ a resources/views/ ? Pues eso. Más adelante ya hablaremos de qué va eso de las views, don’t you worry.&lt;/p&gt;
 
 &lt;p&gt;Ahora, tal como indica la documentación oficial de &lt;a href=&quot;https://laravel.com/docs/5.2/billing&quot; target=&quot;_blank&quot;&gt;Cashier&lt;/a&gt;, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar &lt;em&gt;users&lt;/em&gt; y crear &lt;em&gt;subscriptions&lt;/em&gt;, son:&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan make:migration add_cashier_columns_to_users_table --table=users
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan make:migration add_cashier_columns_to_users_table --table&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;users&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;pre&gt;
-php artisan make:migration create_subscriptions_table --create=subscriptions
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan make:migration create_subscriptions_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;subscriptions&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Utilízalos. Si todo está en orden deberíamos tener ahora nueve migrations en nuestra carpeta database/migrations/ . Si no es así, asegúrate de haber seguido todos los pasos que hemos descrito hasta ahora.&lt;/p&gt;
 
@@ -726,123 +706,105 @@ php artisan make:migration create_subscriptions_table --create=subscriptions
 
 &lt;p&gt;Completemos ahora la migration para crear la tabla &lt;em&gt;tags&lt;/em&gt; agregando el resto de columnas necesarias de acuerdo a nuestro diagrama:&lt;/p&gt;
 
-&lt;pre&gt;
-Schema::create(&#39;tags&#39;, function (Blueprint $table) {
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Schema::create(&#39;tags&#39;, function (Blueprint $table) {
     $table-&amp;gt;increments(&#39;id&#39;);
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;/strong&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
     $table-&amp;gt;timestamps();
-});
-&lt;/pre&gt;
+});&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Análogamente, agreguemos las columnas que falta a la migration para crear la tabla girls:&lt;/p&gt;
 
-&lt;pre&gt;
-Schema::create(&#39;girls&#39;, function (Blueprint $table) {
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Schema::create(&#39;girls&#39;, function (Blueprint $table) {
     $table-&amp;gt;increments(&#39;id&#39;);
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;age&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;picture&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;text(&#39;description&#39;);&lt;/strong&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;integer(&#39;age&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;picture&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;text(&#39;description&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
     $table-&amp;gt;timestamps();
-});
-&lt;/pre&gt;
+});&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;¿Vas intuyendo lo que hace cada método de Blueprint? &lt;a href=&quot;https://laravel.com/docs/5.2/migrations#creating-columns&quot; target=&quot;_blank&quot;&gt;Aquí&lt;/a&gt; encontrarás una referencia detallada de cada uno. Si te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:&lt;/p&gt;
 
-&lt;pre&gt;
-Schema::create(&#39;videos&#39;, function (Blueprint $table) {
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Schema::create(&#39;videos&#39;, function (Blueprint $table) {
     $table-&amp;gt;increments(&#39;id&#39;);
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;title&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;filename&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;thumbnail&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;boolean(&#39;featured&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;trailer&#39;);&lt;/strong&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;title&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;slug&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;filename&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;thumbnail&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;boolean(&#39;featured&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;trailer&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
     $table-&amp;gt;timestamps();
-});
-&lt;/pre&gt;
+});&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Completemos ahora la migration para crear la tabla subscription:&lt;/p&gt;
 
-&lt;pre&gt;
-Schema::create(&#39;subscriptions&#39;, function ($table) {
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Schema::create(&#39;subscriptions&#39;, function ($table) {
     $table-&amp;gt;increments(&#39;id&#39;);
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;user_id&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;stripe_id&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;stripe_plan&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;quantity&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;timestamp(&#39;trial_ends_at&#39;)-&amp;gt;nullable();&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;timestamp(&#39;ends_at&#39;)-&amp;gt;nullable();&lt;/strong&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;integer(&#39;user_id&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;name&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;stripe_id&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;stripe_plan&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;integer(&#39;quantity&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;timestamp(&#39;trial_ends_at&#39;)-&amp;gt;nullable();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;timestamp(&#39;ends_at&#39;)-&amp;gt;nullable();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
     $table-&amp;gt;timestamps();
-});
-&lt;/pre&gt;
+});&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Ahora completemos las migrations para las tablas que relacionan girls con videos y tags con videos. A estas tablas normalmente se les llama de algún modo especial: asociativas, de cross-reference, junction, de enlace… Llámalas como tú quieras, la cuestión es que su función es resolver una relación many-to-many. Estas migrations deberían quedarnos de la siguiente manera:&lt;/p&gt;
 
-&lt;pre&gt;
-Schema::create(&#39;girl_video&#39;, function ($table) {
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Schema::create(&#39;girl_video&#39;, function ($table) {
     $table-&amp;gt;increments(&#39;id&#39;);
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;girl_id&#39;)-&amp;gt;unsigned();&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;foreign(&#39;girl_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;girls&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;video_id&#39;)-&amp;gt;unsigned();&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;foreign(&#39;video_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;videos&#39;);&lt;/strong&gt;
-});
-&lt;/pre&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;integer(&#39;girl_id&#39;)-&amp;gt;unsigned();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;foreign(&#39;girl_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;girls&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;integer(&#39;video_id&#39;)-&amp;gt;unsigned();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;foreign(&#39;video_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;videos&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+});&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;pre&gt;
-Schema::create(&#39;tag_video&#39;, function ($table) {
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Schema::create(&#39;tag_video&#39;, function ($table) {
     $table-&amp;gt;increments(&#39;id&#39;);
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;tag_id&#39;)-&amp;gt;unsigned();&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;foreign(&#39;tag_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;tags&#39;);&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;integer(&#39;video_id&#39;)-&amp;gt;unsigned();&lt;/strong&gt;
-    &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;foreign(&#39;video_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;videos&#39;);&lt;/strong&gt;
-});
-&lt;/pre&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;integer(&#39;tag_id&#39;)-&amp;gt;unsigned();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;foreign(&#39;tag_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;tags&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;integer(&#39;video_id&#39;)-&amp;gt;unsigned();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;foreign(&#39;video_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;videos&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+});&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;¡Ya sólo nos falta editar una migration para terminar! ¿Recuerdas aquella migration que creamos para modificar la tabla users? ¿Recuerdas que usamos un comando distinto para generarla? Si la abres y la comparas con el resto de migrations te darás cuenta de que ésta última utiliza el método &lt;em&gt;table()&lt;/em&gt; en lugar de &lt;em&gt;create()&lt;/em&gt; . Dentro de la función table() podemos crear columnas del mismo modo que hacíamos dentro de create(), con la diferencia de que con table() modificamos columnas en tablas ya existentes.&lt;/p&gt;
 
 &lt;p&gt;Puesto que dentro del método up() crearemos una serie de columnas en una tabla existente, dentro del método down() haremos lo contrario: eliminar las columnas de la tabla. Esto se hace de la siguiente manera:&lt;/p&gt;
 
-&lt;pre&gt;
-public function up()
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;public function up()
 {
     Schema::table(&#39;users&#39;, function (Blueprint $table) {
-        &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;card_last_four&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;card_brand&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;string(&#39;stripe_id&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;/strong&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;card_last_four&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;card_brand&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;string(&#39;stripe_id&#39;)-&amp;gt;after(&#39;password&#39;)-&amp;gt;nullable();&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
     });
 }
 
 public function down()
 {
     Schema::table(&#39;users&#39;, function (Blueprint $table) {
-        &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;dropColumn(&#39;stripe_id&#39;);&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;dropColumn(&#39;card_brand&#39;);&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$table-&amp;gt;dropColumn(&#39;card_last_four&#39;);&lt;/strong&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;dropColumn(&#39;stripe_id&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;dropColumn(&#39;card_brand&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$table-&amp;gt;dropColumn(&#39;card_last_four&#39;);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
     });
-}
-&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;¡Parece que hemos terminado de editar nuestras migrations! Ahora viene la hora de la verdad. Abre una línea de comandos y escribe:&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan migrate
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Si todo ha ido bien, no deberían aparecernos mensajes de error. Si comprobamos nuestra base de datos deberíamos ver ahora las ocho nuevas tablas que hemos creado mediante las migrations más una tabla adicional que Laravel utiliza para llevar la cuenta de las migrations que ya se han ejecutado. La próxima vez que ejecutes el comando &lt;em&gt;migrate&lt;/em&gt; Laravel sólo ejecutará las migrations que no hayan sido realizadas anteriormente, de ahí que tengas que hacer nuevas migrations para modificar las anteriores si estás trabajando con más gente o modificando una base de datos que ya está en producción. Si trabajas solo en fase de desarrollo y aún no has compartido tu trabajo con el resto del equipo siempre puedes ir hacia atrás en el proceso con el comando &lt;em&gt;rollback&lt;/em&gt;, modificar las migrations y volver a ejecutarlas.&lt;/p&gt;
 
 &lt;p&gt;A modo de referencia dejo aquí apuntados los comandos más usados en relación con las migrations:&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan migrate           # migrates any new migration(s)
-php artisan migrate:rollback  # rollback the latest &quot;batch&quot; of migrations
-php artisan migrate:reset     # rollback all the migrations
-php artisan migrate:refresh   # rollback all the migrations and then migrate them all again
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan migrate           &lt;span class=&quot;c&quot;&gt;# migrates any new migration(s)&lt;/span&gt;
+php artisan migrate:rollback  &lt;span class=&quot;c&quot;&gt;# rollback the latest &quot;batch&quot; of migrations&lt;/span&gt;
+php artisan migrate:reset     &lt;span class=&quot;c&quot;&gt;# rollback all the migrations&lt;/span&gt;
+php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the migrations and then migrate them all again&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;creacin-de-models&quot;&gt;Creación de models&lt;/h2&gt;
 
@@ -864,21 +826,15 @@ php artisan migrate:refresh   # rollback all the migrations and then migrate the
 
 &lt;p&gt;Pero antes… vamos a instalar otra dependencia. ¡Ya tenemos experiencia de antes con Cashier! Esta vez instalaremos la dependencia Sluggable, que básicamente nos permite crear slugs únicos, de forma automática, a partir de cualquier campo existente en cualquier tabla. ¿Recuerdas que en nuestras tablas creamos aquellas columnas slug? Pues ahora ya sabes para qué servirán. Ejecuta el siguiente comando:&lt;/p&gt;
 
-&lt;pre&gt;
-composer require cviebrock/eloquent-sluggable
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;composer require cviebrock/eloquent-sluggable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Registra el Service Provider de Sluggable, es decir, añade la siguiente línea al final del array providers en el fichero config/app.php:&lt;/p&gt;
 
-&lt;pre&gt;
-Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;Cviebrock&lt;span class=&quot;se&quot;&gt;\E&lt;/span&gt;loquentSluggable&lt;span class=&quot;se&quot;&gt;\S&lt;/span&gt;luggableServiceProvider::class,&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Finalmente, ¿lo adivinas? Ejecuta el comando publish:&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan vendor:publish
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan vendor:publish&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;A diferecia que Cashier, la dependencia Sluggable no publica views desde la carpeta vendor, sino que publica un fichero de configuración dentro de nuestra carpeta config/ . En principio no hay razón para cambiar la configuración que aparece ahí por defecto, pero no está de más que le eches un vistazo.&lt;/p&gt;
 
@@ -1015,13 +971,11 @@ php artisan vendor:publish
 
 &lt;p&gt;Fíjate que en nuestro model Tag hemos escrito la función videos(), que devuelve el resultado de utilizar el método belongToMany() porque la relación entre Tag y Video era de many to many (tal como indico en la tabla). A partir de ahora, podremos escribir en cualquier parte de nuestro código:&lt;/p&gt;
 
-&lt;pre&gt;
-$tag-&amp;gt;videos()-&amp;gt;get()
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;$tag-&amp;gt;videos()-&amp;gt;get()&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;p&gt;O aún mejor:&lt;/p&gt;
-&lt;pre&gt;
-$tag-&amp;gt;videos
-&lt;/pre&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;$tag-&amp;gt;videos&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Obtendremos así todos los vídeos relacionados con una tag específica. A este sistema para obtener información de nuestra base de datos, es decir, hacer consultas a nuestra base de datos, a través los models y la concatenación de métodos se le conoce como &lt;strong&gt;eloquent&lt;/strong&gt; en lenguaje &lt;em&gt;laravelita&lt;/em&gt;.&lt;/p&gt;
 
@@ -1180,16 +1134,14 @@ $tag-&amp;gt;videos
 
 &lt;p&gt;En verdad todo este rollo que te he soltado se resuelve, en nuestro caso, abriendo User.php y agregando las siguientes líneas de código (marcadas en rojo pasión):&lt;/p&gt;
 
-&lt;pre&gt;
-...
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;...
 use Illuminate\Foundation\Auth\User as Authenticatable;
-&lt;strong style=&quot;color:red;&quot;&gt;use Laravel\Cashier\Billable;&lt;/strong&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;use Laravel\Cashier\Billable;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
 
 class User extends Authenticatable
 {
-    &lt;strong style=&quot;color:red;&quot;&gt;use Billable;&lt;/strong&gt;
-    ...
-&lt;/pre&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;use Billable;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    ...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Pues me parece que ya hemos terminado con nuestros models. Para comprobar que todo funciona qué mejor manera que poblar nuestra base de datos con eloquent, es decir, a través de los models. Pasemos, por tanto, a la siguiente sección del curso.&lt;/p&gt;
 
@@ -1688,32 +1640,26 @@ class User extends Authenticatable
 
 &lt;p&gt;Agrégale las siguientes líneas:&lt;/p&gt;
 
-&lt;pre&gt;
-    public function run()
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;    public function run()
     {
-        &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(TagTableSeeder::class);&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(GirlTableSeeder::class);&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(VideoTableSeeder::class);&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(TagVideoTableSeeder::class);&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(GirlVideoTableSeeder::class);&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(UserTableSeeder::class);&lt;/strong&gt;
-        &lt;strong style=&quot;color:red;&quot;&gt;$this-&amp;gt;call(SubscriptionTableSeeder::class);&lt;/strong&gt;
-    }
-&lt;/pre&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$this-&amp;gt;call(TagTableSeeder::class);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$this-&amp;gt;call(GirlTableSeeder::class);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$this-&amp;gt;call(VideoTableSeeder::class);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$this-&amp;gt;call(TagVideoTableSeeder::class);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$this-&amp;gt;call(GirlVideoTableSeeder::class);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$this-&amp;gt;call(UserTableSeeder::class);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;$this-&amp;gt;call(SubscriptionTableSeeder::class);&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+    }&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;¡Ya hemos terminado con los seeders! Crucemos los dedos y pasemos a escribir el comando para ejecutarlos:&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan db:seed
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan db:seed&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Si todo va bien deberíamos tener todas nuestras tablas llenitas de datos, compruébalo y congratúlate.&lt;/p&gt;
 
 &lt;p&gt;Podría ocurrir que algún seeder nos diese error y se quedase la historia a medio hacer, en estos casos, una vez corregido nuestro código, un comando muy útil que resetea la base de datos y vuelve a intentar poblarla es el siguiente:&lt;/p&gt;
 
-&lt;pre&gt;
-php artisan migrate:refresh --seed # Si lo usas en el entorno de producción irás al infierno
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php artisan migrate:refresh --seed &lt;span class=&quot;c&quot;&gt;# Si lo usas en el entorno de producción irás al infierno&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Anótalo bien, porque yo he perdido la cuenta de las veces que lo he tenido que usar en la fase de desarrollo de los proyectos.&lt;/p&gt;
 

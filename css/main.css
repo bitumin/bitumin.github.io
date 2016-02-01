@@ -458,24 +458,6 @@ pre {
     color: #099; }
 
 /**
-* Better line numbers
-*/
-.highlight .lineno {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 0;
-  color: #bfbfbf;
-  padding: 8px 12px 0 0; }
-.highlight .code > pre {
-  border: 0; }
-.highlight .code {
-  border-left: 1px solid #DDD; }
-
-/**
  * Better tables
  */
 .table {
@@ -605,3 +587,21 @@ a:hover {
 
 .fb-share-button > span:nth-child(1) > iframe:nth-child(1) {
   margin-top: -7px; }
+
+/**
+* Beautify line numbers
+*/
+.highlight .lineno {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 0;
+  color: #bfbfbf;
+  padding: 8px 12px 0 0; }
+.highlight .code > pre {
+  border: 0; }
+.highlight .code {
+  border-left: 1px solid #DDD; }

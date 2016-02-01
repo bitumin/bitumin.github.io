@@ -109,9 +109,7 @@
 
 <p>Una vez configurado nuestro entorno de desarrollo de acuerdo a las <a href="https://laravel.com/docs/5.2/installation" target="_blank">especificaciones</a> de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:</p>
 
-<pre>
-laravel new porn-site-demo
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">laravel new porn-site-demo</code></pre></figure>
 
 <p>Este comando creará una nueva copia de la última versión del framework en la carpeta porn-site-demo. A continuación abre dicha carpeta en tu explorador de ficheros o IDE favorito y pasemos a analizar lo que se cuece ahí dentro.</p>
 
@@ -188,19 +186,15 @@ laravel new porn-site-demo
 
 <p>Antes de hacer las migrations es necesario decirle a nuestra aplicación cómo acceder a nuestra base de datos. Para ello crea una base de datos, así como un usuario con los permisos pertinentes. Abre ahora el fichero .env en la carpeta raíz de nuestra aplicación y modifica las siguientes líneas introduciendo los datos apropiados:</p>
 
-<pre>
-DB_DATABASE=nombre_de_tu_nueva_base_de_datos
-DB_USERNAME=nombre_del_nuevo_usuario_con_permisos
-DB_PASSWORD=password_del_nuevo_usuario
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">DB_DATABASE</span><span class="o">=</span>nombre_de_tu_nueva_base_de_datos
+<span class="nv">DB_USERNAME</span><span class="o">=</span>nombre_del_nuevo_usuario_con_permisos
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>password_del_nuevo_usuario</code></pre></figure>
 
 <p>A modo de referencia, a mí la cosa me ha quedado tal que así:</p>
 
-<pre>
-DB_DATABASE=my-porn-site
-DB_USERNAME=my-porn-site
-DB_PASSWORD=uVYB5vbN38UXmdQ4
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">DB_DATABASE</span><span class="o">=</span>my-porn-site
+<span class="nv">DB_USERNAME</span><span class="o">=</span>my-porn-site
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>uVYB5vbN38UXmdQ4</code></pre></figure>
 
 <p>Ahora ya podemos crear las migrations y ejecutarlas sin ningún miedo. Vayamos por faena. Ve a la carpeta database/migrations y observa que Laravel viene, ya por defecto, con dos migrations hechas: una para crear las tablas users y la otra para crear la tabla password_resets, ambas útiles y necesarias para gestionar el registro de nuestros futuros usuarios.</p>
 
@@ -223,47 +217,33 @@ DB_PASSWORD=uVYB5vbN38UXmdQ4
 
 <p>La forma más rápida de generar las migrations necesarias para crear tablas es escribir, por cada tabla que queremos crear, el siguiente comando:</p>
 
-<pre>
-php artisan make:migration create_table-name_table --create=table-name
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan make:migration create_table-name_table --create<span class="o">=</span>table-name</code></pre></figure>
 
 <p>A modo de referencia, yo he escrito y ejecutado el siguiente comando (que es una concatenación de los cinco comandos que debes ejecutar):</p>
 
-<pre>
-php artisan make:migration create_tags_table --create=tags &amp;&amp; php artisan make:migration create_girls_table --create=girls &amp;&amp; php artisan make:migration create_videos_table --create=videos &amp;&amp; php artisan make:migration create_girl_video_table --create=girl_video &amp;&amp; php artisan make:migration create_tag_video_table --create=tag_video
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan make:migration create_tags_table --create<span class="o">=</span>tags <span class="o">&amp;&amp;</span> php artisan make:migration create_girls_table --create<span class="o">=</span>girls <span class="o">&amp;&amp;</span> php artisan make:migration create_videos_table --create<span class="o">=</span>videos <span class="o">&amp;&amp;</span> php artisan make:migration create_girl_video_table --create<span class="o">=</span>girl_video <span class="o">&amp;&amp;</span> php artisan make:migration create_tag_video_table --create<span class="o">=</span>tag_video</code></pre></figure>
 
 <p>Laravel tiene una dependencia que nos va a venir que ni pintada para gestionar nuestras suscripciones, se llama Cashier y se encargará de hacernos la vida más fácil a la hora de gestionar las suscripciones. Instalemos esta dependencia antes de continuar:</p>
 
-<pre>
-composer require laravel/cashier:"~6.0"  
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">composer require laravel/cashier:<span class="s2">"~6.0"</span>  </code></pre></figure>
 
 <p>Nótese que al ejecutar ese comando Laravel nos bajará la dependencia y la guardará en la carpeta <em>vendor/</em>.</p>
 
 <p>También es necesario añadir la siguiente línea al final del array <em>providers</em> del fichero <em>config/app.php</em>:</p>
 
-<pre>
-Laravel\Cashier\CashierServiceProvider::class,
-</pre>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">Laravel\Cashier\CashierServiceProvider::class,</code></pre></figure>
 
 <p>A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma muy pro de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un namespace y de asociar al comando publish la publicación o copia de ciertos ficheros que nos acabamos de bajar, desde el directorio vendor/ a cualquier otro direcotorio, en este caso de vendor/ a resources/views/ . ¿Por qué no lo comprobamos? Escribe el siguiente comando:</p>
 
-<pre>
-php artisan vendor:publish
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan vendor:publish</code></pre></figure>
 
 <p>¿Ves cómo se han copiado ciertos ficheros de vendor/ a resources/views/ ? Pues eso. Más adelante ya hablaremos de qué va eso de las views, don’t you worry.</p>
 
 <p>Ahora, tal como indica la documentación oficial de <a href="https://laravel.com/docs/5.2/billing" target="_blank">Cashier</a>, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar <em>users</em> y crear <em>subscriptions</em>, son:</p>
 
-<pre>
-php artisan make:migration add_cashier_columns_to_users_table --table=users
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan make:migration add_cashier_columns_to_users_table --table<span class="o">=</span>users</code></pre></figure>
 
-<pre>
-php artisan make:migration create_subscriptions_table --create=subscriptions
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan make:migration create_subscriptions_table --create<span class="o">=</span>subscriptions</code></pre></figure>
 
 <p>Utilízalos. Si todo está en orden deberíamos tener ahora nueve migrations en nuestra carpeta database/migrations/ . Si no es así, asegúrate de haber seguido todos los pasos que hemos descrito hasta ahora.</p>
 
@@ -273,123 +253,105 @@ php artisan make:migration create_subscriptions_table --create=subscriptions
 
 <p>Completemos ahora la migration para crear la tabla <em>tags</em> agregando el resto de columnas necesarias de acuerdo a nuestro diagrama:</p>
 
-<pre>
-Schema::create('tags', function (Blueprint $table) {
+<figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('tags', function (Blueprint $table) {
     $table-&gt;increments('id');
-    <strong style="color:red;">$table-&gt;string('name');</strong>
-    <strong style="color:red;">$table-&gt;string('slug');</strong>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('name');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('slug');<span class="nt">&lt;/strong&gt;</span>
     $table-&gt;timestamps();
-});
-</pre>
+});</code></pre></figure>
 
 <p>Análogamente, agreguemos las columnas que falta a la migration para crear la tabla girls:</p>
 
-<pre>
-Schema::create('girls', function (Blueprint $table) {
+<figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('girls', function (Blueprint $table) {
     $table-&gt;increments('id');
-    <strong style="color:red;">$table-&gt;string('name');</strong>
-    <strong style="color:red;">$table-&gt;string('slug');</strong>
-    <strong style="color:red;">$table-&gt;integer('age');</strong>
-    <strong style="color:red;">$table-&gt;string('picture');</strong>
-    <strong style="color:red;">$table-&gt;text('description');</strong>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('name');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('slug');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('age');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('picture');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;text('description');<span class="nt">&lt;/strong&gt;</span>
     $table-&gt;timestamps();
-});
-</pre>
+});</code></pre></figure>
 
 <p>¿Vas intuyendo lo que hace cada método de Blueprint? <a href="https://laravel.com/docs/5.2/migrations#creating-columns" target="_blank">Aquí</a> encontrarás una referencia detallada de cada uno. Si te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:</p>
 
-<pre>
-Schema::create('videos', function (Blueprint $table) {
+<figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('videos', function (Blueprint $table) {
     $table-&gt;increments('id');
-    <strong style="color:red;">$table-&gt;string('name');</strong>
-    <strong style="color:red;">$table-&gt;string('title');</strong>
-    <strong style="color:red;">$table-&gt;string('slug');</strong>
-    <strong style="color:red;">$table-&gt;string('filename');</strong>
-    <strong style="color:red;">$table-&gt;string('thumbnail');</strong>
-    <strong style="color:red;">$table-&gt;boolean('featured');</strong>
-    <strong style="color:red;">$table-&gt;string('trailer');</strong>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('name');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('title');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('slug');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('filename');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('thumbnail');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;boolean('featured');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('trailer');<span class="nt">&lt;/strong&gt;</span>
     $table-&gt;timestamps();
-});
-</pre>
+});</code></pre></figure>
 
 <p>Completemos ahora la migration para crear la tabla subscription:</p>
 
-<pre>
-Schema::create('subscriptions', function ($table) {
+<figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('subscriptions', function ($table) {
     $table-&gt;increments('id');
-    <strong style="color:red;">$table-&gt;integer('user_id');</strong>
-    <strong style="color:red;">$table-&gt;string('name');</strong>
-    <strong style="color:red;">$table-&gt;string('stripe_id');</strong>
-    <strong style="color:red;">$table-&gt;string('stripe_plan');</strong>
-    <strong style="color:red;">$table-&gt;integer('quantity');</strong>
-    <strong style="color:red;">$table-&gt;timestamp('trial_ends_at')-&gt;nullable();</strong>
-    <strong style="color:red;">$table-&gt;timestamp('ends_at')-&gt;nullable();</strong>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('user_id');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('name');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('stripe_id');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('stripe_plan');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('quantity');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;timestamp('trial_ends_at')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;timestamp('ends_at')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
     $table-&gt;timestamps();
-});
-</pre>
+});</code></pre></figure>
 
 <p>Ahora completemos las migrations para las tablas que relacionan girls con videos y tags con videos. A estas tablas normalmente se les llama de algún modo especial: asociativas, de cross-reference, junction, de enlace… Llámalas como tú quieras, la cuestión es que su función es resolver una relación many-to-many. Estas migrations deberían quedarnos de la siguiente manera:</p>
 
-<pre>
-Schema::create('girl_video', function ($table) {
+<figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('girl_video', function ($table) {
     $table-&gt;increments('id');
-    <strong style="color:red;">$table-&gt;integer('girl_id')-&gt;unsigned();</strong>
-    <strong style="color:red;">$table-&gt;foreign('girl_id')-&gt;references('id')-&gt;on('girls');</strong>
-    <strong style="color:red;">$table-&gt;integer('video_id')-&gt;unsigned();</strong>
-    <strong style="color:red;">$table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');</strong>
-});
-</pre>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('girl_id')-&gt;unsigned();<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;foreign('girl_id')-&gt;references('id')-&gt;on('girls');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('video_id')-&gt;unsigned();<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');<span class="nt">&lt;/strong&gt;</span>
+});</code></pre></figure>
 
-<pre>
-Schema::create('tag_video', function ($table) {
+<figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('tag_video', function ($table) {
     $table-&gt;increments('id');
-    <strong style="color:red;">$table-&gt;integer('tag_id')-&gt;unsigned();</strong>
-    <strong style="color:red;">$table-&gt;foreign('tag_id')-&gt;references('id')-&gt;on('tags');</strong>
-    <strong style="color:red;">$table-&gt;integer('video_id')-&gt;unsigned();</strong>
-    <strong style="color:red;">$table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');</strong>
-});
-</pre>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('tag_id')-&gt;unsigned();<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;foreign('tag_id')-&gt;references('id')-&gt;on('tags');<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('video_id')-&gt;unsigned();<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');<span class="nt">&lt;/strong&gt;</span>
+});</code></pre></figure>
 
 <p>¡Ya sólo nos falta editar una migration para terminar! ¿Recuerdas aquella migration que creamos para modificar la tabla users? ¿Recuerdas que usamos un comando distinto para generarla? Si la abres y la comparas con el resto de migrations te darás cuenta de que ésta última utiliza el método <em>table()</em> en lugar de <em>create()</em> . Dentro de la función table() podemos crear columnas del mismo modo que hacíamos dentro de create(), con la diferencia de que con table() modificamos columnas en tablas ya existentes.</p>
 
 <p>Puesto que dentro del método up() crearemos una serie de columnas en una tabla existente, dentro del método down() haremos lo contrario: eliminar las columnas de la tabla. Esto se hace de la siguiente manera:</p>
 
-<pre>
-public function up()
+<figure class="highlight"><pre><code class="language-php" data-lang="php">public function up()
 {
     Schema::table('users', function (Blueprint $table) {
-        <strong style="color:red;">$table-&gt;string('card_last_four')-&gt;after('password')-&gt;nullable();</strong>
-        <strong style="color:red;">$table-&gt;string('card_brand')-&gt;after('password')-&gt;nullable();</strong>
-        <strong style="color:red;">$table-&gt;string('stripe_id')-&gt;after('password')-&gt;nullable();</strong>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('card_last_four')-&gt;after('password')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('card_brand')-&gt;after('password')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('stripe_id')-&gt;after('password')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
     });
 }
 
 public function down()
 {
     Schema::table('users', function (Blueprint $table) {
-        <strong style="color:red;">$table-&gt;dropColumn('stripe_id');</strong>
-        <strong style="color:red;">$table-&gt;dropColumn('card_brand');</strong>
-        <strong style="color:red;">$table-&gt;dropColumn('card_last_four');</strong>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;dropColumn('stripe_id');<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;dropColumn('card_brand');<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;dropColumn('card_last_four');<span class="nt">&lt;/strong&gt;</span>
     });
-}
-</pre>
+}</code></pre></figure>
 
 <p>¡Parece que hemos terminado de editar nuestras migrations! Ahora viene la hora de la verdad. Abre una línea de comandos y escribe:</p>
 
-<pre>
-php artisan migrate
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan migrate</code></pre></figure>
 
 <p>Si todo ha ido bien, no deberían aparecernos mensajes de error. Si comprobamos nuestra base de datos deberíamos ver ahora las ocho nuevas tablas que hemos creado mediante las migrations más una tabla adicional que Laravel utiliza para llevar la cuenta de las migrations que ya se han ejecutado. La próxima vez que ejecutes el comando <em>migrate</em> Laravel sólo ejecutará las migrations que no hayan sido realizadas anteriormente, de ahí que tengas que hacer nuevas migrations para modificar las anteriores si estás trabajando con más gente o modificando una base de datos que ya está en producción. Si trabajas solo en fase de desarrollo y aún no has compartido tu trabajo con el resto del equipo siempre puedes ir hacia atrás en el proceso con el comando <em>rollback</em>, modificar las migrations y volver a ejecutarlas.</p>
 
 <p>A modo de referencia dejo aquí apuntados los comandos más usados en relación con las migrations:</p>
 
-<pre>
-php artisan migrate           # migrates any new migration(s)
-php artisan migrate:rollback  # rollback the latest "batch" of migrations
-php artisan migrate:reset     # rollback all the migrations
-php artisan migrate:refresh   # rollback all the migrations and then migrate them all again
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan migrate           <span class="c"># migrates any new migration(s)</span>
+php artisan migrate:rollback  <span class="c"># rollback the latest "batch" of migrations</span>
+php artisan migrate:reset     <span class="c"># rollback all the migrations</span>
+php artisan migrate:refresh   <span class="c"># rollback all the migrations and then migrate them all again</span></code></pre></figure>
 
 <h2 id="creacin-de-models">Creación de models</h2>
 
@@ -411,21 +373,15 @@ php artisan migrate:refresh   # rollback all the migrations and then migrate the
 
 <p>Pero antes… vamos a instalar otra dependencia. ¡Ya tenemos experiencia de antes con Cashier! Esta vez instalaremos la dependencia Sluggable, que básicamente nos permite crear slugs únicos, de forma automática, a partir de cualquier campo existente en cualquier tabla. ¿Recuerdas que en nuestras tablas creamos aquellas columnas slug? Pues ahora ya sabes para qué servirán. Ejecuta el siguiente comando:</p>
 
-<pre>
-composer require cviebrock/eloquent-sluggable
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">composer require cviebrock/eloquent-sluggable</code></pre></figure>
 
 <p>Registra el Service Provider de Sluggable, es decir, añade la siguiente línea al final del array providers en el fichero config/app.php:</p>
 
-<pre>
-Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">Cviebrock<span class="se">\E</span>loquentSluggable<span class="se">\S</span>luggableServiceProvider::class,</code></pre></figure>
 
 <p>Finalmente, ¿lo adivinas? Ejecuta el comando publish:</p>
 
-<pre>
-php artisan vendor:publish
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan vendor:publish</code></pre></figure>
 
 <p>A diferecia que Cashier, la dependencia Sluggable no publica views desde la carpeta vendor, sino que publica un fichero de configuración dentro de nuestra carpeta config/ . En principio no hay razón para cambiar la configuración que aparece ahí por defecto, pero no está de más que le eches un vistazo.</p>
 
@@ -562,13 +518,11 @@ php artisan vendor:publish
 
 <p>Fíjate que en nuestro model Tag hemos escrito la función videos(), que devuelve el resultado de utilizar el método belongToMany() porque la relación entre Tag y Video era de many to many (tal como indico en la tabla). A partir de ahora, podremos escribir en cualquier parte de nuestro código:</p>
 
-<pre>
-$tag-&gt;videos()-&gt;get()
-</pre>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">$tag-&gt;videos()-&gt;get()</code></pre></figure>
+
 <p>O aún mejor:</p>
-<pre>
-$tag-&gt;videos
-</pre>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php">$tag-&gt;videos</code></pre></figure>
 
 <p>Obtendremos así todos los vídeos relacionados con una tag específica. A este sistema para obtener información de nuestra base de datos, es decir, hacer consultas a nuestra base de datos, a través los models y la concatenación de métodos se le conoce como <strong>eloquent</strong> en lenguaje <em>laravelita</em>.</p>
 
@@ -727,16 +681,14 @@ $tag-&gt;videos
 
 <p>En verdad todo este rollo que te he soltado se resuelve, en nuestro caso, abriendo User.php y agregando las siguientes líneas de código (marcadas en rojo pasión):</p>
 
-<pre>
-...
+<figure class="highlight"><pre><code class="language-php" data-lang="php">...
 use Illuminate\Foundation\Auth\User as Authenticatable;
-<strong style="color:red;">use Laravel\Cashier\Billable;</strong>
+<span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>use Laravel\Cashier\Billable;<span class="nt">&lt;/strong&gt;</span>
 
 class User extends Authenticatable
 {
-    <strong style="color:red;">use Billable;</strong>
-    ...
-</pre>
+    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>use Billable;<span class="nt">&lt;/strong&gt;</span>
+    ...</code></pre></figure>
 
 <p>Pues me parece que ya hemos terminado con nuestros models. Para comprobar que todo funciona qué mejor manera que poblar nuestra base de datos con eloquent, es decir, a través de los models. Pasemos, por tanto, a la siguiente sección del curso.</p>
 
@@ -1235,32 +1187,26 @@ class User extends Authenticatable
 
 <p>Agrégale las siguientes líneas:</p>
 
-<pre>
-    public function run()
+<figure class="highlight"><pre><code class="language-php" data-lang="php">    public function run()
     {
-        <strong style="color:red;">$this-&gt;call(TagTableSeeder::class);</strong>
-        <strong style="color:red;">$this-&gt;call(GirlTableSeeder::class);</strong>
-        <strong style="color:red;">$this-&gt;call(VideoTableSeeder::class);</strong>
-        <strong style="color:red;">$this-&gt;call(TagVideoTableSeeder::class);</strong>
-        <strong style="color:red;">$this-&gt;call(GirlVideoTableSeeder::class);</strong>
-        <strong style="color:red;">$this-&gt;call(UserTableSeeder::class);</strong>
-        <strong style="color:red;">$this-&gt;call(SubscriptionTableSeeder::class);</strong>
-    }
-</pre>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(TagTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(GirlTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(VideoTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(TagVideoTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(GirlVideoTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(UserTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
+        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(SubscriptionTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
+    }</code></pre></figure>
 
 <p>¡Ya hemos terminado con los seeders! Crucemos los dedos y pasemos a escribir el comando para ejecutarlos:</p>
 
-<pre>
-php artisan db:seed
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan db:seed</code></pre></figure>
 
 <p>Si todo va bien deberíamos tener todas nuestras tablas llenitas de datos, compruébalo y congratúlate.</p>
 
 <p>Podría ocurrir que algún seeder nos diese error y se quedase la historia a medio hacer, en estos casos, una vez corregido nuestro código, un comando muy útil que resetea la base de datos y vuelve a intentar poblarla es el siguiente:</p>
 
-<pre>
-php artisan migrate:refresh --seed # Si lo usas en el entorno de producción irás al infierno
-</pre>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php artisan migrate:refresh --seed <span class="c"># Si lo usas en el entorno de producción irás al infierno</span></code></pre></figure>
 
 <p>Anótalo bien, porque yo he perdido la cuenta de las veces que lo he tenido que usar en la fase de desarrollo de los proyectos.</p>
 
