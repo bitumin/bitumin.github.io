@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Feb 2016 00:59:45 +0100</pubDate>
-    <lastBuildDate>Mon, 01 Feb 2016 00:59:45 +0100</lastBuildDate>
+    <pubDate>Mon, 01 Feb 2016 01:11:29 +0100</pubDate>
+    <lastBuildDate>Mon, 01 Feb 2016 01:11:29 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
     
       <item>
@@ -171,7 +171,7 @@
 
 &lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Creo que esta gráfica, donde aparece una caída generalizada en la popularidad de los frameworks basados en Java, podría inducir a extraer conclusiones precipitadas y erróneas. El mundillo del desarrollo web en Java está fuertemente influenciado por el desarrollo de apps para móbiles y teniendo en cuenta que el desarrollo para Android y demás no hace más que crecer, lo más sensato es suponer que los web frameworks basados en Java o intermediarios entre Java y tecnologías más próximas a las tradicionales, tienen aún mucha pelea que dar.&lt;/p&gt;
+&lt;p&gt;Creo que esta gráfica, donde aparece una caída generalizada en la popularidad de los frameworks basados en Java, podría inducir a extraer conclusiones precipitadas y erróneas. El mundillo del desarrollo web en Java está fuertemente influenciado por el desarrollo de apps para móviles y teniendo en cuenta que el desarrollo para Android y demás no hace más que crecer, lo más sensato es suponer que los web frameworks basados en Java o intermediarios entre Java y tecnologías más próximas a las tradicionales, tienen aún mucha pelea que dar.&lt;/p&gt;
 
 &lt;p&gt;Mantengámonos atentos.&lt;/p&gt;
 
