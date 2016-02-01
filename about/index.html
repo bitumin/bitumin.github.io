@@ -77,12 +77,15 @@ var marriageSpan = function() {
     var days = Math.floor(daysUgly);
     
     var span = "";
-    if(years>0)                             { span += years + " años"; }
+    if(years>0)                             { span += years + " año"; }
+    if(years>1)                             { span += "s"; }
     if(!days>0 && months>0 && years>0)      { span += " y "; } 
     else if(days>0 && months>0 && years>0)  { span += ", "; }
-    if(months>0)                            { span += months + " meses"; }
+    if(months>0)                            { span += months + " mes"; }
+    if(months>1)                            { span += "es"; }
     if(days>0 && (months>0 || years>0))     { span += " y "; }
-    if(days>0)                              { span += days + " días"; }
+    if(days>0)                              { span += days + " día"; }
+    if(days>1)                              { span += "s"; }
     
     return span;
 };
@@ -121,7 +124,7 @@ var marriageSpan = function() {
   <li>Montones de retoques visuales de todo tipo con Sass.</li>
 </ul>
 
-<p>Los posts los escribo usando mardown y un pequeño bloque de YAML al principio de cada post, lo que me permite centrarme en los contenidos y olvidarme de escribir html tags (de eso ya se encarga Jekyll).</p>
+<p>Los posts los escribo usando markdown y un pequeño bloque de YAML al principio de cada post, lo que me permite centrarme en los contenidos y olvidarme de escribir html tags (de eso se encarga Jekyll).</p>
 
 
   </div>
