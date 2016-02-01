@@ -322,7 +322,7 @@ pre {
 .highlight {
   background: #fff; }
   .highlighter-rouge .highlight {
-    background: #eef; }
+    background: #F4F4FF; }
   .highlight .c {
     color: #998;
     font-style: italic; }
@@ -458,19 +458,37 @@ pre {
     color: #099; }
 
 /**
- * Tables
+* Better line numbers
+*/
+.highlight .lineno {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 0;
+  color: #bfbfbf;
+  padding: 8px 12px 0 0; }
+.highlight .code > pre {
+  border: 0; }
+.highlight .code {
+  border-left: 1px solid #DDD; }
+
+/**
+ * Better tables
  */
-table {
+.table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #333333;
   margin-bottom: 15px; }
 
-th {
+.table thead th {
   border: 1px solid #333333; }
 
-td {
+.table tbody tr td {
   border: 1px solid #555555; }
 
 /**
