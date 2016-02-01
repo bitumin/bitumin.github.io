@@ -255,8 +255,8 @@
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('tags', function (Blueprint $table) {
     $table-&gt;increments('id');
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('name');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('slug');<span class="nt">&lt;/strong&gt;</span>
+    $table-&gt;string('name');
+    $table-&gt;string('slug');
     $table-&gt;timestamps();
 });</code></pre></figure>
 
@@ -264,11 +264,11 @@
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('girls', function (Blueprint $table) {
     $table-&gt;increments('id');
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('name');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('slug');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('age');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('picture');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;text('description');<span class="nt">&lt;/strong&gt;</span>
+    $table-&gt;string('name');
+    $table-&gt;string('slug');
+    $table-&gt;integer('age');
+    $table-&gt;string('picture');
+    $table-&gt;text('description');
     $table-&gt;timestamps();
 });</code></pre></figure>
 
@@ -276,13 +276,13 @@
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('videos', function (Blueprint $table) {
     $table-&gt;increments('id');
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('name');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('title');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('slug');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('filename');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('thumbnail');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;boolean('featured');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('trailer');<span class="nt">&lt;/strong&gt;</span>
+    $table-&gt;string('name');
+    $table-&gt;string('title');
+    $table-&gt;string('slug');
+    $table-&gt;string('filename');
+    $table-&gt;string('thumbnail');
+    $table-&gt;boolean('featured');
+    $table-&gt;string('trailer');
     $table-&gt;timestamps();
 });</code></pre></figure>
 
@@ -290,13 +290,13 @@
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('subscriptions', function ($table) {
     $table-&gt;increments('id');
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('user_id');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('name');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('stripe_id');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('stripe_plan');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('quantity');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;timestamp('trial_ends_at')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;timestamp('ends_at')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
+    $table-&gt;integer('user_id');
+    $table-&gt;string('name');
+    $table-&gt;string('stripe_id');
+    $table-&gt;string('stripe_plan');
+    $table-&gt;integer('quantity');
+    $table-&gt;timestamp('trial_ends_at')-&gt;nullable();
+    $table-&gt;timestamp('ends_at')-&gt;nullable();
     $table-&gt;timestamps();
 });</code></pre></figure>
 
@@ -304,18 +304,18 @@
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('girl_video', function ($table) {
     $table-&gt;increments('id');
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('girl_id')-&gt;unsigned();<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;foreign('girl_id')-&gt;references('id')-&gt;on('girls');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('video_id')-&gt;unsigned();<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');<span class="nt">&lt;/strong&gt;</span>
+    $table-&gt;integer('girl_id')-&gt;unsigned();
+    $table-&gt;foreign('girl_id')-&gt;references('id')-&gt;on('girls');
+    $table-&gt;integer('video_id')-&gt;unsigned();
+    $table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');
 });</code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">Schema::create('tag_video', function ($table) {
     $table-&gt;increments('id');
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('tag_id')-&gt;unsigned();<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;foreign('tag_id')-&gt;references('id')-&gt;on('tags');<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;integer('video_id')-&gt;unsigned();<span class="nt">&lt;/strong&gt;</span>
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');<span class="nt">&lt;/strong&gt;</span>
+    $table-&gt;integer('tag_id')-&gt;unsigned();
+    $table-&gt;foreign('tag_id')-&gt;references('id')-&gt;on('tags');
+    $table-&gt;integer('video_id')-&gt;unsigned();
+    $table-&gt;foreign('video_id')-&gt;references('id')-&gt;on('videos');
 });</code></pre></figure>
 
 <p>¡Ya sólo nos falta editar una migration para terminar! ¿Recuerdas aquella migration que creamos para modificar la tabla users? ¿Recuerdas que usamos un comando distinto para generarla? Si la abres y la comparas con el resto de migrations te darás cuenta de que ésta última utiliza el método <em>table()</em> en lugar de <em>create()</em> . Dentro de la función table() podemos crear columnas del mismo modo que hacíamos dentro de create(), con la diferencia de que con table() modificamos columnas en tablas ya existentes.</p>
@@ -325,18 +325,18 @@
 <figure class="highlight"><pre><code class="language-php" data-lang="php">public function up()
 {
     Schema::table('users', function (Blueprint $table) {
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('card_last_four')-&gt;after('password')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('card_brand')-&gt;after('password')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;string('stripe_id')-&gt;after('password')-&gt;nullable();<span class="nt">&lt;/strong&gt;</span>
+        $table-&gt;string('card_last_four')-&gt;after('password')-&gt;nullable();
+        $table-&gt;string('card_brand')-&gt;after('password')-&gt;nullable();
+        $table-&gt;string('stripe_id')-&gt;after('password')-&gt;nullable();
     });
 }
 
 public function down()
 {
     Schema::table('users', function (Blueprint $table) {
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;dropColumn('stripe_id');<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;dropColumn('card_brand');<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$table-&gt;dropColumn('card_last_four');<span class="nt">&lt;/strong&gt;</span>
+        $table-&gt;dropColumn('stripe_id');
+        $table-&gt;dropColumn('card_brand');
+        $table-&gt;dropColumn('card_last_four');
     });
 }</code></pre></figure>
 
@@ -377,7 +377,7 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 
 <p>Registra el Service Provider de Sluggable, es decir, añade la siguiente línea al final del array providers en el fichero config/app.php:</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">Cviebrock<span class="se">\E</span>loquentSluggable<span class="se">\S</span>luggableServiceProvider::class,</code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">Cviebrock\EloquentSluggable\SluggableServiceProvider::class,</code></pre></figure>
 
 <p>Finalmente, ¿lo adivinas? Ejecuta el comando publish:</p>
 
@@ -390,7 +390,72 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#tag">Tag.php</a></p>
 <div id="tag" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
 
@@ -455,7 +520,8 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
     | Scopes
     |-----------------------------------------------
     */</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
@@ -531,7 +597,77 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#video">Video.php</a></p>
 <div id="video" class="collapse"> 
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
 
@@ -601,14 +737,80 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
     | Scopes
     |-----------------------------------------------
     */</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
 <p><a href="javascript:" data-toggle="collapse" data-target="#girl">Girl.php</a></p>
 <div id="girl" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
 
@@ -673,7 +875,8 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
     | Scopes
     |-----------------------------------------------
     */</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
@@ -683,11 +886,11 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">...
 use Illuminate\Foundation\Auth\User as Authenticatable;
-<span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>use Laravel\Cashier\Billable;<span class="nt">&lt;/strong&gt;</span>
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
-    <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>use Billable;<span class="nt">&lt;/strong&gt;</span>
+    use Billable;
     ...</code></pre></figure>
 
 <p>Pues me parece que ya hemos terminado con nuestros models. Para comprobar que todo funciona qué mejor manera que poblar nuestra base de datos con eloquent, es decir, a través de los models. Pasemos, por tanto, a la siguiente sección del curso.</p>
@@ -721,7 +924,189 @@ class User extends Authenticatable
 <p><a href="javascript:" data-toggle="collapse" data-target="#seeders">seeders.php</a></p>
 <div id="seeders" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">return</span> <span class="p">[</span>
 
@@ -903,7 +1288,8 @@ class User extends Authenticatable
         <span class="s1">'Yoga'</span>
     <span class="p">],</span>
 
-<span class="p">];</span></code></pre></figure>
+<span class="p">];</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
@@ -912,7 +1298,25 @@ class User extends Authenticatable
 <p><a href="javascript:" data-toggle="collapse" data-target="#tagtableseeder">TagTableSeeder.php</a></p>
 <div id="tagtableseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
 
@@ -930,7 +1334,8 @@ class User extends Authenticatable
                 <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="nv">$categoryName</span><span class="p">,</span>
             <span class="p">]);</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
@@ -945,7 +1350,32 @@ class User extends Authenticatable
 <p><a href="javascript:" data-toggle="collapse" data-target="#girltableseeder">GirlTableSeeder.php</a></p>
 <div id="girltableseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
 
@@ -970,7 +1400,8 @@ class User extends Authenticatable
             <span class="p">]);</span>
     <span class="p">}</span>
 
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
@@ -981,7 +1412,31 @@ class User extends Authenticatable
 <p><a href="javascript:" data-toggle="collapse" data-target="#videotableseeder">VideoTableSeeder.php</a></p>
 <div id="videotableseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
 
@@ -1005,7 +1460,8 @@ class User extends Authenticatable
                 <span class="s1">'trailer'</span>       <span class="o">=&gt;</span> <span class="s1">'example-trailer.flv'</span>
             <span class="p">]);</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
@@ -1014,7 +1470,44 @@ class User extends Authenticatable
 <p><a href="javascript:" data-toggle="collapse" data-target="#relationshipsseeder">TagVideoTableSeeder.php</a></p>
 <div id="relationshipsseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
 
@@ -1051,14 +1544,52 @@ class User extends Authenticatable
                     <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
 <p><a href="javascript:" data-toggle="collapse" data-target="#relationshipsseeder2">GirlVideoTableSeeder.php</a></p>
 <div id="relationshipsseeder2" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
 
@@ -1095,7 +1626,8 @@ class User extends Authenticatable
                     <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
@@ -1116,7 +1648,32 @@ class User extends Authenticatable
 <p><a href="javascript:" data-toggle="collapse" data-target="#usertableseeders">UserTableSeeder.php</a></p>
 <div id="usertableseeders" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
 
@@ -1141,14 +1698,42 @@ class User extends Authenticatable
                 <span class="s1">'card_last_four'</span>    <span class="o">=&gt;</span> <span class="s1">'4242'</span><span class="p">,</span>
             <span class="p">]);</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
 <p><a href="javascript:" data-toggle="collapse" data-target="#subscriptionsseeder">SubscriptionTableSeeder.php</a></p>
 <div id="subscriptionsseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
 
@@ -1175,7 +1760,8 @@ class User extends Authenticatable
                 <span class="s1">'ends_at'</span>       <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">dateTimeBetween</span><span class="p">(</span><span class="s1">'-3 months'</span><span class="p">,</span><span class="s1">'1 year'</span><span class="p">),</span>
             <span class="p">]);</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 </div>
 
@@ -1189,13 +1775,13 @@ class User extends Authenticatable
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php">    public function run()
     {
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(TagTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(GirlTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(VideoTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(TagVideoTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(GirlVideoTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(UserTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
-        <span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>$this-&gt;call(SubscriptionTableSeeder::class);<span class="nt">&lt;/strong&gt;</span>
+        $this-&gt;call(TagTableSeeder::class);
+        $this-&gt;call(GirlTableSeeder::class);
+        $this-&gt;call(VideoTableSeeder::class);
+        $this-&gt;call(TagVideoTableSeeder::class);
+        $this-&gt;call(GirlVideoTableSeeder::class);
+        $this-&gt;call(UserTableSeeder::class);
+        $this-&gt;call(SubscriptionTableSeeder::class);
     }</code></pre></figure>
 
 <p>¡Ya hemos terminado con los seeders! Crucemos los dedos y pasemos a escribir el comando para ejecutarlos:</p>
