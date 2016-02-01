@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+    <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="¿Qué es el control de versiones?">
 
-  <title>Introducción al control de versiones con Git: comandos básicos en entorno local</title>
+  <title>Introducción al control de versiones con Git</title>
 
   <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -19,8 +19,8 @@
 </head>
 
 
-  <body>
-    <script>
+    <body>
+        <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -30,8 +30,17 @@
     ga('send', 'pageview');
 
 </script>
+        <!--facebook-->
+<div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=184462238579593";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+<!--Twitter-->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--Linkedin-->
+<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: es_ES</script>
+<!--Google+-->
+<!--<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>-->
 
-    <header class="site-header">
+
+        <header class="site-header">
 
   <div class="wrapper">
 
@@ -64,23 +73,39 @@
 </header>
 
 
-    <div class="page-content">
-      <div class="wrapper">
-        <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="page-content">
+            <div class="wrapper">
+                <div id="sharing-btns-wrapper">
+    <!--facebook-->
+    <div class="fb-share-button" data-href="http://mitxelmoriana.com/programming/2016/01/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html" data-layout="button"></div>
+    <!--Twitter-->
+    <a href="https://twitter.com/share" class="twitter-share-button"{count} data-lang="es">Twittear</a>
+    <!--Linkedin-->
+    <script type="IN/Share"></script>
+    <!--Google+-->
+    <!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
+</div>
 
-  
-  <div id="header-image-wrapper">
-    <div id="header-image" style="background-image: url('/headers/git.png');"></div>
-  </div>
-  
+                <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header wrapper">
-    <h1 class="post-title" itemprop="name headline">Introducción al control de versiones con Git: comandos básicos en entorno local</h1>
-    <p class="post-meta"><time datetime="2016-01-20T00:00:00+01:00" itemprop="datePublished">Jan 20, 2016</time></p>
-  </header>
+    
+    <div id="header-image-wrapper">
+        <div id="header-image" style="background-image: url('/headers/git.png');"></div>
+    </div>
+    
 
-  <div class="post-content" itemprop="articleBody">
-    <h2 id="qu-es-el-control-de-versiones">¿Qué es el control de versiones?</h2>
+    <header class="post-header wrapper">
+        <h1 class="post-title" itemprop="name headline">
+            Introducción al control de versiones con Git
+            
+            <br><span class="post-subtitle">Comandos básicos en entorno local</span>
+            
+        </h1>
+        <p class="post-meta"><time datetime="2016-01-20T00:00:00+01:00" itemprop="datePublished">Jan 20, 2016</time></p>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="qu-es-el-control-de-versiones">¿Qué es el control de versiones?</h2>
 
 <p>¿Alguna vez te has fijado que los sistemas operativos (SO) van evolucionando con el tiempo? Por ejemplo: en Windows hemos tenido en los últimos años el Windows 7, el 8 y el 10. Con el SO Android o con Linux y sus distribuciones (Arch, Ubuntu, Debian, etc.) ocurre exactamente lo mismo. A veces las nuevas versiones suponen pequeñas mejoras y otras veces cambios radicales, casi siempre para mejor.</p>
 
@@ -278,11 +303,11 @@ git reset   # Lo contrario a *git add -A*
 <p>Recuerda que puedes preguntarme sobre cualquier cosa que no te haya quedado clara, sobre errores que te van surgiendo o indicarme correcciones aquí abajo, en el área de comentarios.</p>
 
 
-  </div>
+    </div>
 
 </article>
 
-        
+                
 <div id="disqus_thread"></div>
 <script>
      var disqus_config = function () {
@@ -299,10 +324,10 @@ git reset   # Lo contrario a *git add -A*
 
 
 
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <footer class="site-footer">
+        <footer class="site-footer">
     <div class="wrapper">
 
         <h2 class="footer-heading">MitxelMoriana</h2>
@@ -359,6 +384,6 @@ git reset   # Lo contrario a *git add -A*
 <script src="/assets/bootstrap.min.js"></script>
 
 
-  </body>
+    </body>
 
 </html>

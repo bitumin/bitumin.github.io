@@ -6,12 +6,12 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 23:12:27 +0100</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 23:12:27 +0100</lastBuildDate>
+    <pubDate>Mon, 01 Feb 2016 00:59:45 +0100</pubDate>
+    <lastBuildDate>Mon, 01 Feb 2016 00:59:45 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
     
       <item>
-        <title>La invasión de los frameworks: tendencias en tecnologías de desarrollo de web apps</title>
+        <title>La invasión de los frameworks</title>
         <description>&lt;h2 id=&quot;introduccin-de-rigor&quot;&gt;Introducción de rigor&lt;/h2&gt;
 
 &lt;p&gt;Hace ya unos días escribí un post sobre &lt;a href=&quot;/web/2016/01/02/estrategias-de-desarrollo-web.html&quot; target=&quot;_blank&quot;&gt;estrategias de desarrollo web&lt;/a&gt; en el que recomendaba escoger diferentes tecnologías de desarrollo web en función del tipo de proyecto al que nos enfrentamos: CMS, frameworks, templates, static site generators… Y mencionaba, de pasada, alguna de las aplicaciones más populares en cada campo.&lt;/p&gt;
@@ -329,7 +329,7 @@ git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/sp
       </item>
     
       <item>
-        <title>Introducción al control de versiones con Git: comandos básicos en entorno local</title>
+        <title>Introducción al control de versiones con Git</title>
         <description>&lt;h2 id=&quot;qu-es-el-control-de-versiones&quot;&gt;¿Qué es el control de versiones?&lt;/h2&gt;
 
 &lt;p&gt;¿Alguna vez te has fijado que los sistemas operativos (SO) van evolucionando con el tiempo? Por ejemplo: en Windows hemos tenido en los últimos años el Windows 7, el 8 y el 10. Con el SO Android o con Linux y sus distribuciones (Arch, Ubuntu, Debian, etc.) ocurre exactamente lo mismo. A veces las nuevas versiones suponen pequeñas mejoras y otras veces cambios radicales, casi siempre para mejor.&lt;/p&gt;
@@ -552,7 +552,7 @@ git reset   # Lo contrario a *git add -A*
       </item>
     
       <item>
-        <title>Tu web porno con Laravel - II: Migrations, models y seeders</title>
+        <title>Tu web porno con Laravel - II</title>
         <description>&lt;h2 id=&quot;preparacin-previa&quot;&gt;Preparación previa&lt;/h2&gt;
 
 &lt;p&gt;Una vez configurado nuestro entorno de desarrollo de acuerdo a las &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot; target=&quot;_blank&quot;&gt;especificaciones&lt;/a&gt; de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:&lt;/p&gt;
@@ -1740,7 +1740,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
       </item>
     
       <item>
-        <title>Tu web porno con Laravel - I: Introducción y planificación</title>
+        <title>Tu web porno con Laravel - I</title>
         <description>&lt;h2 id=&quot;no-slo-de-porno-vive-el-internauta&quot;&gt;No sólo de porno vive el internauta&lt;/h2&gt;
 
 &lt;p&gt;El objetivo de este pequeño curso de Laravel es mostrar cómo de bien y rápido se puede realizar el back end (lo que no se ve) de una web no del todo estándar: un negocio web de vídeos porno ¡con su área de suscriptores y todo!&lt;/p&gt;
