@@ -580,9 +580,6 @@ a:hover {
   right: 15px; }
   @media screen and (max-width: 600px) {
     #sharing-btns-wrapper {
-      right: 15px; } }
-  @media screen and (max-width: 600px) {
-    #sharing-btns-wrapper {
       right: 5px; } }
 
 .fb-share-button > span:nth-child(1) > iframe:nth-child(1) {
@@ -590,10 +587,10 @@ a:hover {
 
 #about-portrait {
   float: right;
-  width: 500px;
+  width: 400px;
   margin-bottom: -30px;
-  opacity: 0.5;
-  filter: alpha(opacity=50); }
+  opacity: 0.8;
+  filter: alpha(opacity=80); }
   @media screen and (max-width: 600px) {
     #about-portrait {
       width: 280px; } }
