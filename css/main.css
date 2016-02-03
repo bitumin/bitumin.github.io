@@ -588,6 +588,16 @@ a:hover {
 .fb-share-button > span:nth-child(1) > iframe:nth-child(1) {
   margin-top: -7px; }
 
+#about-portrait {
+  float: right;
+  width: 500px;
+  margin-bottom: -30px;
+  opacity: 0.5;
+  filter: alpha(opacity=50); }
+  @media screen and (max-width: 600px) {
+    #about-portrait {
+      width: 280px; } }
+
 /**
 * Beautify line numbers
 */

@@ -53,36 +53,36 @@
   </header>
   <div class="post-content">
     <script>
-var marriageSpan = function() {
+var marriageTimeSpan = function() {
     var today = new Date();
     var marriageDay = new Date(2013,8,1); //2013-09-01 
     var diff = Math.floor(today.getTime() - marriageDay.getTime());
     var dayUnit = 1000 * 60 * 60 * 24;
     var spanInDays = Math.floor(diff/dayUnit);
     var yearsUgly = spanInDays/365.25;
-    var monthsUgly = (yearsUgly - Math.floor(yearsUgly)) * 12;
-    var daysUgly = (monthsUgly - Math.floor(monthsUgly)) * 30.42;
     var years = Math.floor(yearsUgly);
+    var monthsUgly = (yearsUgly - years) * 12;
     var months = Math.floor(monthsUgly);
+    var daysUgly = (monthsUgly - months) * 30.42; 
     var days = Math.floor(daysUgly);
     
-    var span = "";
-    if(years>0)                             { span += years + " año"; }
-    if(years>1)                             { span += "s"; }
-    if(!days>0 && months>0 && years>0)      { span += " y "; } 
-    else if(days>0 && months>0 && years>0)  { span += ", "; }
-    if(months>0)                            { span += months + " mes"; }
-    if(months>1)                            { span += "es"; }
-    if(days>0 && (months>0 || years>0))     { span += " y "; }
-    if(days>0)                              { span += days + " día"; }
-    if(days>1)                              { span += "s"; }
+    var timeSpan = "";
+    if(years>0)                             { timeSpan += years + " año"; }
+    if(years>1)                             { timeSpan += "s"; }
+    if(!days>0 && months>0 && years>0)      { timeSpan += " y "; } 
+    else if(days>0 && months>0 && years>0)  { timeSpan += ", "; }
+    if(months>0)                            { timeSpan += months + " mes"; }
+    if(months>1)                            { timeSpan += "es"; }
+    if(days>0 && (months>0 || years>0))     { timeSpan += " y "; }
+    if(days>0)                              { timeSpan += days + " día"; }
+    if(days>1)                              { timeSpan += "s"; }
     
-    return span;
+    return timeSpan;
 };
 </script>
 
 <ul>
-  <li>Estoy casado con Marzie desde hace <strong><script>document.write(marriageSpan());</script><noscript>años</noscript></strong>.</li>
+  <li>Estoy casado con Marzie desde hace <strong><script>document.write(marriageTimeSpan());</script><noscript>años</noscript></strong>.</li>
   <li>He escrito un script para calcular el dato anterior.</li>
   <li>Trabajo como <strong>desarrollador web freelance</strong> y en <strong>NarwalTech</strong>.</li>
   <li>Me encanta trabajar con <strong>startups</strong>, aunque mi mujer preferiría que trabajase para alguna multinacional.</li>
@@ -91,13 +91,13 @@ var marriageSpan = function() {
 <!--* Estudio el último curso de **ingeniería civil** en la **UPC**. De hecho, tengo un blog con los apuntes de mi carrera colgados.--></li>
   <li>Aunque he sido aficionado al desarrollo web desde pequeño, me dedico profesionalmente desde el 2014.</li>
   <li>Cuelgo mis repositorios normalmente en <strong>BitBucket</strong>, pero en el futuro prometo compartir más código abierto en <strong>GitHub</strong>.</li>
-  <li>Soy muy activo en <strong>Facebook</strong>, actualizo mi perfil de <strong>Linkedin</strong> periódicamente y me paso una vez cada tres o cuatro años por Google+ y Twitter.
+  <li>Soy muy activo en <strong>Facebook</strong>, actualizo mi perfil de <strong>Linkedin</strong> periódicamente y me paso de vez en cuando por Google+ y Twitter.
 <!--* Si necesitas mi CV en formato formal puedes descargártelo de aquí.--></li>
 </ul>
 
 <h2 id="contacto">Contacto:</h2>
 
-<p>Si necesitas presupuesto para algún trabajo de desarrollo web o de mobile apps, contáctame a través de <a href="mailto:mitxel@narwal.tech">mitxel@narwal.tech</a>. Por otro lado, si quieres que colabore en algún proyecto, buscas gente para sacar adelante una startup o formas parte de alguna asociación con buenas intenciones y poco dinero, escríbeme a mi correo personal <a href="mailto:moriana.mitxel@gmail.com">moriana.mitxel@gmail.com</a> ¡no todo es business en esta vida! También puedes interceptarme libremente en cualquiera de las redes sociales.</p>
+<p>Si necesitas presupuesto para algún trabajo de desarrollo web o de mobile apps, contáctame a través de <a href="mailto:mitxel@narwal.tech">mitxel@narwal.tech</a>. Por otro lado, si quieres que colabore en algún proyecto, buscas gente para sacar adelante una startup o formas parte de alguna asociación con buenas intenciones y poco dinero, escríbeme a mi correo personal <a href="mailto:moriana.mitxel@gmail.com">moriana.mitxel@gmail.com</a>. También puedes interceptarme libremente en cualquiera de las redes sociales.</p>
 
 <h2 id="sobre-mitxelmorianacom">Sobre MitxelMoriana.com</h2>
 
@@ -118,6 +118,7 @@ var marriageSpan = function() {
 
   </div>
 </article>
+<img id="about-portrait" alt="Mitxel & Mimi" src="/images/mitmit.png">
             </div>
         </div>
         <footer class="site-footer">
