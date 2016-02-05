@@ -605,20 +605,20 @@ a:hover {
   opacity: 0.7;
   filter: alpha(opacity=70); }
 
-.post-meta-wrapper {
+.index-meta-wrapper {
   position: relative; }
 
-.post-meta-wrapper:before {
+.index-meta-wrapper:before {
   position: absolute;
   top: 50%;
   left: 0;
   width: 100%;
   display: block;
   height: 1px;
-  background: #ddd;
+  background: #e8e8e8;
   content: ""; }
 
-.post-meta {
+.index-meta {
   position: relative;
   background: #fbfbfb;
   padding: 0 15px 0 0;
