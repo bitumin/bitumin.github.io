@@ -1,27 +1,28 @@
-#==================================================
-# Stage all, commit with message and push to master
-#==================================================
 #!/bin/bash
+#
+# Stage all, commit with message and push to master
+#
 
-red='\033[01;31m'
-blue='\033[01;34m'
-green='\033[01;32m'
-norm='\033[00m'
+# Output colors
+r='\033[01;31m' #red
+b='\033[01;34m' #blue
+g='\033[01;32m' #green
+n='\033[00m' #normal
 
+# Constants
 EXPECTED_ARGS=1
-E_BADARGS=65
+BADARGS_ERROR=65
 
-if [ $# -ne $EXPECTED_ARGS ]
-then
+if [ $# -ne ${EXPECTED_ARGS} ]; then
     echo -e "\nUsage: $0 \"Commit message\"\n"
-    exit $E_BADARGS
+    exit ${BADARGS_ERROR}
 fi
 
-echo -e "\n${blue}- Staging all changes within the working space${norm}\n${blue}- Commit with the message ${red}${1}${norm}\n${blue}- Pushing to origin, master branch\n${norm}"
+echo -e "\n${b}- Staging all changes within the working space${n}\n${b}- Commiting with the message \"${r}${1}${b}\"${n}\n${b}- Pushing to origin, master branch\n${n}"
 
-git add -A && echo -e "${blue}Stage ---> [${green}OK${blue}]${norm}" || echo -e "${blue}Stage ---> [${red}BAD${blue}]${norm}"
-git commit -m "${1}" && echo -e "${blue}Commit ---> [${green}OK${blue}]${norm}" || echo -e "${blue}Commit ---> [${red}BAD${blue}]${norm}"
-git push origin master && echo -e "${blue}Push ---> [${green}OK${blue}]${norm}" || echo -e "${blue}Push ---> [${red}BAD${blue}]${norm}"
+git add -A && echo -e "${b}Stage ---> [${g}OK${b}]${n}" || echo -e "${b}Stage ---> [${r}BAD${b}]${n}"
+git commit -m "${1}" && echo -e "${b}Commit ---> [${g}OK${b}]${n}" || echo -e "${b}Commit ---> [${r}BAD${b}]${n}"
+git push origin master && echo -e "${b}Push ---> [${g}OK${b}]${n}" || echo -e "${b}Push ---> [${r}BAD${b}]${n}"
 echo -e " "
 
 #End of the script
