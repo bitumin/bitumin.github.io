@@ -1,6 +1,6 @@
-#=====================================
-# Stage all, commit and push to master
-#=====================================
+#==================================================
+# Stage all, commit with message and push to master
+#==================================================
 #!/bin/bash
 
 red='\033[01;31m'
@@ -13,8 +13,8 @@ E_BADARGS=65
 
 if [ $# -ne $EXPECTED_ARGS ]
 then
-echo -e "\nUsage: $0 \"Commit message\"\n"
-exit $E_BADARGS
+    echo -e "\nUsage: $0 \"Commit message\"\n"
+    exit $E_BADARGS
 fi
 
 echo -e "\n${blue}- Staging all changes within the working space${norm}\n${blue}- Commit with the message ${red}${1}${norm}\n${blue}- Pushing to origin, master branch\n${norm}"
