@@ -73,17 +73,19 @@
         <p class="post-meta"><time datetime="2016-02-27T00:00:00+01:00" itemprop="datePublished">Feb 27, 2016</time></p>
     </header>
     <div class="post-content" itemprop="articleBody">
-        <p>Dejo por aquí un bash script que nos permite bajar el contenido audiovisual de un montón de webs como youtube, con tan sólo copiar la URL, es decir, hacer CTRL+C o botón derecho &gt; copiar, una vez tenemos seleccionada la URL de interés.</p>
+        <p>Dejo por aquí un bash script que nos permite bajar el contenido audiovisual de un montón de webs como youtube, con tan sólo copiar la URL, es decir, hacer CTRL+C (o botón derecho y copiar) una vez tenemos seleccionada la URL que nos interesa.</p>
 
-<p>El script asume que tienes (correctamente) instalado youtube-dl y xclip, así como sus respectivas dependencias.</p>
+<p>El script asume que tienes instalado youtube-dl y xclip, así como sus respectivas dependencias.</p>
 
-<p><strong>youtube-dl</strong> es el programa de línea de comandos escrito en python (si no recuerdo mal) que nos permite rastrear y bajar los recursos audiovisuales de múltiples webs. El programa está en permanente actualización e incluye gran parte de las webs más conocidas de contenidos multimedia. <strong>xclip</strong> es el programa que nos permite interactuar desde la línea de comandos con el clipboard de nuestro sistema linux.</p>
+<p><strong>youtube-dl</strong> es un programa de línea de comandos escrito en python que nos permite rastrear y bajar los recursos audiovisuales de múltiples webs. El programa está en permanente actualización y es compatible con gran parte de las webs de contenidos multimedia más conocidas del mundo. <strong>xclip</strong> es el programa que nos permite interactuar desde la línea de comandos con el clipboard de nuestro sistema linux.</p>
 
 <h2 id="cmo-funciona">¿Cómo funciona?</h2>
 
-<p>Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) <strong>youtube-autodl.sh</strong>. Pon el fichero, con permisos de ejecución, en la carpeta donde deseas descargar los contenidos. A continuación ejecuta el script escribiendo:</p>
+<p>Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) <strong>youtube-autodl.sh</strong>. Pon el fichero, con permisos de ejecución, en la carpeta donde deseas descargar los contenidos. Edita el código con el número máximo de subprocesos de download que quieres que se ejecuten paralelamente. A continuación ejecuta el script escribiendo:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">./youtube-autodl</code></pre></figure>
+
+<p>Mientras el script permanezca en ejecución, se mantendrá a la espera de que selecciones y copies nuevas URLs, de las que tratará de bajarse los contenidos audiovisuales que encuentre. Si tienes bajando el número máximo establecido de subprocesos de bajada, añadirá las nuevas URLs que copies a una cola de URLs para ser usadas tan pronto termine alguna de los downloads en curso.</p>
 
 <h2 id="el-script">El script</h2>
 
