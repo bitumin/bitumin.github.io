@@ -6,280 +6,112 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2016 21:42:10 +0200</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2016 21:42:10 +0200</lastBuildDate>
+    <pubDate>Sat, 30 Jul 2016 00:44:17 +0200</pubDate>
+    <lastBuildDate>Sat, 30 Jul 2016 00:44:17 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
-        <title>La invasión de los frameworks</title>
-        <description>&lt;h2 id=&quot;introduccin-de-rigor&quot;&gt;Introducción de rigor&lt;/h2&gt;
+        <title>Bash script: youtube-autodl</title>
+        <description>&lt;p&gt;Dejo por aquí un bash script que nos permite bajar el contenido audiovisual de un montón de webs como youtube, con tan sólo copiar la URL, es decir, hacer CTRL+C o botón derecho &amp;gt; copiar, una vez tenemos seleccionada la URL de interés.&lt;/p&gt;
 
-&lt;p&gt;Hace ya unos días escribí un post sobre &lt;a href=&quot;/web/2016/01/02/estrategias-de-desarrollo-web.html&quot; target=&quot;_blank&quot;&gt;estrategias de desarrollo web&lt;/a&gt; en el que recomendaba escoger diferentes tecnologías de desarrollo web en función del tipo de proyecto al que nos enfrentamos: CMS, frameworks, templates, static site generators… Y mencionaba, de pasada, alguna de las aplicaciones más populares en cada campo.&lt;/p&gt;
+&lt;p&gt;El script asume que tienes (correctamente) instalado youtube-dl y xclip, así como sus respectivas dependencias.&lt;/p&gt;
 
-&lt;p&gt;Por suerte para el consumidor, cada vez es más sencillo y barato desarrollar sitios webs estándar: gracias a los miles de templates y decenas de CMS disponibles no es necesario tener prácticamente ningún conocimiento técnico para producir casi cualquier tipo de web habitual (portales de noticias, foros, blogs, e-shops, etc.). De hecho, &lt;strong&gt;existen proyectos de AI que prometen diseñar y generar sitios webs automáticamente, sin intervención humana&lt;/strong&gt; más allá de ir agregando contenidos, al respecto véase &lt;a href=&quot;https://thegrid.io/&quot; target=&quot;_blank&quot;&gt;TheGrid&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;El mundo del desarrollo web, por fuerza, se ha visto empujado o bien hacia el desarrollo de apps, plugins, extensiones o templates para aquellos CMS, o bien hacia áreas mucho más técnicas o especializadas, como por ejemplo:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Desarrollo de UI sobresalientes, en el menor tiempo posible y con componentes reutilizables.&lt;/li&gt;
-  &lt;li&gt;Desarrollo de web services intermediarios entre aplicaciones existentes o nuevas aplicaciones web para startups o empresas con necesidad de herramientas a medida.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Y como es natural, durante los últimos años han venido surgiendo herramientas para agilizar y normalizar el desarrollo en esas áreas de trabajo. Mejor dicho: no es que hayan venido surgiendo herramientas ¡es que se están reproduciendo como conejos! De ahí lo que yo he venido a llamar…&lt;/p&gt;
-
-&lt;h2 id=&quot;la-invasin-de-los-frameworks&quot;&gt;La invasión de los frameworks&lt;/h2&gt;
-
-&lt;p&gt;Ya sea para aplicar al mundo del front end las buenas maneras, abstracción y modularidad típicas del desarrollo back end, como para agilizar el desarrollo web en general y evitar lo de “reinventar la rueda”, los frameworks han venido para hacernos la vida más fácil. A cambio, &lt;em&gt;sólo&lt;/em&gt; nos piden el esfuerzo de estudiar sus particularidades y diferencias (casi na’).&lt;/p&gt;
-
-&lt;p&gt;Existen frameworks de todos los tamaños: desde &lt;strong&gt;full-stack frameworks&lt;/strong&gt; para desarrollar íntegramente cualquier tipo de aplicación web hasta &lt;strong&gt;microframeworks&lt;/strong&gt; destinados a correr servicios web con la mayor velocidad y el menor consumo de recursos posible. Algunos frameworks se centran solamente en el front end o el manejo de las vistas, mientras que otros te permiten el desarrollo integral back y front, a menudo procurando disciplinarte en el uso de arquitecturas Modelo-Vista-Controlador.&lt;/p&gt;
-
-&lt;p&gt;También podemos clasificar los frameworks según los lenguajes de programación en que están escritos o el lenguaje en que debemos escribir nuestras aplicaciones cuando los usamos: PHP, Ruby, Python, Java, Groovy, Scala, JavaScript, CoffeeScript, Perl… you name it.&lt;/p&gt;
-
-&lt;p&gt;La cuestión del lenguaje podría parecer importante a primera vista, pero el hecho es que las webs más populares (wikipedia, youtube, facebook, github, ebay, twitter, netflix…) están escritas usando diferentes lenguajes y por tanto, dejando al margen las preferencias personales, &lt;strong&gt;el lenguaje de programación subyacente a los frameworks debería ser un dato en principio irrelevante a la hora de elegir cuál de ellos usar&lt;/strong&gt;. Mucho más importante es, en cambio, la naturaleza del proyecto que debemos afrontar, por ejemplo: ¿se trata de una nueva aplicación que hay que desarrollar íntegramente, hay que trabajar con grandes bases de datos, es principalmente una app interactiva, es un web service o sólo hay que mejorar una interfaz con problemas de rendimiento?&lt;/p&gt;
-
-&lt;p&gt;Una vez respondidas ese tipo de preguntas y realizada la primera criba de frameworks, nos hemos de enfrentar al hecho de que &lt;strong&gt;existen montones de alternativas ¡incluso sin salirnos de un mismo lenguaje de programación!&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;A modo de referencia rápida, estos son algunos de los frameworks más conocidos a día de hoy, clasificados según el lenguaje de programación o la tecnología subyacente. Ni mucho menos se trata de una lista exhaustiva:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;PHP frameworks:&lt;br /&gt;
-  &lt;strong&gt;Zend&lt;/strong&gt;, &lt;strong&gt;CodeIgniter&lt;/strong&gt;, &lt;strong&gt;CakePHP&lt;/strong&gt;, &lt;strong&gt;Laravel&lt;/strong&gt; y Lumen (micro), &lt;strong&gt;Nette&lt;/strong&gt;, &lt;strong&gt;Yii&lt;/strong&gt;, Slim (micro), Kohana, Typo3 Flow, FuelPHP…&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Python frameworks:&lt;br /&gt; 
-  &lt;strong&gt;Django&lt;/strong&gt;, CherryPy, TurboGears, Flask (micro), Pyramid, Bottle (micro)…&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;JavaScript UI/client-side/web components frameworks/libraries/others:&lt;br /&gt; 
-  &lt;strong&gt;AngularJS&lt;/strong&gt;, &lt;strong&gt;jQuery&lt;/strong&gt; (lib), MooTools, KnockoutJS,  ReactJS, Dojo Toolkit (lib), Underscore.js (lib), Prototype, Spry Framework, AuraJS (components wrapper), X-Tag (components dev), Polymer (components dev), Handlebars (templating)…&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;JavaScript/CoffeeScript/Node.JS frameworks:&lt;br /&gt; 
-  &lt;strong&gt;Express&lt;/strong&gt;, &lt;strong&gt;BackboneJS&lt;/strong&gt;, &lt;strong&gt;Ember.js&lt;/strong&gt;, Meteor, Sails.js, Koa, Flatiron, Batman.js, Total.js, SpineJS, Hapi, DerbyJS…&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Java/Groovy/Scala frameworks:&lt;br /&gt; 
-  &lt;strong&gt;Spring Framework&lt;/strong&gt;, &lt;strong&gt;Stripes&lt;/strong&gt;, &lt;strong&gt;Struts&lt;/strong&gt;, &lt;strong&gt;Play&lt;/strong&gt;, &lt;strong&gt;Tapestry&lt;/strong&gt;, &lt;strong&gt;Grails&lt;/strong&gt;, Wicket, Vaadin, DropWizard (micro)…&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Perl frameworks:&lt;br /&gt; 
-  &lt;strong&gt;Catalyst&lt;/strong&gt;, Dancer, Mojolicious…&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ruby frameworks:&lt;br /&gt;
-  &lt;strong&gt;Ruby on Rails&lt;/strong&gt;, Sinatra, Cramp, Padrino, Ramaze (micro), Cuba (micro), Camping (micro)…&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;No hay que olvidar tampoco los frameworks tipo “propietario” como Adobe ColdFusion o Microsoft ASP.NET, o rarezas como  Seaside escrito en Smalltalk.&lt;/p&gt;
-
-&lt;p&gt;Otras tecnologías que merecen mención son los UI frameworks basados en Java como &lt;strong&gt;JavaServer Faces&lt;/strong&gt; (JSF) y PrimeFaces, &lt;strong&gt;Google Web Toolkit&lt;/strong&gt; (GWT), o curiosidades como &lt;strong&gt;Babel&lt;/strong&gt;, un “traductor” o trans-compiler (de ES6 a ES5) para poder usar versiones punteras de JavaScript en proyectos no tan futuristas.&lt;/p&gt;
-
-&lt;p&gt;A mi modo de ver, en ausencia de condicionantes externos &lt;strong&gt;el mejor criterio para decantarse por el uso de uno u otro framework es la popularidad presente y futura&lt;/strong&gt; de la herramienta. En primer lugar, porque en un mundo tan competitivo como el del desarrollo web, la popularidad suele correlacionarse con la utilidad/calidad. Y en segundo lugar porque a mayor popularidad se sigue que habrá una mayor comunidad de desarrolladores, mejor documentación, más ayuda a la hora de solventar problemas y mayor cantidad de plugins.&lt;/p&gt;
-
-&lt;p&gt;Por eso me ha parecido una buena idea realizar una comparativa de los frameworks, librerías y herramientas de desarrollo de aplicaciones, en lo que respecta a la popularidad y su tendencia en el tiempo. Y teniendo en cuenta que todo el mundillo de los web frameworks se mueve a través de internet: ¿qué mejor herramienta para valorar su popularidad que Google Trends?&lt;/p&gt;
-
-&lt;h2 id=&quot;popularidad-de-los-frameworks-segn-google-trends&quot;&gt;Popularidad de los frameworks según Google Trends&lt;/h2&gt;
-
-&lt;h3 id=&quot;interpretando-los-grficos&quot;&gt;Interpretando los gráficos&lt;/h3&gt;
-
-&lt;p&gt;Antes de bombardearte con gráficos creo que es conveniente recordar que Google Trends compara de forma relativa la búsqueda de términos o temas, lo que significa que los ejes verticales de los gráficos son una escala 0% a 100% y no un número de búsquedas determinado. Esto tiene la ventaja de que podemos comparar el interés entre las diferentes entradas de un mismo gráfico, pero no tendría ningún sentido comparar entradas entre dos gráficos distintos.&lt;/p&gt;
-
-&lt;p&gt;Otro dato a tener en cuenta es que Google Trends no asocia con precisión las búsquedas de palabras con los diferente temas que representan, o dicho con un ejemplo: herramientas con nombres “comunes” como &lt;em&gt;Django&lt;/em&gt;, &lt;em&gt;Cuba&lt;/em&gt; o &lt;em&gt;Express&lt;/em&gt;, que además de software son una película, un país o un adjetivo, arrojan resultados “contaminados”, mucho menos fiables que los de herramientas con nombres “únicos” como &lt;em&gt;Laravel&lt;/em&gt; o &lt;em&gt;AngularJS&lt;/em&gt;. En la medida de lo posible he tratado de “depurar” los resultados para hacerlos comparables agregando o excluyendo términos de búsqueda.&lt;/p&gt;
-
-&lt;p&gt;En cualquier caso, no olvides que es tan importante la popularidad relativa entre herramientas como la &lt;strong&gt;tendencia&lt;/strong&gt; que sigue esa popularidad, lo que nos permite identificar nuevas herramientas que están ganando terreno a otras más viejas y que están cayendo en desuso.&lt;/p&gt;
-
-&lt;h3 id=&quot;comparativas-google-trendsgoogle-trends&quot;&gt;Comparativas &lt;a href=&quot;https://www.google.com/trends/explore&quot;&gt;Google Trends&lt;/a&gt;:&lt;/h3&gt;
-
-&lt;h4 id=&quot;php-frameworks&quot;&gt;PHP frameworks&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcphp.png&quot; alt=&quot;PHP frameworks&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;En una encuesta realizada en Marzo del año pasado (ver &lt;a href=&quot;http://www.sitepoint.com/best-php-framework-2015-sitepoint-survey-results/&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;) Laravel se situaba a la cabeza de los frameworks PHP más usados, seguido de Nette, Yii (1 y 2), CodeIgniter, Zend (1 y 2) y CakePHP. Este gráfico parece confirmar los datos de la encuesta, pero además nos ofrece una perspectiva temporal interesantísima:&lt;/p&gt;
-
-&lt;p&gt;Laravel, en tan sólo tres años, se ha hecho con el liderazgo de los frameworks PHP y, no sólo eso, sino que todo ellos parecen estar perdiendo popularidad al mismo tiempo que Laravel la gana. En cuestiones de frameworks PHP, por tanto, apostar por &lt;strong&gt;Laravel&lt;/strong&gt; sería la apuesta más segura.&lt;/p&gt;
-
-&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&quot;&gt;&lt;/iframe&gt;--&gt;
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
-
-&lt;h4 id=&quot;python-frameworks&quot;&gt;Python frameworks&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcpython.png&quot; alt=&quot;Python frameworks&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;En el mundillo python, en cambio, no parece haber tanta competencia por los primeros puestos de liderazgo entre los frameworks full-stack. Sí que podríamos dudar entre qué microframework elegir, aunque Flask parece ir a la cabeza, pero a la hora de desarrolar apps hechas y derechas sólo deberíamos tener un nombre en mente: &lt;strong&gt;Django&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&quot;&gt;&lt;/iframe&gt;--&gt;
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
-
-&lt;h4 id=&quot;javascript-client-side-frameworkslibraries&quot;&gt;JavaScript client-side frameworks/libraries&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcJSfront.png&quot; alt=&quot;JavaScript client-side frameworks/libraries&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Del lado cliente tengo la sensación de que durante muchos años se han venido haciendo las cosas de la misma manera: escribir código JavaScript y utilizar jQuery para agilizar el trabajo y hacerlo compatible con la mayoría de browsers.&lt;/p&gt;
-
-&lt;p&gt;jQuery sigue siendo la tecnología JavaScript más usada como soporte al desarrollo del front end, pero eso está empezando a cambiar: desde dentro del propio mundillo JavaScript podemos apreciar como AngularJS y la filosofía framework empiezan a hacer mella en el liderazgo de la famosa librería.&lt;/p&gt;
-
-&lt;p&gt;Aunque no se aprecia en este gráfico, es sensato suponer que el declive de jQuery también tiene mucho que ver con la reciente aparición de nuevas tecnologías para desarrollo de UI basados en Java o la incipiente amenaza de las tecnologías basadas en el desarrollo de Web Components.&lt;/p&gt;
-
-&lt;p&gt;Es difícil saber qué ocurrirá en el mundillo estrictamente front end, pero una cosa está clara: jQuery tiene los años de liderazgo contados. Como apuesta de futuro yo me quedo con &lt;strong&gt;AngularJS&lt;/strong&gt; y recomiendo seguir de cerca a tecnologías como ReactJS, sin perder de vista al resto de librerías.&lt;/p&gt;
-
-&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&quot;&gt;&lt;/iframe&gt;--&gt;
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
-
-&lt;h4 id=&quot;javascriptcoffeescriptserver-side-js-frameworks&quot;&gt;Javascript/CoffeeScript/server-side JS frameworks&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcJS.png&quot; alt=&quot;Javascript/CoffeeScript/server-side JS frameworks&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Hace unos años no me hubiese podido creer que JavaScript sería la base para tecnologías del lado servidor como mínimo tan buenas como cualquier otra. Habría sido inimaginable leer posts como &lt;a href=&quot;http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/&quot; target=&quot;_blank&quot;&gt;éste&lt;/a&gt; en los que se habla de Node.JS (un JS runtime environment, una plataforma de ejecución de código JS del lado servidor) como la gran panacea del desarrollo web.&lt;/p&gt;
-
-&lt;p&gt;A primar vista la gráfica sugiere que en este relativamente nuevo mundillo de los full-stack frameworks basados en tecnologías JavaScript/Node.JS parece haber una competencia feroz por hacerse con el primer puesto.&lt;/p&gt;
-
-&lt;p&gt;A estas alturas es difícil mojarse y apostar por algún framework en concreto, pero una cosa está clara: casi todos ellos afirman tener rendimientos increíblemente mejores con respecto a tecnologías más tradicionales como PHP.&lt;/p&gt;
-
-&lt;p&gt;En este sentido no es que haya que estar pendientes de Backbone o Ember o Meteor… Es que &lt;strong&gt;hay que estar pendientes de todo este nicho tecnológico&lt;/strong&gt; porque podrían revolucionar el futuro inmediato y desbancar al resto de tecnologías.&lt;/p&gt;
-
-&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot;&gt;&lt;/iframe&gt;--&gt;
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
-
-&lt;h4 id=&quot;ruby-frameworks&quot;&gt;Ruby frameworks&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcruby.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Con el mundillo Ruby ocurre algo muy parecido a con Python. No hay pelea, no hay color, hay un ganador, sólo un ganador y nada más que un ganador, así que lo único que podemos analizar es la propia tendencia en la popularidad del líder indiscutible: &lt;strong&gt;Ruby on Rails&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Nacimiento y boom del 2005 al 2008, declive hasta el 2010 y maduración hasta ahora. RoR tiene ya más de 10 años pero se conserva bastante bien: no se aprecia un tendencia a la baja especialmente fuerte, aunque nada auspicia un aumento de su popularidad en los próximos años.&lt;/p&gt;
-
-&lt;p&gt;Como teoría de la conspiración: ¿no es casualidad que la etapa de decadencia 2008-2010 coincida con el crecimiento en popularidad de los nuevos frameworks basados en PHP en la misma etapa? &lt;em&gt;*musiquilla de X-Files*&lt;/em&gt;.&lt;/p&gt;
-
-&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&quot;&gt;&lt;/iframe&gt;--&gt;
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
-
-&lt;h4 id=&quot;javagroovyscala-frameworks&quot;&gt;Java/Groovy/Scala frameworks&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcjava.png&quot; alt=&quot;Java/Groovy/Scala frameworks&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Creo que esta gráfica, donde se aprecia caída generalizada en la popularidad de los frameworks basados en Java, podría inducir a extraer conclusiones precipitadas y erróneas. El mundillo del desarrollo web en Java está fuertemente influenciado por el desarrollo de apps para móviles y teniendo en cuenta que el desarrollo para dispositivos portátiles no hace más que crecer, lo más sensato es suponer que los web frameworks basados en Java o intermediarios entre Java y tecnologías más próximas a las tradicionales tienen aún mucha pelea que dar.&lt;/p&gt;
-
-&lt;p&gt;Yo creo que lo más prudente será estar al tanto respecto a las novedades en esta categoría.&lt;/p&gt;
-
-&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot;&gt;&lt;/iframe&gt;--&gt;
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
-
-&lt;h4 id=&quot;full-stack-web-frameworks-cross-tech&quot;&gt;Full-stack web frameworks cross-tech&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcALL.png&quot; alt=&quot;Full-stack web frameworks cross-tech&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/06y_qx,+Node.js,+/m/0505cl,+/m/0dhx5b&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;No sería decente despedirme sin una comparativa entre los líderes full-stack de cada una de las categorías anteriores. He de confesar que he hecho un poquito de trampa a la hora de añadir en la comparativa a Node.JS en lugar de a algún framework basado en JavaScript o que corra sobre Node.JS, pero creo que Node.JS, como tecnología subyacente, puede ser un buen indicador de vanguardia sobre la evolución futura de frameworks basados en server-side JS.&lt;/p&gt;
-
-&lt;p&gt;Creo que de acuerdo a la gráfica podríamos agrupar a los líderes en dos tipos de tendencias: los que se mantienen en popularidad o presentan una ligera tendencia a la baja y los que tienden a crecer de forma lineal, más o menos estable, durante los últimos años.&lt;/p&gt;
-
-&lt;p&gt;En resumen:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Apuestas de futuro: Laravel y frameworks basados en JavaScript&lt;/li&gt;
-  &lt;li&gt;Apuestas seguras: Django, RoR y Spring.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&quot;&gt;&lt;/iframe&gt;--&gt;
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
-
-&lt;!--#### Front-end tools cross-tech--&gt;
-
-&lt;!--![Front-end tools cross-tech](http://mitxelmoriana.com/images/fcfrontALL.png)--&gt;
-
-&lt;!--[Haz click aquí para ver el gráfico interactivo][graph-8]{:target=&quot;_blank&quot;}--&gt;
-
-&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&quot;&gt;&lt;/iframe&gt;--&gt;
-&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
-
-</description>
-        <pubDate>Sun, 31 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/web/2016/01/31/la-invasion-de-los-frameworks-tendencias-en-tecnologias-de-desarrollo-de-web-apps.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/31/la-invasion-de-los-frameworks-tendencias-en-tecnologias-de-desarrollo-de-web-apps.html</guid>
-        
-        <category>web</category>
-        
-        <category>technologies,</category>
-        
-        <category>web</category>
-        
-        <category>app,</category>
-        
-        <category>web,</category>
-        
-        <category>web</category>
-        
-        <category>programming,</category>
-        
-        <category>app</category>
-        
-        <category>programming,</category>
-        
-        <category>programming,</category>
-        
-        <category>trends</category>
-        
-        
-        <category>web</category>
-        
-      </item>
-    
-      <item>
-        <title>Bash script: ./fastcommit</title>
-        <description>&lt;p&gt;Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de agarraos).&lt;/p&gt;
-
-&lt;p&gt;Lo de agregarle la comprobación de que se han pasado el número de argumentos correctos y la pijadilla de los colores es algo que he visto en otros scripts y he copiado descaradamente.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;youtube-dl&lt;/strong&gt; es el programa de línea de comandos escrito en python (si no recuerdo mal) que nos permite rastrear y bajar los recursos audiovisuales de múltiples webs. El programa está en permanente actualización e incluye gran parte de las webs más conocidas de contenidos multimedia. &lt;strong&gt;xclip&lt;/strong&gt; es el programa que nos permite interactuar desde la línea de comandos con el clipboard de nuestro sistema linux.&lt;/p&gt;
 
 &lt;h2 id=&quot;cmo-funciona&quot;&gt;¿Cómo funciona?&lt;/h2&gt;
 
-&lt;p&gt;Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) &lt;strong&gt;fastcommit&lt;/strong&gt;. Pon el fichero, con permisos de ejecución, en la carpeta raíz de tu proyeto con git. A continuación escribe:&lt;/p&gt;
+&lt;p&gt;Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) &lt;strong&gt;youtube-autodl.sh&lt;/strong&gt;. Pon el fichero, con permisos de ejecución, en la carpeta donde deseas descargar los contenidos. A continuación ejecuta el script escribiendo:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./fastcommit &lt;span class=&quot;s2&quot;&gt;&amp;quot;Mensaje_para_el_commit&amp;quot;&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;# Sólo admite un (1) argumento&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./youtube-autodl&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;el-script&quot;&gt;El script&lt;/h2&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#=====================================&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Stage all, commit and push to master&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#=====================================&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;\033[01;31m&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;\033[01;34m&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;\033[01;32m&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;\033[00m&amp;#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;##########################################################&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Run youtube-dl for each URL copied to system&amp;#39;s clipboard&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;##########################################################&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Dependencies: youtube-dl, xclip&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Author: Mitxel Moriana &amp;lt;moriana.mitxel@gmail.com&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# GPLv3 &amp;lt;https://www.gnu.org/licenses/gpl-3.0.en.html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;##########################################################&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;EXPECTED_ARGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
-&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;E_BADARGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;65
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Exit on error&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -e
 &lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$# &lt;/span&gt;-ne &lt;span class=&quot;nv&quot;&gt;$EXPECTED_ARGS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;\nUsage: $0 \&amp;quot;Commit message\&amp;quot;\n&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;17&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$E_BADARGS&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Set max concurrent downloads:&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;maxParallelDownloads&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3
+&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=()&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;17&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;getClipCmd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;xclip -selection clipboard -o&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;copiedURL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;19&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;20&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;\n${blue}- Staging all changes within the working space${norm}\n${blue}- Commit with the message ${red}${1}${norm}\n${blue}- Pushing to origin, master branch\n${norm}&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;21&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;22&lt;/span&gt; git add -A &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Stage ---&amp;gt; [${green}OK${blue}]${norm}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Stage ---&amp;gt; [${red}BAD${blue}]${norm}&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;23&lt;/span&gt; git commit -m &lt;span class=&quot;s2&quot;&gt;&amp;quot;${1}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Commit ---&amp;gt; [${green}OK${blue}]${norm}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Commit ---&amp;gt; [${red}BAD${blue}]${norm}&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;24&lt;/span&gt; git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Push ---&amp;gt; [${green}OK${blue}]${norm}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Push ---&amp;gt; [${red}BAD${blue}]${norm}&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;26&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;27&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#End of the script&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;lineno&quot;&gt;20&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Set the parallel downloads counter&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;mktemp &lt;span class=&quot;s2&quot;&gt;&amp;quot;$HOME/.counter.XXXXXX&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;22&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;0\n&amp;quot;&lt;/span&gt; &amp;gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$counter&amp;quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Set counter to 0&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;23&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;24&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Quit execution&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; quit&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;26&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -t &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; stty sane&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Clear terminal options before exit&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;27&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Bye bye&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;28&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;span class=&quot;lineno&quot;&gt;29&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;30&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;31&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Verifies that a given string has a proper URL format&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;32&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; verifyURL&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;33&lt;/span&gt;     &lt;span class=&quot;nv&quot;&gt;regex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;(https?|ftp|file)://[-A-Za-z0-9\+&amp;amp;@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&amp;amp;@#/%=~_|]&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;34&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ &lt;span class=&quot;nv&quot;&gt;$regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; 0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; 1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;35&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;36&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;37&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Calls quit() on CTRL+C&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;38&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;trap &lt;/span&gt;quit INT
+&lt;span class=&quot;lineno&quot;&gt;39&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;40&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Waiting for copied URLs... (press q or CTRL+C to exit)&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;41&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;42&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Set terminal options to non blocking key read&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;43&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -t &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; stty -echo -icanon -icrnl &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; min 0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;44&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;45&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;lastKeypress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;46&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;x$lastKeypress&amp;quot;&lt;/span&gt; !&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;xq&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Exit the loop on &amp;quot;q&amp;quot; keypress&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;47&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;48&lt;/span&gt;     &lt;span class=&quot;nv&quot;&gt;currentDownloads&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&amp;lt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$counter&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;49&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[@]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; -ne &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$currentDownloads&amp;quot;&lt;/span&gt; -lt &lt;span class=&quot;s2&quot;&gt;&amp;quot;$maxParallelDownloads&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;50&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt; ++currentDownloads &lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;51&lt;/span&gt;         &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%s\n&amp;#39;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$currentDownloads&amp;quot;&lt;/span&gt; &amp;gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$counter&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;52&lt;/span&gt;         &lt;span class=&quot;nv&quot;&gt;tryURL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;53&lt;/span&gt;         &lt;span class=&quot;nv&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;${queue[@]:1}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;54&lt;/span&gt;         &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Downloading media from $tryURL&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;55&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;56&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;57&lt;/span&gt;                 &lt;span class=&quot;nv&quot;&gt;downloadResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; youtube-dl &lt;span class=&quot;s2&quot;&gt;&amp;quot;$tryURL&amp;quot;&lt;/span&gt; 2&amp;gt; /dev/null &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; tail -1 &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;58&lt;/span&gt;                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$downloadResult&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; *&lt;span class=&quot;s2&quot;&gt;&amp;quot;[download] 100% of&amp;quot;&lt;/span&gt;* &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;59&lt;/span&gt;                     &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;[SUCCESS] Finished downloading media from $tryURL&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;60&lt;/span&gt;                 &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$downloadResult&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; *&lt;span class=&quot;s2&quot;&gt;&amp;quot;[download]&amp;quot;&lt;/span&gt;* &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;61&lt;/span&gt;                     &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;[ERROR] Unexpected interruption while downloading media from $tryURL&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;62&lt;/span&gt;                 &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;63&lt;/span&gt;                     &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;[ERROR] Unable to download media from $tryURL&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;64&lt;/span&gt;                 &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;65&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;66&lt;/span&gt;             &lt;span class=&quot;nv&quot;&gt;currentDownloads&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&amp;lt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$counter&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;67&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt; --currentDownloads &lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;68&lt;/span&gt;             &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;%s\n&amp;#39;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$currentDownloads&amp;quot;&lt;/span&gt; &amp;gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$counter&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;69&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Make subprocess run in parallel&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;70&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;71&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;72&lt;/span&gt; 	&lt;span class=&quot;nv&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;getClipCmd&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;73&lt;/span&gt; 	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$temp&amp;quot;&lt;/span&gt; !&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$copiedURL&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; verifyURL &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;74&lt;/span&gt; 	    &lt;span class=&quot;nv&quot;&gt;copiedURL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$temp&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;75&lt;/span&gt; 	    queue+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$copiedURL&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;76&lt;/span&gt; 	    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;URL $copiedURL added to download queue (&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${#&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[@]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot; URLs in queue)&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;77&lt;/span&gt; 	&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;78&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;79&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;# Ensure we only get one (1) keypress&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;80&lt;/span&gt;     &lt;span class=&quot;nv&quot;&gt;lastKeypress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;`dd bs=1 count=1 status=none | cat -v`&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;81&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;82&lt;/span&gt; 	sleep 0.2
+&lt;span class=&quot;lineno&quot;&gt;83&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;84&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;85&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;86&lt;/span&gt; quit&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;aviso-probablemente-innecesario&quot;&gt;Aviso probablemente innecesario&lt;/h2&gt;
 
@@ -287,41 +119,31 @@
 
 &lt;p&gt;Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 25 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</guid>
+        <pubDate>Sat, 27 Feb 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/programming/2016/02/27/bash-script-para-bajarse-media-a-partir-de-urls.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/02/27/bash-script-para-bajarse-media-a-partir-de-urls.html</guid>
         
         <category>bash</category>
         
         <category>script,</category>
         
-        <category>git,</category>
-        
-        <category>github,</category>
-        
-        <category>bitbucket,</category>
-        
-        <category>VCS,</category>
-        
         <category>programming,</category>
         
-        <category>git</category>
+        <category>bash,</category>
         
-        <category>commit,</category>
+        <category>shell,</category>
         
-        <category>git</category>
+        <category>sh,</category>
         
-        <category>push,</category>
+        <category>youtube-dl,</category>
         
-        <category>git</category>
+        <category>jdownloader,</category>
         
-        <category>add,</category>
+        <category>downloader,</category>
         
-        <category>commit,</category>
+        <category>audio,</category>
         
-        <category>push,</category>
-        
-        <category>add</category>
+        <category>videos</category>
         
         
         <category>programming</category>
@@ -332,19 +154,17 @@
         <title>Introducción al control de versiones con Git</title>
         <description>&lt;h2 id=&quot;qu-es-el-control-de-versiones&quot;&gt;¿Qué es el control de versiones?&lt;/h2&gt;
 
-&lt;p&gt;¿Alguna vez te has fijado que los sistemas operativos (SO) van evolucionando con el tiempo? Por ejemplo: en Windows hemos tenido en los últimos años el Windows 7, el 8 y el 10. Con el SO Android o con Linux y sus distribuciones (Arch, Ubuntu, Debian, etc.) ocurre exactamente lo mismo. A veces las nuevas versiones suponen pequeñas mejoras y otras veces cambios radicales, casi siempre para mejor.&lt;/p&gt;
+&lt;p&gt;Durante el desarrollo e incluso durante toda la vida de cualquier programa de software se requiere de escribir o corregir código continuamente, ya sea para publicar nuevas versiones mejoradas o con nuevas funcionalidades o por necesidad de corrección de errores (bug fixes).&lt;/p&gt;
 
-&lt;p&gt;Si eres un gamer aficionado a los videojuegos te habrás dado cuenta que con los juegos ocurre algo parecido: periódicamente salen nuevos parches y updates de tus juegos favoritos. Con las app para móviles tres cuartos de lo mismo. En general, esto de ir sacando nuevas versiones ocurre con todo tipo de software.&lt;/p&gt;
+&lt;p&gt;Ocurre que en todo tipo de proyectos de desarrollo de software se acaban generando decenas, cientos, miles de ficheros de código y, de una versión a otra se han de modificar unos cuantos de ellos. Sería extremadamente laborioso llevar la cuenta, manualmente, de las líneas de código que se han modificado de una versión a otra. Si además, sobre el mismo código fuente, están trabajando equipos de desarrolladores, imagínate lo complejo que sería coordinar los cambios realizados por dos, tres… decenas de programadores sobre los mismos ficheros. La implementación de nuevas versiones llevaría horas o incluso días dedicados exclusivamente a la revisión y coordinación de cambios en el código.&lt;/p&gt;
 
-&lt;p&gt;Ocurre que en todo tipo de proyectos de desarrollo de software se acaban generando decenas, cientos, miles de ficheros de código y, de una versión a otra se han de modificar unos cuantos de ellos. Sería extremadamente laborioso llevar la cuenta, manualmente, de las líneas de código que se han modificado de una versión a otra. Si además trabajases en equipos de desarrolladores, imagínate lo complejo que sería coordinar los cambios realizados por dos o más programadores sobre los mismos ficheros. La implementación de nuevas versiones llevaría horas o incluso días de coordinación de cambios.&lt;/p&gt;
-
-&lt;p&gt;Por lo tanto tenemos una necesidad: poder automatizar y coordinar las versiones. Y de ahí nace lo que conocemos como el control de versiones y los sistemas de control de versiones (VCS), que básicamente son estrategias y software para realizar esa gestión de cambios.&lt;/p&gt;
+&lt;p&gt;De ahí que sean necesarios sistemas de gestión de cambios o lo que se ha venido a conocer como Sistemas de Control de Versiones (VCS, en inglés), que básicamente consisten en estrategias (y software) que habilitan para realizar esa gestión de cambios.&lt;/p&gt;
 
 &lt;h2 id=&quot;qu-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h2&gt;
 
-&lt;p&gt;Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí: algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismo fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí: algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismos fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí). Además, sabiendo más o menos de qué va Git, la terminología y los conceptos generales (merge, branch, pull, push…), aprender a hacer lo mismo con un nuevo VCS es coser y cantar.&lt;/p&gt;
+&lt;p&gt;Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí). Además, sabiendo más o menos de qué va Git, la terminología y los conceptos generales (merge, branch, pull, push…), aprender a hacer lo mismo con un otro VCS no puede ser muy complicado.&lt;/p&gt;
 
 &lt;h2 id=&quot;git-bsico-bsico&quot;&gt;Git básico, básico&lt;/h2&gt;
 
@@ -354,13 +174,13 @@
 
 &lt;p&gt;Básicamente si usas Linux lo puedes instalar con tu gestor de paquetes habitual:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo yum install git-all&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;o&lt;/p&gt;
-
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install git-all&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Si usas Mac te lo puedes bajar de &lt;a href=&quot;http://git-scm.com/download/mac&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;. Si usas Windows te puedes bajar el instalador &lt;a href=&quot;http://git-scm.com/download/win&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt; y te será muy útil agregar la carpeta donde se te instale el ejecutable git al PATH de Windows para poder ejecutar git desde cualquier línea de comandos que abras.&lt;/p&gt;
+&lt;p&gt;O, alternativamente:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo yum install git-all&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Si usas Mac te lo puedes bajar de &lt;a href=&quot;http://git-scm.com/download/mac&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;. Si usas Windows te puedes bajar el instalador &lt;a href=&quot;http://git-scm.com/download/win&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Si necesitas más detalles sobre cómo instalarlo, problemas, casos especiales… ya sabes que Google es tu amigo. También puedes preguntar más abajo e intentaré ayudarte.&lt;/p&gt;
 
@@ -386,21 +206,19 @@ git version &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;.&lt;span class=&quot;
 
 &lt;p&gt;Escribamos alguna nueva línea de “código”, por ejemplo: “Hola mundo!”. Ahora borra la palabra “mundo” y sustitúyela por “Paco”. Guarda y cierra el fichero.&lt;/p&gt;
 
-&lt;p&gt;Muy bien, ahora vuelve a abrir el fichero e intenta deshacer la última modificación (Ctrl+z), si tu editor no es más listo de lo habitual no deberías poder deshacer el último cambio realizado. Resulta que has perdido para siempre la palabra “mundo” (te has cargado el mundo, ¡estarás orgulloso de ti mismo!). Si no hubieses escrito esta modificación hace unos segundos, seguramente no recordarías qué había allí escrito originalmente.&lt;/p&gt;
-
-&lt;p&gt;Imagínate que en vez de un .txt se trata de una aplicación de verdad y que, por error, modificaste la línea hace unas semanas. Te tocaría perder un tiempo precioso buscando la modificación que introdujiste sin querer.&lt;/p&gt;
+&lt;p&gt;Imagínate que en vez de un .txt se trata de una aplicación de verdad y que, por error, modificaste la línea hace unas semanas. Te tocaría perder un tiempo precioso buscando la modificación (“Paco” por “mundo”)que introdujiste sin querer.&lt;/p&gt;
 
 &lt;p&gt;Bien, vamos a poner solución a este problema con nuestro Git, nuestro flamante nuevo sistema de control de versiones. Comprueba que en tu terminal o línea de comandos estés en el directorio raíz de tu proyecto. En mi caso c:\myFakeProject\ y escribe&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git init&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Este comando creará una nueva carpeta oculta /.git en la raíz de tu proyecto, donde Git guarda toda la información necesaria del estado pasado y actual las versiones. De hecho, acabas de estrenar un sistema de control de versiones para tu nuevo proyecto. ¡Felicidades!&lt;/p&gt;
+&lt;p&gt;Este comando creará una nueva carpeta oculta /.git en la raíz de tu proyecto, donde Git guarda toda la información local del estado pasado y actual del código. De hecho, acabas de estrenar un sistema de control de versiones para tu nuevo proyecto. ¡Felicidades!&lt;/p&gt;
 
-&lt;p&gt;Siempre que queramos saber en qué estado se encuentra nuestro espacio de trabajo, debemos escribir:&lt;/p&gt;
+&lt;p&gt;Siempre que queramos saber en qué estado se encuentra nuestro espacio de trabajo (que por defecto incluye el subdirectorio donde hemos inicializado git y todos sus subdirectorios), debemos escribir:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git status&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Hazlo. Te aparecerán cuatro o cinco líneas de información, entre las cuales se debería hacer referencia a los siguientes asuntos importantes (que en principio te sonarán a checo antiguo):&lt;/p&gt;
+&lt;p&gt;Hazlo y te aparecerán cuatro o cinco líneas de información, entre las cuales encontrarás referencias a los siguientes asuntos importantes (que en principio te sonarán a checo antiguo):&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;La rama o branch sobre la que estás trabajando, por ejemplo “On branch &lt;strong&gt;master&lt;/strong&gt;”&lt;/li&gt;
@@ -409,7 +227,7 @@ git version &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;.&lt;span class=&quot;
   &lt;li&gt;Una lista de ficheros que están untracked (ficheros que Git no está controlando). Estos suelen ser ficheros que acabas de crear, como el fichero .txt de nuestro ejemplo. Si te fijas, el nombre de tu .txt de ejemplo debería aparecerte en pantalla después de “Untracked files:”.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Bien, vayamos por partes. ¿Qué es eso de la branch? Una &lt;strong&gt;branch&lt;/strong&gt; o rama es una ramificación en el seguimiento de las versiones. Suponte que tú y otro desarrollador tenéis que trabajar sobre la misma aplicación y que no queréis tener que estar constantemente actualizando vuestra entorno de trabajo local con los cambios que realiza cada uno, a diario, sobre la misma rama. Una manera de trabajar en estos casos podría ser, por ejemplo, crear una rama nueva para cada desarrollador, que más tarde, al cabo de unos días, se fusionarán en una sola rama, es decir, se integrarán los dos cambios hechos por separado en una sola rama. A esto de fusionar ramas se le conoce como &lt;strong&gt;merge&lt;/strong&gt;. Sobre branching y merging hablaremos en el próximo post, por ahora basta con que te suene.&lt;/p&gt;
+&lt;p&gt;Bien, vayamos por partes. ¿Qué es eso de la branch? Una &lt;strong&gt;branch&lt;/strong&gt; o rama es una ramificación en el seguimiento de las modificaciones del código. Suponte que tú y otro desarrollador tenéis que trabajar sobre la misma aplicación y que no queréis tener que estar constantemente actualizando vuestra entorno de trabajo local con los cambios que realiza cada uno, a diario, sobre la misma rama. Una manera de trabajar en estos casos podría ser, por ejemplo, crear una rama nueva para cada desarrollador, que más tarde, al cabo de unos días, se fusionarán en una sola rama, es decir, se integrarán los dos cambios hechos por separado en una sola rama. A esto de fusionar ramas se le conoce como &lt;strong&gt;merge&lt;/strong&gt;. Sobre branching y merging hablaremos en el próximo post, por ahora basta con que te suene.&lt;/p&gt;
 
 &lt;p&gt;¿Qué es eso del commit? Un &lt;strong&gt;commit&lt;/strong&gt; o confirmación es la forma de decir con Git “confirmo los cambios que he hecho hasta ahora porque he terminado con este asunto y el asunto está resuelto”. Suponte que estás corrigiendo un error y modificas cinco ficheros de tu proyecto. Cuando acabas de modificarlo, testeas la aplicación y todo funciona como tú esperas: puedes dar por terminado el arreglo. Es muy buena idea, entonces, hacer un commit y ponerle un titulillo hermosamente explicativo como por ejemplo “fixed bug #6576”.&lt;/p&gt;
 
@@ -419,11 +237,13 @@ git version &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;.&lt;span class=&quot;
 ...
 nothing added to commit but untracked files present&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Nada se ha añadido en nuestro commit. La razón es porque Git tiene un sistema de dos pasos para realizar el commit (&lt;strong&gt;stage&lt;/strong&gt; + commit). Primero hemos de &lt;em&gt;stagear&lt;/em&gt; los cambios realizados y luego realizar el commit. Esto se hace con el commando &lt;em&gt;git add&lt;/em&gt;. Por ejemplo, nosotros podemos escribir:&lt;/p&gt;
+&lt;p&gt;Nada se ha añadido en nuestro commit. La razón es porque Git tiene un sistema de dos pasos para realizar el commit: el primer paso se llama &lt;strong&gt;stage&lt;/strong&gt; o puesta en escena y el segundo, es el commit o confirmación, propiamente. Es decir, primero debemos selecionar cuáles de los cambios realizados queremos poner en escena y preparar para un mismo commit, y luego los hemos de comitear, lo que equivale a reunir todos los cambios bajo una misma confirmación, a razón de que, por ejemplo, son cambios que solucionan un problema en común.&lt;/p&gt;
+
+&lt;p&gt;Vamos pues a &lt;em&gt;stagear&lt;/em&gt; los cambios realizados y luego realizar el commit. El staging se hace con el commando &lt;em&gt;git add&lt;/em&gt;. Por ejemplo, nosotros podemos escribir:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git add thisIsAnAppYouBetterBelieveIt.txt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Como decía, a esto se le llama hacer staging de nuestros cambios (staging se puede traducir como “puesta en escena”). Pruébalo y haz un &lt;em&gt;git status&lt;/em&gt;. Ahora deberías ver una diferencia importante respecto al principio. Ya no aparecen ficheros &lt;em&gt;untracked&lt;/em&gt; en tu espacio de trabajo, en su lugar aparece una nueva línea como ésta tras &lt;em&gt;Changes to be committed&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;Ahora haz un &lt;em&gt;git status&lt;/em&gt;. Deberías ver una diferencia importante respecto al principio. Ya no aparecen ficheros &lt;em&gt;untracked&lt;/em&gt; en tu espacio de trabajo, en su lugar aparece una nueva línea como ésta tras &lt;em&gt;Changes to be committed&lt;/em&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;new file:   thisIsAnAppYouBetterBelieveIt.txt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -435,11 +255,11 @@ nothing added to commit but untracked files present&lt;/code&gt;&lt;/pre&gt;&lt;
 
 &lt;p&gt;Bien, modifiquemos ahora nuestro querido fichero .txt. Ábrelo y cambia, por ejemplo, “Paco” por “Pedro”. Ahora guarda y sal de tu editor de texto. Volvamos a la línea de comandos. Haz un &lt;em&gt;git status&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Ahora debería informarte Git de que has modificado un fichero respecto al commit que tienes en cabeza (en nuestro caso, respeto al último commit realizado). ¿Recuerdas que la última vez que modificamos nuestro .txt no tuvimos forma de ver qué había cambiado respecto al texto original? Con git eso deja de ser un problema. Escribe:&lt;/p&gt;
+&lt;p&gt;Ahora debería informarte Git de que has modificado un fichero respecto al commit que tienes en cabeza (en nuestro caso, respeto al último commit realizado). Si quieres comprobar la modificación realizada escribe:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git diff&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Ahora debería aparecerte algo como esto&lt;/p&gt;
+&lt;p&gt;Y debería aparecerte algo como esto&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;diff --git a/thisIsAnAppYouBetterBelieveIt.txt b/thisIsAnAppYouBetterBelieveIt.txt
 index 5d8a8b4..4955b9f 100644
@@ -451,11 +271,11 @@ index 5d8a8b4..4955b9f 100644
 +Hola Pedro
 &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;No newline at end of file&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Para salir de la pantalla de visualización de cambios pulsa la tecla Q.&lt;/p&gt;
+&lt;p&gt;Para salir de la pantalla de visualización de cambios pulsa la tecla “q”.&lt;/p&gt;
 
-&lt;p&gt;Precisamente git nos informa de los cambios que se han realizado, incluyendo las líneas del fichero donde se han realizado. En este caso los cambios que aún no están &lt;em&gt;staged&lt;/em&gt; con respecto al commit en cabeza, por lo que sería inútil intentar hacer un commit ahora.&lt;/p&gt;
+&lt;p&gt;Fíjate que git nos informa de los cambios que se han realizado, incluyendo las líneas del fichero donde se han realizado. En este caso nos informa de las diferencias que existen entre el estado actual de nuestro código (que aún no están &lt;em&gt;staged&lt;/em&gt; ni &lt;em&gt;committed&lt;/em&gt;) y los cambios entre la cabecera de la rama actual (en nuestro caso, respecto al último commit que hicimos).&lt;/p&gt;
 
-&lt;p&gt;Al igual que cuando creamos un fichero, cuando modificamos uno existente debemos hacer un &lt;em&gt;staging&lt;/em&gt; de los cambios previamente al &lt;em&gt;commit&lt;/em&gt;. Por suerte, no tienes que memorizar ningún nuevo comando porque todo tipo de staging se hace, al igual que antes, con &lt;em&gt;git add&lt;/em&gt;, ¡también en el caso de eliminar ficheros o cambiarles el nombre de fichero!:&lt;/p&gt;
+&lt;p&gt;Al igual que cuando creamos un fichero, cuando modificamos uno existente debemos hacer un &lt;em&gt;staging&lt;/em&gt; de los cambios previamente al &lt;em&gt;commit&lt;/em&gt;. Por suerte, no tienes que memorizar ningún nuevo comando porque todo tipo de staging se hace, al igual que antes, con &lt;em&gt;git add&lt;/em&gt;, ¡también en el caso de eliminar ficheros o cambiarles el nombre!:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git add thisIsAnAppYouBetterBelieveIt.txt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -465,15 +285,15 @@ index 5d8a8b4..4955b9f 100644
 
 &lt;p&gt;Perfecto, en tu segundo commit has confirmado el cambio del nombre en esa línea de código.&lt;/p&gt;
 
-&lt;p&gt;Ahora quizá estés pensando: ¿y si creo 200 ficheros, elimino 100 y modifico 500? ¿Tengo que hacer el staging uno a uno? Y la respuesta es que no. Aquí te dejo unos comandos muy útiles que te servirán para hacer el staging de cambios de múltiples ficheros al mismo tiempo:&lt;/p&gt;
+&lt;p&gt;¿Y si creo 200 ficheros, elimino 100 y modifico 500? ¿Tengo que hacer el staging uno a uno? Y la respuesta es que no. Aquí te dejo unos comandos muy útiles que te servirán para hacer el staging de cambios de múltiples ficheros al mismo tiempo:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git add -u    &lt;span class=&quot;c&quot;&gt;# Staging de todos los ficheros modificados o eliminados (sin los nuevos)&lt;/span&gt;
-git add .     &lt;span class=&quot;c&quot;&gt;# Staging de todos los ficheros modificados o recién creados (sin los eliminados)&lt;/span&gt;
-git add -A    &lt;span class=&quot;c&quot;&gt;# Staging de todos los ficheros modificados, eliminados o recién creados&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git add .     &lt;span class=&quot;c&quot;&gt;# Staging de todos los ficheros modificados o recién creados (sin los eliminados)&lt;/span&gt;
+git add -A    &lt;span class=&quot;c&quot;&gt;# Staging de todos los ficheros modificados, eliminados o recién creados&lt;/span&gt;
+git add -u    &lt;span class=&quot;c&quot;&gt;# Staging de todos los ficheros modificados o eliminados (sin los nuevos)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Por supuesto, no te olvides de hacer el commit después de hacer el staging si estás contento con los cambios realizados. Por ahora puedes pensar en el staging como un paso previo en el que repasar los cambios realizados antes de realizar un commit o confirmación. De hecho, en un entorno profesional deberías tomarte bastante en serio lo de realizar un commit o, dicho de otro modo, nuca hagas un commit a lo loco, sin estar 100% seguro de que los cambios que has realizado son (prácticamente) los definitivos para resolver el asunto que te traes entre manos (implementar una nueva funcionalidad, corregir un bug…).&lt;/p&gt;
+&lt;p&gt;No te olvides de hacer el commit después de hacer el staging si estás contento con los cambios realizados. Puedes pensar en el staging como un paso previo en el que valorar cuáles de los cambios merecen formar parte de un mismo commit o confirmación. De hecho, en un entorno profesional deberías tomarte bastante en serio lo de realizar un commit o, dicho de otro modo, no hagas un commit (y aún menos lo subdas al repositorio remoto) sin estar 100% seguro de que los cambios que has realizado son (prácticamente) los definitivos para resolver el asunto que te traes entre manos.&lt;/p&gt;
 
-&lt;p&gt;De todos modos no sufras demasiado si cometes un error al estilo “se me olvidó modificar este fichero”. Siempre puedes hacer nuevos commits corrigiendo errores o, aún mejor, enmendar el último commit realizado escribiendo:&lt;/p&gt;
+&lt;p&gt;De todos modos no sufras demasiado si cometes un error al estilo “se me olvidó modificar este fichero”. Siempre puedes hacer nuevos commits corrigiendo errores o, incluso, enmendar el último commit realizado escribiendo:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git add fichero_que_se_me_olvidó_modificar
 git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -488,7 +308,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git reset   &lt;span class=&quot;c&quot;&gt;# Lo contrario de: git add -A &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;En fin, espero que esta introducción te haya servido para empezar a moverte por el mundo de los VCS y, en particular, con Git. Aunque aún no hemos tratado el asunto de los branch y los repositorios piensa que ya estás capacitado para hacer un seguimiento de los cambios en tus proyectos en tu entorno local.&lt;/p&gt;
+&lt;p&gt;En fin, espero que esta introducción te haya servido para empezar a moverte por el mundo de los VCS y, en particular, con Git. Aunque aún no hemos tratado el asunto de los branch y los repositorios remotos piensa que ya estás en el camino de poder hacer un buen control de cambios en el código de tu entorno local.&lt;/p&gt;
 
 &lt;h2 id=&quot;consejillos&quot;&gt;Consejillos&lt;/h2&gt;
 
@@ -496,7 +316,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Siempre que comiences un nuevo proyecto, por pequeño y personal que sea, haz el seguimiento de cambios con tu VCS favorito. No subestimes la utilidad de saber los cambios realizados haces meses en un proyecto que tenías abandonado y que vuelves a retomar.&lt;/li&gt;
-  &lt;li&gt;En tus proyectos de desarrollo utiliza un IDE compatible con el VCS que utilices. Hay IDEs muy buenos que te permiten automatizar la ejecución de comandos git (como los que acabamos de aprender) o ejecutarlos con un par de clicks. Mi IDE, por ejemplo, me pinta sobre mi árbol de directorios los nombres de los ficheros modificados de azul o los recién creados y no staged en rojo y los staged en verde.&lt;/li&gt;
+  &lt;li&gt;En tus proyectos de desarrollo utiliza un IDE compatible con el VCS que utilices. Hay IDEs muy buenos que te permiten automatizar la ejecución de comandos git (como los que acabamos de aprender) o ejecutarlos con un par de clicks.&lt;/li&gt;
   &lt;li&gt;Puedes utilizar alguna interfaz gráfica para git que, como mínimo, te ayudará a visualizar los cambios realizados en los distintos ficheros antes o después de hacer el staging o el commit. Hay montones y muy buenas GUI para todos los SO: GitHub Desktop, SourceTree, git-cola… De nuevo, Google es tu amigo.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -506,9 +326,9 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;Recuerda que puedes preguntarme sobre cualquier cosa que no te haya quedado clara, sobre errores que te van surgiendo o indicarme correcciones aquí abajo, en el área de comentarios.&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 20 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/programming/2016/01/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/01/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html</guid>
+        <pubDate>Sat, 20 Feb 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/programming/2016/02/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/02/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html</guid>
         
         <category>version</category>
         
@@ -604,7 +424,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;nuestra-base-de-datos&quot;&gt;Nuestra base de datos&lt;/h2&gt;
 
-&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot; target=&quot;_blank&quot;&gt;la primera parte&lt;/a&gt; de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:&lt;/p&gt;
+&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/web/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot; target=&quot;_blank&quot;&gt;la primera parte&lt;/a&gt; de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/images/db-diagram-1.jpg&quot; alt=&quot;Diagrama aproximado de nuestra base de datos&quot; /&gt;&lt;/p&gt;
 
@@ -1644,9 +1464,9 @@ php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the
 Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 06 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/web/2016/01/06/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/06/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</guid>
+        <pubDate>Thu, 11 Feb 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/web/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</guid>
         
         <category>web,</category>
         
@@ -1660,6 +1480,328 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
         
         
         <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>La invasión de los frameworks</title>
+        <description>&lt;h2 id=&quot;introduccin-de-rigor&quot;&gt;Introducción de rigor&lt;/h2&gt;
+
+&lt;p&gt;Hace ya unos días escribí un post sobre &lt;a href=&quot;/web/2016/01/02/estrategias-de-desarrollo-web.html&quot; target=&quot;_blank&quot;&gt;estrategias de desarrollo web&lt;/a&gt; en el que recomendaba escoger diferentes tecnologías de desarrollo web en función del tipo de proyecto al que nos enfrentamos: CMS, frameworks, templates, static site generators… Y mencionaba, de pasada, alguna de las aplicaciones más populares en cada campo.&lt;/p&gt;
+
+&lt;p&gt;Por suerte para el consumidor, cada vez es más sencillo y barato desarrollar sitios webs estándar: gracias a los miles de templates y decenas de CMS disponibles no es necesario tener prácticamente ningún conocimiento técnico para producir casi cualquier tipo de web habitual (portales de noticias, foros, blogs, e-shops, etc.). De hecho, &lt;strong&gt;existen proyectos de AI que prometen diseñar y generar sitios webs automáticamente, sin intervención humana&lt;/strong&gt; más allá de ir agregando contenidos, al respecto véase &lt;a href=&quot;https://thegrid.io/&quot; target=&quot;_blank&quot;&gt;TheGrid&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;El mundo del desarrollo web, por fuerza, se ha visto empujado o bien hacia el desarrollo de apps, plugins, extensiones o templates para aquellos CMS, o bien hacia áreas mucho más técnicas o especializadas, como por ejemplo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Desarrollo de UI sobresalientes, en el menor tiempo posible y con componentes reutilizables.&lt;/li&gt;
+  &lt;li&gt;Desarrollo de web services intermediarios entre aplicaciones existentes o nuevas aplicaciones web para startups o empresas con necesidad de herramientas a medida.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Y como es natural, durante los últimos años han venido surgiendo herramientas para agilizar y normalizar el desarrollo en esas áreas de trabajo. Mejor dicho: no es que hayan venido surgiendo herramientas ¡es que se están reproduciendo como conejos! De ahí lo que yo he venido a llamar…&lt;/p&gt;
+
+&lt;h2 id=&quot;la-invasin-de-los-frameworks&quot;&gt;La invasión de los frameworks&lt;/h2&gt;
+
+&lt;p&gt;Ya sea para aplicar al mundo del front end las buenas maneras, abstracción y modularidad típicas del desarrollo back end, como para agilizar el desarrollo web en general y evitar lo de “reinventar la rueda”, los frameworks han venido para hacernos la vida más fácil. A cambio, &lt;em&gt;sólo&lt;/em&gt; nos piden el esfuerzo de estudiar sus particularidades y diferencias (casi na’).&lt;/p&gt;
+
+&lt;p&gt;Existen frameworks de todos los tamaños: desde &lt;strong&gt;full-stack frameworks&lt;/strong&gt; para desarrollar íntegramente cualquier tipo de aplicación web hasta &lt;strong&gt;microframeworks&lt;/strong&gt; destinados a correr servicios web con la mayor velocidad y el menor consumo de recursos posible. Algunos frameworks se centran solamente en el front end o el manejo de las vistas, mientras que otros te permiten el desarrollo integral back y front, a menudo procurando disciplinarte en el uso de arquitecturas Modelo-Vista-Controlador.&lt;/p&gt;
+
+&lt;p&gt;También podemos clasificar los frameworks según los lenguajes de programación en que están escritos o el lenguaje en que debemos escribir nuestras aplicaciones cuando los usamos: PHP, Ruby, Python, Java, Groovy, Scala, JavaScript, CoffeeScript, Perl… you name it.&lt;/p&gt;
+
+&lt;p&gt;La cuestión del lenguaje podría parecer importante a primera vista, pero el hecho es que las webs más populares (wikipedia, youtube, facebook, github, ebay, twitter, netflix…) están escritas usando diferentes lenguajes y por tanto, dejando al margen las preferencias personales, &lt;strong&gt;el lenguaje de programación subyacente a los frameworks debería ser un dato en principio irrelevante a la hora de elegir cuál de ellos usar&lt;/strong&gt;. Mucho más importante es, en cambio, la naturaleza del proyecto que debemos afrontar, por ejemplo: ¿se trata de una nueva aplicación que hay que desarrollar íntegramente, hay que trabajar con grandes bases de datos, es principalmente una app interactiva, es un web service o sólo hay que mejorar una interfaz con problemas de rendimiento?&lt;/p&gt;
+
+&lt;p&gt;Una vez respondidas ese tipo de preguntas y realizada la primera criba de frameworks, nos hemos de enfrentar al hecho de que &lt;strong&gt;existen montones de alternativas ¡incluso sin salirnos de un mismo lenguaje de programación!&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;A modo de referencia rápida, estos son algunos de los frameworks más conocidos a día de hoy, clasificados según el lenguaje de programación o la tecnología subyacente. Ni mucho menos se trata de una lista exhaustiva:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;PHP frameworks:&lt;br /&gt;
+  &lt;strong&gt;Zend&lt;/strong&gt;, &lt;strong&gt;CodeIgniter&lt;/strong&gt;, &lt;strong&gt;CakePHP&lt;/strong&gt;, &lt;strong&gt;Laravel&lt;/strong&gt; y Lumen (micro), &lt;strong&gt;Nette&lt;/strong&gt;, &lt;strong&gt;Yii&lt;/strong&gt;, Slim (micro), Kohana, Typo3 Flow, FuelPHP…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Python frameworks:&lt;br /&gt; 
+  &lt;strong&gt;Django&lt;/strong&gt;, CherryPy, TurboGears, Flask (micro), Pyramid, Bottle (micro)…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JavaScript UI/client-side/web components frameworks/libraries/others:&lt;br /&gt; 
+  &lt;strong&gt;AngularJS&lt;/strong&gt;, &lt;strong&gt;jQuery&lt;/strong&gt; (lib), MooTools, KnockoutJS,  ReactJS, Dojo Toolkit (lib), Underscore.js (lib), Prototype, Spry Framework, AuraJS (components wrapper), X-Tag (components dev), Polymer (components dev), Handlebars (templating)…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JavaScript/CoffeeScript/Node.JS frameworks:&lt;br /&gt; 
+  &lt;strong&gt;Express&lt;/strong&gt;, &lt;strong&gt;BackboneJS&lt;/strong&gt;, &lt;strong&gt;Ember.js&lt;/strong&gt;, Meteor, Sails.js, Koa, Flatiron, Batman.js, Total.js, SpineJS, Hapi, DerbyJS…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Java/Groovy/Scala frameworks:&lt;br /&gt; 
+  &lt;strong&gt;Spring Framework&lt;/strong&gt;, &lt;strong&gt;Stripes&lt;/strong&gt;, &lt;strong&gt;Struts&lt;/strong&gt;, &lt;strong&gt;Play&lt;/strong&gt;, &lt;strong&gt;Tapestry&lt;/strong&gt;, &lt;strong&gt;Grails&lt;/strong&gt;, Wicket, Vaadin, DropWizard (micro)…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Perl frameworks:&lt;br /&gt; 
+  &lt;strong&gt;Catalyst&lt;/strong&gt;, Dancer, Mojolicious…&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ruby frameworks:&lt;br /&gt;
+  &lt;strong&gt;Ruby on Rails&lt;/strong&gt;, Sinatra, Cramp, Padrino, Ramaze (micro), Cuba (micro), Camping (micro)…&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;No hay que olvidar tampoco los frameworks tipo “propietario” como Adobe ColdFusion o Microsoft ASP.NET, o rarezas como  Seaside escrito en Smalltalk.&lt;/p&gt;
+
+&lt;p&gt;Otras tecnologías que merecen mención son los UI frameworks basados en Java como &lt;strong&gt;JavaServer Faces&lt;/strong&gt; (JSF) y PrimeFaces, &lt;strong&gt;Google Web Toolkit&lt;/strong&gt; (GWT), o curiosidades como &lt;strong&gt;Babel&lt;/strong&gt;, un “traductor” o trans-compiler (de ES6 a ES5) para poder usar versiones punteras de JavaScript en proyectos no tan futuristas.&lt;/p&gt;
+
+&lt;p&gt;A mi modo de ver, en ausencia de condicionantes externos &lt;strong&gt;el mejor criterio para decantarse por el uso de uno u otro framework es la popularidad presente y futura&lt;/strong&gt; de la herramienta. En primer lugar, porque en un mundo tan competitivo como el del desarrollo web, la popularidad suele correlacionarse con la utilidad/calidad. Y en segundo lugar porque a mayor popularidad se sigue que habrá una mayor comunidad de desarrolladores, mejor documentación, más ayuda a la hora de solventar problemas y mayor cantidad de plugins.&lt;/p&gt;
+
+&lt;p&gt;Por eso me ha parecido una buena idea realizar una comparativa de los frameworks, librerías y herramientas de desarrollo de aplicaciones, en lo que respecta a la popularidad y su tendencia en el tiempo. Y teniendo en cuenta que todo el mundillo de los web frameworks se mueve a través de internet: ¿qué mejor herramienta para valorar su popularidad que Google Trends?&lt;/p&gt;
+
+&lt;h2 id=&quot;popularidad-de-los-frameworks-segn-google-trends&quot;&gt;Popularidad de los frameworks según Google Trends&lt;/h2&gt;
+
+&lt;h3 id=&quot;interpretando-los-grficos&quot;&gt;Interpretando los gráficos&lt;/h3&gt;
+
+&lt;p&gt;Antes de bombardearte con gráficos creo que es conveniente recordar que Google Trends compara de forma relativa la búsqueda de términos o temas, lo que significa que los ejes verticales de los gráficos son una escala 0% a 100% y no un número de búsquedas determinado. Esto tiene la ventaja de que podemos comparar el interés entre las diferentes entradas de un mismo gráfico, pero no tendría ningún sentido comparar entradas entre dos gráficos distintos.&lt;/p&gt;
+
+&lt;p&gt;Otro dato a tener en cuenta es que Google Trends no asocia con precisión las búsquedas de palabras con los diferente temas que representan, o dicho con un ejemplo: herramientas con nombres “comunes” como &lt;em&gt;Django&lt;/em&gt;, &lt;em&gt;Cuba&lt;/em&gt; o &lt;em&gt;Express&lt;/em&gt;, que además de software son una película, un país o un adjetivo, arrojan resultados “contaminados”, mucho menos fiables que los de herramientas con nombres “únicos” como &lt;em&gt;Laravel&lt;/em&gt; o &lt;em&gt;AngularJS&lt;/em&gt;. En la medida de lo posible he tratado de “depurar” los resultados para hacerlos comparables agregando o excluyendo términos de búsqueda.&lt;/p&gt;
+
+&lt;p&gt;En cualquier caso, no olvides que es tan importante la popularidad relativa entre herramientas como la &lt;strong&gt;tendencia&lt;/strong&gt; que sigue esa popularidad, lo que nos permite identificar nuevas herramientas que están ganando terreno a otras más viejas y que están cayendo en desuso.&lt;/p&gt;
+
+&lt;h3 id=&quot;comparativas-google-trendsgoogle-trends&quot;&gt;Comparativas &lt;a href=&quot;https://www.google.com/trends/explore&quot;&gt;Google Trends&lt;/a&gt;:&lt;/h3&gt;
+
+&lt;h4 id=&quot;php-frameworks&quot;&gt;PHP frameworks&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcphp.png&quot; alt=&quot;PHP frameworks&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;En una encuesta realizada en Marzo del año pasado (ver &lt;a href=&quot;http://www.sitepoint.com/best-php-framework-2015-sitepoint-survey-results/&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;) Laravel se situaba a la cabeza de los frameworks PHP más usados, seguido de Nette, Yii (1 y 2), CodeIgniter, Zend (1 y 2) y CakePHP. Este gráfico parece confirmar los datos de la encuesta, pero además nos ofrece una perspectiva temporal interesantísima:&lt;/p&gt;
+
+&lt;p&gt;Laravel, en tan sólo tres años, se ha hecho con el liderazgo de los frameworks PHP y, no sólo eso, sino que todo ellos parecen estar perdiendo popularidad al mismo tiempo que Laravel la gana. En cuestiones de frameworks PHP, por tanto, apostar por &lt;strong&gt;Laravel&lt;/strong&gt; sería la apuesta más segura.&lt;/p&gt;
+
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/04n23m7,+/m/02qgdkj,+/m/0cdvjh,+/m/09t3sp&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+
+&lt;h4 id=&quot;python-frameworks&quot;&gt;Python frameworks&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcpython.png&quot; alt=&quot;Python frameworks&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;En el mundillo python, en cambio, no parece haber tanta competencia por los primeros puestos de liderazgo entre los frameworks full-stack. Sí que podríamos dudar entre qué microframework elegir, aunque Flask parece ir a la cabeza, pero a la hora de desarrolar apps hechas y derechas sólo deberíamos tener un nombre en mente: &lt;strong&gt;Django&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=Django+framework,+Pyramid+framework,+Flask+framework,+Bottle+framework&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+
+&lt;h4 id=&quot;javascript-client-side-frameworkslibraries&quot;&gt;JavaScript client-side frameworks/libraries&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcJSfront.png&quot; alt=&quot;JavaScript client-side frameworks/libraries&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Del lado cliente tengo la sensación de que durante muchos años se han venido haciendo las cosas de la misma manera: escribir código JavaScript y utilizar jQuery para agilizar el trabajo y hacerlo compatible con la mayoría de browsers.&lt;/p&gt;
+
+&lt;p&gt;jQuery sigue siendo la tecnología JavaScript más usada como soporte al desarrollo del front end, pero eso está empezando a cambiar: desde dentro del propio mundillo JavaScript podemos apreciar como AngularJS y la filosofía framework empiezan a hacer mella en el liderazgo de la famosa librería.&lt;/p&gt;
+
+&lt;p&gt;Aunque no se aprecia en este gráfico, es sensato suponer que el declive de jQuery también tiene mucho que ver con la reciente aparición de nuevas tecnologías para desarrollo de UI basados en Java o la incipiente amenaza de las tecnologías basadas en el desarrollo de Web Components.&lt;/p&gt;
+
+&lt;p&gt;Es difícil saber qué ocurrirá en el mundillo estrictamente front end, pero una cosa está clara: jQuery tiene los años de liderazgo contados. Como apuesta de futuro yo me quedo con &lt;strong&gt;AngularJS&lt;/strong&gt; y recomiendo seguir de cerca a tecnologías como ReactJS, sin perder de vista al resto de librerías.&lt;/p&gt;
+
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0j45p7w,+/m/0268gyp,+/m/0fs46gx,+/m/0bj6c0,+/m/0g3gd1&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+
+&lt;h4 id=&quot;javascriptcoffeescriptserver-side-js-frameworks&quot;&gt;Javascript/CoffeeScript/server-side JS frameworks&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcJS.png&quot; alt=&quot;Javascript/CoffeeScript/server-side JS frameworks&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hace unos años no me hubiese podido creer que JavaScript sería la base para tecnologías del lado servidor como mínimo tan buenas como cualquier otra. Habría sido inimaginable leer posts como &lt;a href=&quot;http://www.nearform.com/nodecrunch/node-js-becoming-go-technology-enterprise/&quot; target=&quot;_blank&quot;&gt;éste&lt;/a&gt; en los que se habla de Node.JS (un JS runtime environment, una plataforma de ejecución de código JS del lado servidor) como la gran panacea del desarrollo web.&lt;/p&gt;
+
+&lt;p&gt;A primar vista la gráfica sugiere que en este relativamente nuevo mundillo de los full-stack frameworks basados en tecnologías JavaScript/Node.JS parece haber una competencia feroz por hacerse con el primer puesto.&lt;/p&gt;
+
+&lt;p&gt;A estas alturas es difícil mojarse y apostar por algún framework en concreto, pero una cosa está clara: casi todos ellos afirman tener rendimientos increíblemente mejores con respecto a tecnologías más tradicionales como PHP.&lt;/p&gt;
+
+&lt;p&gt;En este sentido no es que haya que estar pendientes de Backbone o Ember o Meteor… Es que &lt;strong&gt;hay que estar pendientes de todo este nicho tecnológico&lt;/strong&gt; porque podrían revolucionar el futuro inmediato y desbancar al resto de tecnologías.&lt;/p&gt;
+
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=backboneJS,+EmberJS,+Express+Node.JS,+MeteorJS,+SailsJS&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+
+&lt;h4 id=&quot;ruby-frameworks&quot;&gt;Ruby frameworks&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcruby.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Con el mundillo Ruby ocurre algo muy parecido a con Python. No hay pelea, no hay color, hay un ganador, sólo un ganador y nada más que un ganador, así que lo único que podemos analizar es la propia tendencia en la popularidad del líder indiscutible: &lt;strong&gt;Ruby on Rails&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Nacimiento y boom del 2005 al 2008, declive hasta el 2010 y maduración hasta ahora. RoR tiene ya más de 10 años pero se conserva bastante bien: no se aprecia un tendencia a la baja especialmente fuerte, aunque nada auspicia un aumento de su popularidad en los próximos años.&lt;/p&gt;
+
+&lt;p&gt;Como teoría de la conspiración: ¿no es casualidad que la etapa de decadencia 2008-2010 coincida con el crecimiento en popularidad de los nuevos frameworks basados en PHP en la misma etapa? &lt;em&gt;*musiquilla de X-Files*&lt;/em&gt;.&lt;/p&gt;
+
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0505cl,+/m/05zt0xc,+Cramp+ruby,+Padrino+ruby,+Ramaze&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+
+&lt;h4 id=&quot;javagroovyscala-frameworks&quot;&gt;Java/Groovy/Scala frameworks&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcjava.png&quot; alt=&quot;Java/Groovy/Scala frameworks&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Creo que esta gráfica, donde se aprecia caída generalizada en la popularidad de los frameworks basados en Java, podría inducir a extraer conclusiones precipitadas y erróneas. El mundillo del desarrollo web en Java está fuertemente influenciado por el desarrollo de apps para móviles y teniendo en cuenta que el desarrollo para dispositivos portátiles no hace más que crecer, lo más sensato es suponer que los web frameworks basados en Java o intermediarios entre Java y tecnologías más próximas a las tradicionales tienen aún mucha pelea que dar.&lt;/p&gt;
+
+&lt;p&gt;Yo creo que lo más prudente será estar al tanto respecto a las novedades en esta categoría.&lt;/p&gt;
+
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0dhx5b,+/m/027lgcc,+/m/02bcj2,+/m/0dj45_,+/m/06hr64&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+
+&lt;h4 id=&quot;full-stack-web-frameworks-cross-tech&quot;&gt;Full-stack web frameworks cross-tech&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://mitxelmoriana.com/images/fcALL.png&quot; alt=&quot;Full-stack web frameworks cross-tech&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;amp;cmpt=q&amp;amp;content=1&amp;amp;cid=TIMESERIES_GRAPH_0&amp;amp;export=5&amp;amp;w=640&amp;amp;h=330&amp;amp;q=/m/0jwy148,+/m/06y_qx,+Node.js,+/m/0505cl,+/m/0dhx5b&quot; target=&quot;_blank&quot;&gt;Haz click aquí para ver el gráfico interactivo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;No sería decente despedirme sin una comparativa entre los líderes full-stack de cada una de las categorías anteriores. He de confesar que he hecho un poquito de trampa a la hora de añadir en la comparativa a Node.JS en lugar de a algún framework basado en JavaScript o que corra sobre Node.JS, pero creo que Node.JS, como tecnología subyacente, puede ser un buen indicador de vanguardia sobre la evolución futura de frameworks basados en server-side JS.&lt;/p&gt;
+
+&lt;p&gt;Creo que de acuerdo a la gráfica podríamos agrupar a los líderes en dos tipos de tendencias: los que se mantienen en popularidad o presentan una ligera tendencia a la baja y los que tienden a crecer de forma lineal, más o menos estable, durante los últimos años.&lt;/p&gt;
+
+&lt;p&gt;En resumen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Apuestas de futuro: Laravel y frameworks basados en JavaScript&lt;/li&gt;
+  &lt;li&gt;Apuestas seguras: Django, RoR y Spring.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/0jwy148,+/m/06y_qx,+Express.js,+/m/0505cl,+/m/0dhx5b&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+
+&lt;!--#### Front-end tools cross-tech--&gt;
+
+&lt;!--![Front-end tools cross-tech](http://mitxelmoriana.com/images/fcfrontALL.png)--&gt;
+
+&lt;!--[Haz click aquí para ver el gráfico interactivo][graph-8]{:target=&quot;_blank&quot;}--&gt;
+
+&lt;!--&lt;iframe scrolling=&quot;no&quot; style=&quot;border:none;&quot; width=&quot;640&quot; height=&quot;330&quot; src=&quot;http://www.google.com/trends/fetchComponent?hl=en-US&amp;cmpt=q&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=640&amp;h=330&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&quot;&gt;&lt;/iframe&gt;--&gt;
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.es/trends/embed.js?hl=es&amp;q=/m/026mhl,+/m/0d6jq1,+/m/0268gyp,+/m/0j45p7w,+web+components&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_AVERAGES_CHART&amp;export=5&amp;w=500&amp;h=330&quot;&gt;&lt;/script&gt;--&gt;
+
+</description>
+        <pubDate>Wed, 03 Feb 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/web/2016/02/03/la-invasion-de-los-frameworks-tendencias-en-tecnologias-de-desarrollo-de-web-apps.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/02/03/la-invasion-de-los-frameworks-tendencias-en-tecnologias-de-desarrollo-de-web-apps.html</guid>
+        
+        <category>web</category>
+        
+        <category>technologies,</category>
+        
+        <category>web</category>
+        
+        <category>app,</category>
+        
+        <category>web,</category>
+        
+        <category>web</category>
+        
+        <category>programming,</category>
+        
+        <category>app</category>
+        
+        <category>programming,</category>
+        
+        <category>programming,</category>
+        
+        <category>trends</category>
+        
+        
+        <category>web</category>
+        
+      </item>
+    
+      <item>
+        <title>Bash script: fastcommit</title>
+        <description>&lt;p&gt;Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de agarraos).&lt;/p&gt;
+
+&lt;p&gt;Lo de agregarle la comprobación de que se han pasado el número de argumentos correctos y la pijadilla de los colores es algo que he visto en otros scripts y he copiado descaradamente.&lt;/p&gt;
+
+&lt;h2 id=&quot;cmo-funciona&quot;&gt;¿Cómo funciona?&lt;/h2&gt;
+
+&lt;p&gt;Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) &lt;strong&gt;fastcommit&lt;/strong&gt;. Pon el fichero, con permisos de ejecución, en la carpeta raíz de tu proyeto con git. A continuación escribe:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./fastcommit &lt;span class=&quot;s2&quot;&gt;&amp;quot;Mensaje_para_el_commit&amp;quot;&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;# Sólo admite un (1) argumento&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;el-script&quot;&gt;El script&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;##########################################################&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Stage all, commit and push to master&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;##########################################################&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Exit on error&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -e
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;\033[01;31m&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;\033[01;34m&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;\033[01;32m&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;\033[00m&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;EXPECTED_ARGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;E_BADARGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;65
+&lt;span class=&quot;lineno&quot;&gt;17&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$# &lt;/span&gt;-ne &lt;span class=&quot;nv&quot;&gt;$EXPECTED_ARGS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;19&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;\nUsage: $0 \&amp;quot;Commit message\&amp;quot;\n&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;20&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$E_BADARGS&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;22&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;23&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;\n${blue}- Staging all changes within the working space${norm}\n${blue}- Commit with the message ${red}${1}${norm}\n${blue}- Pushing to origin, master branch\n${norm}&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;24&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;25&lt;/span&gt; git add -A &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Stage ---&amp;gt; [${green}OK${blue}]${norm}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Stage ---&amp;gt; [${red}BAD${blue}]${norm}&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;26&lt;/span&gt; git commit -m &lt;span class=&quot;s2&quot;&gt;&amp;quot;${1}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Commit ---&amp;gt; [${green}OK${blue}]${norm}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Commit ---&amp;gt; [${red}BAD${blue}]${norm}&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;27&lt;/span&gt; git push origin master &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Push ---&amp;gt; [${green}OK${blue}]${norm}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;${blue}Push ---&amp;gt; [${red}BAD${blue}]${norm}&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;28&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;29&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;30&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;31&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;aviso-probablemente-innecesario&quot;&gt;Aviso probablemente innecesario&lt;/h2&gt;
+
+&lt;p&gt;No me hago responsable de los daños causados por el uso de este script, incluyendo, aunque no de forma exclusiva: que no funcione, que te explote el PC, que haga algo que no te guste, que te perjudique algún fichero, que te abduzcan los extraterrestres, que invoque a un espíritu del averno o que te deje tu pareja.&lt;/p&gt;
+
+&lt;p&gt;Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Jan 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</guid>
+        
+        <category>bash</category>
+        
+        <category>script,</category>
+        
+        <category>git,</category>
+        
+        <category>github,</category>
+        
+        <category>bitbucket,</category>
+        
+        <category>VCS,</category>
+        
+        <category>programming,</category>
+        
+        <category>git</category>
+        
+        <category>commit,</category>
+        
+        <category>git</category>
+        
+        <category>push,</category>
+        
+        <category>git</category>
+        
+        <category>add,</category>
+        
+        <category>commit,</category>
+        
+        <category>push,</category>
+        
+        <category>add</category>
+        
+        
+        <category>programming</category>
         
       </item>
     
@@ -1753,12 +1895,12 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Una vez planificado el proyecto ya podemos darle vueltas a cuestiones más técnicas y prácticas. En el próximo post hablaré sobre cómo diseñar la base de datos teniendo en cuenta nuestra planificación y, una vez diseñada, cómo crear las tablas y sus relaciones mediante Laravel.&lt;/p&gt;
 
-&lt;p&gt;Vamos allá: &lt;a href=&quot;/web/2016/01/06/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html&quot;&gt;Tu web porno con Laravel - II: Migrations, models y seeders&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vamos allá: &lt;a href=&quot;/web/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html&quot;&gt;Tu web porno con Laravel - II: Migrations, models y seeders&lt;/a&gt;&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 04 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/04/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</guid>
+        <pubDate>Wed, 13 Jan 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/web/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</guid>
         
         <category>web,</category>
         

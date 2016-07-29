@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dejo por aquí un bash script que nos permite bajar el contenido audiovisual de un montón de webs como youtube, con tan sólo copiar la URL, es decir, hacer CT...">
+
+  <title>Bash script: youtube-autodl</title>
+
+  <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mitxelmoriana.com/programming/2016/02/27/bash-script-para-bajarse-media-a-partir-de-urls.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+    <body>
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-71923540-1', 'auto');
+    ga('send', 'pageview');
+</script>
+        <!--Sharing buttons JS-->
+<!--Facebook--><div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=184462238579593";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+<!--Twitter--><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--Linkedin--><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: es_ES</script>
+<!--Google+--><!--<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>-->
+        <header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">MitxelMoriana</a>
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/about/">Sobre mí</a>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+        <div class="page-content">
+            <div class="wrapper">
+                <div id="sharing-btns-wrapper">
+    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/programming/2016/02/27/bash-script-para-bajarse-media-a-partir-de-urls.html" data-layout="button"></div>
+    <!--Twitter--><a href="https://twitter.com/share" class="twitter-share-button" data-lang="es"></a>
+    <!--Linkedin--><script type="IN/Share"></script>
+    <!--Google+--><!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
+</div>
+                <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div id="header-image-wrapper">
+        <div id="header-image" style="background-image: url('/headers/http-www.jpg');"></div>
+    </div>
+    
+    <header class="post-header wrapper">
+        <h1 class="post-title" itemprop="name headline">
+            Bash script: youtube-autodl
+            
+            <br><span class="post-subtitle">Bájate media (audio, vídeos) de cualquier URL con sólo copiarla</span>
+            
+        </h1>
+        <p class="post-meta"><time datetime="2016-02-27T00:00:00+01:00" itemprop="datePublished">Feb 27, 2016</time></p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <p>Dejo por aquí un bash script que nos permite bajar el contenido audiovisual de un montón de webs como youtube, con tan sólo copiar la URL, es decir, hacer CTRL+C o botón derecho &gt; copiar, una vez tenemos seleccionada la URL de interés.</p>
+
+<p>El script asume que tienes (correctamente) instalado youtube-dl y xclip, así como sus respectivas dependencias.</p>
+
+<p><strong>youtube-dl</strong> es el programa de línea de comandos escrito en python (si no recuerdo mal) que nos permite rastrear y bajar los recursos audiovisuales de múltiples webs. El programa está en permanente actualización e incluye gran parte de las webs más conocidas de contenidos multimedia. <strong>xclip</strong> es el programa que nos permite interactuar desde la línea de comandos con el clipboard de nuestro sistema linux.</p>
+
+<h2 id="cmo-funciona">¿Cómo funciona?</h2>
+
+<p>Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) <strong>youtube-autodl.sh</strong>. Pon el fichero, con permisos de ejecución, en la carpeta donde deseas descargar los contenidos. A continuación ejecuta el script escribiendo:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./youtube-autodl</code></pre></figure>
+
+<h2 id="el-script">El script</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="c">#!/usr/bin/env bash</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="c">##########################################################</span>
+<span class="lineno"> 4</span> <span class="c"># Run youtube-dl for each URL copied to system&#39;s clipboard</span>
+<span class="lineno"> 5</span> <span class="c">##########################################################</span>
+<span class="lineno"> 6</span> <span class="c"># Dependencies: youtube-dl, xclip</span>
+<span class="lineno"> 7</span> <span class="c"># Author: Mitxel Moriana &lt;moriana.mitxel@gmail.com&gt;</span>
+<span class="lineno"> 8</span> <span class="c"># GPLv3 &lt;https://www.gnu.org/licenses/gpl-3.0.en.html&gt;</span>
+<span class="lineno"> 9</span> <span class="c">##########################################################</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="c"># Exit on error</span>
+<span class="lineno">12</span> <span class="nb">set</span> -e
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="c"># Set max concurrent downloads:</span>
+<span class="lineno">15</span> <span class="nv">maxParallelDownloads</span><span class="o">=</span>3
+<span class="lineno">16</span> <span class="nv">queue</span><span class="o">=()</span>
+<span class="lineno">17</span> <span class="nv">getClipCmd</span><span class="o">=</span><span class="s2">&quot;xclip -selection clipboard -o&quot;</span>
+<span class="lineno">18</span> <span class="nv">copiedURL</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span> <span class="c"># Set the parallel downloads counter</span>
+<span class="lineno">21</span> <span class="nb">export </span><span class="nv">counter</span><span class="o">=</span><span class="k">$(</span>mktemp <span class="s2">&quot;$HOME/.counter.XXXXXX&quot;</span><span class="k">)</span>
+<span class="lineno">22</span> <span class="nb">printf</span> <span class="s2">&quot;0\n&quot;</span> &gt;<span class="s2">&quot;$counter&quot;</span> <span class="c"># Set counter to 0</span>
+<span class="lineno">23</span> 
+<span class="lineno">24</span> <span class="c"># Quit execution</span>
+<span class="lineno">25</span> <span class="k">function</span> quit<span class="o">()</span> <span class="o">{</span>
+<span class="lineno">26</span>     <span class="k">if</span> <span class="o">[</span> -t <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> stty sane<span class="p">;</span> <span class="k">fi</span> <span class="c"># Clear terminal options before exit</span>
+<span class="lineno">27</span>     <span class="nb">echo</span> <span class="s2">&quot;Bye bye&quot;</span>
+<span class="lineno">28</span>     <span class="nb">exit </span>0
+<span class="lineno">29</span> <span class="o">}</span>
+<span class="lineno">30</span> 
+<span class="lineno">31</span> <span class="c"># Verifies that a given string has a proper URL format</span>
+<span class="lineno">32</span> <span class="k">function</span> verifyURL<span class="o">(){</span>
+<span class="lineno">33</span>     <span class="nv">regex</span><span class="o">=</span><span class="s2">&quot;(https?|ftp|file)://[-A-Za-z0-9\+&amp;@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&amp;@#/%=~_|]&quot;</span>
+<span class="lineno">34</span>     <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span>~ <span class="nv">$regex</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="k">return</span> 0<span class="p">;</span> <span class="k">else</span> <span class="k">return</span> 1<span class="p">;</span> <span class="k">fi</span>
+<span class="lineno">35</span> <span class="o">}</span>
+<span class="lineno">36</span> 
+<span class="lineno">37</span> <span class="c"># Calls quit() on CTRL+C</span>
+<span class="lineno">38</span> <span class="nb">trap </span>quit INT
+<span class="lineno">39</span> 
+<span class="lineno">40</span> <span class="nb">echo</span> <span class="s2">&quot;Waiting for copied URLs... (press q or CTRL+C to exit)&quot;</span>
+<span class="lineno">41</span> 
+<span class="lineno">42</span> <span class="c"># Set terminal options to non blocking key read</span>
+<span class="lineno">43</span> <span class="k">if</span> <span class="o">[</span> -t <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> stty -echo -icanon -icrnl <span class="nb">time </span><span class="m">0</span> min 0<span class="p">;</span> <span class="k">fi</span>
+<span class="lineno">44</span> 
+<span class="lineno">45</span> <span class="nv">lastKeypress</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="lineno">46</span> <span class="k">while</span> <span class="o">[</span> <span class="s2">&quot;x$lastKeypress&quot;</span> !<span class="o">=</span> <span class="s2">&quot;xq&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span> <span class="c"># Exit the loop on &quot;q&quot; keypress</span>
+<span class="lineno">47</span> 
+<span class="lineno">48</span>     <span class="nv">currentDownloads</span><span class="o">=</span><span class="k">$(</span>&lt; <span class="s2">&quot;$counter&quot;</span> <span class="k">)</span>
+<span class="lineno">49</span>     <span class="k">if</span> <span class="o">[</span> <span class="k">${#</span><span class="nv">queue</span><span class="p">[@]</span><span class="k">}</span> -ne <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;$currentDownloads&quot;</span> -lt <span class="s2">&quot;$maxParallelDownloads&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="lineno">50</span>         <span class="o">((</span> ++currentDownloads <span class="o">))</span>
+<span class="lineno">51</span>         <span class="nb">printf</span> <span class="s1">&#39;%s\n&#39;</span> <span class="s2">&quot;$currentDownloads&quot;</span> &gt;<span class="s2">&quot;$counter&quot;</span>
+<span class="lineno">52</span>         <span class="nv">tryURL</span><span class="o">=</span><span class="k">${</span><span class="nv">queue</span><span class="p">[0]</span><span class="k">}</span>
+<span class="lineno">53</span>         <span class="nv">queue</span><span class="o">=(</span><span class="s2">&quot;${queue[@]:1}&quot;</span><span class="o">)</span>
+<span class="lineno">54</span>         <span class="nb">echo</span> <span class="s2">&quot;Downloading media from $tryURL&quot;</span>
+<span class="lineno">55</span>         <span class="o">(</span>
+<span class="lineno">56</span>             <span class="o">(</span>
+<span class="lineno">57</span>                 <span class="nv">downloadResult</span><span class="o">=</span><span class="k">$(</span> youtube-dl <span class="s2">&quot;$tryURL&quot;</span> 2&gt; /dev/null <span class="p">|</span> tail -1 <span class="k">)</span>
+<span class="lineno">58</span>                 <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$downloadResult&quot;</span> <span class="o">==</span> *<span class="s2">&quot;[download] 100% of&quot;</span>* <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="lineno">59</span>                     <span class="nb">echo</span> <span class="s2">&quot;[SUCCESS] Finished downloading media from $tryURL&quot;</span>
+<span class="lineno">60</span>                 <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;$downloadResult&quot;</span> <span class="o">==</span> *<span class="s2">&quot;[download]&quot;</span>* <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="lineno">61</span>                     <span class="nb">echo</span> <span class="s2">&quot;[ERROR] Unexpected interruption while downloading media from $tryURL&quot;</span>
+<span class="lineno">62</span>                 <span class="k">else</span>
+<span class="lineno">63</span>                     <span class="nb">echo</span> <span class="s2">&quot;[ERROR] Unable to download media from $tryURL&quot;</span>
+<span class="lineno">64</span>                 <span class="k">fi</span>
+<span class="lineno">65</span>             <span class="o">)</span>
+<span class="lineno">66</span>             <span class="nv">currentDownloads</span><span class="o">=</span><span class="k">$(</span>&lt; <span class="s2">&quot;$counter&quot;</span> <span class="k">)</span>
+<span class="lineno">67</span>             <span class="o">((</span> --currentDownloads <span class="o">))</span>
+<span class="lineno">68</span>             <span class="nb">printf</span> <span class="s1">&#39;%s\n&#39;</span> <span class="s2">&quot;$currentDownloads&quot;</span> &gt;<span class="s2">&quot;$counter&quot;</span>
+<span class="lineno">69</span>         <span class="o">)</span> <span class="p">&amp;</span> <span class="c"># Make subprocess run in parallel</span>
+<span class="lineno">70</span>     <span class="k">fi</span>
+<span class="lineno">71</span> 
+<span class="lineno">72</span> 	<span class="nv">temp</span><span class="o">=</span><span class="sb">`</span><span class="k">${</span><span class="nv">getClipCmd</span><span class="k">}</span><span class="sb">`</span>
+<span class="lineno">73</span> 	<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$temp&quot;</span> !<span class="o">=</span> <span class="s2">&quot;$copiedURL&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> verifyURL <span class="k">${</span><span class="nv">temp</span><span class="k">}</span><span class="p">;</span> <span class="k">then</span>
+<span class="lineno">74</span> 	    <span class="nv">copiedURL</span><span class="o">=</span><span class="s2">&quot;$temp&quot;</span>
+<span class="lineno">75</span> 	    queue+<span class="o">=</span><span class="s2">&quot;$copiedURL&quot;</span>
+<span class="lineno">76</span> 	    <span class="nb">echo</span> <span class="s2">&quot;URL $copiedURL added to download queue (&quot;</span><span class="k">${#</span><span class="nv">queue</span><span class="p">[@]</span><span class="k">}</span><span class="s2">&quot; URLs in queue)&quot;</span>
+<span class="lineno">77</span> 	<span class="k">fi</span>
+<span class="lineno">78</span> 
+<span class="lineno">79</span>     <span class="c"># Ensure we only get one (1) keypress</span>
+<span class="lineno">80</span>     <span class="nv">lastKeypress</span><span class="o">=</span><span class="s2">&quot;`dd bs=1 count=1 status=none | cat -v`&quot;</span>
+<span class="lineno">81</span> 
+<span class="lineno">82</span> 	sleep 0.2
+<span class="lineno">83</span> 
+<span class="lineno">84</span> <span class="k">done</span>
+<span class="lineno">85</span> 
+<span class="lineno">86</span> quit</code></pre></figure>
+
+<h2 id="aviso-probablemente-innecesario">Aviso probablemente innecesario</h2>
+
+<p>No me hago responsable de los daños causados por el uso de este script, incluyendo, aunque no de forma exclusiva: que no funcione, que te explote el PC, que haga algo que no te guste, que te perjudique algún fichero, que te abduzcan los extraterrestres, que invoque a un espíritu del averno o que te deje tu pareja.</p>
+
+<p>Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.</p>
+
+    </div>
+</article>
+                
+<div id="disqus_thread"></div>
+<script>
+     var disqus_config = function () {
+         this.page.url = 'http://mitxelmoriana.com/programming/2016/02/27/bash-script-para-bajarse-media-a-partir-de-urls.html';
+     };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//mitxelmoriana.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            </div>
+        </div>
+        <footer class="site-footer">
+    <div class="wrapper">
+        <h2 class="footer-heading">MitxelMoriana</h2>
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-alt-1">
+                <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
+                <br>
+                <ul class="social-media-list">
+                    
+                    <li>
+                        <a href="https://github.com/bitumin"><i class="fa fa-github-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://facebook.com/mitxel.moriana"><i class="fa fa-facebook-official"></i></a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/morianamitxel"><i class="fa fa-linkedin-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/mitxelmoriana"><i class="fa fa-twitter-square"></i></a>
+
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer-col footer-col-alt-2">
+                <p>Huola. Soy Mitxel, desarrollador freelance, tecnófilo y blogger. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás, sobretodo, posts sobre tecnología y programación que espero que encuentres instructivos, inspiradores e interesantes.
+</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+    </body>
+</html>
