@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 Aug 2016 22:52:05 +0200</pubDate>
-    <lastBuildDate>Wed, 03 Aug 2016 22:52:05 +0200</lastBuildDate>
+    <pubDate>Wed, 03 Aug 2016 22:54:55 +0200</pubDate>
+    <lastBuildDate>Wed, 03 Aug 2016 22:54:55 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -183,8 +183,8 @@ variables:
 &lt;p&gt;Espero que la instalación de Laravel siguiendo estos pasos te haya parecido la mar de sencilla y que puedas dedicar tu tiempo a estudiar el framework y crear nuevas aplicaciones web en lugar de perderlo gestionando servidores. Si te surge alguna duda, detectas algún error o crees que me he dejado algún dato importante, deja tu comentario más abajo.&lt;/p&gt;
 </description>
         <pubDate>Tue, 02 Aug 2016 00:00:00 +0200</pubDate>
-        <link>http://mitxelmoriana.com/wev/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/wev/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html</guid>
+        <link>http://mitxelmoriana.com/laravel/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/laravel/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html</guid>
         
         <category>web,</category>
         
@@ -199,7 +199,7 @@ variables:
         <category>framework</category>
         
         
-        <category>wev</category>
+        <category>laravel</category>
         
       </item>
     
@@ -315,8 +315,8 @@ variables:
 &lt;p&gt;Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.&lt;/p&gt;
 </description>
         <pubDate>Wed, 27 Jul 2016 00:00:00 +0200</pubDate>
-        <link>http://mitxelmoriana.com/programming/2016/07/27/bash-script-para-bajarse-media-a-partir-de-urls.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/07/27/bash-script-para-bajarse-media-a-partir-de-urls.html</guid>
+        <link>http://mitxelmoriana.com/bash/2016/07/27/bash-script-para-bajarse-media-a-partir-de-urls.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/bash/2016/07/27/bash-script-para-bajarse-media-a-partir-de-urls.html</guid>
         
         <category>bash</category>
         
@@ -341,7 +341,7 @@ variables:
         <category>videos</category>
         
         
-        <category>programming</category>
+        <category>bash</category>
         
       </item>
     
@@ -522,8 +522,8 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
         <pubDate>Sat, 20 Feb 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/programming/2016/02/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/02/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html</guid>
+        <link>http://mitxelmoriana.com/git/2016/02/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/git/2016/02/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html</guid>
         
         <category>version</category>
         
@@ -540,7 +540,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         <category>programming</category>
         
         
-        <category>programming</category>
+        <category>git</category>
         
       </item>
     
@@ -619,7 +619,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;nuestra-base-de-datos&quot;&gt;Nuestra base de datos&lt;/h2&gt;
 
-&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/web/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot; target=&quot;_blank&quot;&gt;la primera parte&lt;/a&gt; de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:&lt;/p&gt;
+&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/laravel/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot; target=&quot;_blank&quot;&gt;la primera parte&lt;/a&gt; de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/images/db-diagram-1.jpg&quot; alt=&quot;Diagrama aproximado de nuestra base de datos&quot; /&gt;&lt;/p&gt;
 
@@ -1660,8 +1660,8 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 11 Feb 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/web/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</guid>
+        <link>http://mitxelmoriana.com/laravel/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/laravel/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html</guid>
         
         <category>web,</category>
         
@@ -1674,7 +1674,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
         <category>php</category>
         
         
-        <category>web</category>
+        <category>laravel</category>
         
       </item>
     
@@ -1960,8 +1960,8 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 &lt;p&gt;Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</guid>
+        <link>http://mitxelmoriana.com/bash/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/bash/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html</guid>
         
         <category>bash</category>
         
@@ -1996,7 +1996,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
         <category>add</category>
         
         
-        <category>programming</category>
+        <category>bash</category>
         
       </item>
     
@@ -2090,12 +2090,12 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Una vez planificado el proyecto ya podemos darle vueltas a cuestiones más técnicas y prácticas. En el próximo post hablaré sobre cómo diseñar la base de datos teniendo en cuenta nuestra planificación y, una vez diseñada, cómo crear las tablas y sus relaciones mediante Laravel.&lt;/p&gt;
 
-&lt;p&gt;Vamos allá: &lt;a href=&quot;/web/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html&quot;&gt;Tu web porno con Laravel - II: Migrations, models y seeders&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vamos allá: &lt;a href=&quot;/laravel/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html&quot;&gt;Tu web porno con Laravel - II: Migrations, models y seeders&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 13 Jan 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/web/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/web/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</guid>
+        <link>http://mitxelmoriana.com/laravel/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/laravel/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html</guid>
         
         <category>web,</category>
         
@@ -2108,7 +2108,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
         <category>php</category>
         
         
-        <category>web</category>
+        <category>laravel</category>
         
       </item>
     
