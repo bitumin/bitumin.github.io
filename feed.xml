@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 Aug 2016 22:39:58 +0200</pubDate>
-    <lastBuildDate>Wed, 03 Aug 2016 22:39:58 +0200</lastBuildDate>
+    <pubDate>Wed, 03 Aug 2016 22:52:05 +0200</pubDate>
+    <lastBuildDate>Wed, 03 Aug 2016 22:52:05 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -48,7 +48,7 @@
 
 &lt;h2 id=&quot;paso-1-instalar-composera-namepaso1a&quot;&gt;Paso 1: Instalar Composer&lt;a name=&quot;paso1&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;Si usas Windows estás de suerte. Sólo tienes que bajarte e instalar el instalador oficial de composer: &lt;a href=&quot;https://getcomposer.org/Composer-Setup.exe&quot;&gt;Composer-Setup.exe&lt;/a&gt;. El instalador te añadirá el comando &lt;em&gt;composer&lt;/em&gt; a tu PATH de Windows, así que podrás usarlo desde cualquier terminal que abras a partir de ahora. Pan comido. Ya puedes pasar al &lt;a href=&quot;#paso2&quot;&gt;paso 2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Si usas Windows estás de suerte. Sólo tienes que bajarte e instalar el instalador oficial de composer: &lt;a href=&quot;https://getcomposer.org/Composer-Setup.exe&quot; target=&quot;_blank&quot;&gt;Composer-Setup.exe&lt;/a&gt;. El instalador te añadirá el comando &lt;em&gt;composer&lt;/em&gt; a tu PATH de Windows, así que podrás usarlo desde cualquier terminal que abras a partir de ahora. Pan comido. Ya puedes pasar al &lt;a href=&quot;#paso2&quot;&gt;paso 2&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Si usas Linux vas a tener que trabajártelo un poquito más. Necesitarás instalar en tu sistema linux los siguientes paquetes: &lt;code&gt;curl&lt;/code&gt; para bajarte el instalador de Composer desde la línea de comandos, &lt;code&gt;php5-cli&lt;/code&gt; para poder ejecutarlo y &lt;code&gt;git&lt;/code&gt;, que además de un gestor de repositorios es una dependencia de Composer. En definitiva,utiliza tu gestor de paquetes linux favorito e instala los tres paquetes. Desde Ubuntu y similares, por ejemplo, haríamos lo siguiente:&lt;/p&gt;
 
@@ -78,9 +78,9 @@
 
 &lt;p&gt;VirtualBox y Vagrant son programas gratuitos tan fáciles de instalar como cualquier otro.&lt;/p&gt;
 
-&lt;p&gt;En Windows basta con que te bajes y ejecutes el instalador para las últimas versiones de VirtualBox y Vagrant desde sus respectivas páginas oficiales de descarga &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot;&gt;aquí (VirtualBox)&lt;/a&gt; y &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot;&gt;aquí (Vagrant)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En Windows basta con que te bajes y ejecutes el instalador para las últimas versiones de VirtualBox y Vagrant desde sus respectivas páginas oficiales de descarga &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot; target=&quot;_blank&quot;&gt;aquí (VirtualBox)&lt;/a&gt; y &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot; target=&quot;_blank&quot;&gt;aquí (Vagrant)&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Para Linux basados en Debian (como Ubuntu) bájate e instala los ficheros .deb de cada programa. También los encontrarás en las páginas oficiales de descarga, la específica para Linux de VirtualBox &lt;a href=&quot;https://www.virtualbox.org/wiki/Linux_Downloads&quot;&gt;aquí&lt;/a&gt; y la de Vagrant &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot;&gt;aquí (Vagrant)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para Linux basados en Debian (como Ubuntu) bájate e instala los ficheros .deb de cada programa. También los encontrarás en las páginas oficiales de descarga, la específica para Linux de VirtualBox &lt;a href=&quot;https://www.virtualbox.org/wiki/Linux_Downloads&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt; y la de Vagrant &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot; target=&quot;_blank&quot;&gt;aquí (Vagrant)&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Yo, que uso Ubuntu, suelo hacer lo siguiente para cada uno de los paquetes .deb que me bajo:&lt;/p&gt;
 
@@ -106,7 +106,7 @@
 
 &lt;p&gt;Sigue los pasos que aparecerán y recuerda tanto el nombre de la clave (que podrás elegir o dejar uno por defecto, normalmente &lt;code&gt;id_rsa&lt;/code&gt;) como el directorio donde se ha guardado, normalmente en &lt;code&gt;~/.ssh&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;En Windows necesitarás bajarte un generador de claves, como por ejemplo PuTTYgen, disponible &lt;a href=&quot;https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe&quot;&gt;aquí&lt;/a&gt;. Generar la clave y guardarla en cualquier directorio seguro de tu sistema. Recuerda el nombre y el directorio donde guardes el par de claves (es decir, los dos ficheros con la clave privada y la pública, respectivamente).&lt;/p&gt;
+&lt;p&gt;En Windows necesitarás bajarte un generador de claves, como por ejemplo PuTTYgen, disponible &lt;a href=&quot;https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;. Generar la clave y guardarla en cualquier directorio seguro de tu sistema. Recuerda el nombre y el directorio donde guardes el par de claves (es decir, los dos ficheros con la clave privada y la pública, respectivamente).&lt;/p&gt;
 
 &lt;p&gt;Una vez tenemos listas nuestras claves SSH pasemos a inicializar Homestead y a configurarlo con cariño. Ejecuta el siguiente comando para crear en tu sistema los ficheros de configuración de Homestead que editaremos a continuación:&lt;/p&gt;
 
