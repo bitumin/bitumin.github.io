@@ -133,7 +133,7 @@
 
 <p>Este sencillo comando creará un nuevo directorio con el nombre de tu proyecto, en el que bajará una copia de la última versión estable de Laravel, lista para empezar a desarrollar.</p>
 
-<p>¿Pero de qué sirve desarrollar, es decir, editar y crear ficheros dentro del framework de Laravel, si no podemos ver los cambios que vamos haciendo? Es necesario, por tanto, instalar un entorno de desarrollo adeacuado, capaz de servir Laravel y mostrarnos en cualquier navegador los cambios que vamos realizando. Pasemos, por tanto, al Paso 3.</p>
+<p>¿Pero de qué sirve desarrollar, es decir, editar y crear ficheros dentro del framework de Laravel, si no podemos ver los cambios que vamos haciendo? Es necesario, por tanto, instalar un entorno de desarrollo adecuado, capaz de servir Laravel y mostrarnos en cualquier navegador los cambios que vamos realizando. Pasemos, por tanto, al Paso 3.</p>
 
 <h2 id="paso-3-instalar-virtualbox-y-vagrant">Paso 3: Instalar VirtualBox y Vagrant</h2>
 
@@ -141,9 +141,9 @@
 
 <p>En Windows basta con que te bajes y ejecutes el instalador para las últimas versiones de VirtualBox y Vagrant desde sus respectivas páginas oficiales de descarga <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">aquí (VirtualBox)</a> y <a href="https://www.vagrantup.com/downloads.html" target="_blank">aquí (Vagrant)</a>.</p>
 
-<p>Para Linux basados en Debian (como Ubuntu) bájate e instala los ficheros .deb de cada programa. También los encontrarás en las páginas oficiales de descarga, la específica para Linux de VirtualBox <a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">aquí</a> y la de Vagrant <a href="https://www.vagrantup.com/downloads.html" target="_blank">aquí (Vagrant)</a>.</p>
+<p>Para Linux basados en Debian (como Ubuntu) bájate e instala los ficheros .deb de cada programa. También los encontrarás en las páginas oficiales de descarga, la específica para Linux de VirtualBox <a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">aquí</a> y la de Vagrant <a href="https://www.vagrantup.com/downloads.html" target="_blank">aquí</a>.</p>
 
-<p>Yo, que uso Ubuntu, suelo hacer lo siguiente para cada uno de los paquetes .deb que me bajo:</p>
+<p>Yo, que uso Ubuntu, suelo hacer lo siguiente con cada uno de los paquetes .deb que me bajo:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">dpkg -i nombre-del-paquete.deb <span class="o">&amp;&amp;</span> sudo apt-get install -f</code></pre></figure>
 
@@ -167,7 +167,7 @@
 
 <p>Sigue los pasos que aparecerán y recuerda tanto el nombre de la clave (que podrás elegir o dejar uno por defecto, normalmente <code>id_rsa</code>) como el directorio donde se ha guardado, normalmente en <code>~/.ssh</code>.</p>
 
-<p>En Windows necesitarás bajarte un generador de claves, como por ejemplo PuTTYgen, disponible <a href="https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe" target="_blank">aquí</a>. Generar la clave y guardarla en cualquier directorio seguro de tu sistema. Recuerda el nombre y el directorio donde guardes el par de claves (es decir, los dos ficheros con la clave privada y la pública, respectivamente).</p>
+<p>En Windows necesitarás bajarte un generador de claves, como por ejemplo PuTTYgen, disponible <a href="https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe" target="_blank">aquí</a>, generar la clave y guardarla en cualquier directorio seguro de tu sistema. Recuerda el nombre y el directorio donde guardes el par de claves.</p>
 
 <p>Una vez tenemos listas nuestras claves SSH pasemos a inicializar Homestead y a configurarlo con cariño. Ejecuta el siguiente comando para crear en tu sistema los ficheros de configuración de Homestead que editaremos a continuación:</p>
 

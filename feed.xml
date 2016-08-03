@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 Aug 2016 22:54:55 +0200</pubDate>
-    <lastBuildDate>Wed, 03 Aug 2016 22:54:55 +0200</lastBuildDate>
+    <pubDate>Wed, 03 Aug 2016 23:59:51 +0200</pubDate>
+    <lastBuildDate>Wed, 03 Aug 2016 23:59:51 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -72,7 +72,7 @@
 
 &lt;p&gt;Este sencillo comando creará un nuevo directorio con el nombre de tu proyecto, en el que bajará una copia de la última versión estable de Laravel, lista para empezar a desarrollar.&lt;/p&gt;
 
-&lt;p&gt;¿Pero de qué sirve desarrollar, es decir, editar y crear ficheros dentro del framework de Laravel, si no podemos ver los cambios que vamos haciendo? Es necesario, por tanto, instalar un entorno de desarrollo adeacuado, capaz de servir Laravel y mostrarnos en cualquier navegador los cambios que vamos realizando. Pasemos, por tanto, al Paso 3.&lt;/p&gt;
+&lt;p&gt;¿Pero de qué sirve desarrollar, es decir, editar y crear ficheros dentro del framework de Laravel, si no podemos ver los cambios que vamos haciendo? Es necesario, por tanto, instalar un entorno de desarrollo adecuado, capaz de servir Laravel y mostrarnos en cualquier navegador los cambios que vamos realizando. Pasemos, por tanto, al Paso 3.&lt;/p&gt;
 
 &lt;h2 id=&quot;paso-3-instalar-virtualbox-y-vagrant&quot;&gt;Paso 3: Instalar VirtualBox y Vagrant&lt;/h2&gt;
 
@@ -80,9 +80,9 @@
 
 &lt;p&gt;En Windows basta con que te bajes y ejecutes el instalador para las últimas versiones de VirtualBox y Vagrant desde sus respectivas páginas oficiales de descarga &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot; target=&quot;_blank&quot;&gt;aquí (VirtualBox)&lt;/a&gt; y &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot; target=&quot;_blank&quot;&gt;aquí (Vagrant)&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Para Linux basados en Debian (como Ubuntu) bájate e instala los ficheros .deb de cada programa. También los encontrarás en las páginas oficiales de descarga, la específica para Linux de VirtualBox &lt;a href=&quot;https://www.virtualbox.org/wiki/Linux_Downloads&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt; y la de Vagrant &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot; target=&quot;_blank&quot;&gt;aquí (Vagrant)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para Linux basados en Debian (como Ubuntu) bájate e instala los ficheros .deb de cada programa. También los encontrarás en las páginas oficiales de descarga, la específica para Linux de VirtualBox &lt;a href=&quot;https://www.virtualbox.org/wiki/Linux_Downloads&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt; y la de Vagrant &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Yo, que uso Ubuntu, suelo hacer lo siguiente para cada uno de los paquetes .deb que me bajo:&lt;/p&gt;
+&lt;p&gt;Yo, que uso Ubuntu, suelo hacer lo siguiente con cada uno de los paquetes .deb que me bajo:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;dpkg -i nombre-del-paquete.deb &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get install -f&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -106,7 +106,7 @@
 
 &lt;p&gt;Sigue los pasos que aparecerán y recuerda tanto el nombre de la clave (que podrás elegir o dejar uno por defecto, normalmente &lt;code&gt;id_rsa&lt;/code&gt;) como el directorio donde se ha guardado, normalmente en &lt;code&gt;~/.ssh&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;En Windows necesitarás bajarte un generador de claves, como por ejemplo PuTTYgen, disponible &lt;a href=&quot;https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;. Generar la clave y guardarla en cualquier directorio seguro de tu sistema. Recuerda el nombre y el directorio donde guardes el par de claves (es decir, los dos ficheros con la clave privada y la pública, respectivamente).&lt;/p&gt;
+&lt;p&gt;En Windows necesitarás bajarte un generador de claves, como por ejemplo PuTTYgen, disponible &lt;a href=&quot;https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;, generar la clave y guardarla en cualquier directorio seguro de tu sistema. Recuerda el nombre y el directorio donde guardes el par de claves.&lt;/p&gt;
 
 &lt;p&gt;Una vez tenemos listas nuestras claves SSH pasemos a inicializar Homestead y a configurarlo con cariño. Ejecuta el siguiente comando para crear en tu sistema los ficheros de configuración de Homestead que editaremos a continuación:&lt;/p&gt;
 
