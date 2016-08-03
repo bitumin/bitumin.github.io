@@ -6,9 +6,202 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 30 Jul 2016 01:02:54 +0200</pubDate>
-    <lastBuildDate>Sat, 30 Jul 2016 01:02:54 +0200</lastBuildDate>
+    <pubDate>Wed, 03 Aug 2016 22:39:58 +0200</pubDate>
+    <lastBuildDate>Wed, 03 Aug 2016 22:39:58 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Cómo instalar Laravel en windows y linux</title>
+        <description>&lt;h2 id=&quot;introduccin&quot;&gt;Introducción&lt;/h2&gt;
+
+&lt;p&gt;Laravel es un framework tan completo y fácil de extender que sólo es necesario un conocimiento básico y superficial de programación PHP para usarlo. Sin embargo, la instalación de Laravel puede llegar a ser un reto.&lt;/p&gt;
+
+&lt;p&gt;Laravel requiere, tanto en entorno de producción como de desarrollo, la habilitación de servidores http, MySQL y PHP y cierto cariño extra: instalar o habilitar módulos de PHP adicionales, configurar hosts virtuales en apache o nuevos sites en nginx y otros detalles por el estilo que son relativamente sencillos de resolver sólo si ya lo has hecho antes alguna vez.&lt;/p&gt;
+
+&lt;p&gt;Por suerte existe una manera alternativa de instalar Laravel que nos permite ahorrarnos toda esa configuración pormenorizada de servidores. Esta alternativa es ideal tanto para newbies como para expertos, puesto que permite crear en cuestión de segundos entornos de desarrollo optimizados para correr Laravel.&lt;/p&gt;
+
+&lt;p&gt;Esta guía está dirigida a instalar Laravel en Windows y Linux, ya que estos dos sistemas comparten este mismo método de instalación. Bienvenido/a a “Cómo instalar Laravel en Windows y Linux sin tener ni #$?%!&amp;amp; idea de nada”.&lt;/p&gt;
+
+&lt;h2 id=&quot;vocabulario&quot;&gt;Vocabulario&lt;/h2&gt;
+
+&lt;p&gt;Antes de proceder a la instalación, una pequeña guía sobre qué es cada cosa:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Laravel&lt;/strong&gt;: framework PHP que nos permite desarrollar aplicaciones web, APIs y webs de toda la vida, ofreciéndonos soluciones estables y elegantes a problemas cotidianos (autenticación de usuarios, bases de datos, seguridad…).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Composer&lt;/strong&gt;: Gestor de dependencias PHP, gratuito y de código abierto. Básicamente nos permite obtener cualquier paquete desarrollado en PHP (como Laravel).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;VirtualBox&lt;/strong&gt;: programa gratuito mantenido por Oracle para crear máquinas virtuales que nos permiten correr cualquier sistema operativo y programa sin necesidad de modificar (ni poner en riesgo) nuestra máquina “real”.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vagrant&lt;/strong&gt;: Herramienta gratuita y de código abierto que nos permite gestionar máquinas virtuales pre-configuradas desde la terminal o línea de comandos. Estas máquinas virtuales pre-configuradas se han venido a llamar Vagrant &lt;strong&gt;boxes&lt;/strong&gt;. La idea detrás de esta herramienta es que la gente pueda instalar y compartir máquinas virtuales con sistemas operativos y software pre-instalado y pre-configurado, es decir, que los usuarios puedan empezar a usar las máquinas virtuales desde el primer momento.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Laravel Homestead&lt;/strong&gt;: Homestead viene a ser una Vagrant box de Laravel, es decir, una máquina virtual pre-configurada que puede empezar a usarse tan pronto la activamos, prácticamente sin configuración adicional.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Leyendo lo que es cada cosa quizá te hayas hecho ya una idea de cómo vamos a instalar laravel de la forma más sencilla imaginable, estos son los pasos:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Instalar Composer&lt;/li&gt;
+  &lt;li&gt;Instalar Laravel (usando Composer) en una carpeta local de nuestro sistema&lt;/li&gt;
+  &lt;li&gt;Instalar VirtualBox y Vagrant&lt;/li&gt;
+  &lt;li&gt;Instalar Homestead&lt;/li&gt;
+  &lt;li&gt;Configuración mínima de Homestead y a disfrutar&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;¡Eso es todo! Cinco pasitos, cuatro instalaciones prácticamente automáticas y una configuración que es cambiar cuatro o cinco líneas en un fichero de nada… Si esto no lo puede hacer cualquiera, me corto una pierna a bocados. Vayamos al lío:&lt;/p&gt;
+
+&lt;h2 id=&quot;paso-1-instalar-composera-namepaso1a&quot;&gt;Paso 1: Instalar Composer&lt;a name=&quot;paso1&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Si usas Windows estás de suerte. Sólo tienes que bajarte e instalar el instalador oficial de composer: &lt;a href=&quot;https://getcomposer.org/Composer-Setup.exe&quot;&gt;Composer-Setup.exe&lt;/a&gt;. El instalador te añadirá el comando &lt;em&gt;composer&lt;/em&gt; a tu PATH de Windows, así que podrás usarlo desde cualquier terminal que abras a partir de ahora. Pan comido. Ya puedes pasar al &lt;a href=&quot;#paso2&quot;&gt;paso 2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Si usas Linux vas a tener que trabajártelo un poquito más. Necesitarás instalar en tu sistema linux los siguientes paquetes: &lt;code&gt;curl&lt;/code&gt; para bajarte el instalador de Composer desde la línea de comandos, &lt;code&gt;php5-cli&lt;/code&gt; para poder ejecutarlo y &lt;code&gt;git&lt;/code&gt;, que además de un gestor de repositorios es una dependencia de Composer. En definitiva,utiliza tu gestor de paquetes linux favorito e instala los tres paquetes. Desde Ubuntu y similares, por ejemplo, haríamos lo siguiente:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get install curl php5-cli git &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Sigue los pasos, confirma lo que haya que confirmar (con cariño) y una vez tengas los tres paquetes instalados, podrás bajarte y ejecutar el instalador de composer con el siguiente comando:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;curl -sS https://getcomposer.org/installer &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sudo php -- --install-dir&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/bin --filename&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;composer&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Este comando hace dos cositas: instala composer y crea una copia de composer.phar en &lt;code&gt;/usr/local/bin/composer&lt;/code&gt;, lo que nos permite ejecutar el comando &lt;code&gt;composer&lt;/code&gt; desde cualquier terminal de nuestro sistema a partir de ahora. Pues eso es todo, ya tenemos instalado Composer en nuestro Linux, pasemos al siguiente paso.&lt;/p&gt;
+
+&lt;h2 id=&quot;paso-2-instalar-laravela-namepaso2a&quot;&gt;Paso 2: Instalar Laravel&lt;a name=&quot;paso2&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Ya que tenemos instalado Composer, vamos a hacernos el favor de utilizarlo. En primer lugar vamos a bajarnos y a hacer accesible desde cualquier punto de nuestra terminal el instalador de Laravel:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;composer global require &lt;span class=&quot;s2&quot;&gt;&amp;quot;laravel/installer=~1.1&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Ahora que tenemos este fantástico instalador de Laravel a mano, navega desde terminal hasta tu directorio de proyectos (o crea un nuevo directorio donde generar nuevos proyectos en el futuro). Una vez en la raíz de este directorio ejecuta:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;laravel new nombre-de-tu-proyecto&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Este sencillo comando creará un nuevo directorio con el nombre de tu proyecto, en el que bajará una copia de la última versión estable de Laravel, lista para empezar a desarrollar.&lt;/p&gt;
+
+&lt;p&gt;¿Pero de qué sirve desarrollar, es decir, editar y crear ficheros dentro del framework de Laravel, si no podemos ver los cambios que vamos haciendo? Es necesario, por tanto, instalar un entorno de desarrollo adeacuado, capaz de servir Laravel y mostrarnos en cualquier navegador los cambios que vamos realizando. Pasemos, por tanto, al Paso 3.&lt;/p&gt;
+
+&lt;h2 id=&quot;paso-3-instalar-virtualbox-y-vagrant&quot;&gt;Paso 3: Instalar VirtualBox y Vagrant&lt;/h2&gt;
+
+&lt;p&gt;VirtualBox y Vagrant son programas gratuitos tan fáciles de instalar como cualquier otro.&lt;/p&gt;
+
+&lt;p&gt;En Windows basta con que te bajes y ejecutes el instalador para las últimas versiones de VirtualBox y Vagrant desde sus respectivas páginas oficiales de descarga &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot;&gt;aquí (VirtualBox)&lt;/a&gt; y &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot;&gt;aquí (Vagrant)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para Linux basados en Debian (como Ubuntu) bájate e instala los ficheros .deb de cada programa. También los encontrarás en las páginas oficiales de descarga, la específica para Linux de VirtualBox &lt;a href=&quot;https://www.virtualbox.org/wiki/Linux_Downloads&quot;&gt;aquí&lt;/a&gt; y la de Vagrant &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot;&gt;aquí (Vagrant)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Yo, que uso Ubuntu, suelo hacer lo siguiente para cada uno de los paquetes .deb que me bajo:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;dpkg -i nombre-del-paquete.deb &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get install -f&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Eso es todo, ya tenemos en nuestro sistema VirtualBox y Vagrant. Casi tan fácil como robarle un chupete a un bebé. Vayamos al último paso.&lt;/p&gt;
+
+&lt;h2 id=&quot;paso-4-instalar-homestead&quot;&gt;Paso 4: Instalar Homestead&lt;/h2&gt;
+
+&lt;p&gt;La manera más sencilla de instalar Laravel Homestead es echando mano de Composer. Como ya lo tenemos instalado, esto va a ser coser y cantar. Ejecuta:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;composer global require &lt;span class=&quot;s2&quot;&gt;&amp;quot;laravel/homestead=~2.0&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Este comando creará una copia del ejecutable homestead dentro de &lt;code&gt;~/.composer/vendor/bin&lt;/code&gt;, que debería ser accesible a partir de ahora desde cualquier terminal de tu sistema. Si no es así, asegúrate de que ese directorio está en el PATH de tu sistema.&lt;/p&gt;
+
+&lt;p&gt;Ahora que ya tenemos Homestead instalado, podemos pasar al último paso&lt;/p&gt;
+
+&lt;h2 id=&quot;paso-5-configuracin-mnima-de-homestead&quot;&gt;Paso 5: Configuración mínima de Homestead&lt;/h2&gt;
+
+&lt;p&gt;Para poder comunicarte de forma segura y sin necesidad de passwords con la máquina virtual que crearemos en breve, necesitarás crear un par de claves privada/pública SSH (si no las tienes ya). En Linux esto suele ser tan fácil como ejecutar el comando:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;ssh-keygen -t rsa -C &lt;span class=&quot;s2&quot;&gt;&amp;quot;tu-nombre-de-usuario@homestead&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Sigue los pasos que aparecerán y recuerda tanto el nombre de la clave (que podrás elegir o dejar uno por defecto, normalmente &lt;code&gt;id_rsa&lt;/code&gt;) como el directorio donde se ha guardado, normalmente en &lt;code&gt;~/.ssh&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;En Windows necesitarás bajarte un generador de claves, como por ejemplo PuTTYgen, disponible &lt;a href=&quot;https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe&quot;&gt;aquí&lt;/a&gt;. Generar la clave y guardarla en cualquier directorio seguro de tu sistema. Recuerda el nombre y el directorio donde guardes el par de claves (es decir, los dos ficheros con la clave privada y la pública, respectivamente).&lt;/p&gt;
+
+&lt;p&gt;Una vez tenemos listas nuestras claves SSH pasemos a inicializar Homestead y a configurarlo con cariño. Ejecuta el siguiente comando para crear en tu sistema los ficheros de configuración de Homestead que editaremos a continuación:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;homestead init&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Este comando creará el fichero &lt;code&gt;Homestead.yaml&lt;/code&gt; dentro del directorio &lt;code&gt;~/.homestead&lt;/code&gt;. Edita ese fichero con tu editor de texto o IDE favorito, te aparecerán una serie de opciones de configuración de Homestead, las únicas que es necesario modificar son las siguientes:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;authorize: directorio-donde-está-tu-clave-pública/nombre-de-tu-clave-pública
+
+keys:
+    - directorio-donde-está-tu-clave-privada/nombre-de-tu-clave-privada
+
+folders:
+    - map: directorio-donde-está-tu-proyecto/nombre-de-tu-proyecto
+      to: /home/vagrant/Code/nombre-de-tu-proyecto
+
+sites:
+    - map: nombre-de-tu-proyecto.app
+      to: /home/vagrant/Code/nombre-de-tu-proyecto/public&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;A modo de referencia, dejo por aquí un ejemplo completo de Homestead.yaml editado en un sistema Linux:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;---
+ip: &lt;span class=&quot;s2&quot;&gt;&amp;quot;192.168.10.10&amp;quot;&lt;/span&gt;
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/WebDev
+      to: /home/vagrant/WebDev
+
+sites:
+    - map: menuvel.app
+      to: /home/vagrant/WebDev/menuvel/public
+
+databases:
+    - homestead
+
+variables:
+    - key: APP_ENV
+      value: &lt;span class=&quot;nb&quot;&gt;local&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Puedes editar el resto de líneas a conveniencia, aunque no es estrictamente necesario. En cualquier caso, acuérdate del valor de las líneas &lt;code&gt;ip&lt;/code&gt; y &lt;code&gt;map&lt;/code&gt; (dentro de sites).&lt;/p&gt;
+
+&lt;p&gt;Es muy conveniente agregar ese par de valores al fichero hosts de nuestro sistema, que encontrarás normalmente dentro del directorio &lt;code&gt;/etc&lt;/code&gt; (en Linux) o &lt;code&gt;C:\Windows\System32\drivers\etc&lt;/code&gt; (en Windows). Abre el fichero hosts con tu editor de texto o IDE favorito y agrega en una línea el par de valores. Según el ejemplo que puse antes, agregaríamos la línea:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;192.168.10.10   menuvel.app&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Esto nos permite vincular la IP de nuestra máquina virtual a la dirección &lt;code&gt;menuvel.app&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;¡Eso es todo! Ahora ya podemos ejecutar nuestra máquina virtual pre-configurada y lista para correr Laravel. Tan sólo has de escribir en tu línea de comandos:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;homestead up&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Una vez que Homestead acabe de hacer su magia (la primera vez puede que tarde un poquito) podrás acceder a tu proyecto a través de cualquier navegador escribiendo la dirección que indicaste en sites, en el ejemplo sería &lt;code&gt;http://menuvel.app&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;¡Ya hemos terminado! Lo mejor de todo es que ahora puedes editar los ficheros de tu proyecto Laravel (el que creamos durante el Paso 2) y automáticamente se sincronizarán en Homestead, con lo que podrás ir viendo los cambios que vayas haciendo en tu proyecto de forma inmediata.&lt;/p&gt;
+
+&lt;p&gt;Otros comandos básicos de Homestead:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Si decides hacer algún cambio en Homestead.yaml, debes ejecutar &lt;code&gt;homestead provision&lt;/code&gt; para actualizar Homestead con los nuevos cambios en su configuración.&lt;/li&gt;
+  &lt;li&gt;Para cerrar Homestead y terminar la ejecución de la máquina virtual puedes utilizar el comando &lt;code&gt;homestead destroy&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusin&quot;&gt;Conclusión&lt;/h2&gt;
+
+&lt;p&gt;Espero que la instalación de Laravel siguiendo estos pasos te haya parecido la mar de sencilla y que puedas dedicar tu tiempo a estudiar el framework y crear nuevas aplicaciones web en lugar de perderlo gestionando servidores. Si te surge alguna duda, detectas algún error o crees que me he dejado algún dato importante, deja tu comentario más abajo.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 02 Aug 2016 00:00:00 +0200</pubDate>
+        <link>http://mitxelmoriana.com/wev/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/wev/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html</guid>
+        
+        <category>web,</category>
+        
+        <category>web</category>
+        
+        <category>development,</category>
+        
+        <category>laravel,</category>
+        
+        <category>php,</category>
+        
+        <category>framework</category>
+        
+        
+        <category>wev</category>
+        
+      </item>
     
       <item>
         <title>Bash script: youtube-autodl</title>
@@ -121,9 +314,9 @@
 
 &lt;p&gt;Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.&lt;/p&gt;
 </description>
-        <pubDate>Sat, 27 Feb 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/programming/2016/02/27/bash-script-para-bajarse-media-a-partir-de-urls.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/02/27/bash-script-para-bajarse-media-a-partir-de-urls.html</guid>
+        <pubDate>Wed, 27 Jul 2016 00:00:00 +0200</pubDate>
+        <link>http://mitxelmoriana.com/programming/2016/07/27/bash-script-para-bajarse-media-a-partir-de-urls.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/programming/2016/07/27/bash-script-para-bajarse-media-a-partir-de-urls.html</guid>
         
         <category>bash</category>
         

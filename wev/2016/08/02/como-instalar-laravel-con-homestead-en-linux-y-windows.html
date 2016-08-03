@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Introducción">
+
+  <title>Cómo instalar Laravel en windows y linux</title>
+
+  <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mitxelmoriana.com/wev/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+    <body>
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-71923540-1', 'auto');
+    ga('send', 'pageview');
+</script>
+        <!--Sharing buttons JS-->
+<!--Facebook--><div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=184462238579593";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+<!--Twitter--><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--Linkedin--><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: es_ES</script>
+<!--Google+--><!--<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>-->
+        <header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">MitxelMoriana</a>
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/about/">Sobre mí</a>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+        <div class="page-content">
+            <div class="wrapper">
+                <div id="sharing-btns-wrapper">
+    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/wev/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html" data-layout="button"></div>
+    <!--Twitter--><a href="https://twitter.com/share" class="twitter-share-button" data-lang="es"></a>
+    <!--Linkedin--><script type="IN/Share"></script>
+    <!--Google+--><!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
+</div>
+                <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div id="header-image-wrapper">
+        <div id="header-image" style="background-image: url('/headers/nice-screen-with-code.jpeg');"></div>
+    </div>
+    
+    <header class="post-header wrapper">
+        <h1 class="post-title" itemprop="name headline">
+            Cómo instalar Laravel en windows y linux
+            
+            <br><span class="post-subtitle">sin tener ni #$?%!& idea de nada</span>
+            
+        </h1>
+        <p class="post-meta"><time datetime="2016-08-02T00:00:00+02:00" itemprop="datePublished">Aug 2, 2016</time></p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="introduccin">Introducción</h2>
+
+<p>Laravel es un framework tan completo y fácil de extender que sólo es necesario un conocimiento básico y superficial de programación PHP para usarlo. Sin embargo, la instalación de Laravel puede llegar a ser un reto.</p>
+
+<p>Laravel requiere, tanto en entorno de producción como de desarrollo, la habilitación de servidores http, MySQL y PHP y cierto cariño extra: instalar o habilitar módulos de PHP adicionales, configurar hosts virtuales en apache o nuevos sites en nginx y otros detalles por el estilo que son relativamente sencillos de resolver sólo si ya lo has hecho antes alguna vez.</p>
+
+<p>Por suerte existe una manera alternativa de instalar Laravel que nos permite ahorrarnos toda esa configuración pormenorizada de servidores. Esta alternativa es ideal tanto para newbies como para expertos, puesto que permite crear en cuestión de segundos entornos de desarrollo optimizados para correr Laravel.</p>
+
+<p>Esta guía está dirigida a instalar Laravel en Windows y Linux, ya que estos dos sistemas comparten este mismo método de instalación. Bienvenido/a a “Cómo instalar Laravel en Windows y Linux sin tener ni #$?%!&amp; idea de nada”.</p>
+
+<h2 id="vocabulario">Vocabulario</h2>
+
+<p>Antes de proceder a la instalación, una pequeña guía sobre qué es cada cosa:</p>
+
+<ul>
+  <li><strong>Laravel</strong>: framework PHP que nos permite desarrollar aplicaciones web, APIs y webs de toda la vida, ofreciéndonos soluciones estables y elegantes a problemas cotidianos (autenticación de usuarios, bases de datos, seguridad…).</li>
+  <li><strong>Composer</strong>: Gestor de dependencias PHP, gratuito y de código abierto. Básicamente nos permite obtener cualquier paquete desarrollado en PHP (como Laravel).</li>
+  <li><strong>VirtualBox</strong>: programa gratuito mantenido por Oracle para crear máquinas virtuales que nos permiten correr cualquier sistema operativo y programa sin necesidad de modificar (ni poner en riesgo) nuestra máquina “real”.</li>
+  <li><strong>Vagrant</strong>: Herramienta gratuita y de código abierto que nos permite gestionar máquinas virtuales pre-configuradas desde la terminal o línea de comandos. Estas máquinas virtuales pre-configuradas se han venido a llamar Vagrant <strong>boxes</strong>. La idea detrás de esta herramienta es que la gente pueda instalar y compartir máquinas virtuales con sistemas operativos y software pre-instalado y pre-configurado, es decir, que los usuarios puedan empezar a usar las máquinas virtuales desde el primer momento.</li>
+  <li><strong>Laravel Homestead</strong>: Homestead viene a ser una Vagrant box de Laravel, es decir, una máquina virtual pre-configurada que puede empezar a usarse tan pronto la activamos, prácticamente sin configuración adicional.</li>
+</ul>
+
+<p>Leyendo lo que es cada cosa quizá te hayas hecho ya una idea de cómo vamos a instalar laravel de la forma más sencilla imaginable, estos son los pasos:</p>
+
+<ol>
+  <li>Instalar Composer</li>
+  <li>Instalar Laravel (usando Composer) en una carpeta local de nuestro sistema</li>
+  <li>Instalar VirtualBox y Vagrant</li>
+  <li>Instalar Homestead</li>
+  <li>Configuración mínima de Homestead y a disfrutar</li>
+</ol>
+
+<p>¡Eso es todo! Cinco pasitos, cuatro instalaciones prácticamente automáticas y una configuración que es cambiar cuatro o cinco líneas en un fichero de nada… Si esto no lo puede hacer cualquiera, me corto una pierna a bocados. Vayamos al lío:</p>
+
+<h2 id="paso-1-instalar-composera-namepaso1a">Paso 1: Instalar Composer<a name="paso1"></a></h2>
+
+<p>Si usas Windows estás de suerte. Sólo tienes que bajarte e instalar el instalador oficial de composer: <a href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a>. El instalador te añadirá el comando <em>composer</em> a tu PATH de Windows, así que podrás usarlo desde cualquier terminal que abras a partir de ahora. Pan comido. Ya puedes pasar al <a href="#paso2">paso 2</a>.</p>
+
+<p>Si usas Linux vas a tener que trabajártelo un poquito más. Necesitarás instalar en tu sistema linux los siguientes paquetes: <code>curl</code> para bajarte el instalador de Composer desde la línea de comandos, <code>php5-cli</code> para poder ejecutarlo y <code>git</code>, que además de un gestor de repositorios es una dependencia de Composer. En definitiva,utiliza tu gestor de paquetes linux favorito e instala los tres paquetes. Desde Ubuntu y similares, por ejemplo, haríamos lo siguiente:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install curl php5-cli git </code></pre></figure>
+
+<p>Sigue los pasos, confirma lo que haya que confirmar (con cariño) y una vez tengas los tres paquetes instalados, podrás bajarte y ejecutar el instalador de composer con el siguiente comando:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl -sS https://getcomposer.org/installer <span class="p">|</span> sudo php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer</code></pre></figure>
+
+<p>Este comando hace dos cositas: instala composer y crea una copia de composer.phar en <code>/usr/local/bin/composer</code>, lo que nos permite ejecutar el comando <code>composer</code> desde cualquier terminal de nuestro sistema a partir de ahora. Pues eso es todo, ya tenemos instalado Composer en nuestro Linux, pasemos al siguiente paso.</p>
+
+<h2 id="paso-2-instalar-laravela-namepaso2a">Paso 2: Instalar Laravel<a name="paso2"></a></h2>
+
+<p>Ya que tenemos instalado Composer, vamos a hacernos el favor de utilizarlo. En primer lugar vamos a bajarnos y a hacer accesible desde cualquier punto de nuestra terminal el instalador de Laravel:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">composer global require <span class="s2">&quot;laravel/installer=~1.1&quot;</span></code></pre></figure>
+
+<p>Ahora que tenemos este fantástico instalador de Laravel a mano, navega desde terminal hasta tu directorio de proyectos (o crea un nuevo directorio donde generar nuevos proyectos en el futuro). Una vez en la raíz de este directorio ejecuta:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">laravel new nombre-de-tu-proyecto</code></pre></figure>
+
+<p>Este sencillo comando creará un nuevo directorio con el nombre de tu proyecto, en el que bajará una copia de la última versión estable de Laravel, lista para empezar a desarrollar.</p>
+
+<p>¿Pero de qué sirve desarrollar, es decir, editar y crear ficheros dentro del framework de Laravel, si no podemos ver los cambios que vamos haciendo? Es necesario, por tanto, instalar un entorno de desarrollo adeacuado, capaz de servir Laravel y mostrarnos en cualquier navegador los cambios que vamos realizando. Pasemos, por tanto, al Paso 3.</p>
+
+<h2 id="paso-3-instalar-virtualbox-y-vagrant">Paso 3: Instalar VirtualBox y Vagrant</h2>
+
+<p>VirtualBox y Vagrant son programas gratuitos tan fáciles de instalar como cualquier otro.</p>
+
+<p>En Windows basta con que te bajes y ejecutes el instalador para las últimas versiones de VirtualBox y Vagrant desde sus respectivas páginas oficiales de descarga <a href="https://www.virtualbox.org/wiki/Downloads">aquí (VirtualBox)</a> y <a href="https://www.vagrantup.com/downloads.html">aquí (Vagrant)</a>.</p>
+
+<p>Para Linux basados en Debian (como Ubuntu) bájate e instala los ficheros .deb de cada programa. También los encontrarás en las páginas oficiales de descarga, la específica para Linux de VirtualBox <a href="https://www.virtualbox.org/wiki/Linux_Downloads">aquí</a> y la de Vagrant <a href="https://www.vagrantup.com/downloads.html">aquí (Vagrant)</a>.</p>
+
+<p>Yo, que uso Ubuntu, suelo hacer lo siguiente para cada uno de los paquetes .deb que me bajo:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">dpkg -i nombre-del-paquete.deb <span class="o">&amp;&amp;</span> sudo apt-get install -f</code></pre></figure>
+
+<p>Eso es todo, ya tenemos en nuestro sistema VirtualBox y Vagrant. Casi tan fácil como robarle un chupete a un bebé. Vayamos al último paso.</p>
+
+<h2 id="paso-4-instalar-homestead">Paso 4: Instalar Homestead</h2>
+
+<p>La manera más sencilla de instalar Laravel Homestead es echando mano de Composer. Como ya lo tenemos instalado, esto va a ser coser y cantar. Ejecuta:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">composer global require <span class="s2">&quot;laravel/homestead=~2.0&quot;</span></code></pre></figure>
+
+<p>Este comando creará una copia del ejecutable homestead dentro de <code>~/.composer/vendor/bin</code>, que debería ser accesible a partir de ahora desde cualquier terminal de tu sistema. Si no es así, asegúrate de que ese directorio está en el PATH de tu sistema.</p>
+
+<p>Ahora que ya tenemos Homestead instalado, podemos pasar al último paso</p>
+
+<h2 id="paso-5-configuracin-mnima-de-homestead">Paso 5: Configuración mínima de Homestead</h2>
+
+<p>Para poder comunicarte de forma segura y sin necesidad de passwords con la máquina virtual que crearemos en breve, necesitarás crear un par de claves privada/pública SSH (si no las tienes ya). En Linux esto suele ser tan fácil como ejecutar el comando:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -C <span class="s2">&quot;tu-nombre-de-usuario@homestead&quot;</span></code></pre></figure>
+
+<p>Sigue los pasos que aparecerán y recuerda tanto el nombre de la clave (que podrás elegir o dejar uno por defecto, normalmente <code>id_rsa</code>) como el directorio donde se ha guardado, normalmente en <code>~/.ssh</code>.</p>
+
+<p>En Windows necesitarás bajarte un generador de claves, como por ejemplo PuTTYgen, disponible <a href="https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe">aquí</a>. Generar la clave y guardarla en cualquier directorio seguro de tu sistema. Recuerda el nombre y el directorio donde guardes el par de claves (es decir, los dos ficheros con la clave privada y la pública, respectivamente).</p>
+
+<p>Una vez tenemos listas nuestras claves SSH pasemos a inicializar Homestead y a configurarlo con cariño. Ejecuta el siguiente comando para crear en tu sistema los ficheros de configuración de Homestead que editaremos a continuación:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">homestead init</code></pre></figure>
+
+<p>Este comando creará el fichero <code>Homestead.yaml</code> dentro del directorio <code>~/.homestead</code>. Edita ese fichero con tu editor de texto o IDE favorito, te aparecerán una serie de opciones de configuración de Homestead, las únicas que es necesario modificar son las siguientes:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">authorize: directorio-donde-está-tu-clave-pública/nombre-de-tu-clave-pública
+
+keys:
+    - directorio-donde-está-tu-clave-privada/nombre-de-tu-clave-privada
+
+folders:
+    - map: directorio-donde-está-tu-proyecto/nombre-de-tu-proyecto
+      to: /home/vagrant/Code/nombre-de-tu-proyecto
+
+sites:
+    - map: nombre-de-tu-proyecto.app
+      to: /home/vagrant/Code/nombre-de-tu-proyecto/public</code></pre></figure>
+
+<p>A modo de referencia, dejo por aquí un ejemplo completo de Homestead.yaml editado en un sistema Linux:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">---
+ip: <span class="s2">&quot;192.168.10.10&quot;</span>
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/WebDev
+      to: /home/vagrant/WebDev
+
+sites:
+    - map: menuvel.app
+      to: /home/vagrant/WebDev/menuvel/public
+
+databases:
+    - homestead
+
+variables:
+    - key: APP_ENV
+      value: <span class="nb">local</span></code></pre></figure>
+
+<p>Puedes editar el resto de líneas a conveniencia, aunque no es estrictamente necesario. En cualquier caso, acuérdate del valor de las líneas <code>ip</code> y <code>map</code> (dentro de sites).</p>
+
+<p>Es muy conveniente agregar ese par de valores al fichero hosts de nuestro sistema, que encontrarás normalmente dentro del directorio <code>/etc</code> (en Linux) o <code>C:\Windows\System32\drivers\etc</code> (en Windows). Abre el fichero hosts con tu editor de texto o IDE favorito y agrega en una línea el par de valores. Según el ejemplo que puse antes, agregaríamos la línea:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">192.168.10.10   menuvel.app</code></pre></figure>
+
+<p>Esto nos permite vincular la IP de nuestra máquina virtual a la dirección <code>menuvel.app</code>.</p>
+
+<p>¡Eso es todo! Ahora ya podemos ejecutar nuestra máquina virtual pre-configurada y lista para correr Laravel. Tan sólo has de escribir en tu línea de comandos:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">homestead up</code></pre></figure>
+
+<p>Una vez que Homestead acabe de hacer su magia (la primera vez puede que tarde un poquito) podrás acceder a tu proyecto a través de cualquier navegador escribiendo la dirección que indicaste en sites, en el ejemplo sería <code>http://menuvel.app</code>.</p>
+
+<p>¡Ya hemos terminado! Lo mejor de todo es que ahora puedes editar los ficheros de tu proyecto Laravel (el que creamos durante el Paso 2) y automáticamente se sincronizarán en Homestead, con lo que podrás ir viendo los cambios que vayas haciendo en tu proyecto de forma inmediata.</p>
+
+<p>Otros comandos básicos de Homestead:</p>
+
+<ul>
+  <li>Si decides hacer algún cambio en Homestead.yaml, debes ejecutar <code>homestead provision</code> para actualizar Homestead con los nuevos cambios en su configuración.</li>
+  <li>Para cerrar Homestead y terminar la ejecución de la máquina virtual puedes utilizar el comando <code>homestead destroy</code>.</li>
+</ul>
+
+<h2 id="conclusin">Conclusión</h2>
+
+<p>Espero que la instalación de Laravel siguiendo estos pasos te haya parecido la mar de sencilla y que puedas dedicar tu tiempo a estudiar el framework y crear nuevas aplicaciones web en lugar de perderlo gestionando servidores. Si te surge alguna duda, detectas algún error o crees que me he dejado algún dato importante, deja tu comentario más abajo.</p>
+
+    </div>
+</article>
+                
+<div id="disqus_thread"></div>
+<script>
+     var disqus_config = function () {
+         this.page.url = 'http://mitxelmoriana.com/wev/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html';
+     };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//mitxelmoriana.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            </div>
+        </div>
+        <footer class="site-footer">
+    <div class="wrapper">
+        <h2 class="footer-heading">MitxelMoriana</h2>
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-alt-1">
+                <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
+                <br>
+                <ul class="social-media-list">
+                    
+                    <li>
+                        <a href="https://github.com/bitumin"><i class="fa fa-github-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://facebook.com/mitxel.moriana"><i class="fa fa-facebook-official"></i></a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/morianamitxel"><i class="fa fa-linkedin-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/mitxelmoriana"><i class="fa fa-twitter-square"></i></a>
+
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer-col footer-col-alt-2">
+                <p>Huola. Soy Mitxel, desarrollador freelance, tecnófilo y blogger. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás, sobretodo, posts sobre tecnología y programación que espero que encuentres instructivos, inspiradores e interesantes.
+</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+    </body>
+</html>
