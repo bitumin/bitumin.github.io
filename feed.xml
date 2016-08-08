@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 Aug 2016 18:21:57 +0200</pubDate>
-    <lastBuildDate>Sat, 06 Aug 2016 18:21:57 +0200</lastBuildDate>
+    <pubDate>Tue, 09 Aug 2016 00:57:34 +0200</pubDate>
+    <lastBuildDate>Tue, 09 Aug 2016 00:57:34 +0200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -84,7 +84,8 @@
 
 &lt;p&gt;Yo, que uso Ubuntu, suelo hacer lo siguiente con cada uno de los paquetes .deb que me bajo:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;dpkg -i nombre-del-paquete.deb &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get install -f&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;dpkg -i nombre-del-paquete.deb
+sudo apt-get install -f&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Eso es todo, ya tenemos en nuestro sistema VirtualBox y Vagrant. Casi tan fácil como robarle un chupete a un bebé. Vayamos al cuarto paso.&lt;/p&gt;
 
