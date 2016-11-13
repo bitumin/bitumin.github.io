@@ -6,9 +6,9 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 09 Aug 2016 00:57:34 +0200</pubDate>
-    <lastBuildDate>Tue, 09 Aug 2016 00:57:34 +0200</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Sun, 13 Nov 2016 05:03:56 +0100</pubDate>
+    <lastBuildDate>Sun, 13 Nov 2016 05:03:56 +0100</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
     
       <item>
         <title>Cómo instalar Laravel en windows y linux</title>
@@ -625,7 +625,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;qu-es-eso-de-las-migrations-models-y-seeders&quot;&gt;¿Qué es eso de las migrations, models y seeders?&lt;/h2&gt;
 
-&lt;p&gt;Cuando se trabaja con equipos de desarrolladores de varias personas es necesario que en todo momento todos tengan la misma estructura de base de datos. Para lograr esto Laravel utiliza un sistema de &lt;strong&gt;migrations&lt;/strong&gt;, que no es más que una forma de crear y modificar tablas de forma secuencial. Una migration es, por tanto, una acción sobre la base de datos: crear, eliminar, corregir, modificar algo… que una vez implementada no deberá ser &lt;strong&gt;nunca&lt;/strong&gt; rectificada, &lt;strong&gt;salvo&lt;/strong&gt; por otra migration, ya que sólo se ejecuta una vez. Por ejemplo: si yo creo una tabla &lt;em&gt;dummy&lt;/em&gt; con una columna &lt;em&gt;useless&lt;/em&gt; y, más adelante me doy cuenta de que esa columna no es necesaria, &lt;strong&gt;jamás&lt;/strong&gt; deberé modificar la migration que creó la columna, en su lugar lo apropiado será crear otra migration que elimine esa columna.&lt;/p&gt;
+&lt;p&gt;Cuando se trabaja con equipos de desarrolladores de varias personas es necesario que en todo momento todos tengan la misma estructura de base de datos. Para lograrlo Laravel utiliza un sistema de &lt;strong&gt;migrations&lt;/strong&gt;, que no es más que una forma de crear y modificar tablas de forma secuencial. Una migration es, por tanto, una acción sobre la base de datos: crear, eliminar, corregir, modificar algo… que una vez implementada no debería ser rectificada, salvo por una nueva migration. Por ejemplo: si yo creo una tabla &lt;em&gt;dummy&lt;/em&gt; con una columna &lt;em&gt;useless&lt;/em&gt; y tras poner los cambios en producción me doy cuenta de que esa columna no es necesaria, no debería modificar la migration que creó la columna, sino crear otra migration para eliminarla.&lt;/p&gt;
 
 &lt;p&gt;Los modelos o &lt;strong&gt;models&lt;/strong&gt; son clases (como las de cualquier otro lenguaje orientado a objetos) que están relacionadas con una tabla de la base de datos. Por ejemplo: si tengo una tabla &lt;em&gt;bicicletas&lt;/em&gt; y otra tabla &lt;em&gt;pedales&lt;/em&gt;, normalmente crearemos a continuación los modelos &lt;em&gt;Bicicleta&lt;/em&gt; y &lt;em&gt;Pedal&lt;/em&gt;, que harán referencia a las tablas y a las relaciones que existan entre ellas. Estos modelos nos permitirán trabajar con las bases de datos de forma muy ágil.&lt;/p&gt;
 
@@ -633,7 +633,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;nuestra-base-de-datos&quot;&gt;Nuestra base de datos&lt;/h2&gt;
 
-&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/laravel/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot; target=&quot;_blank&quot;&gt;la primera parte&lt;/a&gt; de este curso. Como no tenemos que quedar bien ante ningún jefe o cliente, no es necesario que nuestro diagrama sea una maravilla:&lt;/p&gt;
+&lt;p&gt;Hagamos un pequeño esbozo en forma de diagrama de cómo debería ser nuestra base de datos, teniendo en cuenta la planificación que hicimos en &lt;a href=&quot;/laravel/2016/01/13/tu-web-porno-con-laravel-I-introduccion-y-planificacion.html&quot; target=&quot;_blank&quot;&gt;la primera parte&lt;/a&gt; de este curso:&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/images/db-diagram-1.jpg&quot; alt=&quot;Diagrama aproximado de nuestra base de datos&quot; /&gt;&lt;/p&gt;
 
@@ -647,8 +647,8 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;A modo de referencia, a mí la cosa me ha quedado tal que así:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;DB_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;my-porn-site
-&lt;span class=&quot;nv&quot;&gt;DB_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;my-porn-site
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;DB_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;my-site
+&lt;span class=&quot;nv&quot;&gt;DB_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;my-site
 &lt;span class=&quot;nv&quot;&gt;DB_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;uVYB5vbN38UXmdQ4&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Ahora ya podemos crear las migrations y ejecutarlas sin ningún miedo. Vayamos por faena. Ve a la carpeta database/migrations y observa que Laravel viene, ya por defecto, con dos migrations hechas: una para crear las tablas users y la otra para crear la tabla password_resets, ambas útiles y necesarias para gestionar el registro de nuestros futuros usuarios.&lt;/p&gt;
@@ -663,7 +663,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;li&gt;users&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Además, existe una relación many-to-many entre los tags y los videos y entre las girls y los videos. Esto es así porque en un vídeo pueden aparecer una o más actrices, así como una actriz puede aparecer en muchos vídeos, a este tipo de relación se le llama many-to-many en el mundillo de las bases de datos relacionales y normalmente requieren de la creación de una tabla adicional cuyas filas representarán “relaciones” entre elementos de las dos tablas. Como ya he dicho, existe este tipo de relación entre los dos pares de elementos mencionados anteriormente, por ello crearemos dos tablas adicionales, siguiendo la convención &lt;em&gt;laraveliana&lt;/em&gt; de nombrarlas a partir de los nombres de cada una de las tablas que relacionan, en orden alfabético, en singular y separadas por un &lt;em&gt;underscore&lt;/em&gt; _ . En definitiva, también crearemos las tablas:&lt;/p&gt;
+&lt;p&gt;Además, existe una relación many-to-many entre los tags y los videos y entre las girls y los videos. Esto es así porque en un vídeo pueden aparecer una o más actrices, así como una actriz puede aparecer en muchos vídeos, a este tipo de relación se le llama many-to-many en el mundillo de las bases de datos relacionales y normalmente requieren de la creación de una tabla adicional cuyas filas representarán “relaciones” entre elementos de las dos tablas. Así pues crearemos dos tablas adicionales, siguiendo la convención &lt;em&gt;laraveliana&lt;/em&gt; de crear sus nombres a partir de los nombres de las tablas que relacionan en orden alfabético, en singular y separadas por un &lt;em&gt;underscore&lt;/em&gt; _ . En definitiva, también crearemos las tablas:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;girl_video&lt;/li&gt;
@@ -674,25 +674,29 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;php artisan make:migration create_table-name_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;table-name&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;A modo de referencia, yo he escrito y ejecutado el siguiente comando (que es una concatenación de los cinco comandos que debes ejecutar):&lt;/p&gt;
+&lt;p&gt;A modo de referencia, yo he escrito y ejecutado los siguientes comandos:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;php artisan make:migration create_tags_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tags &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:migration create_girls_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;girls &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:migration create_videos_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;videos &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:migration create_girl_video_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;girl_video &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:migration create_tag_video_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tag_video&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;php artisan make:migration create_tags_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tags
+php artisan make:migration create_girls_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;girls
+php artisan make:migration create_videos_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;videos
+php artisan make:migration create_girl_video_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;girl_video
+php artisan make:migration create_tag_video_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tag_video&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Laravel tiene una dependencia que nos va a venir que ni pintada para gestionar nuestras suscripciones, se llama Cashier y se encargará de hacernos la vida más fácil a la hora de gestionar las suscripciones. Instalemos esta dependencia antes de continuar:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;composer require laravel/cashier:&lt;span class=&quot;s2&quot;&gt;&amp;quot;~6.0&amp;quot;&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Nótese que al ejecutar ese comando Laravel nos bajará la dependencia y la guardará en la carpeta &lt;em&gt;vendor/&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nótese que al ejecutar ese comando Composer nos bajará la dependencia y la guardará en la carpeta &lt;code&gt;vendor/&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;También es necesario añadir la siguiente línea al final del array &lt;em&gt;providers&lt;/em&gt; del fichero &lt;em&gt;config/app.php&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;También es necesario añadir la siguiente línea al final del array &lt;em&gt;providers&lt;/em&gt; del fichero &lt;code&gt;config/app.php&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Laravel\Cashier\CashierServiceProvider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma muy pro de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un namespace y de asociar al comando publish la publicación o copia de ciertos ficheros que nos acabamos de bajar, desde el directorio vendor/ a cualquier otro direcotorio, en este caso de vendor/ a resources/views/ . ¿Por qué no lo comprobamos? Escribe el siguiente comando:&lt;/p&gt;
+&lt;p&gt;A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma muy pro de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un nuevo namespace (con nuevas clases) y de asociar al comando publish la publicación o copia de ciertos ficheros que nos acabamos de bajar, desde el directorio &lt;code&gt;vendor/&lt;/code&gt; a cualquier otro direcotorio, en este caso de &lt;code&gt;vendor/&lt;/code&gt; a &lt;code&gt;resources/views/&lt;/code&gt;. ¿Por qué no lo comprobamos? Escribe el siguiente comando:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;php artisan vendor:publish&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;¿Ves cómo se han copiado ciertos ficheros de vendor/ a resources/views/ ? Pues eso. Más adelante ya hablaremos de qué va eso de las views, don’t you worry.&lt;/p&gt;
+&lt;p&gt;¿Ves cómo se han copiado ciertos ficheros de &lt;code&gt;vendor/&lt;/code&gt; a &lt;code&gt;resources/views/&lt;/code&gt;? Más adelante ya hablaremos de qué va eso de las &lt;strong&gt;views&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Ahora, tal como indica la documentación oficial de &lt;a href=&quot;https://laravel.com/docs/5.2/billing&quot; target=&quot;_blank&quot;&gt;Cashier&lt;/a&gt;, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar &lt;em&gt;users&lt;/em&gt; y crear &lt;em&gt;subscriptions&lt;/em&gt;, son:&lt;/p&gt;
 
@@ -700,7 +704,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;php artisan make:migration create_subscriptions_table --create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;subscriptions&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Utilízalos. Si todo está en orden deberíamos tener ahora nueve migrations en nuestra carpeta database/migrations/ . Si no es así, asegúrate de haber seguido todos los pasos que hemos descrito hasta ahora.&lt;/p&gt;
+&lt;p&gt;Si todo está en orden deberíamos tener ahora nueve migrations en nuestra carpeta &lt;code&gt;database/migrations/&lt;/code&gt;. Si no es así, asegúrate de haber seguido todos los pasos que hemos descrito hasta ahora.&lt;/p&gt;
 
 &lt;p&gt;Ahora es necesario que rellenemos cada migration que hemos creado con las columnas que deseamos agregar o modificar en cada tabla. Echemos un vistazo a la migration para crear la tabla tags. Si te fijas, el comando que escribimos anteriormente no sólo ha creado el fichero de migration, sino que también le ha escrito las funciones necesarias para crear una tabla con las columnas id y las columnas updated_at y created_at (timestamps).&lt;/p&gt;
 
@@ -755,7 +759,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/span&gt;    &lt;span class=&quot;nv&quot;&gt;$table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;timestamps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Ahora completemos las migrations para las tablas que relacionan girls con videos y tags con videos. A estas tablas normalmente se les llama de algún modo especial: asociativas, de cross-reference, junction, de enlace… Llámalas como tú quieras, la cuestión es que su función es resolver una relación many-to-many. Estas migrations deberían quedarnos de la siguiente manera:&lt;/p&gt;
+&lt;p&gt;Ahora completemos las migrations para las tablas que relacionan girls con videos y tags con videos. A estas tablas normalmente se les llama de algún modo especial: asociativas, de cross-reference, junction, de enlace… Llámalas como tú quieras, en cualquier caso su función es resolver una relación many-to-many. Estas migrations deberían quedarnos de la siguiente manera:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Schema&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;girl_video&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nv&quot;&gt;$table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;increments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -810,11 +814,11 @@ php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the
 
 &lt;h2 id=&quot;creacin-de-models&quot;&gt;Creación de models&lt;/h2&gt;
 
-&lt;p&gt;Si has llegado hasta aquí es que ya tienes tu base de datos lista. Si es la primera vez que usas Laravel ¡te felicito! Ahora eso de las migrations ya no te asusta tanto, ¿a que no? Pues lo mismo te va a pasar con esto de los models. De hecho, si estás familiarizado con las Clases de cualquier lenguaje orientado a objetos, esto de los modelos te resultará más familiar que las migrations.&lt;/p&gt;
+&lt;p&gt;Si has llegado hasta aquí es que ya tienes tu base de datos lista. Si es la primera vez que usas Laravel ¡te felicito! Ahora eso de las migrations ya no te asusta tanto, ¿a que no? Pues lo mismo te va a pasar con esto de los models. De hecho, si estás familiarizado con las Clases de cualquier lenguaje orientado a objetos (Java, PHP…), esto de los modelos te resultará más familiar que las migrations.&lt;/p&gt;
 
 &lt;p&gt;En términos técnicos un Model no es más que una clase que extiende la clase &lt;strong&gt;Model&lt;/strong&gt;, que es una clase que implementa un montonazo de métodos que son la mar de útiles. Ya lo iremos viendo. Si no sabes de OOP ignora lo que acabo de decir y presta atención a estas palabras: en términos prácticos, un Model no es más que una forma de representar en el código de nuestra aplicación las tablas que hemos creado anteriormente, así como las relaciones que existen entre ellas. ¿Te he aclarado algo? Si no es así, no te preocupes. Practicando es como verdaderamente se aprende, así que vamos allá:&lt;/p&gt;
 
-&lt;p&gt;Salgamos de la carpeta database y vayamos ahora a la carpeta app/. Como ya dije al principio del post, esta carpeta es la leche de importante para el back end developer. Fíjate que en la raíz de la carpeta app/ encontrarás el fichero User.php . ¡Este fichero resulta que es un model! Si lo abres, sin embargo, verás que se trata de una clase que extiende la clase Authenticatable y no la clase Model. ¡Qué malo eres, Mitxel, tratando de engañarme! Bueno, en realidad es que la clase Authenticable extiende, a su vez, la clase Model y de ahí el engaño aparente.&lt;/p&gt;
+&lt;p&gt;Salgamos de la carpeta database y vayamos ahora a la carpeta app/. Como ya dije al principio del post, esta carpeta es la leche de importante para el back end developer. Fíjate que en la raíz de la carpeta app/ encontrarás el fichero User.php . ¡Este fichero resulta que es un model! Si lo abres, verás que se trata de una clase que extiende la clase Authenticatable, que a su vez extiende la clase Model.&lt;/p&gt;
 
 &lt;p&gt;Pues nada, vamos a crear nuestros modelos. En concreto, vamos a crear los siguientes modelos:&lt;/p&gt;
 
@@ -826,7 +830,7 @@ php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the
 
 &lt;p&gt;Además, realizaremos ciertas modificaciones al modelo User.php ya existente.&lt;/p&gt;
 
-&lt;p&gt;Pero antes… vamos a instalar otra dependencia. ¡Ya tenemos experiencia de antes con Cashier! Esta vez instalaremos la dependencia Sluggable, que básicamente nos permite crear slugs únicos, de forma automática, a partir de cualquier campo existente en cualquier tabla. ¿Recuerdas que en nuestras tablas creamos aquellas columnas slug? Pues ahora ya sabes para qué servirán. Ejecuta el siguiente comando:&lt;/p&gt;
+&lt;p&gt;Pero antes… vamos a instalar otra dependencia. ¡Ya tenemos experiencia de antes con Cashier! Esta vez instalaremos la dependencia Sluggable, que básicamente nos permite crear slugs de forma automática, a partir de cualquier campo existente en cualquier tabla. Un slug es algo así como un identificador sin caracteres raros, que podemos usar sin problemas como parte de una URL. ¿Recuerdas que en nuestras tablas creamos aquellas columnas slug? Pues ahora ya sabes para qué servirán. Ejecuta el siguiente comando:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;composer require cviebrock/eloquent-sluggable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -1389,7 +1393,7 @@ php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the
 
 &lt;/div&gt;
 
-&lt;p&gt;Presta atención a eso de config(‘seeders.pornCategories’) . config() es una helper function (¿función ayudante? traducir términos técnicos es un cachondeo) de Laravel que nos permite acceder a los valores que hay en los ficheros de la carpeta config/ . Por ejemplo, nosotros acabamos de acceder a la lista de categorías de vídeos que teníamos en seeders.php .&lt;/p&gt;
+&lt;p&gt;Presta atención a eso de config(‘seeders.pornCategories’) . config() es una helper function (¿función ayudante?) de Laravel que nos permite acceder a los valores que hay en los ficheros de la carpeta config/ . Por ejemplo, nosotros acabamos de acceder a la lista de categorías de vídeos que teníamos en seeders.php .&lt;/p&gt;
 
 &lt;p&gt;Fíjate en el resto del seeder. Nuestro nuevo seeder básicamente recorre el array con las categorías que hemos escrito en el fichero de configuración y, para cada una de ellas, ejecuta \App\Tag::create() .&lt;/p&gt;
 
@@ -1558,7 +1562,7 @@ php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the
 
 &lt;p&gt;Con el método pluck(‘columna’) obtendremos una Collection sólo con los datos de una de las columnas de la tabla, mientras que el método toArray() nos sirve para transformar una Collection en un array de toda la vida.&lt;/p&gt;
 
-&lt;p&gt;En Laravel una &lt;strong&gt;Collection&lt;/strong&gt; es una especie de “abrigo” para un array que nos permite, por ejemplo, concatenar métodos para manipular el array que contiene. Cuando usamos toArray() en una Collection básicamente estamos quitándole ese abrigo, transformando la Collection en un array normal y corriente.&lt;/p&gt;
+&lt;p&gt;Una &lt;strong&gt;Collection&lt;/strong&gt;, como su nombre indica, es una colección de elementos (normalmente representados por nuestros Models), técnicamente es una especie de “abrigo” para un array que nos permite, por ejemplo, concatenar métodos para manipular el array que contiene. Cuando usamos toArray() en una Collection básicamente estamos quitándole ese abrigo, transformando la Collection en un array normal y corriente.&lt;/p&gt;
 
 &lt;p&gt;El resto del código consiste en elegir entre uno y muchos ids de las tablas tags y girls y relacionarlos con los videos usando el método attach(), que es el método indicado para hacer asociaciones entre objetos con relación del tipo many to many.&lt;/p&gt;
 
@@ -1636,7 +1640,7 @@ php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the
 
 &lt;p&gt;La única diferencia significativa con respecto a los seeders anteriores es que en el seeder para la tabla subscriptions no hemos utilizado ningún modelo \App\Subscription para manipular la base de datos, sencillamente porque no existe ningún modelo Subscripcion. En su lugar hemos utilizado la Facade DB, que nos permite ejecutar queries a nuestra base de datos sin necesidad de ningún modelo de por medio.&lt;/p&gt;
 
-&lt;p&gt;Una &lt;strong&gt;Facade&lt;/strong&gt; no es más que una forma de acceder a ciertas clases y a su respectiva familia de métodos sin dar muchas vueltas. Si echas un vistazo a config/app.php verás, abajo del todo, toda una lista de Facades a las que puedes acceder desde cualquier punto de tu código con tan sólo escribir el “alias” de la Facade.&lt;/p&gt;
+&lt;p&gt;Una &lt;strong&gt;Facade&lt;/strong&gt; no es más que una forma de acceder a ciertas clases y a su respectiva familia de métodos sin dar muchas vueltas. Si echas un vistazo a config/app.php verás, abajo del todo, toda una lista de Facades a las que puedes acceder desde cualquier punto de tu código con tan sólo escribir el “alias” o nombre de la Facade.&lt;/p&gt;
 
 &lt;p&gt;Para terminar de una vez por todas con nuestros seeders vamos a asegurarnos de que se ejecutarán todos una vez que escribamos el comando seed. Para ello tenemos que editar aquel fichero DatabaseSeeder.php que encontramos inicialmente en nuestra carpeta database/seeder/ , ¿lo recuerdas?&lt;/p&gt;
 
