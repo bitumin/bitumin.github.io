@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Nov 2016 21:21:17 +0100</pubDate>
-    <lastBuildDate>Tue, 29 Nov 2016 21:21:17 +0100</lastBuildDate>
+    <pubDate>Tue, 29 Nov 2016 21:43:13 +0100</pubDate>
+    <lastBuildDate>Tue, 29 Nov 2016 21:43:13 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -27,7 +27,7 @@ nosotros entrenamos a la computadora de una familia de inputs y outputs y luego 
 a predecir cuál será el output para cualquier input arbitrario.&lt;/p&gt;
 
 &lt;p&gt;Como en cualquier otro sistema de aprendizaje supervisado, proveemos a la computadora 
-de la función de entrenamiento, es decir, la función que ejecutada reitaradamente sobre cada input y output
+de la función de entrenamiento, es decir, la función cuya ejecución 
 nos permite ir ajustando/mejorando el sistema predictivo.&lt;/p&gt;
 
 &lt;h2 id=&quot;regresin-lineal-con-una-sola-familia-de-inputs-o-regresin-lineal-unidimensional-o-mnimos-cuadrados-ordinarios-o-regresin-lineal-de-toda-la-vida&quot;&gt;Regresión lineal con una sola familia de inputs o regresión lineal unidimensional o mínimos cuadrados ordinarios o regresión lineal de toda la vida&lt;/h2&gt;
@@ -213,9 +213,10 @@ A primera vista del gráfico, no parece descabellado pensar que existe una fuert
 los &lt;code&gt;metros cuadrados habitables&lt;/code&gt; y el &lt;code&gt;precio&lt;/code&gt;. Dicho de otro modo, si nos pidieran que predijéramos un &lt;code&gt;precio&lt;/code&gt; 
 para una vivienda de 50 metros cuadrados, seguramente lo situaríamos, a ojo, alrededor de los 150.000 €, 
 ya que nuestro magnífico cerebro intuye que existe un patrón lineal, una recta imaginaria, que se ajusta a la nube 
-de puntos y que, aparentemente, predice con un margen de error aceptable el precio en función de los metros.&lt;/p&gt;
+de puntos y que, aparentemente, predice con un margen de error aceptable el precio en función de los metros.
+Nuestro objetivo es, por tanto, calcular esa recta imaginaria que mejor se ajusta a la nube de puntos.&lt;/p&gt;
 
-&lt;p&gt;Nuestro objetivo es calcular la recta que mejor se ajusta a la nube de puntos. Si los puntos de nuestra serie de datos
+&lt;p&gt;Si los puntos de nuestra serie de datos
 se ajustasen perfectamente a una recta imaginaria, la distancia entre cada punto y dicha recta sería nula. Puesto que
 no se ajustará perfectamente, veremos que existe cierta distancia entre cada punto del gráfico y dicha recta imaginaria. 
 Así pues, una forma matemática de expresar “la recta que mejor se ajusta a la nube de puntos” podría ser: 
@@ -254,7 +255,7 @@ distancias ortogonales).&lt;/p&gt;
 &lt;p&gt;Empecemos con las mates:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Sea una serie de inputs de entrada $x_i$&lt;/li&gt;
-  &lt;li&gt;Sea una serie de inputs de salida $y_i$&lt;/li&gt;
+  &lt;li&gt;Sea una serie de outputs de salida $y_i$&lt;/li&gt;
   &lt;li&gt;Y sea una recta arbitraria definida como $y=\alpha+\beta x$&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -401,7 +402,7 @@ print &quot;prize prediction for 50 m2 =&quot;, slr.predict(50)   # prize predic
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Ya podemos plotear nuestra línea de mejor ajuste y hacer predicciones en función de cualquier input
-de metros cuadrados habitables arbitrario:&lt;/p&gt;
+de metros cuadrados habitables:&lt;/p&gt;
 
 &lt;div id=&quot;linearregression&quot; class=&quot;jxgbox&quot; style=&quot;width:400px; height:400px;&quot;&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;

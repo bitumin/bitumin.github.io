@@ -102,7 +102,7 @@ nosotros entrenamos a la computadora de una familia de inputs y outputs y luego 
 a predecir cuál será el output para cualquier input arbitrario.</p>
 
 <p>Como en cualquier otro sistema de aprendizaje supervisado, proveemos a la computadora 
-de la función de entrenamiento, es decir, la función que ejecutada reitaradamente sobre cada input y output
+de la función de entrenamiento, es decir, la función cuya ejecución 
 nos permite ir ajustando/mejorando el sistema predictivo.</p>
 
 <h2 id="regresin-lineal-con-una-sola-familia-de-inputs-o-regresin-lineal-unidimensional-o-mnimos-cuadrados-ordinarios-o-regresin-lineal-de-toda-la-vida">Regresión lineal con una sola familia de inputs o regresión lineal unidimensional o mínimos cuadrados ordinarios o regresión lineal de toda la vida</h2>
@@ -288,9 +288,10 @@ A primera vista del gráfico, no parece descabellado pensar que existe una fuert
 los <code>metros cuadrados habitables</code> y el <code>precio</code>. Dicho de otro modo, si nos pidieran que predijéramos un <code>precio</code> 
 para una vivienda de 50 metros cuadrados, seguramente lo situaríamos, a ojo, alrededor de los 150.000 €, 
 ya que nuestro magnífico cerebro intuye que existe un patrón lineal, una recta imaginaria, que se ajusta a la nube 
-de puntos y que, aparentemente, predice con un margen de error aceptable el precio en función de los metros.</p>
+de puntos y que, aparentemente, predice con un margen de error aceptable el precio en función de los metros.
+Nuestro objetivo es, por tanto, calcular esa recta imaginaria que mejor se ajusta a la nube de puntos.</p>
 
-<p>Nuestro objetivo es calcular la recta que mejor se ajusta a la nube de puntos. Si los puntos de nuestra serie de datos
+<p>Si los puntos de nuestra serie de datos
 se ajustasen perfectamente a una recta imaginaria, la distancia entre cada punto y dicha recta sería nula. Puesto que
 no se ajustará perfectamente, veremos que existe cierta distancia entre cada punto del gráfico y dicha recta imaginaria. 
 Así pues, una forma matemática de expresar “la recta que mejor se ajusta a la nube de puntos” podría ser: 
@@ -329,7 +330,7 @@ distancias ortogonales).</p>
 <p>Empecemos con las mates:</p>
 <ul>
   <li>Sea una serie de inputs de entrada $x_i$</li>
-  <li>Sea una serie de inputs de salida $y_i$</li>
+  <li>Sea una serie de outputs de salida $y_i$</li>
   <li>Y sea una recta arbitraria definida como $y=\alpha+\beta x$</li>
 </ul>
 
@@ -476,7 +477,7 @@ print "prize prediction for 50 m2 =", slr.predict(50)   # prize prediction for 5
 </code></pre>
 
 <p>Ya podemos plotear nuestra línea de mejor ajuste y hacer predicciones en función de cualquier input
-de metros cuadrados habitables arbitrario:</p>
+de metros cuadrados habitables:</p>
 
 <div id="linearregression" class="jxgbox" style="width:400px; height:400px;"></div>
 <script type="text/javascript">
