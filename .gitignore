@@ -90,7 +90,7 @@ Temporary Items
 /out/
 
 # mpeltonen/sbt-idea plugin
-.idea_modules/
+.idea
 
 # JIRA plugin
 atlassian-ide-plugin.xml
@@ -105,4 +105,3 @@ fabric.properties
 _site/
 .sass-cache/
 .jekyll-metadata
-

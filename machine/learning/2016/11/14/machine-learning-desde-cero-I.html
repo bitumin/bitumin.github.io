@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learning machine learning">
+
+  <title>Machine learning desde cero (I)</title>
+
+  
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  
+
+  
+  <link href="//jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="//jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  
+
+  <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mitxelmoriana.com/machine/learning/2016/11/14/machine-learning-desde-cero-I.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+    <body>
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-71923540-1', 'auto');
+    ga('send', 'pageview');
+</script>
+        <!--Sharing buttons JS-->
+<!--Facebook--><div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=184462238579593";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+<!--Twitter--><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--Linkedin--><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: es_ES</script>
+<!--Google+--><!--<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>-->
+        <header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">MitxelMoriana</a>
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/about/">Sobre mí</a>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+        <div class="page-content">
+            <div class="wrapper">
+                <div id="sharing-btns-wrapper">
+    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/machine/learning/2016/11/14/machine-learning-desde-cero-I.html" data-layout="button"></div>
+    <!--Twitter--><a href="https://twitter.com/share" class="twitter-share-button" data-lang="es"></a>
+    <!--Linkedin--><script type="IN/Share"></script>
+    <!--Google+--><!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
+</div>
+                <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div id="header-image-wrapper">
+        <div id="header-image" style="background-image: url('/headers/machine-learning-1.jpg');"></div>
+    </div>
+    
+    <header class="post-header wrapper">
+        <h1 class="post-title" itemprop="name headline">
+            Machine learning desde cero (I)
+            
+            <br><span class="post-subtitle">Regresión lineal unidimensional</span>
+            
+        </h1>
+        <p class="post-meta"><time datetime="2016-11-14T00:00:00+01:00" itemprop="datePublished">Nov 14, 2016</time></p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="learning-machine-learning">Learning machine learning</h2>
+
+<p>Como yo tengo memoria de pez y un blog de tecnología he decidido ir subiendo los apuntes que voy tomando sobre
+los temas de machine learning sobre los que voy leyendo, junto con los desarrollos matemáticos que a mí me parecen 
+esenciales para la comprensión de cada tema.</p>
+
+<p>Pues nada, dejo por aquí mis apuntes sobre la regresión lineal.</p>
+
+<h2 id="la-regresin-como-prediccin">La regresión como predicción</h2>
+
+<p>Desde el punto de vista del machine learning, la regresión lineal es una forma de aprendizaje supervisado:
+nosotros entrenamos a la computadora de una familia de inputs y outputs y luego la invitamos
+a predecir cuál será el output para cualquier input arbitrario.</p>
+
+<p>Como en cualquier otro sistema de aprendizaje supervisado, proveemos a la computadora 
+de la función de entrenamiento, es decir, la función que ejecutada reitaradamente sobre cada input y output
+nos permite ir ajustando/mejorando el sistema predictivo.</p>
+
+<h2 id="regresin-lineal-con-una-sola-familia-de-inputs-o-regresin-lineal-unidimensional-o-mnimos-cuadrados-ordinarios-o-regresin-lineal-de-toda-la-vida">Regresión lineal con una sola familia de inputs o regresión lineal unidimensional o mínimos cuadrados ordinarios o regresión lineal de toda la vida</h2>
+
+<p>Cuando tenemos una sola familia de inputs (datos de entrada o variable predictora) asociada a una sola familia de outputs 
+(datos de salida o variable respuesta)
+es fácil ver que la regresión lineal consistirá en una recta. La mejor forma de “fácil verlo” es, por supuesto, mediante un ejemplo:</p>
+
+<p>Supongamos que tenemos una serie de datos, por ejemplo <code>metros cuadrados habitables</code> de una lista de viviendas. 
+Supongamos también que disponemos de los <code>precios</code> de cada una de las viviendas y que queremos realizar predicciones del 
+<code>precio</code> basándonos en nuestros datos sobre los <code>metros cuadrados habitables</code>.</p>
+
+<p>Nuestro input serán los <code>metros cuadrados habitables</code> y nuestro output o variable que queremos predecir será, 
+por tanto, el <code>precio</code> de la vivienda.</p>
+
+<p>A modo de ejemplo, dejo por aquí una tabla con nuestro input y output de ejemplo:</p>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th style="text-align: center">$m^2$ habitables</th>
+      <th style="text-align: center">precio (€)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">92,7</td>
+      <td style="text-align: center">259000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">139,4</td>
+      <td style="text-align: center">295000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">109,2</td>
+      <td style="text-align: center">279000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">114,5</td>
+      <td style="text-align: center">259000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">104,1</td>
+      <td style="text-align: center">299000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">91,8</td>
+      <td style="text-align: center">299000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">115,2</td>
+      <td style="text-align: center">309000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">139,4</td>
+      <td style="text-align: center">289000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">317,7</td>
+      <td style="text-align: center">849000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">278,7</td>
+      <td style="text-align: center">829000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">113,8</td>
+      <td style="text-align: center">359000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">144,2</td>
+      <td style="text-align: center">315000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">90,6</td>
+      <td style="text-align: center">310000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">104,1</td>
+      <td style="text-align: center">309000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">94,8</td>
+      <td style="text-align: center">300000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">139,4</td>
+      <td style="text-align: center">289000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">154,6</td>
+      <td style="text-align: center">369000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">138,2</td>
+      <td style="text-align: center">419000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">127,8</td>
+      <td style="text-align: center">405000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">139,4</td>
+      <td style="text-align: center">439000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">116,7</td>
+      <td style="text-align: center">375000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">157,0</td>
+      <td style="text-align: center">379000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">169,1</td>
+      <td style="text-align: center">445000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">153,5</td>
+      <td style="text-align: center">379000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">165,1</td>
+      <td style="text-align: center">389000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">139,7</td>
+      <td style="text-align: center">369000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">170,1</td>
+      <td style="text-align: center">458000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">111,5</td>
+      <td style="text-align: center">410000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si ploteamos sobre ejes cartesianos nuestra magnífica tabla de ejemplo veremos algo parecido a lo siguiente:</p>
+
+<div id="pointscloud" class="jxgbox" style="width:400px; height:400px;"></div>
+<script type="text/javascript">
+var data = {
+    "92.7": 259000,
+    "139.4": 295000,
+    "109.2": 279000,
+    "114.5": 259000,
+    "104.1": 299000,
+    "91.8": 299000,
+    "115.2": 309000,
+    "139.4": 289000,
+    "317.7": 849000,
+    "278.7": 829000,
+    "113.8": 359000,
+    "144.2": 315000,
+    "90.6": 310000,
+    "104.1": 309000,
+    "94.8": 300000,
+    "139.4": 289000,
+    "154.6": 369000,
+    "138.2": 419000,
+    "127.8": 405000,
+    "139.4": 439000,
+    "116.7": 375000,
+    "157.0": 379000,
+    "169.1": 445000,
+    "153.5": 379000,
+    "165.1": 389000,
+    "139.7": 369000,
+    "170.1": 458000,
+    "111.5": 410000
+};
+var board = JXG.JSXGraph.initBoard('pointscloud', {boundingbox:[-25,1000000,350,-100000], axis:true, showCopyright:false, showNavigation:false });
+_.each(data, function (price, sqmeters) {
+    board.create('point', [parseFloat(sqmeters), price], {face:'o', withLabel:false});
+});
+</script>
+
+<p><br />
+A primera vista del gráfico, no parece descabellado pensar que existe una fuerte correlación positiva lineal entre 
+los <code>metros cuadrados habitables</code> y el <code>precio</code>. Dicho de otro modo, si nos pidieran que predijéramos un <code>precio</code> 
+para una vivienda de 50 metros cuadrados, seguramente lo situaríamos, a ojo, alrededor de los 150.000 €, 
+ya que nuestro magnífico cerebro intuye que existe un patrón lineal, una recta imaginaria, que se ajusta a la nube 
+de puntos y que, aparentemente, predice con un margen de error aceptable el precio en función de los metros.</p>
+
+<p>Nuestro objetivo es calcular la recta que mejor se ajusta a la nube de puntos. Si los puntos de nuestra serie de datos
+se ajustasen perfectamente a una recta imaginaria, la distancia entre cada punto y dicha recta sería nula. Puesto que
+no se ajustará perfectamente, veremos que existe cierta distancia entre cada punto del gráfico y dicha recta imaginaria. 
+Así pues, una forma matemática de expresar “la recta que mejor se ajusta a la nube de puntos” podría ser: 
+“aquella recta que minimiza el sumatorio de distancias entre la recta imaginaria y cada uno de los puntos”.</p>
+
+<p>El lector avispado ahora se preguntará: ¿qué distancia puntos-recta tomaremos? ¿la distancia recta-puntos horizontal? 
+¿la distancia recta-puntos vertical o la distancia al punto perpendicular a la recta (mínima distancia punto-recta)?</p>
+
+<div id="verticaldistances" class="jxgbox" style="width:400px; height:400px;"></div>
+<script type="text/javascript">
+var board2 = JXG.JSXGraph.initBoard('verticaldistances', {boundingbox:[-1,5,5,-1], axis:true, showCopyright:false, showNavigation:false});
+board2.create('text',[1, 4.5, 'DISTANCIAS PUNTOS-RECTA']);
+board2.create('line', [[-2,-2], [11,11]]);
+
+board2.create('point', [0.5, 1.5], {face:'o', withLabel:false});
+board2.create('line', [[0.5, 1.5], [1.5, 1.5]], {straightFirst: false, straightLast: false, strokeColor:'#ff0000', withLabel: true, name:'horizontal'});
+
+board2.create('point', [2, 3], {face:'o', withLabel:false});
+board2.create('line', [[2, 3], [2, 2]], {straightFirst: false, straightLast: false, strokeColor:'#00ff00', withLabel: true, name:'vertical'});
+
+board2.create('point', [4, 2.5], {face:'o', withLabel:false});
+board2.create('line', [[4, 2.5], [3.25, 3.25]], {straightFirst: false, straightLast: false, strokeColor:'#ff0000', withLabel: true, name:'perpendicular'});
+</script>
+
+<p><br />
+En la regresión lineal ordinaria se toman las distancias verticales. Primeramente porque nuestro objetivo es predecir el valor
+de la vertical (el precio, en el ejemplo) y su ajuste con respecto a la recta (la predicción) y en segundo lugar porque la 
+posición horizontal de cada punto es de sobras conocida en cada caso, no introduce ningún posible error y, por tanto, no 
+tiene mucho sentido ponderarla (y, de paso, complicar los cálculos).</p>
+
+<p>Existen modelos distintos a la regresión lineal ordinaria en los que tiene sentido tomar las distancias perpendiculares:
+modelos basados en datos aproximados que introducen posibles errores en las dos direcciones, modelos no lineales, etc.
+(la <a href="https://en.wikipedia.org/wiki/Deming_regression">regresión de Deming</a> es un ejemplo de ajuste lineal tomando las
+distancias ortogonales).</p>
+
+<p>Empecemos con las mates:</p>
+<ul>
+  <li>Sea una serie de inputs de entrada $x_i$</li>
+  <li>Sea una serie de inputs de salida $y_i$</li>
+  <li>Y sea una recta arbitraria definida como $y=\alpha+\beta x$</li>
+</ul>
+
+<p>Para cada punto del plano definido como $(x_i, y_i)$, la distancia vertical $\epsilon_i$ del punto a la recta será:</p>
+
+<script type="math/tex; mode=display">\epsilon_i = y_i - (\alpha+\beta x_i)</script>
+
+<p>Como queremos minimizar la distancia de todos los puntos con respecto a la recta, una buena primera idea sería tratar
+ de minimizar el sumatorio de los puntos:</p>
+
+<script type="math/tex; mode=display">\sum\epsilon_i = \sum(y_i - (\alpha+\beta x_i))</script>
+
+<p>Sin embargo, hay que tener en cuenta que algunos puntos caerán por encima de la recta (distancia positiva) y otros puntos
+caerán por debajo de la recta (distancia negativa), con lo cual la suma total tendrá un resultado distorsionado
+de cara a valorar el ajuste de la recta a la nube de puntos.</p>
+
+<p>Existen dos formas habituales de resolver este problemilla: hacer el sumatorio de valores absolutos de las distancias o
+hacer el sumatorio de cuadrados de la distancia. Las dos opciones son viables pero, como ya hicimos antes,
+optaremos por la opción que se comporta mejor analítica y algebraicamente que, en este caso, será el 
+cuadrado de las distancias (para los curiosos, aquí hay información sobre el modelo de 
+<a href="https://en.wikipedia.org/wiki/Least_absolute_deviations">mínimas desviaciones absolutas</a>).</p>
+
+<p>La desventaja de utilizar el cuadrado de las distancias en lugar del valor absoluto
+es que sobrevaloraremos aquellos puntos que estén muy desviados respecto a la recta. De hecho, existen 
+modelos de ajuste lineal más refinados que, por ejemplo, tratan de compensar la desviación ocasionada por el uso
+del cuadrado mediante la adición de sumandos “compensadores” o “regularizadores” (más info sobre el tema en
+<a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Tikhonov regularization</a>).</p>
+
+<p>Nosotros, por ahora, nos conformaremos con el modelo ordinario y, por tanto, intentaremos minimizar la expresión:</p>
+
+<script type="math/tex; mode=display">\sum\epsilon_i^2 = \sum[y_i - (\alpha+\beta x_i)]^2</script>
+
+<p>Minimizar esta función matemática equivale a encontrar los valores $\alpha$ y $\beta$ para los cuales el resultado
+del sumatorio de distancias al cuadrado es menor. Nótese que $\alpha$ y $\beta$ son, precisamente, las variables
+que definen nuestra recta mejor ajustada.</p>
+
+<p>Como se trata de encontrar el mínimo de una función de dos variables, debemos realizar la derivada parcial de
+las distancias al cuadrado en función de cada una de las variables, igualar a cero y buscarnos la vida para 
+despejar $\alpha$ y $\beta$ a partir de las dos expresiones resultantes.</p>
+
+<p>Vayamos al lío. Derivando respecto a $\alpha$:</p>
+
+<script type="math/tex; mode=display">\dfrac{\partial (\sum\epsilon_i^2)}{\partial \alpha} = -2 \sum[y_i - (\alpha+\beta x_i)] = 0</script>
+
+<p>Ordenando un poquito los términos obtenemos:</p>
+
+<script type="math/tex; mode=display">\sum y_i - \sum \alpha - \sum x_i \beta = 0</script>
+
+<script type="math/tex; mode=display">n \alpha + \sum x_i \beta = \sum y_i \tag{1}</script>
+
+<p>Análogamente, realizando la derivada parcial respecto a $\beta$:</p>
+
+<script type="math/tex; mode=display">\dfrac{\partial (\sum\epsilon_i^2)}{\partial \beta} = -2\sum[x_i(y_i - (\alpha+\beta x_i))] = 0</script>
+
+<p>Y ordenando los términos:</p>
+
+<script type="math/tex; mode=display">\sum x_i y_i - \sum x_i \alpha - \sum x_i^2 \beta = 0</script>
+
+<script type="math/tex; mode=display">\sum x_i \alpha + \sum x_i^2 \beta = \sum x_i y_i \tag{2}</script>
+
+<p>Si ahora expresamos matricialmente el sistema de dos ecuaciones lineales (1) y (2), podemos despejar $\alpha$ y $\beta$
+con operaciones matriciales muy sencillas:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{bmatrix} n & \sum x_i \\ \sum x_i & \sum x_i^2 \end{bmatrix} 
+\begin{bmatrix} \alpha \\ \beta \end{bmatrix} =
+\begin{bmatrix} \sum y_i \\ \sum x_i y_i \end{bmatrix} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{bmatrix} \alpha \\ \beta \end{bmatrix} =
+\begin{bmatrix} n & \sum x_i \\ \sum x_i & \sum x_i^2 \end{bmatrix}^{-1}
+\begin{bmatrix} \sum y_i \\ \sum x_i y_i \end{bmatrix}
+\tag{3} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{bmatrix} \alpha \\ \beta \end{bmatrix} =
+\frac{1}{n \sum x_i^2 - (\sum x_i)^2 } \begin{bmatrix} \sum x_i^2 & -\sum x_i \\ -\sum x_i & n \end{bmatrix}
+\begin{bmatrix} \sum y_i \\ \sum x_i y_i \end{bmatrix} %]]></script>
+
+<script type="math/tex; mode=display">\begin{bmatrix} \alpha \\ \beta \end{bmatrix} =
+\frac{1}{n \sum x_i^2 - (\sum x_i)^2 } 
+\begin{bmatrix} 
+\sum x_i^2 \sum y_i - \sum x_i \sum x_i y_i \\
+-\sum x_i \sum y_i + n \sum x_i y_i
+\end{bmatrix}</script>
+
+<script type="math/tex; mode=display">\alpha = \frac{\sum x_i^2 \sum y_i - \sum x_i \sum x_i y_i}{n \sum x_i^2 - (\sum x_i)^2 } \tag{4}</script>
+
+<script type="math/tex; mode=display">\beta = \frac{-\sum x_i \sum y_i + n \sum x_i y_i}{n \sum x_i^2 - (\sum x_i)^2 } \tag{5}</script>
+
+<p>Aunque las operaciones (4) y (5) parecen auténticos mastodontes a primera vista, 
+se pueden simplificar enormemente si les aplicamos las definiciones de <a href="https://es.wikipedia.org/wiki/Media_aritm%C3%A9tica">promedio</a>, 
+<a href="https://es.wikipedia.org/wiki/Varianza">varianza</a> y <a href="https://en.wikipedia.org/wiki/Covariance">covarianza</a> y expresamos $\alpha$ en función de $\beta$:</p>
+
+<script type="math/tex; mode=display">\beta = \frac{ss_{xy}}{ss_{xx} ss_{yy}}</script>
+
+<script type="math/tex; mode=display">\alpha = \bar{y} - \beta \bar{x}</script>
+
+<p>Nuestro objetivo, sin embargo, no es tanto expresar elegantemente nuestro modelo como computarlo eficientemente. Para 
+ello utilizaremos una magnífica librería para python llamada numpy, ideal para mates discretas y computación científica
+en general.</p>
+
+<pre><code>import numpy as np
+
+
+class SimpleLinearRegression(object):
+    def __init__(self):
+        self.w = np.zeros(2)
+
+    def train(self, x_data, y_data):
+        n = len(x_data)
+        sum_x = np.sum(x_data)
+        sum_x_squared = np.sum(np.power(x_data, 2))
+        sum_y = np.sum(y_data)
+        sum_xy = np.sum(x_data.dot(y_data))
+
+        a = np.array([[n, sum_x], [sum_x, sum_x_squared]])
+        b = np.transpose([sum_y, sum_xy])
+
+        self.w = np.linalg.inv(a).dot(b)
+
+    def predict(self, x):
+        return np.array([1, x]).dot(self.w)
+
+    def print_alpha(self):
+        return self.w[0]
+
+    def print_beta(self):
+        return self.w[1]
+
+
+X = np.array([92.7, 139.4, 109.2, 114.5, 104.1, 91.8, 115.2, 139.4, 317.7, 278.7, 113.8, 144.2, 90.6, 104.1, 94.8,
+              139.4, 154.6, 138.2, 127.8, 139.4, 116.7, 157.0, 169.1, 153.5, 165.1, 139.7, 170.1, 111.5])
+Y = np.array([259000, 295000, 279000, 259000, 299000, 299000, 309000, 289000, 849000, 829000, 359000, 315000, 310000,
+              309000, 300000, 289000, 369000, 419000, 405000, 439000, 375000, 379000, 445000, 379000, 389000, 369000,
+              458000, 410000])
+
+slr = SimpleLinearRegression()
+slr.train(X, Y)
+
+print "intercept (alpha) =", slr.print_alpha()  # intercept (alpha) = 21502.4801962
+print "slope (beta) =", slr.print_beta()    # slope (beta) = 2563.87624406
+print "prize prediction for 50 m2 =", slr.predict(50)   # prize prediction for 50 m2 = 149696.292399
+</code></pre>
+
+<p>Ya podemos plotear nuestra línea de mejor ajuste y hacer predicciones en función de cualquier input
+de metros cuadrados habitables arbitrario:</p>
+
+<div id="linearregression" class="jxgbox" style="width:400px; height:400px;"></div>
+<script type="text/javascript">
+var board3 = JXG.JSXGraph.initBoard('linearregression', {boundingbox:[-25,1000000,350,-100000], axis:true, showCopyright:false, showNavigation:false });
+_.each(data, function (price, sqmeters) {
+    board3.create('point', [parseFloat(sqmeters), price], {face:'o', withLabel:false});
+});
+board3.create('line', [[0, 21502.4801962], [50, 149696.292399]]);
+</script>
+
+<p><br />
+Ahora bien, ¿y si quisiéramos hacer predicciones de los precios de
+las vivienda no sólo en función de los metros cuadrados sino también, por ejemplo, de su antiguedad en años?
+¿y si queremos agregar muchas más variables predictoras?</p>
+
+<p>En el próximo post trataré de explicar las mates que hay detrás de la generalización a múltiples dimensiones a través
+del ejemplo más sencillo posible: dos inputs predictores en lugar de uno y su generalización para n inputs. 
+Una vez entendida la aproximación al problema general, trataremos de computar la regresión lineal con un sencillo
+ script de python, que podremos “alimentar” con cualquier set de datos de entrada y salida.</p>
+
+<p><strong>Próximamente</strong></p>
+
+<p>Machine learning desde cero (II) - Regresión lineal multidimensional</p>
+
+    </div>
+</article>
+                
+<div id="disqus_thread"></div>
+<script>
+     var disqus_config = function () {
+         this.page.url = 'http://mitxelmoriana.com/machine/learning/2016/11/14/machine-learning-desde-cero-I.html';
+     };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//mitxelmoriana.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            </div>
+        </div>
+        <footer class="site-footer">
+    <div class="wrapper">
+        <h2 class="footer-heading">MitxelMoriana</h2>
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-alt-1">
+                <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
+                <br>
+                <ul class="social-media-list">
+                    
+                    <li>
+                        <a href="https://github.com/bitumin"><i class="fa fa-github-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://facebook.com/mitxel.moriana"><i class="fa fa-facebook-official"></i></a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/morianamitxel"><i class="fa fa-linkedin-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/mitxelmoriana"><i class="fa fa-twitter-square"></i></a>
+
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer-col footer-col-alt-2">
+                <p>Huola. Soy Mitxel, desarrollador, tecnófilo y blogger. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás mas que nada posts sobre tecnología y programación. ¡Espero que los encuentres instructivos, inspiradores e interesantes!
+</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+    </body>
+</html>
