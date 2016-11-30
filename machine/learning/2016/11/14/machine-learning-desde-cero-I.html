@@ -455,10 +455,10 @@ class SimpleLinearRegression(object):
     def predict(self, x):
         return np.array([1, x]).dot(self.w)
 
-    def print_alpha(self):
+    def get_intercept(self):
         return self.w[0]
 
-    def print_beta(self):
+    def get_slope(self):
         return self.w[1]
 
 
@@ -471,9 +471,9 @@ Y = np.array([259000, 295000, 279000, 259000, 299000, 299000, 309000, 289000, 84
 slr = SimpleLinearRegression()
 slr.train(X, Y)
 
-print "intercept (alpha) =", slr.print_alpha()  # intercept (alpha) = 21502.4801962
-print "slope (beta) =", slr.print_beta()    # slope (beta) = 2563.87624406
-print "price prediction for 50 m2 =", slr.predict(50)   # price prediction for 50 m2 = 149696.292399
+print "intercept (alpha) =", slr.get_intercept()  # intercept (alpha) = 21502.4801962
+print "slope (beta) =", slr.get_slope()  # slope (beta) = 2563.87624406
+print "price prediction for 50 m2 =", slr.predict(50)  # price prediction for 50 m2 = 149696.292399
 </code></pre>
 
 <p>Ya podemos plotear nuestra línea de mejor ajuste y hacer predicciones en función de cualquier input
