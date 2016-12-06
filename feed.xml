@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Dec 2016 21:35:19 +0100</pubDate>
-    <lastBuildDate>Tue, 06 Dec 2016 21:35:19 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 21:36:58 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 21:36:58 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -541,8 +541,8 @@ espartano y open source &lt;a href=&quot;https://cran.rstudio.com/&quot;&gt;R&lt
 la clasificación lineal y la regresión logística.&lt;/p&gt;
 </description>
         <pubDate>Thu, 01 Dec 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/machine%20learning/2016/12/01/machine-learning-desde-cero-II.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/machine%20learning/2016/12/01/machine-learning-desde-cero-II.html</guid>
+        <link>http://mitxelmoriana.com/machine-learning/2016/12/01/machine-learning-desde-cero-II.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/machine-learning/2016/12/01/machine-learning-desde-cero-II.html</guid>
         
         <category>ai,</category>
         
@@ -559,7 +559,7 @@ la clasificación lineal y la regresión logística.&lt;/p&gt;
         <category>programming</category>
         
         
-        <category>machine learning</category>
+        <category>machine-learning</category>
         
       </item>
     
@@ -975,11 +975,11 @@ del ejemplo más sencillo posible: dos inputs predictores en lugar de uno y su g
 Una vez entendida la aproximación al problema general, trataremos de computar la regresión lineal con un sencillo
  script de python, que podremos “alimentar” con cualquier set de datos de entrada y salida.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/machine%20learning/2016/12/01/machine-learning-desde-cero-II.html&quot;&gt;Machine learning desde cero (II) - Regresión lineal multidimensional&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/machine-learning/2016/12/01/machine-learning-desde-cero-II.html&quot;&gt;Machine learning desde cero (II) - Regresión lineal multidimensional&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 14 Nov 2016 00:00:00 +0100</pubDate>
-        <link>http://mitxelmoriana.com/machine%20learning/2016/11/14/machine-learning-desde-cero-I.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/machine%20learning/2016/11/14/machine-learning-desde-cero-I.html</guid>
+        <link>http://mitxelmoriana.com/machine-learning/2016/11/14/machine-learning-desde-cero-I.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/machine-learning/2016/11/14/machine-learning-desde-cero-I.html</guid>
         
         <category>ai,</category>
         
@@ -996,7 +996,7 @@ Una vez entendida la aproximación al problema general, trataremos de computar l
         <category>programming</category>
         
         
-        <category>machine learning</category>
+        <category>machine-learning</category>
         
       </item>
     
