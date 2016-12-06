@@ -6,9 +6,524 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Nov 2016 15:10:31 +0100</pubDate>
-    <lastBuildDate>Wed, 30 Nov 2016 15:10:31 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 06:05:24 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 06:05:24 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Machine learning desde cero (II)</title>
+        <description>&lt;h2 id=&quot;repasito-unidimensional&quot;&gt;Repasito unidimensional&lt;/h2&gt;
+
+&lt;p&gt;En el post anterior vimos cómo la predicción basada en una familia de datos de salida y una sola familia de datos de
+entrada se podía expresar matemáticamente como el ajuste de una recta a una nube de puntos en el plano.&lt;/p&gt;
+
+&lt;p&gt;La función objetivo de nuestro modelo consistía en encontrar los parámetros que minimizaban la recta de mejor
+ ajuste a la nube de puntos. Es decir, minimizar la expresión:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum[y_i - (\alpha+\beta x_i)]^2&lt;/script&gt;
+
+&lt;p&gt;A esta expresión la llamábamos función objetivo. A modo de ejercicio busqué el mínimo de la función objetivo, 
+despejé para $\alpha$ y $\beta$ y llegué a la siguiente expresión matricial:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{bmatrix} \alpha \\ \beta \end{bmatrix} =
+\begin{bmatrix} n &amp; \sum x_i \\ \sum x_i &amp; \sum x_i^2 \end{bmatrix}^{-1}
+\begin{bmatrix} \sum y_i \\ \sum x_i y_i \end{bmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Esta fue, precisamente, la expresión que utilicé en el script de python para realizar el cálculo de $\alpha$ y $\beta$,
+aprovechando que la librería numpy nos permite realizar cálculos matriciales de forma muy sencilla:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;n = len(x_data)
+sum_x = np.sum(x_data)
+sum_x_squared = np.sum(np.power(x_data, 2))
+sum_y = np.sum(y_data)
+sum_xy = np.sum(x_data.dot(y_data))
+
+a = np.array([[n, sum_x], [sum_x, sum_x_squared]]) # matriz que invertimos
+b = np.transpose([sum_y, sum_xy]) # vector
+
+self.w = np.linalg.inv(a).dot(b) # w es nuestro vector con los valores de alpha y beta
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;dos-mejor-que-uno&quot;&gt;Dos mejor que uno&lt;/h2&gt;
+
+&lt;p&gt;Supongamos ahora que queremos realizar predicciones en base a dos inputs en lugar de uno solo.
+Siguiendo el ejemplo de las viviendas del post anterior, supongamos que queremos predecir el &lt;code&gt;precio&lt;/code&gt; de las viviendas
+no sólo en función de los &lt;code&gt;metros cuadrados habitables&lt;/code&gt; sino también de su &lt;code&gt;antiguedad&lt;/code&gt; en años.&lt;/p&gt;
+
+&lt;p&gt;Dejo por aquí una nueva tabla de ejemplo con nuestros nuevos datos:&lt;/p&gt;
+
+&lt;table class=&quot;table table-sm&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;$m^2$ habitables&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;antiguedad (años)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;precio (€)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;92,7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;42&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;259000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;139,4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;62&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;295000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;109,2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;40&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;279000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;114,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;54&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;259000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;104,1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;42&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;299000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;91,8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;56&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;299000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;115,2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;51&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;309000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;139,4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;32&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;289000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;317,7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;42&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;849000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;278,7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;14&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;829000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;113,8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;32&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;359000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;144,2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;30&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;315000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;90,6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;30&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;310000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;104,1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;32&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;309000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;94,8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;46&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;300000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;139,4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;32&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;289000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;154,6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;369000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;138,2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;22&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;419000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;127,8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;17&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;405000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;139,4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;23&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;439000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;116,7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;40&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;375000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;157,0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;22&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;379000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;169,1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;445000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;153,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;44&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;379000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;165,1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;48&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;389000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;139,7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;369000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;170,1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;31&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;458000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;111,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;30&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;410000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Si quisiéramos plotear esta nueva tabla, es fácil ver que, si mantenemos nuestra variable respuesta &lt;code&gt;precio&lt;/code&gt; 
+en la vertical, necesitaremos un nuevo eje cartesiano horizontal para la nueva variable &lt;code&gt;antiguedad&lt;/code&gt;. Si dos ejes
+cartesianos constituyen un plano, dos ejes horizontales y uno vertical constituyen el espacio tridimensional de toda
+la vida.&lt;/p&gt;
+
+&lt;p&gt;Nuestra nube de puntos ahora se encontrará, en lugar de en el plano, en el espacio. ¡Veámoslo!&lt;/p&gt;
+
+&lt;div id=&quot;visualization1&quot; style=&quot;border:1px solid black;&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var data_m2 = [92.7,139.4,109.2,114.5,104.1,91.8,115.2,139.4,317.7,278.7,113.8,144.2,90.6,104.1,94.8,139.4,154.6,138.2,127.8,139.4,116.7,157.0,169.1,153.5,165.1,139.7,170.1,111.5];
+var data_age = [42,62,40,54,42,56,51,32,42,14,32,30,30,32,46,32,50,22,17,23,40,22,50,44,48, 3,31,30];
+var data_price = [259000,295000,279000,259000,299000,299000,309000,289000,849000,829000,359000,315000,310000,309000,300000,289000,369000,419000,405000,439000,375000,379000,445000,379000,389000,369000,458000,410000];
+
+var data = new vis.DataSet();
+for (var i = 0; i &lt; data_m2.length; ++i) {
+    data.add({id:i, x:data_m2[i], y:data_age[i], z:data_price[i]});
+}
+
+var options = {
+    width:  '100%',
+    height: '500px',
+    style: 'dot',
+    verticalRatio: 0.5,
+    cameraPosition: {
+        horizontal: -0.35,
+        vertical: 0.22,
+        distance: 1.8
+    },
+    keepAspectRatio: false,
+    xLabel: 'm2 habitables',
+    yLabel: 'antiguedad',
+    zLabel: 'precio',
+    tooltip: true
+};
+
+var container = document.getElementById('visualization1');
+var graph3d = new vis.Graph3d(container, data, options);
+&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Nuestra vieja función objetivo contenía dos incógnitas, $\alpha$ y $\beta$, que definían la recta de mejor ajuste
+en nuestro modelo de predicción, a saber: el ajuste de una recta a una nube de puntos en el plano.&lt;/p&gt;
+
+&lt;p&gt;Ahora la mera representación de nuestros datos exige una dimensión adicional y, por tanto, nuestro modelo tendrá 
+que ser capaz de adaptarse y capturar la tendencia de nuestra nueva nube de puntos, que ahora se encuentra en el espacio.&lt;/p&gt;
+
+&lt;p&gt;Siguiendo la misma filosofía de “elemento geométrico que mejor se ajusta a la nube de puntos”, ¿qué tipo de elemento
+geométrico lineal crees que necesitaremos capaz de ajustarse a una nube de puntos en el espacio?&lt;/p&gt;
+
+&lt;p&gt;¡El plano! Con el plano podemos mantener la misma filosofía de “mínimas distancias verticales” plano-punto, sin embargo
+va a ser necesario replantear nuestra vieja función objetivo, puesto que cuando la construimos no teníamos en cuenta la
+nueva dimensión que hemos introducido. ¡Presta atención a la pauta que sigue la nueva función objetivo con respecto a la vieja, 
+porque más adelante nos ayudará a construir la función objetivo para cualquier número de dimensiones adicionales!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sean dos series de inputs de entrada (dos variables predictoras) ${x_1}_i$ y ${x_2}_i$&lt;/li&gt;
+  &lt;li&gt;Sea una serie de outputs de salida (variable respuesta) $y_i$&lt;/li&gt;
+  &lt;li&gt;Y sea un plano arbitrario definido como $y=\alpha+\beta_1 x_1+\beta_2 x_2$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para cada punto del espacio definido como $({x_1}_i, {x_2}_i, y_i)$, la distancia vertical de dicho punto a nuestro
+plano arbitrario será:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon_i = y_i - (\alpha+\beta_1 {x_1}_i+\beta_2 {x_2}_i)&lt;/script&gt;
+
+&lt;p&gt;Ahora es un momento ideal para tratar de re-expresar nuestra función distancia de forma que facilite la introducción
+de nuevas variables en el futuro. En el fondo se trata de un sencillo ejercicio de álgebra e imaginación:&lt;/p&gt;
+
+&lt;p&gt;Para facilitar las cosas renombremos $\alpha$ como $\beta_0$ y supongamos que está multiplicando al número $1$. Nuestra
+función quedaría del siguiente modo:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon_i = y_i - (\beta_0 1+ \beta_1 {x_1}_i+\beta_2 {x_2}_i)&lt;/script&gt;
+
+&lt;p&gt;El segundo término de la resta no es más que un sumatorio, que puede re-expresarse como el producto punto (o producto escalar)
+entre dos vectores, en este caso:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\epsilon_i = y_i - 
+\begin{bmatrix} \beta_0 &amp; \beta_1 &amp; \beta_2 \end{bmatrix} 
+\begin{bmatrix} 1 \\ {x_1}_i \\ {x_2}_i \end{bmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;En la literatura matemática tradicional se puede encontrar al vector de las betas representado simplemente con una $\beta$ 
+y con el nombre de vector de estimadores, mientras que en machine learning puede encontrarse representado por la letra $w$ y se le 
+suele llamar vector de pesos o &lt;em&gt;weights&lt;/em&gt;. El vector de equises (con el 1 como primer elemento), por su lado, 
+suele representarse, sencillamente, con una $x$.&lt;/p&gt;
+
+&lt;p&gt;Por tanto, nuestra expresión con la notación habitual en machine learning podría re-escribirse como:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon_i = y_i - w^T x&lt;/script&gt;
+
+&lt;p&gt;Nótese que si agregáramos ahora nuevas variables predictoras, lo único que haríamos sería incrementar la dimensión
+de los vectores $w$ y $x$, es decir, si en el ejemplo con dos variables predictoras sabemos que se trata de vectores
+3x1, agregando una tercera variable se convertirían en vectores $4\times1$ y así seguiríamos hasta cualquiera número de 
+variables predictoras. En general, para $k$ variables predictoras obtendríamos vectores de dimensión $(k+1)\times1$, 
+sin embargo nuestra expresión para la distancia sería la misma. ¡Ya estamos un pasito más cerca de la generalización!&lt;/p&gt;
+
+&lt;p&gt;Vayamos ahora un poquito más allá y re-expresemos también matricialmente el conjunto de distancias, es decir, en lugar
+conformarnos con la expresión para cada $\epsilon_i$, pongamos todas las $epsilon$ en un solo vector y re-expresemos
+ la parte derecha de la igualdad para satisfacer la equivalencia.&lt;/p&gt;
+
+&lt;p&gt;Si pasáramos todo en forma de vector, a lo loco, nos quedaría algo como esto para el caso de dos variables predictoras
+y n observaciones (n puntos en la nube):&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} = 
+\begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} -
+\begin{bmatrix} \beta_0 1+ \beta_1 {x_1}_1+\beta_2 {x_2}_1 \\ \vdots \\ \beta_0 1+ \beta_1 {x_1}_n+\beta_2 {x_2}_n \end{bmatrix}&lt;/script&gt;
+
+&lt;p&gt;Todo apunta a que la magia del álgebra lineal nos permite re-expresar el vector de más a la derecha de forma mucho más
+elegante, ¿qué tal un producto punto entre una matriz y el vector de betas?&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} = 
+\begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} -
+\begin{bmatrix} 1 &amp; {x_1}_1 &amp; {x_2}_1 \\ \vdots &amp; \vdots &amp; \vdots \\ 1 &amp; {x_1}_n &amp; {x_2}_n \end{bmatrix}
+\begin{bmatrix} \beta_0 \\ \beta_1 \\ \beta_2 \end{bmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;En la literatura matemática encontraremos esta expresión matricial de las distancias en su forma simbólica abreviada:
+$\epsilon$ representando al vector de distancias, $y$ representando al vector de valores de la variable respuesta,
+$X$ representando a la matriz con la columna de unos y las observaciones de las variables predictoras y, finalmente,
+$b$ para el vector de estimadores. En machine learning, por otro lado, no es raro encontrar expresado el vector 
+de valores de la variable respuesta como $T$ de &lt;em&gt;target&lt;/em&gt; o valores objetivo y, como ya vimos antes, 
+el vector de estimadores o parámetros incógnita como $w$ de vector de pesos o &lt;em&gt;weights&lt;/em&gt;, en definitiva:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon = T - Xw 
+\tag{1}&lt;/script&gt;
+
+&lt;p&gt;Esta expresión es elegante y potente al mismo tiempo. Primeramente porque se puede emplear para cualquier número de 
+variables predictoras, siempre y cuando tengamos en cuenta que las dimensiones de $X$ y $w$ cambiarán. Por ejemplo:
+en el caso de dos variables predictoras $X$ tiene dimensiones $n\times3$ y $w$ dimensiones $3\times1$. En el caso
+ de tres variables predictoras $X$ será una matriz $n\times4$ y $w$ un vector $4\times1$. Cae de cajón, por tanto,
+ que en el caso general, para $n$ observaciones y $k$ variables predictoras, $X$ será una matriz $n\times(k+1)$ y $w$ 
+ un vector $(k+1)\times1$.&lt;/p&gt;
+
+&lt;p&gt;En segundo lugar, la gran ventaja de esta expresión matricial es que nos va a permitir expresar y resolver
+nuestra función objetivo sin despeinarnos y, además, ¡para cualquier número de variables predictoras!&lt;/p&gt;
+
+&lt;p&gt;Recordemos que nuestra función objetivo no era la expresión de las distancias en sí, sino el mínimo del
+ sumatorio de las distancias al cuadrado, es decir:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum\epsilon_i^2&lt;/script&gt;
+
+&lt;p&gt;Si abrazas la magia del álgebra lineal, este sumatorio también se puede expresar como
+el producto punto entre dos vectores de epsilons:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\sum\epsilon_i^2 = e_1e_1 + \dots + e_ne_n =
+\begin{bmatrix} \epsilon_1 &amp; \dots &amp; \epsilon_n \end{bmatrix} 
+\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} =
+\epsilon^T \epsilon %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Empleando nuestra maravillosa expresión (1) al producto punto entre los vectores epsilons y operando obtendremos
+nuestra nueva función objetivo en forma de operaciones matriciales. Nótese que estamos multiplicando vectores y 
+matrices, no escalares, por lo que la transposición, la propiedad distributiva y las simplificaciones se han aplicar 
+con especial cariño (siguiendo las propiedades de vectores y matrices):&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum\epsilon_i^2 = \epsilon^T \epsilon =
+(T - Xw)^T (T - Xw) \\
+= T^TT - T^TXw - w^TX^TT + w^TX^TXw \\
+= T^TT - 2w^TX^TT + w^TX^TXw&lt;/script&gt;
+
+&lt;p&gt;Nuestra función objetivo para el caso general será, por tanto:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum\epsilon_i^2 = 
+T^TT - 2w^TX^TT + w^TX^TXw
+\tag{2}&lt;/script&gt;
+
+&lt;p&gt;Ahora hemos de derivar respecto al vector de parámetros incógnita o vector de pesos $w$. Esta derivada no es
+ ni mucho menos trivial y consiste, de forma simplificada, en ver que no existe vector de incógnitas en el primer término 
+(su derivada será nula), que el segundo término equivale a la derivada de una expresión lineal y que la derivada
+del último término equivale a la derivada de una expresión cuadrática (el vector de incógnitas aparece dos veces).
+Se puede consultar la demostración de estas derivadas en cualquier libro medianamente exhaustivo sobre el modelo de 
+mínimos cuadrados (pregunta en el área de comentarios si tienes curiosidad). El resultado sería el siguiente:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\dfrac{\partial (\sum\epsilon_i^2)}{\partial w} = -2X^TT + 2X^TXw&lt;/script&gt;
+
+&lt;p&gt;Igualando a cero y despejando para el vector de incógnitas:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;-2X^TT + 2X^TXw = 0&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;w = (X^TX)^{-1}X^TT \tag{3}&lt;/script&gt;
+
+&lt;p&gt;Nótese que esta expresión (3) nos permite calcular los parámetros $\beta$ para cualquier número de variables predictoras,
+incluyendo nuestro ejemplo al principio de este post (dos variables predictoras) y, también, el ejemplo del primer
+post sobre regresión lineal (una variable predictora). El resultado $w$ será, en cada uno de los casos, un vector
+con dimensiones $k+1$, donde $k$ será el número de variable predictoras con que alimentemos nuestro modelo de ajuste
+lineal.&lt;/p&gt;
+
+&lt;p&gt;Escribamos, por fin, nuestro script en python para resolver el caso general de regresión lineal y resolvamos
+el ejemplo que puse al principio del post, es decir, calculemos el plano que mejor se ajusta a la nube de puntos
+en el espacio:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+import numpy as np
+
+
+class LinearRegression(object):
+    def __init__(self, number_of_predictive_variables):
+        self.k = number_of_predictive_variables
+        self.w = np.zeros(number_of_predictive_variables + 1)
+
+    def train(self, y_data, *x_data):
+        x_matrix = np.ones((len(y_data), self.k + 1))
+        for i, x_var in enumerate(x_data, start=1):
+            x_matrix[:, i] = x_var
+
+        self.w = np.linalg.inv(x_matrix.T.dot(x_matrix)).dot(x_matrix.T).dot(y_data)
+
+    def predict(self, *x_values):
+        x_values_vector = np.ones(k + 1)
+        for i, x_value in enumerate(x_values, start=1):
+            x_values_vector[i] = x_value
+
+        return np.array(x_values_vector).dot(self.w)
+
+    def get_weights(self):
+        return self.w
+
+
+k = 2
+X1 = np.array([92.7, 139.4, 109.2, 114.5, 104.1, 91.8, 115.2, 139.4, 317.7, 278.7, 113.8, 144.2, 90.6, 104.1, 94.8,
+               139.4, 154.6, 138.2, 127.8, 139.4, 116.7, 157.0, 169.1, 153.5, 165.1, 139.7, 170.1, 111.5])
+X2 = np.array([42, 62, 40, 54, 42, 56, 51, 32, 42, 14, 32, 30, 30, 32, 46, 32, 50, 22, 17, 23, 40, 22, 50, 44, 48, 3,
+               31, 30])
+Y = np.array([259000, 295000, 279000, 259000, 299000, 299000, 309000, 289000, 849000, 829000, 359000, 315000, 310000,
+              309000, 300000, 289000, 369000, 419000, 405000, 439000, 375000, 379000, 445000, 379000, 389000, 369000,
+              458000, 410000])
+
+lr = LinearRegression(k)
+lr.train(Y, X1, X2)
+
+print &quot;weights (vector of betas) =&quot;, lr.get_weights()
+print &quot;prize prediction for 50 m2 and 0 years =&quot;, lr.predict(50, 0)
+print &quot;prize prediction for 50 m2 and 30 years =&quot;, lr.predict(50, 30)
+print &quot;prize prediction for 50 m2 and 100 years =&quot;, lr.predict(50, 100)
+# weights (vector of betas) = [ 83455.24240792   2494.67526436  -1438.1104518 ]
+# prize prediction for 50 m2 and 0 years = 208189.005626
+# prize prediction for 50 m2 and 30 years = 165045.692072
+# prize prediction for 50 m2 and 100 years = 64377.9604464
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Nuestro vector de betas o pesos define ahora un plano en el espacio. Si lo ploteamos obtenemos nuestro plano 
+de predicción del &lt;code&gt;precio&lt;/code&gt; de una vivienda en función de sus &lt;code&gt;m2 habitables&lt;/code&gt; y su &lt;code&gt;antiguedad&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div id=&quot;visualization&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var data = new vis.DataSet();
+    var counter = 0;
+    var steps = 50; //steps*steps nodes
+    var xAxisMax = 350;
+    var yAxisMax = 65;
+    var xAxisStep = xAxisMax / steps;
+    var yAxisStep = yAxisMax / steps;
+    for (var x = 0; x &lt; xAxisMax; x +=xAxisStep) {
+        for (var y = 0; y &lt; yAxisMax; y += yAxisStep) {
+            var value = 83455.24240792 + 2494.67526436 * x - 1438.1104518 * y;
+            data.add({id:counter++, x:x, y:y, z:value, style:value});
+        }
+    }
+
+    var options = {
+        width:  '100%',
+        height: '500px',
+        style: 'surface',
+        showPerspective: true,
+        showGrid: true,
+        showShadow: false,
+        keepAspectRatio: false,
+        cameraPosition: {
+            horizontal: -0.35,
+            vertical: 0.22,
+            distance: 1.8
+        },
+        xLabel: 'm2 habitables',
+        yLabel: 'antiguedad',
+        zLabel: 'precio',
+        verticalRatio: 0.5
+    };
+
+    var container = document.getElementById('visualization');
+    var graph3d = new vis.Graph3d(container, data, options);
+&lt;/script&gt;
+
+&lt;p&gt;Curiosamente, a partir de dos variables predictoras (tres, veinte, mil, etc.), ya no es posible representar gráficamente
+el elemento geométrico que mejor se ajusta a la nube de puntos (hiperplano en un espacio de más de tres dimensiones), 
+de hecho, ya no nos será posible ni siquiera representar la nube de puntos. En cualquier caso, gracias a nuestro modelo
+generalizado para la regresión lineal multidimensional, podremos resolver numéricamente nuestro vector de pesos 
+y predecir la variable respuesta con cualquier número de variables predictoras.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Próximamente&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;En el próximo post sobre machine learning compartiré mis apuntes sobre algoritmos básicos de clasificación:
+la clasificación lineal y la regresión logística.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 01 Dec 2016 00:00:00 +0100</pubDate>
+        <link>http://mitxelmoriana.com/machine/learning/2016/12/01/machine-learning-desde-cero-II.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/machine/learning/2016/12/01/machine-learning-desde-cero-II.html</guid>
+        
+        <category>ai,</category>
+        
+        <category>machine</category>
+        
+        <category>learning,</category>
+        
+        <category>deep</category>
+        
+        <category>learning,</category>
+        
+        <category>python,</category>
+        
+        <category>programming</category>
+        
+        
+        <category>machine</category>
+        
+        <category>learning</category>
+        
+      </item>
     
       <item>
         <title>Machine learning desde cero (I)</title>
@@ -423,9 +938,7 @@ del ejemplo más sencillo posible: dos inputs predictores en lugar de uno y su g
 Una vez entendida la aproximación al problema general, trataremos de computar la regresión lineal con un sencillo
  script de python, que podremos “alimentar” con cualquier set de datos de entrada y salida.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Próximamente&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Machine learning desde cero (II) - Regresión lineal multidimensional&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/machine/learning/2016/12/01/machine-learning-desde-cero-II.html&quot;&gt;Machine learning desde cero (II) - Regresión lineal multidimensional&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 14 Nov 2016 00:00:00 +0100</pubDate>
         <link>http://mitxelmoriana.com/machine/learning/2016/11/14/machine-learning-desde-cero-I.html</link>
