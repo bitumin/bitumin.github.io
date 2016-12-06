@@ -28,8 +28,8 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mitxelmoriana.com/machine/learning/2016/11/14/machine-learning-desde-cero-I.html">
-  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/machine/learning/2016/11/14/machine-learning-desde-cero-I.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://localhost:4000/feed.xml">
   <link rel="icon" type="image/png" href="/favicon.png">
 </head>
     <body>
@@ -68,7 +68,7 @@
         <div class="page-content">
             <div class="wrapper">
                 <div id="sharing-btns-wrapper">
-    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/machine/learning/2016/11/14/machine-learning-desde-cero-I.html" data-layout="button"></div>
+    <!--Facebook--><div class="fb-share-button" data-href="http://localhost:4000/machine/learning/2016/11/14/machine-learning-desde-cero-I.html" data-layout="button"></div>
     <!--Twitter--><a href="https://twitter.com/share" class="twitter-share-button" data-lang="es"></a>
     <!--Linkedin--><script type="IN/Share"></script>
     <!--Google+--><!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
@@ -435,48 +435,47 @@ se pueden simplificar enormemente si les aplicamos las definiciones de <a href="
 ello utilizaremos una magnífica librería para python llamada numpy, ideal para mates discretas y computación científica
 en general.</p>
 
-<pre><code>import numpy as np
-
-
-class SimpleLinearRegression(object):
-    def __init__(self):
-        self.w = np.zeros(2)
-
-    def train(self, x_data, y_data):
-        n = len(x_data)
-        sum_x = np.sum(x_data)
-        sum_x_squared = np.sum(np.power(x_data, 2))
-        sum_y = np.sum(y_data)
-        sum_xy = np.sum(x_data.dot(y_data))
-
-        a = np.array([[n, sum_x], [sum_x, sum_x_squared]])
-        b = np.transpose([sum_y, sum_xy])
-
-        self.w = np.linalg.inv(a).dot(b)
-
-    def predict(self, x):
-        return np.array([1, x]).dot(self.w)
-
-    def get_intercept(self):
-        return self.w[0]
-
-    def get_slope(self):
-        return self.w[1]
-
-
-X = np.array([92.7, 139.4, 109.2, 114.5, 104.1, 91.8, 115.2, 139.4, 317.7, 278.7, 113.8, 144.2, 90.6, 104.1, 94.8,
-              139.4, 154.6, 138.2, 127.8, 139.4, 116.7, 157.0, 169.1, 153.5, 165.1, 139.7, 170.1, 111.5])
-Y = np.array([259000, 295000, 279000, 259000, 299000, 299000, 309000, 289000, 849000, 829000, 359000, 315000, 310000,
-              309000, 300000, 289000, 369000, 419000, 405000, 439000, 375000, 379000, 445000, 379000, 389000, 369000,
-              458000, 410000])
-
-slr = SimpleLinearRegression()
-slr.train(X, Y)
-
-print "intercept (alpha) =", slr.get_intercept()  # intercept (alpha) = 21502.4801962
-print "slope (beta) =", slr.get_slope()  # slope (beta) = 2563.87624406
-print "prize prediction for 50 m2 =", slr.predict(50)  # prize prediction for 50 m2 = 149696.292399
-</code></pre>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="k">class</span> <span class="nc">SimpleLinearRegression</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="lineno"> 5</span>     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="lineno"> 6</span>         <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span>     <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">):</span>
+<span class="lineno"> 9</span>         <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span>
+<span class="lineno">10</span>         <span class="n">sum_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span>
+<span class="lineno">11</span>         <span class="n">sum_x_squared</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="lineno">12</span>         <span class="n">sum_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
+<span class="lineno">13</span>         <span class="n">sum_xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y_data</span><span class="p">))</span>
+<span class="lineno">14</span> 
+<span class="lineno">15</span>         <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">n</span><span class="p">,</span> <span class="n">sum_x</span><span class="p">],</span> <span class="p">[</span><span class="n">sum_x</span><span class="p">,</span> <span class="n">sum_x_squared</span><span class="p">]])</span>
+<span class="lineno">16</span>         <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">([</span><span class="n">sum_y</span><span class="p">,</span> <span class="n">sum_xy</span><span class="p">])</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span>         <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="lineno">19</span> 
+<span class="lineno">20</span>     <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="lineno">21</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
+<span class="lineno">22</span> 
+<span class="lineno">23</span>     <span class="k">def</span> <span class="nf">get_intercept</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="lineno">24</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="lineno">25</span> 
+<span class="lineno">26</span>     <span class="k">def</span> <span class="nf">get_slope</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="lineno">27</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="lineno">28</span> 
+<span class="lineno">29</span> 
+<span class="lineno">30</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">92.7</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">109.2</span><span class="p">,</span> <span class="mf">114.5</span><span class="p">,</span> <span class="mf">104.1</span><span class="p">,</span> <span class="mf">91.8</span><span class="p">,</span> <span class="mf">115.2</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">317.7</span><span class="p">,</span> <span class="mf">278.7</span><span class="p">,</span> <span class="mf">113.8</span><span class="p">,</span> <span class="mf">144.2</span><span class="p">,</span> <span class="mf">90.6</span><span class="p">,</span> <span class="mf">104.1</span><span class="p">,</span> <span class="mf">94.8</span><span class="p">,</span>
+<span class="lineno">31</span>               <span class="mf">139.4</span><span class="p">,</span> <span class="mf">154.6</span><span class="p">,</span> <span class="mf">138.2</span><span class="p">,</span> <span class="mf">127.8</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">116.7</span><span class="p">,</span> <span class="mf">157.0</span><span class="p">,</span> <span class="mf">169.1</span><span class="p">,</span> <span class="mf">153.5</span><span class="p">,</span> <span class="mf">165.1</span><span class="p">,</span> <span class="mf">139.7</span><span class="p">,</span> <span class="mf">170.1</span><span class="p">,</span> <span class="mf">111.5</span><span class="p">])</span>
+<span class="lineno">32</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">259000</span><span class="p">,</span> <span class="mi">295000</span><span class="p">,</span> <span class="mi">279000</span><span class="p">,</span> <span class="mi">259000</span><span class="p">,</span> <span class="mi">299000</span><span class="p">,</span> <span class="mi">299000</span><span class="p">,</span> <span class="mi">309000</span><span class="p">,</span> <span class="mi">289000</span><span class="p">,</span> <span class="mi">849000</span><span class="p">,</span> <span class="mi">829000</span><span class="p">,</span> <span class="mi">359000</span><span class="p">,</span> <span class="mi">315000</span><span class="p">,</span> <span class="mi">310000</span><span class="p">,</span>
+<span class="lineno">33</span>               <span class="mi">309000</span><span class="p">,</span> <span class="mi">300000</span><span class="p">,</span> <span class="mi">289000</span><span class="p">,</span> <span class="mi">369000</span><span class="p">,</span> <span class="mi">419000</span><span class="p">,</span> <span class="mi">405000</span><span class="p">,</span> <span class="mi">439000</span><span class="p">,</span> <span class="mi">375000</span><span class="p">,</span> <span class="mi">379000</span><span class="p">,</span> <span class="mi">445000</span><span class="p">,</span> <span class="mi">379000</span><span class="p">,</span> <span class="mi">389000</span><span class="p">,</span> <span class="mi">369000</span><span class="p">,</span>
+<span class="lineno">34</span>               <span class="mi">458000</span><span class="p">,</span> <span class="mi">410000</span><span class="p">])</span>
+<span class="lineno">35</span> 
+<span class="lineno">36</span> <span class="n">slr</span> <span class="o">=</span> <span class="n">SimpleLinearRegression</span><span class="p">()</span>
+<span class="lineno">37</span> <span class="n">slr</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="lineno">38</span> 
+<span class="lineno">39</span> <span class="k">print</span> <span class="s">&quot;intercept (alpha) =&quot;</span><span class="p">,</span> <span class="n">slr</span><span class="o">.</span><span class="n">get_intercept</span><span class="p">()</span>  <span class="c"># intercept (alpha) = 21502.4801962</span>
+<span class="lineno">40</span> <span class="k">print</span> <span class="s">&quot;slope (beta) =&quot;</span><span class="p">,</span> <span class="n">slr</span><span class="o">.</span><span class="n">get_slope</span><span class="p">()</span>  <span class="c"># slope (beta) = 2563.87624406</span>
+<span class="lineno">41</span> <span class="k">print</span> <span class="s">&quot;prize prediction for 50 m2 =&quot;</span><span class="p">,</span> <span class="n">slr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>  <span class="c"># prize prediction for 50 m2 = 149696.292399</span></code></pre></figure>
 
 <p>Ya podemos plotear nuestra línea de mejor ajuste y hacer predicciones en función de cualquier input
 de metros cuadrados habitables:</p>
@@ -508,7 +507,7 @@ Una vez entendida la aproximación al problema general, trataremos de computar l
 <div id="disqus_thread"></div>
 <script>
      var disqus_config = function () {
-         this.page.url = 'http://mitxelmoriana.com/machine/learning/2016/11/14/machine-learning-desde-cero-I.html';
+         this.page.url = 'http://localhost:4000/machine/learning/2016/11/14/machine-learning-desde-cero-I.html';
      };
     (function() {
         var d = document, s = d.createElement('script');
