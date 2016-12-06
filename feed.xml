@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Dec 2016 12:54:36 +0100</pubDate>
-    <lastBuildDate>Tue, 06 Dec 2016 12:54:36 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 12:56:11 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 12:56:11 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -489,7 +489,8 @@ de predicción del &lt;code&gt;precio&lt;/code&gt; de una vivienda en función d
     var graph3d = new vis.Graph3d(container, data, options);
 &lt;/script&gt;
 
-&lt;p&gt;Curiosamente, a partir de dos variables predictoras (tres, veinte, mil, etc.), ya no es posible representar gráficamente
+&lt;p&gt;&lt;br /&gt;
+Curiosamente, a partir de dos variables predictoras (tres, veinte, mil, etc.), ya no es posible representar gráficamente
 el elemento geométrico que mejor se ajusta a la nube de puntos (hiperplano en un espacio de más de tres dimensiones), 
 de hecho, ya no nos será posible ni siquiera representar la nube de puntos. En cualquier caso, gracias a nuestro modelo
 generalizado para la regresión lineal multidimensional, podremos resolver numéricamente nuestro vector de pesos 
