@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Dec 2016 06:14:58 +0100</pubDate>
-    <lastBuildDate>Tue, 06 Dec 2016 06:14:58 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 12:45:20 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 12:45:20 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -297,7 +297,7 @@ suele representarse, sencillamente, con una $x$.&lt;/p&gt;
 
 &lt;p&gt;Nótese que si agregáramos ahora nuevas variables predictoras, lo único que haríamos sería incrementar la dimensión
 de los vectores $w$ y $x$, es decir, si en el ejemplo con dos variables predictoras sabemos que se trata de vectores
-3x1, agregando una tercera variable se convertirían en vectores $4\times1$ y así seguiríamos hasta cualquiera número de 
+$3\times1$, agregando una tercera variable se convertirían en vectores $4\times1$ y así seguiríamos hasta cualquiera número de 
 variables predictoras. En general, para $k$ variables predictoras obtendríamos vectores de dimensión $(k+1)\times1$, 
 sin embargo nuestra expresión para la distancia sería la misma. ¡Ya estamos un pasito más cerca de la generalización!&lt;/p&gt;
 
