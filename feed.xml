@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Dec 2016 20:50:26 +0100</pubDate>
-    <lastBuildDate>Tue, 06 Dec 2016 20:50:26 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 21:24:39 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 21:24:39 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -516,21 +516,24 @@ Para tener una idea de la fiabilidad del modelo de ajuste, en el caso lineal se 
   &lt;li&gt;La posibilidad de que dos o más de las variables predictivas se “expliquen” unas a otras, por ejemplo, en el caso
 de las viviendas la variable &lt;code&gt;metros cuadrados habitables&lt;/code&gt; se correlacionará estrechamente con la variable 
 &lt;code&gt;metros cuadrados construidos&lt;/code&gt;. “Alimentar” a nuestro modelo con variables tan estrechamente correlacionadas como estas 
-resultará en un ajuste lineal más pobre de lo posible. A este problema o fenómeno lo conocen nuestros amigos, 
-los estadísticos, como &lt;a href=&quot;https://en.wikipedia.org/wiki/Multicollinearity&quot;&gt;multicolinealidad&lt;/a&gt;.&lt;/li&gt;
+introduce importantes distorsiones en el análisis del aporte de cada una de las variables a la bondad de ajuste del modelo. 
+A este problema o fenómeno lo conocen nuestros amigos, los estadísticos, como &lt;a href=&quot;https://en.wikipedia.org/wiki/Multicollinearity&quot;&gt;multicolinealidad&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Basta decir que es perfectamente posible prevenir esta clase de problemas a través de múltiples tests matemáticos
-que, a fin de cuentas, permiten una elección inteligente de las variables predictivas, advirtiéndonos sobre aquellas 
-más problemáticas y maximizando en la medida de lo posible la bondad de ajuste de nuestro modelo lineal. Al respecto, 
-aconsejo echar un vistazo a cualquier libro de estadística o a cualquier documento online sobre regresión lineal aplicada 
-para estar al tanto de estas cuestiones importantes (y laboriosas).&lt;/p&gt;
+que, a fin de cuentas, permiten una elección inteligente de las variables predictivas y nos ayudan, en la medida de lo posible,
+a incrementar la bondad de ajuste de nuestro modelo lineal. Al respecto, aconsejo echar un vistazo a cualquier libro de estadística 
+o a cualquier curso online sobre regresión lineal aplicada para estar al tanto de estas cuestiones importantes (y laboriosas). 
+A mí me parece bastante práctico y al grano el curso online &lt;a href=&quot;https://onlinecourses.science.psu.edu/stat501/node/250&quot;&gt;STAT501&lt;/a&gt; 
+del &lt;a href=&quot;http://science.psu.edu/&quot;&gt;Colegio de Ciencias&lt;/a&gt; de la &lt;a href=&quot;http://www.psu.edu/&quot;&gt;Universidad Estatal de Pensilvania&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Por supuesto, si alguien quiere indagar en la parte estadística y rigurosa de la regresión lineal, es bueno saber
 que existe software muy completo e intuitivo que realiza la regresión y los tests necesarios para analizar la bondad de
 ajuste. A mí, personalmente, me gusta el software comercial &lt;a href=&quot;https://www.minitab.com/es-mx/products/minitab/&quot;&gt;Minitab&lt;/a&gt;,
 por sencillo e intuitivo, aunque no me cabe ninguna duda de que también se puede hacer magia estadística con el más
 espartano y open source &lt;a href=&quot;https://cran.rstudio.com/&quot;&gt;R&lt;/a&gt; + &lt;a href=&quot;https://www.rstudio.com/products/rstudio/#Desktop&quot;&gt;RStudio&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;En cualquier caso, nosotros vamos a seguir dándole al machine learning.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Próximamente&lt;/strong&gt;&lt;/p&gt;
 

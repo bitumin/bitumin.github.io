@@ -596,21 +596,24 @@ Para tener una idea de la fiabilidad del modelo de ajuste, en el caso lineal se 
   <li>La posibilidad de que dos o más de las variables predictivas se “expliquen” unas a otras, por ejemplo, en el caso
 de las viviendas la variable <code>metros cuadrados habitables</code> se correlacionará estrechamente con la variable 
 <code>metros cuadrados construidos</code>. “Alimentar” a nuestro modelo con variables tan estrechamente correlacionadas como estas 
-resultará en un ajuste lineal más pobre de lo posible. A este problema o fenómeno lo conocen nuestros amigos, 
-los estadísticos, como <a href="https://en.wikipedia.org/wiki/Multicollinearity">multicolinealidad</a>.</li>
+introduce importantes distorsiones en el análisis del aporte de cada una de las variables a la bondad de ajuste del modelo. 
+A este problema o fenómeno lo conocen nuestros amigos, los estadísticos, como <a href="https://en.wikipedia.org/wiki/Multicollinearity">multicolinealidad</a>.</li>
 </ul>
 
 <p>Basta decir que es perfectamente posible prevenir esta clase de problemas a través de múltiples tests matemáticos
-que, a fin de cuentas, permiten una elección inteligente de las variables predictivas, advirtiéndonos sobre aquellas 
-más problemáticas y maximizando en la medida de lo posible la bondad de ajuste de nuestro modelo lineal. Al respecto, 
-aconsejo echar un vistazo a cualquier libro de estadística o a cualquier documento online sobre regresión lineal aplicada 
-para estar al tanto de estas cuestiones importantes (y laboriosas).</p>
+que, a fin de cuentas, permiten una elección inteligente de las variables predictivas y nos ayudan, en la medida de lo posible,
+a incrementar la bondad de ajuste de nuestro modelo lineal. Al respecto, aconsejo echar un vistazo a cualquier libro de estadística 
+o a cualquier curso online sobre regresión lineal aplicada para estar al tanto de estas cuestiones importantes (y laboriosas). 
+A mí me parece bastante práctico y al grano el curso online <a href="https://onlinecourses.science.psu.edu/stat501/node/250">STAT501</a> 
+del <a href="http://science.psu.edu/">Colegio de Ciencias</a> de la <a href="http://www.psu.edu/">Universidad Estatal de Pensilvania</a>.</p>
 
 <p>Por supuesto, si alguien quiere indagar en la parte estadística y rigurosa de la regresión lineal, es bueno saber
 que existe software muy completo e intuitivo que realiza la regresión y los tests necesarios para analizar la bondad de
 ajuste. A mí, personalmente, me gusta el software comercial <a href="https://www.minitab.com/es-mx/products/minitab/">Minitab</a>,
 por sencillo e intuitivo, aunque no me cabe ninguna duda de que también se puede hacer magia estadística con el más
 espartano y open source <a href="https://cran.rstudio.com/">R</a> + <a href="https://www.rstudio.com/products/rstudio/#Desktop">RStudio</a>.</p>
+
+<p>En cualquier caso, nosotros vamos a seguir dándole al machine learning.</p>
 
 <p><strong>Próximamente</strong></p>
 
