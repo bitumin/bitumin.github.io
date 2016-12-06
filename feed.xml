@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Dec 2016 12:56:11 +0100</pubDate>
-    <lastBuildDate>Tue, 06 Dec 2016 12:56:11 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 13:09:57 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 13:09:57 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -350,7 +350,7 @@ nuestra función objetivo sin despeinarnos y, además, ¡para cualquier número 
 el producto punto entre dos vectores de epsilons:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\sum\epsilon_i^2 = e_1e_1 + \dots + e_ne_n =
+\sum\epsilon_i^2 = \epsilon_1 \epsilon_1 + \dots + \epsilon_n \epsilon_n =
 \begin{bmatrix} \epsilon_1 &amp; \dots &amp; \epsilon_n \end{bmatrix} 
 \begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} =
 \epsilon^T \epsilon %]]&gt;&lt;/script&gt;
