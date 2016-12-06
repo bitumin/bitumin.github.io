@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Dec 2016 12:45:20 +0100</pubDate>
-    <lastBuildDate>Tue, 06 Dec 2016 12:45:20 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 12:54:36 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 12:54:36 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -436,13 +436,13 @@ lr = LinearRegression(k)
 lr.train(Y, X1, X2)
 
 print &quot;weights (vector of betas) =&quot;, lr.get_weights()
-print &quot;prize prediction for 50 m2 and 0 years =&quot;, lr.predict(50, 0)
-print &quot;prize prediction for 50 m2 and 30 years =&quot;, lr.predict(50, 30)
-print &quot;prize prediction for 50 m2 and 100 years =&quot;, lr.predict(50, 100)
+print &quot;price prediction for 50 m2 and 0 years =&quot;, lr.predict(50, 0)
+print &quot;price prediction for 50 m2 and 30 years =&quot;, lr.predict(50, 30)
+print &quot;price prediction for 50 m2 and 100 years =&quot;, lr.predict(50, 100)
 # weights (vector of betas) = [ 83455.24240792   2494.67526436  -1438.1104518 ]
-# prize prediction for 50 m2 and 0 years = 208189.005626
-# prize prediction for 50 m2 and 30 years = 165045.692072
-# prize prediction for 50 m2 and 100 years = 64377.9604464
+# price prediction for 50 m2 and 0 years = 208189.005626
+# price prediction for 50 m2 and 30 years = 165045.692072
+# price prediction for 50 m2 and 100 years = 64377.9604464
 
 &lt;/code&gt;&lt;/pre&gt;
 
