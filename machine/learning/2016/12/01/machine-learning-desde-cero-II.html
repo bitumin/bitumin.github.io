@@ -129,7 +129,7 @@ self.w = np.linalg.inv(a).dot(b) # w es nuestro vector con los valores de alpha 
 
 <p>Supongamos ahora que queremos realizar predicciones en base a dos inputs en lugar de uno solo.
 Siguiendo el ejemplo de las viviendas del post anterior, supongamos que queremos predecir el <code>precio</code> de las viviendas
-no sólo en función de los <code>metros cuadrados habitables</code> sino también de su <code>antiguedad</code> en años.</p>
+no sólo en función de los <code>metros cuadrados habitables</code> sino también de su <code>antigüedad</code> en años.</p>
 
 <p>Dejo por aquí una nueva tabla de ejemplo con nuestros nuevos datos:</p>
 
@@ -137,7 +137,7 @@ no sólo en función de los <code>metros cuadrados habitables</code> sino tambi�
   <thead>
     <tr>
       <th style="text-align: center">$m^2$ habitables</th>
-      <th style="text-align: center">antiguedad (años)</th>
+      <th style="text-align: center">antigüedad (años)</th>
       <th style="text-align: center">precio (€)</th>
     </tr>
   </thead>
@@ -286,7 +286,7 @@ no sólo en función de los <code>metros cuadrados habitables</code> sino tambi�
 </table>
 
 <p>Si quisiéramos plotear esta nueva tabla, es fácil ver que, si mantenemos nuestra variable respuesta <code>precio</code> 
-en la vertical, necesitaremos un nuevo eje cartesiano horizontal para la nueva variable <code>antiguedad</code>. Si dos ejes
+en la vertical, necesitaremos un nuevo eje cartesiano horizontal para la nueva variable <code>antigüedad</code>. Si dos ejes
 cartesianos constituyen un plano, dos ejes horizontales y uno vertical constituyen el espacio tridimensional de toda
 la vida.</p>
 
@@ -315,7 +315,7 @@ var options = {
     },
     keepAspectRatio: false,
     xLabel: 'm2 habitables',
-    yLabel: 'antiguedad',
+    yLabel: 'antigüedad',
     zLabel: 'precio',
     tooltip: true
 };
@@ -528,7 +528,7 @@ print "prize prediction for 50 m2 and 100 years =", lr.predict(50, 100)
 
 <p><br />
 Nuestro vector de betas o pesos define ahora un plano en el espacio. Si lo ploteamos obtenemos nuestro plano 
-de predicción del <code>precio</code> de una vivienda en función de sus <code>m2 habitables</code> y su <code>antiguedad</code>:</p>
+de predicción del <code>precio</code> de una vivienda en función de sus <code>m2 habitables</code> y su <code>antigüedad</code>:</p>
 
 <div id="visualization"></div>
 <script type="text/javascript">
@@ -560,7 +560,7 @@ de predicción del <code>precio</code> de una vivienda en función de sus <code>
             distance: 1.8
         },
         xLabel: 'm2 habitables',
-        yLabel: 'antiguedad',
+        yLabel: 'antigüedad',
         zLabel: 'precio',
         verticalRatio: 0.5
     };

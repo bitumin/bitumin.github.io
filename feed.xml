@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Dec 2016 06:05:24 +0100</pubDate>
-    <lastBuildDate>Tue, 06 Dec 2016 06:05:24 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 06:14:58 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 06:14:58 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -49,7 +49,7 @@ self.w = np.linalg.inv(a).dot(b) # w es nuestro vector con los valores de alpha 
 
 &lt;p&gt;Supongamos ahora que queremos realizar predicciones en base a dos inputs en lugar de uno solo.
 Siguiendo el ejemplo de las viviendas del post anterior, supongamos que queremos predecir el &lt;code&gt;precio&lt;/code&gt; de las viviendas
-no sólo en función de los &lt;code&gt;metros cuadrados habitables&lt;/code&gt; sino también de su &lt;code&gt;antiguedad&lt;/code&gt; en años.&lt;/p&gt;
+no sólo en función de los &lt;code&gt;metros cuadrados habitables&lt;/code&gt; sino también de su &lt;code&gt;antigüedad&lt;/code&gt; en años.&lt;/p&gt;
 
 &lt;p&gt;Dejo por aquí una nueva tabla de ejemplo con nuestros nuevos datos:&lt;/p&gt;
 
@@ -57,7 +57,7 @@ no sólo en función de los &lt;code&gt;metros cuadrados habitables&lt;/code&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;$m^2$ habitables&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;antiguedad (años)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;antigüedad (años)&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;precio (€)&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -206,7 +206,7 @@ no sólo en función de los &lt;code&gt;metros cuadrados habitables&lt;/code&gt;
 &lt;/table&gt;
 
 &lt;p&gt;Si quisiéramos plotear esta nueva tabla, es fácil ver que, si mantenemos nuestra variable respuesta &lt;code&gt;precio&lt;/code&gt; 
-en la vertical, necesitaremos un nuevo eje cartesiano horizontal para la nueva variable &lt;code&gt;antiguedad&lt;/code&gt;. Si dos ejes
+en la vertical, necesitaremos un nuevo eje cartesiano horizontal para la nueva variable &lt;code&gt;antigüedad&lt;/code&gt;. Si dos ejes
 cartesianos constituyen un plano, dos ejes horizontales y uno vertical constituyen el espacio tridimensional de toda
 la vida.&lt;/p&gt;
 
@@ -235,7 +235,7 @@ var options = {
     },
     keepAspectRatio: false,
     xLabel: 'm2 habitables',
-    yLabel: 'antiguedad',
+    yLabel: 'antigüedad',
     zLabel: 'precio',
     tooltip: true
 };
@@ -448,7 +448,7 @@ print &quot;prize prediction for 50 m2 and 100 years =&quot;, lr.predict(50, 100
 
 &lt;p&gt;&lt;br /&gt;
 Nuestro vector de betas o pesos define ahora un plano en el espacio. Si lo ploteamos obtenemos nuestro plano 
-de predicción del &lt;code&gt;precio&lt;/code&gt; de una vivienda en función de sus &lt;code&gt;m2 habitables&lt;/code&gt; y su &lt;code&gt;antiguedad&lt;/code&gt;:&lt;/p&gt;
+de predicción del &lt;code&gt;precio&lt;/code&gt; de una vivienda en función de sus &lt;code&gt;m2 habitables&lt;/code&gt; y su &lt;code&gt;antigüedad&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div id=&quot;visualization&quot;&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
@@ -480,7 +480,7 @@ de predicción del &lt;code&gt;precio&lt;/code&gt; de una vivienda en función d
             distance: 1.8
         },
         xLabel: 'm2 habitables',
-        yLabel: 'antiguedad',
+        yLabel: 'antigüedad',
         zLabel: 'precio',
         verticalRatio: 0.5
     };
