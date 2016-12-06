@@ -357,7 +357,8 @@ de nuevas variables en el futuro. En el fondo se trata de un sencillo ejercicio 
 <p>Para facilitar las cosas renombremos $\alpha$ como $\beta_0$ y supongamos que está multiplicando al número $1$. Nuestra
 función quedaría del siguiente modo:</p>
 
-<script type="math/tex; mode=display">\epsilon_i = y_i - (\beta_0 1+ \beta_1 {x_1}_i+\beta_2 {x_2}_i)</script>
+<script type="math/tex; mode=display">\epsilon_i = y_i - (\beta_0 1+ \beta_1 {x_1}_i+\beta_2 {x_2}_i)
+\tag{1}</script>
 
 <p>El segundo término de la resta no es más que un sumatorio, que puede re-expresarse como el producto punto (o producto escalar)
 entre dos vectores, en este caso:</p>
@@ -386,8 +387,8 @@ sin embargo nuestra expresión para la distancia sería la misma. ¡Ya estamos u
 conformarnos con la expresión para cada $\epsilon_i$, pongamos todas las $epsilon$ en un solo vector y re-expresemos
  la parte derecha de la igualdad para satisfacer la equivalencia.</p>
 
-<p>Si pasáramos todo en forma de vector, a lo loco, nos quedaría algo como esto para el caso de dos variables predictoras
-y n observaciones (n puntos en la nube):</p>
+<p>Teniendo en cuenta la expresión (1), si pasáramos todo en forma de vector, a lo loco, nos quedaría algo como esto 
+para el caso de dos variables predictoras y n observaciones (n puntos en la nube):</p>
 
 <script type="math/tex; mode=display">\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} = 
 \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} -
@@ -410,7 +411,7 @@ de valores de la variable respuesta como $T$ de <em>target</em> o valores objeti
 el vector de estimadores o parámetros incógnita como $w$ de vector de pesos o <em>weights</em>, en definitiva:</p>
 
 <script type="math/tex; mode=display">\epsilon = T - Xw 
-\tag{1}</script>
+\tag{2}</script>
 
 <p>Esta expresión es elegante y potente al mismo tiempo. Primeramente porque se puede emplear para cualquier número de 
 variables predictoras, siempre y cuando tengamos en cuenta que las dimensiones de $X$ y $w$ cambiarán. Por ejemplo:
@@ -436,7 +437,7 @@ el producto punto entre dos vectores de epsilons:</p>
 \begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} =
 \epsilon^T \epsilon %]]></script>
 
-<p>Empleando nuestra maravillosa expresión (1) al producto punto entre los vectores epsilons y operando obtendremos
+<p>Empleando nuestra maravillosa expresión (2) al producto punto entre los vectores epsilons y operando obtendremos
 nuestra nueva función objetivo en forma de operaciones matriciales. Nótese que estamos multiplicando vectores y 
 matrices, no escalares, por lo que la transposición, la propiedad distributiva y las simplificaciones se han aplicar 
 con especial cariño (siguiendo las propiedades de vectores y matrices):</p>
@@ -449,8 +450,7 @@ con especial cariño (siguiendo las propiedades de vectores y matrices):</p>
 <p>Nuestra función objetivo para el caso general será, por tanto:</p>
 
 <script type="math/tex; mode=display">\sum\epsilon_i^2 = 
-T^TT - 2w^TX^TT + w^TX^TXw
-\tag{2}</script>
+T^TT - 2w^TX^TT + w^TX^TXw</script>
 
 <p>Ahora hemos de derivar respecto al vector de parámetros incógnita o vector de pesos $w$. Esta derivada no es
  ni mucho menos trivial y consiste, de forma simplificada, en ver que no existe vector de incógnitas en el primer término 
@@ -597,14 +597,20 @@ Para tener una idea de la fiabilidad del modelo de ajuste, en el caso lineal se 
 de las viviendas la variable <code>metros cuadrados habitables</code> se correlacionará estrechamente con la variable 
 <code>metros cuadrados construidos</code>. “Alimentar” a nuestro modelo con variables tan estrechamente correlacionadas como estas 
 resultará en un ajuste lineal más pobre de lo posible. A este problema o fenómeno lo conocen nuestros amigos, 
-los estadísticos, como <a href="https://en.wikipedia.org/wiki/Multicollinearity">multicolinearidad</a>.</li>
+los estadísticos, como <a href="https://en.wikipedia.org/wiki/Multicollinearity">multicolinealidad</a>.</li>
 </ul>
 
 <p>Basta decir que es perfectamente posible prevenir esta clase de problemas a través de múltiples tests matemáticos
-que, a fin de cuentas, permitirán una elección inteligente de las variables predictivas, advirtiéndonos sobre aquellas 
-más problemáticas y maximizando en la medida de lo posible la bondad de ajuste de nuestro modelo lineal. Al respecto, te aconsejo 
-echar un vistazo a cualquier libro de estadística matemática o a cualquier curso online de regresión lineal aplicada 
+que, a fin de cuentas, permiten una elección inteligente de las variables predictivas, advirtiéndonos sobre aquellas 
+más problemáticas y maximizando en la medida de lo posible la bondad de ajuste de nuestro modelo lineal. Al respecto, 
+aconsejo echar un vistazo a cualquier libro de estadística o a cualquier documento online sobre regresión lineal aplicada 
 para estar al tanto de estas cuestiones importantes (y laboriosas).</p>
+
+<p>Por supuesto, si alguien quiere indagar en la parte estadística y rigurosa de la regresión lineal, es bueno saber
+que existe software muy completo e intuitivo que realiza la regresión y los tests necesarios para analizar la bondad de
+ajuste. A mí, personalmente, me gusta el software comercial <a href="https://www.minitab.com/es-mx/products/minitab/">Minitab</a>,
+por sencillo e intuitivo, aunque no me cabe ninguna duda de que también se puede hacer magia estadística con el más
+espartano y open source <a href="https://cran.rstudio.com/">R</a> + <a href="https://www.rstudio.com/products/rstudio/#Desktop">RStudio</a>.</p>
 
 <p><strong>Próximamente</strong></p>
 

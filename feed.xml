@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 06 Dec 2016 19:21:06 +0100</pubDate>
-    <lastBuildDate>Tue, 06 Dec 2016 19:21:06 +0100</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2016 20:50:26 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Dec 2016 20:50:26 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -277,7 +277,8 @@ de nuevas variables en el futuro. En el fondo se trata de un sencillo ejercicio 
 &lt;p&gt;Para facilitar las cosas renombremos $\alpha$ como $\beta_0$ y supongamos que está multiplicando al número $1$. Nuestra
 función quedaría del siguiente modo:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon_i = y_i - (\beta_0 1+ \beta_1 {x_1}_i+\beta_2 {x_2}_i)&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon_i = y_i - (\beta_0 1+ \beta_1 {x_1}_i+\beta_2 {x_2}_i)
+\tag{1}&lt;/script&gt;
 
 &lt;p&gt;El segundo término de la resta no es más que un sumatorio, que puede re-expresarse como el producto punto (o producto escalar)
 entre dos vectores, en este caso:&lt;/p&gt;
@@ -306,8 +307,8 @@ sin embargo nuestra expresión para la distancia sería la misma. ¡Ya estamos u
 conformarnos con la expresión para cada $\epsilon_i$, pongamos todas las $epsilon$ en un solo vector y re-expresemos
  la parte derecha de la igualdad para satisfacer la equivalencia.&lt;/p&gt;
 
-&lt;p&gt;Si pasáramos todo en forma de vector, a lo loco, nos quedaría algo como esto para el caso de dos variables predictoras
-y n observaciones (n puntos en la nube):&lt;/p&gt;
+&lt;p&gt;Teniendo en cuenta la expresión (1), si pasáramos todo en forma de vector, a lo loco, nos quedaría algo como esto 
+para el caso de dos variables predictoras y n observaciones (n puntos en la nube):&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} = 
 \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} -
@@ -330,7 +331,7 @@ de valores de la variable respuesta como $T$ de &lt;em&gt;target&lt;/em&gt; o va
 el vector de estimadores o parámetros incógnita como $w$ de vector de pesos o &lt;em&gt;weights&lt;/em&gt;, en definitiva:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\epsilon = T - Xw 
-\tag{1}&lt;/script&gt;
+\tag{2}&lt;/script&gt;
 
 &lt;p&gt;Esta expresión es elegante y potente al mismo tiempo. Primeramente porque se puede emplear para cualquier número de 
 variables predictoras, siempre y cuando tengamos en cuenta que las dimensiones de $X$ y $w$ cambiarán. Por ejemplo:
@@ -356,7 +357,7 @@ el producto punto entre dos vectores de epsilons:&lt;/p&gt;
 \begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} =
 \epsilon^T \epsilon %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;Empleando nuestra maravillosa expresión (1) al producto punto entre los vectores epsilons y operando obtendremos
+&lt;p&gt;Empleando nuestra maravillosa expresión (2) al producto punto entre los vectores epsilons y operando obtendremos
 nuestra nueva función objetivo en forma de operaciones matriciales. Nótese que estamos multiplicando vectores y 
 matrices, no escalares, por lo que la transposición, la propiedad distributiva y las simplificaciones se han aplicar 
 con especial cariño (siguiendo las propiedades de vectores y matrices):&lt;/p&gt;
@@ -369,8 +370,7 @@ con especial cariño (siguiendo las propiedades de vectores y matrices):&lt;/p&g
 &lt;p&gt;Nuestra función objetivo para el caso general será, por tanto:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum\epsilon_i^2 = 
-T^TT - 2w^TX^TT + w^TX^TXw
-\tag{2}&lt;/script&gt;
+T^TT - 2w^TX^TT + w^TX^TXw&lt;/script&gt;
 
 &lt;p&gt;Ahora hemos de derivar respecto al vector de parámetros incógnita o vector de pesos $w$. Esta derivada no es
  ni mucho menos trivial y consiste, de forma simplificada, en ver que no existe vector de incógnitas en el primer término 
@@ -517,14 +517,20 @@ Para tener una idea de la fiabilidad del modelo de ajuste, en el caso lineal se 
 de las viviendas la variable &lt;code&gt;metros cuadrados habitables&lt;/code&gt; se correlacionará estrechamente con la variable 
 &lt;code&gt;metros cuadrados construidos&lt;/code&gt;. “Alimentar” a nuestro modelo con variables tan estrechamente correlacionadas como estas 
 resultará en un ajuste lineal más pobre de lo posible. A este problema o fenómeno lo conocen nuestros amigos, 
-los estadísticos, como &lt;a href=&quot;https://en.wikipedia.org/wiki/Multicollinearity&quot;&gt;multicolinearidad&lt;/a&gt;.&lt;/li&gt;
+los estadísticos, como &lt;a href=&quot;https://en.wikipedia.org/wiki/Multicollinearity&quot;&gt;multicolinealidad&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Basta decir que es perfectamente posible prevenir esta clase de problemas a través de múltiples tests matemáticos
-que, a fin de cuentas, permitirán una elección inteligente de las variables predictivas, advirtiéndonos sobre aquellas 
-más problemáticas y maximizando en la medida de lo posible la bondad de ajuste de nuestro modelo lineal. Al respecto, te aconsejo 
-echar un vistazo a cualquier libro de estadística matemática o a cualquier curso online de regresión lineal aplicada 
+que, a fin de cuentas, permiten una elección inteligente de las variables predictivas, advirtiéndonos sobre aquellas 
+más problemáticas y maximizando en la medida de lo posible la bondad de ajuste de nuestro modelo lineal. Al respecto, 
+aconsejo echar un vistazo a cualquier libro de estadística o a cualquier documento online sobre regresión lineal aplicada 
 para estar al tanto de estas cuestiones importantes (y laboriosas).&lt;/p&gt;
+
+&lt;p&gt;Por supuesto, si alguien quiere indagar en la parte estadística y rigurosa de la regresión lineal, es bueno saber
+que existe software muy completo e intuitivo que realiza la regresión y los tests necesarios para analizar la bondad de
+ajuste. A mí, personalmente, me gusta el software comercial &lt;a href=&quot;https://www.minitab.com/es-mx/products/minitab/&quot;&gt;Minitab&lt;/a&gt;,
+por sencillo e intuitivo, aunque no me cabe ninguna duda de que también se puede hacer magia estadística con el más
+espartano y open source &lt;a href=&quot;https://cran.rstudio.com/&quot;&gt;R&lt;/a&gt; + &lt;a href=&quot;https://www.rstudio.com/products/rstudio/#Desktop&quot;&gt;RStudio&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Próximamente&lt;/strong&gt;&lt;/p&gt;
 
