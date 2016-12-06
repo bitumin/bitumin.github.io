@@ -493,7 +493,7 @@ class LinearRegression(object):
         self.w = np.linalg.inv(x_matrix.T.dot(x_matrix)).dot(x_matrix.T).dot(y_data)
 
     def predict(self, *x_values):
-        x_values_vector = np.ones(k + 1)
+        x_values_vector = np.ones(self.k + 1)
         for i, x_value in enumerate(x_values, start=1):
             x_values_vector[i] = x_value
 
