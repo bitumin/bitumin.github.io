@@ -584,16 +584,16 @@ curva que mejor se ajusta a la nube de puntos? ¿si es posible ajustar perfectam
 es más fiable dejar ciertas distancias figura-punto y alisar la figura geométrica curvada? ¿si hemos de alisarla, 
 hasta qué punto hemos de alisarla? Confío en que todas estas cuestiones las iremos viendo más adelante.</p>
 
-<p>Por otro lado, el cálculo de la fiabilidad del ajuste lineal es un tema muy importante que de cara a 
-evitar algunos problemas típicos de la regresión lineal, como por ejemplo:</p>
+<p>Por otro lado, el análisis de la bondad de ajuste es un tema 
+muy importante de cara a evitar algunos problemas típicos de la regresión lineal, por ejemplo:</p>
 
 <ul>
   <li>La posibilidad de que nuestra nube de puntos sea un cúmulo de puntos sin sentido, es decir, con muy poca 
 correlación entre las variables predictivas y la variable respuesta. Nuestro modelo arrojará resultados 
 en cualquier caso, pero ¿cómo de fiables serán las predicciones? ¿hay algún modo de preverlo? 
-Para tener una idea de la fiabilidad del modelo de ajuste, en el caso lineal se calcula el llamado 
+Para tener una idea de la fiabilidad del modelo, en el caso lineal, se calcula el llamado 
 <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">Coeficiente de Determinación o $R^2$</a>.</li>
-  <li>La posibilidad de que dos o más de las variables predictivas se “expliquen” unas a otras, por ejemplo, en el caso
+  <li>La posibilidad de que dos o más de las variables predictivas se “expliquen” unas a otras, por ejemplo: en el caso
 de las viviendas la variable <code>metros cuadrados habitables</code> se correlacionará estrechamente con la variable 
 <code>metros cuadrados construidos</code>. “Alimentar” a nuestro modelo con variables tan estrechamente correlacionadas como estas 
 introduce importantes distorsiones en el análisis del aporte de cada una de las variables a la bondad de ajuste del modelo. 
@@ -610,9 +610,9 @@ del <a href="http://science.psu.edu/">Colegio de Ciencias</a> de la <a href="htt
 <p>Si alguien quiere indagar en la parte estadística y rigurosa de la regresión lineal, es bueno saber
 que existe software estadístico muy completo que asiste con la regresión y los tests 
 necesarios para analizar la bondad de ajuste. A mí, personalmente, me gusta el software comercial 
-<a href="https://www.minitab.com/es-mx/products/minitab/">Minitab</a>,
-por sencillo e intuitivo, aunque no me cabe ninguna duda de que también se puede hacer magia estadística con el más
-espartano y open source <a href="https://cran.rstudio.com/">R</a> + <a href="https://www.rstudio.com/products/rstudio/#Desktop">RStudio</a>.</p>
+<a href="https://www.minitab.com/es-mx/products/minitab/">Minitab</a>,por sencillo e intuitivo, aunque no me cabe ninguna 
+duda de que también se puede hacer magia estadística con el más espartano y open source 
+<a href="https://cran.rstudio.com/">R</a> + <a href="https://www.rstudio.com/products/rstudio/#Desktop">RStudio</a>.</p>
 
 <p>En cualquier caso, nosotros vamos a seguir dándole al machine learning.</p>
 

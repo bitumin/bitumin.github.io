@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 07 Dec 2016 00:35:17 +0100</pubDate>
-    <lastBuildDate>Wed, 07 Dec 2016 00:35:17 +0100</lastBuildDate>
+    <pubDate>Sat, 10 Dec 2016 02:35:31 +0100</pubDate>
+    <lastBuildDate>Sat, 10 Dec 2016 02:35:31 +0100</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -504,16 +504,16 @@ curva que mejor se ajusta a la nube de puntos? ¿si es posible ajustar perfectam
 es más fiable dejar ciertas distancias figura-punto y alisar la figura geométrica curvada? ¿si hemos de alisarla, 
 hasta qué punto hemos de alisarla? Confío en que todas estas cuestiones las iremos viendo más adelante.&lt;/p&gt;
 
-&lt;p&gt;Por otro lado, el cálculo de la fiabilidad del ajuste lineal es un tema muy importante que de cara a 
-evitar algunos problemas típicos de la regresión lineal, como por ejemplo:&lt;/p&gt;
+&lt;p&gt;Por otro lado, el análisis de la bondad de ajuste es un tema 
+muy importante de cara a evitar algunos problemas típicos de la regresión lineal, por ejemplo:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;La posibilidad de que nuestra nube de puntos sea un cúmulo de puntos sin sentido, es decir, con muy poca 
 correlación entre las variables predictivas y la variable respuesta. Nuestro modelo arrojará resultados 
 en cualquier caso, pero ¿cómo de fiables serán las predicciones? ¿hay algún modo de preverlo? 
-Para tener una idea de la fiabilidad del modelo de ajuste, en el caso lineal se calcula el llamado 
+Para tener una idea de la fiabilidad del modelo, en el caso lineal, se calcula el llamado 
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Coefficient_of_determination&quot;&gt;Coeficiente de Determinación o $R^2$&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;La posibilidad de que dos o más de las variables predictivas se “expliquen” unas a otras, por ejemplo, en el caso
+  &lt;li&gt;La posibilidad de que dos o más de las variables predictivas se “expliquen” unas a otras, por ejemplo: en el caso
 de las viviendas la variable &lt;code&gt;metros cuadrados habitables&lt;/code&gt; se correlacionará estrechamente con la variable 
 &lt;code&gt;metros cuadrados construidos&lt;/code&gt;. “Alimentar” a nuestro modelo con variables tan estrechamente correlacionadas como estas 
 introduce importantes distorsiones en el análisis del aporte de cada una de las variables a la bondad de ajuste del modelo. 
@@ -530,9 +530,9 @@ del &lt;a href=&quot;http://science.psu.edu/&quot;&gt;Colegio de Ciencias&lt;/a&
 &lt;p&gt;Si alguien quiere indagar en la parte estadística y rigurosa de la regresión lineal, es bueno saber
 que existe software estadístico muy completo que asiste con la regresión y los tests 
 necesarios para analizar la bondad de ajuste. A mí, personalmente, me gusta el software comercial 
-&lt;a href=&quot;https://www.minitab.com/es-mx/products/minitab/&quot;&gt;Minitab&lt;/a&gt;,
-por sencillo e intuitivo, aunque no me cabe ninguna duda de que también se puede hacer magia estadística con el más
-espartano y open source &lt;a href=&quot;https://cran.rstudio.com/&quot;&gt;R&lt;/a&gt; + &lt;a href=&quot;https://www.rstudio.com/products/rstudio/#Desktop&quot;&gt;RStudio&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;https://www.minitab.com/es-mx/products/minitab/&quot;&gt;Minitab&lt;/a&gt;,por sencillo e intuitivo, aunque no me cabe ninguna 
+duda de que también se puede hacer magia estadística con el más espartano y open source 
+&lt;a href=&quot;https://cran.rstudio.com/&quot;&gt;R&lt;/a&gt; + &lt;a href=&quot;https://www.rstudio.com/products/rstudio/#Desktop&quot;&gt;RStudio&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;En cualquier caso, nosotros vamos a seguir dándole al machine learning.&lt;/p&gt;
 
