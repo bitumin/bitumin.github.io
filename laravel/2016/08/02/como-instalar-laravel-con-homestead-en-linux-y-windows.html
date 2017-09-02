@@ -16,9 +16,14 @@
 
   
 
-  <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300">
+
+  
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300&family=Lato:300">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://mitxelmoriana.com/laravel/2016/08/02/como-instalar-laravel-con-homestead-en-linux-y-windows.html">
   <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
@@ -51,6 +56,8 @@
       </a>
       <div class="trigger">
         
+          <a class="page-link" href="/cv/">CV</a>
+        
           <a class="page-link" href="/about/">Sobre mí</a>
         
       </div>
@@ -81,7 +88,7 @@
         <p class="post-meta"><time datetime="2016-08-02T00:00:00+02:00" itemprop="datePublished">Aug 2, 2016</time></p>
     </header>
     <div class="post-content" itemprop="articleBody">
-        <h2 id="introduccin">Introducción</h2>
+        <h2 id="introducción">Introducción</h2>
 
 <p>Laravel es un framework tan completo y fácil de extender que sólo es necesario un conocimiento básico y superficial de programación PHP para usarlo. Sin embargo, la instalación de Laravel puede llegar a ser un reto.</p>
 
@@ -115,7 +122,7 @@
 
 <p>¡Eso es todo! Cinco pasitos, cuatro instalaciones prácticamente automáticas y una configuración que es cambiar cuatro o cinco líneas en un fichero de nada… Si esto no lo puede hacer cualquiera, me corto una pierna a bocados. Vayamos al lío:</p>
 
-<h2 id="paso-1-instalar-composera-namepaso1a">Paso 1: Instalar Composer<a name="paso1"></a></h2>
+<h2 id="paso-1-instalar-composer">Paso 1: Instalar Composer<a name="paso1"></a></h2>
 
 <p>Si usas Windows estás de suerte. Sólo tienes que bajarte e instalar el instalador oficial de composer: <a href="https://getcomposer.org/Composer-Setup.exe" target="_blank">Composer-Setup.exe</a>. El instalador te añadirá el comando <em>composer</em> a tu PATH de Windows, así que podrás usarlo desde cualquier terminal que abras a partir de ahora. Pan comido. Ya puedes pasar al <a href="#paso2">paso 2</a>.</p>
 
@@ -129,7 +136,7 @@
 
 <p>Este comando hace dos cositas: instala composer y crea una copia de composer.phar en <code>/usr/local/bin/composer</code>, lo que nos permite ejecutar el comando <code>composer</code> desde cualquier terminal de nuestro sistema a partir de ahora. Pues eso es todo, ya tenemos instalado Composer en nuestro Linux, pasemos al siguiente paso.</p>
 
-<h2 id="paso-2-instalar-laravela-namepaso2a">Paso 2: Instalar Laravel<a name="paso2"></a></h2>
+<h2 id="paso-2-instalar-laravel">Paso 2: Instalar Laravel<a name="paso2"></a></h2>
 
 <p>Ya que tenemos instalado Composer, vamos a hacernos el favor de utilizarlo. En primer lugar vamos a bajarnos y a hacer accesible desde cualquier punto de nuestra terminal el instalador de Laravel:</p>
 
@@ -168,7 +175,7 @@ sudo apt-get install -f</code></pre></figure>
 
 <p>Ahora que ya tenemos Homestead instalado, podemos pasar al último paso</p>
 
-<h2 id="paso-5-configuracin-mnima-de-homestead">Paso 5: Configuración mínima de Homestead</h2>
+<h2 id="paso-5-configuración-mínima-de-homestead">Paso 5: Configuración mínima de Homestead</h2>
 
 <p>Para poder comunicarte de forma segura y sin necesidad de passwords con la máquina virtual que crearemos en breve, necesitarás crear un par de claves privada/pública SSH (si no las tienes ya). En Linux esto suele ser tan fácil como ejecutar el comando:</p>
 
@@ -248,7 +255,7 @@ variables:
   <li>Para cerrar Homestead y terminar la ejecución de la máquina virtual puedes utilizar el comando <code>homestead destroy</code>.</li>
 </ul>
 
-<h2 id="conclusin">Conclusión</h2>
+<h2 id="conclusión">Conclusión</h2>
 
 <p>Espero que la instalación de Laravel siguiendo estos pasos te haya parecido la mar de sencilla y que puedas dedicar tu tiempo a estudiar el framework y crear nuevas aplicaciones web en lugar de perderlo gestionando servidores. Si te surge alguna duda, detectas algún error o crees que me he dejado algún dato importante, deja tu comentario más abajo.</p>
 
@@ -273,7 +280,6 @@ variables:
         </div>
         <footer class="site-footer">
     <div class="wrapper">
-        <h2 class="footer-heading">MitxelMoriana</h2>
         <div class="footer-col-wrapper">
             <div class="footer-col footer-col-alt-1">
                 <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
@@ -305,14 +311,17 @@ variables:
                 </ul>
             </div>
             <div class="footer-col footer-col-alt-2">
-                <p>Huola. Soy Mitxel, desarrollador, tecnófilo y blogger. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás mas que nada posts sobre tecnología y programación. ¡Espero que los encuentres instructivos, inspiradores e interesantes!
+                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con tecnologías de la información y el arte de programar software. ¡Espero que encuentres mis posts instructivos e inspiradores!
 </p>
             </div>
         </div>
     </div>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="/assets/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
     </body>
 </html>

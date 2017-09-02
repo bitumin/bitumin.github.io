@@ -16,9 +16,14 @@
 
   
 
-  <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300">
+
+  
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300&family=Lato:300">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://mitxelmoriana.com/laravel/2016/02/11/tu-web-porno-con-laravel-II-migrations-models-y-seeders.html">
   <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
@@ -51,6 +56,8 @@
       </a>
       <div class="trigger">
         
+          <a class="page-link" href="/cv/">CV</a>
+        
           <a class="page-link" href="/about/">Sobre mí</a>
         
       </div>
@@ -81,7 +88,7 @@
         <p class="post-meta"><time datetime="2016-02-11T00:00:00+01:00" itemprop="datePublished">Feb 11, 2016</time></p>
     </header>
     <div class="post-content" itemprop="articleBody">
-        <h2 id="preparacin-previa">Preparación previa</h2>
+        <h2 id="preparación-previa">Preparación previa</h2>
 
 <p>Una vez configurado nuestro entorno de desarrollo de acuerdo a las <a href="https://laravel.com/docs/5.2/installation" target="_blank">especificaciones</a> de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:</p>
 
@@ -144,7 +151,7 @@
   </tbody>
 </table>
 
-<h2 id="qu-es-eso-de-las-migrations-models-y-seeders">¿Qué es eso de las migrations, models y seeders?</h2>
+<h2 id="qué-es-eso-de-las-migrations-models-y-seeders">¿Qué es eso de las migrations, models y seeders?</h2>
 
 <p>Cuando se trabaja con equipos de desarrolladores de varias personas es necesario que en todo momento todos tengan la misma estructura de base de datos. Para lograrlo Laravel utiliza un sistema de <strong>migrations</strong>, que no es más que una forma de crear y modificar tablas de forma secuencial. Una migration es, por tanto, una acción sobre la base de datos: crear, eliminar, corregir, modificar algo… que una vez implementada no debería ser rectificada, salvo por una nueva migration. Por ejemplo: si yo creo una tabla <em>dummy</em> con una columna <em>useless</em> y tras poner los cambios en producción me doy cuenta de que esa columna no es necesaria, no debería modificar la migration que creó la columna, sino crear otra migration para eliminarla.</p>
 
@@ -158,7 +165,7 @@
 
 <p style="text-align:center;"><img src="/images/db-diagram-1.jpg" alt="Diagrama aproximado de nuestra base de datos" /></p>
 
-<h2 id="creacin-de-migrations">Creación de migrations</h2>
+<h2 id="creación-de-migrations">Creación de migrations</h2>
 
 <p>Antes de hacer las migrations es necesario decirle a nuestra aplicación cómo acceder a nuestra base de datos. Para ello crea una base de datos, así como un usuario con los permisos pertinentes. Abre ahora el fichero .env en la carpeta raíz de nuestra aplicación y modifica las siguientes líneas introduciendo los datos apropiados:</p>
 
@@ -333,7 +340,7 @@ php artisan migrate:rollback  <span class="c"># rollback the latest &quot;batch&
 php artisan migrate:reset     <span class="c"># rollback all the migrations</span>
 php artisan migrate:refresh   <span class="c"># rollback all the migrations and then migrate them all again</span></code></pre></figure>
 
-<h2 id="creacin-de-models">Creación de models</h2>
+<h2 id="creación-de-models">Creación de models</h2>
 
 <p>Si has llegado hasta aquí es que ya tienes tu base de datos lista. Si es la primera vez que usas Laravel ¡te felicito! Ahora eso de las migrations ya no te asusta tanto, ¿a que no? Pues lo mismo te va a pasar con esto de los models. De hecho, si estás familiarizado con las Clases de cualquier lenguaje orientado a objetos (Java, PHP…), esto de los modelos te resultará más familiar que las migrations.</p>
 
@@ -672,7 +679,7 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 
 <p>Pues me parece que ya hemos terminado con nuestros models. Para comprobar que todo funciona qué mejor manera que poblar nuestra base de datos con eloquent, es decir, a través de los models. Pasemos, por tanto, a la siguiente sección del curso.</p>
 
-<h2 id="creacin-de-seeders">Creación de seeders</h2>
+<h2 id="creación-de-seeders">Creación de seeders</h2>
 
 <p>Desde hace poco Laravel viene de serie con una dependencia muy útil llamada Faker que básicamente nos ayuda a generar datos falsos: nombres propios, direcciones de calles, fechas, combinaciones de números y letras, etc. Más adelante verás ejemplos de cómo usarla.</p>
 
@@ -1219,7 +1226,6 @@ Tu web porno con Laravel - III: Routes, resources y controllers</p>
         </div>
         <footer class="site-footer">
     <div class="wrapper">
-        <h2 class="footer-heading">MitxelMoriana</h2>
         <div class="footer-col-wrapper">
             <div class="footer-col footer-col-alt-1">
                 <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
@@ -1251,14 +1257,17 @@ Tu web porno con Laravel - III: Routes, resources y controllers</p>
                 </ul>
             </div>
             <div class="footer-col footer-col-alt-2">
-                <p>Huola. Soy Mitxel, desarrollador, tecnófilo y blogger. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás mas que nada posts sobre tecnología y programación. ¡Espero que los encuentres instructivos, inspiradores e interesantes!
+                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con tecnologías de la información y el arte de programar software. ¡Espero que encuentres mis posts instructivos e inspiradores!
 </p>
             </div>
         </div>
     </div>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="/assets/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
     </body>
 </html>

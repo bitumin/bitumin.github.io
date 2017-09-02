@@ -16,9 +16,14 @@
 
   
 
-  <link href="/assets/bootstrap.min.css" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300">
+
+  
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300&family=Lato:300">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://mitxelmoriana.com/git/2016/02/20/introduccion-al-control-de-versiones-con-git-comandos-basicos-en-entorno-local.html">
   <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
@@ -51,6 +56,8 @@
       </a>
       <div class="trigger">
         
+          <a class="page-link" href="/cv/">CV</a>
+        
           <a class="page-link" href="/about/">Sobre mí</a>
         
       </div>
@@ -81,7 +88,7 @@
         <p class="post-meta"><time datetime="2016-02-20T00:00:00+01:00" itemprop="datePublished">Feb 20, 2016</time></p>
     </header>
     <div class="post-content" itemprop="articleBody">
-        <h2 id="qu-es-el-control-de-versiones">¿Qué es el control de versiones?</h2>
+        <h2 id="qué-es-el-control-de-versiones">¿Qué es el control de versiones?</h2>
 
 <p>Durante el desarrollo e incluso durante toda la vida de cualquier programa de software se requiere de escribir o corregir código continuamente, ya sea para publicar nuevas versiones mejoradas o con nuevas funcionalidades o por necesidad de corrección de errores (bug fixes).</p>
 
@@ -89,13 +96,13 @@
 
 <p>De ahí que sean necesarios sistemas de gestión de cambios o lo que se ha venido a conocer como Sistemas de Control de Versiones (VCS, en inglés), que básicamente consisten en estrategias (y software) que habilitan para realizar esa gestión de cambios.</p>
 
-<h2 id="qu-es-eso-de-git">¿Qué es eso de Git?</h2>
+<h2 id="qué-es-eso-de-git">¿Qué es eso de Git?</h2>
 
 <p>Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí: algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismos fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por <a href="https://en.wikipedia.org/wiki/Comparison_of_version_control_software" target="_blank">aquí</a>.</p>
 
 <p>Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí). Además, sabiendo más o menos de qué va Git, la terminología y los conceptos generales (merge, branch, pull, push…), aprender a hacer lo mismo con un otro VCS no puede ser muy complicado.</p>
 
-<h2 id="git-bsico-bsico">Git básico, básico</h2>
+<h2 id="git-básico-básico">Git básico, básico</h2>
 
 <p>Como decía un compañero mío de universidad: “para aprender a andar primero hay que aprender a gatear”, y como para aprender a gatear primero hay que nacer, qué mejor que empezar por el principio de todo: la instalación de git.</p>
 
@@ -249,7 +256,7 @@ git commit --ammend</code></pre></figure>
   <li>Puedes utilizar alguna interfaz gráfica para git que, como mínimo, te ayudará a visualizar los cambios realizados en los distintos ficheros antes o después de hacer el staging o el commit. Hay montones y muy buenas GUI para todos los SO: GitHub Desktop, SourceTree, git-cola… De nuevo, Google es tu amigo.</li>
 </ul>
 
-<h2 id="prximamente">Próximamente…</h2>
+<h2 id="próximamente">Próximamente…</h2>
 <p>En el próximo post sobre Git hablaré de cómo manejar las <em>branches</em> y cómo intercambiar datos con los repositorios remotos: la auténtica belleza de todo este asuntillo.</p>
 
 <p>Recuerda que puedes preguntarme sobre cualquier cosa que no te haya quedado clara, sobre errores que te van surgiendo o indicarme correcciones aquí abajo, en el área de comentarios.</p>
@@ -276,7 +283,6 @@ git commit --ammend</code></pre></figure>
         </div>
         <footer class="site-footer">
     <div class="wrapper">
-        <h2 class="footer-heading">MitxelMoriana</h2>
         <div class="footer-col-wrapper">
             <div class="footer-col footer-col-alt-1">
                 <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
@@ -308,14 +314,17 @@ git commit --ammend</code></pre></figure>
                 </ul>
             </div>
             <div class="footer-col footer-col-alt-2">
-                <p>Huola. Soy Mitxel, desarrollador, tecnófilo y blogger. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás mas que nada posts sobre tecnología y programación. ¡Espero que los encuentres instructivos, inspiradores e interesantes!
+                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con tecnologías de la información y el arte de programar software. ¡Espero que encuentres mis posts instructivos e inspiradores!
 </p>
             </div>
         </div>
     </div>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="/assets/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
     </body>
 </html>

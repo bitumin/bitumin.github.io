@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MitxelMoriana</title>
-    <description>Huola. Soy Mitxel, desarrollador, tecnófilo y blogger. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás mas que nada posts sobre tecnología y programación. ¡Espero que los encuentres instructivos, inspiradores e interesantes!
+    <description>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con tecnologías de la información y el arte de programar software. ¡Espero que encuentres mis posts instructivos e inspiradores!
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 10 Dec 2016 02:35:31 +0100</pubDate>
-    <lastBuildDate>Sat, 10 Dec 2016 02:35:31 +0100</lastBuildDate>
-    <generator>Jekyll v3.3.0</generator>
+    <pubDate>Sun, 03 Sep 2017 01:57:07 +0200</pubDate>
+    <lastBuildDate>Sun, 03 Sep 2017 01:57:07 +0200</lastBuildDate>
+    <generator>Jekyll v3.5.2</generator>
     
       <item>
         <title>Machine learning desde cero (II)</title>
@@ -574,7 +574,7 @@ esenciales para la comprensión de cada tema.&lt;/p&gt;
 
 &lt;p&gt;Pues nada, dejo por aquí mis apuntes sobre la regresión lineal.&lt;/p&gt;
 
-&lt;h2 id=&quot;la-regresin-como-prediccin&quot;&gt;La regresión como predicción&lt;/h2&gt;
+&lt;h2 id=&quot;la-regresión-como-predicción&quot;&gt;La regresión como predicción&lt;/h2&gt;
 
 &lt;p&gt;Desde el punto de vista del machine learning, la regresión lineal es una forma de aprendizaje supervisado:
 nosotros entrenamos a la computadora de una familia de inputs y outputs y luego la invitamos
@@ -584,7 +584,7 @@ a predecir cuál será el output para cualquier input arbitrario.&lt;/p&gt;
 de la función de entrenamiento, es decir, la función cuya ejecución 
 nos permite ir ajustando/mejorando el sistema predictivo.&lt;/p&gt;
 
-&lt;h2 id=&quot;regresin-lineal-con-una-sola-familia-de-inputs-o-regresin-lineal-unidimensional-o-mnimos-cuadrados-ordinarios-o-regresin-lineal-de-toda-la-vida&quot;&gt;Regresión lineal con una sola familia de inputs o regresión lineal unidimensional o mínimos cuadrados ordinarios o regresión lineal de toda la vida&lt;/h2&gt;
+&lt;h2 id=&quot;regresión-lineal-con-una-sola-familia-de-inputs-o-regresión-lineal-unidimensional-o-mínimos-cuadrados-ordinarios-o-regresión-lineal-de-toda-la-vida&quot;&gt;Regresión lineal con una sola familia de inputs o regresión lineal unidimensional o mínimos cuadrados ordinarios o regresión lineal de toda la vida&lt;/h2&gt;
 
 &lt;p&gt;Cuando tenemos una sola familia de inputs (datos de entrada o variable predictora) asociada a una sola familia de outputs 
 (datos de salida o variable respuesta)
@@ -1003,7 +1003,7 @@ Una vez entendida la aproximación al problema general, trataremos de computar l
     
       <item>
         <title>Cómo instalar Laravel en windows y linux</title>
-        <description>&lt;h2 id=&quot;introduccin&quot;&gt;Introducción&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;introducción&quot;&gt;Introducción&lt;/h2&gt;
 
 &lt;p&gt;Laravel es un framework tan completo y fácil de extender que sólo es necesario un conocimiento básico y superficial de programación PHP para usarlo. Sin embargo, la instalación de Laravel puede llegar a ser un reto.&lt;/p&gt;
 
@@ -1037,7 +1037,7 @@ Una vez entendida la aproximación al problema general, trataremos de computar l
 
 &lt;p&gt;¡Eso es todo! Cinco pasitos, cuatro instalaciones prácticamente automáticas y una configuración que es cambiar cuatro o cinco líneas en un fichero de nada… Si esto no lo puede hacer cualquiera, me corto una pierna a bocados. Vayamos al lío:&lt;/p&gt;
 
-&lt;h2 id=&quot;paso-1-instalar-composera-namepaso1a&quot;&gt;Paso 1: Instalar Composer&lt;a name=&quot;paso1&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;paso-1-instalar-composer&quot;&gt;Paso 1: Instalar Composer&lt;a name=&quot;paso1&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Si usas Windows estás de suerte. Sólo tienes que bajarte e instalar el instalador oficial de composer: &lt;a href=&quot;https://getcomposer.org/Composer-Setup.exe&quot; target=&quot;_blank&quot;&gt;Composer-Setup.exe&lt;/a&gt;. El instalador te añadirá el comando &lt;em&gt;composer&lt;/em&gt; a tu PATH de Windows, así que podrás usarlo desde cualquier terminal que abras a partir de ahora. Pan comido. Ya puedes pasar al &lt;a href=&quot;#paso2&quot;&gt;paso 2&lt;/a&gt;.&lt;/p&gt;
 
@@ -1051,7 +1051,7 @@ Una vez entendida la aproximación al problema general, trataremos de computar l
 
 &lt;p&gt;Este comando hace dos cositas: instala composer y crea una copia de composer.phar en &lt;code&gt;/usr/local/bin/composer&lt;/code&gt;, lo que nos permite ejecutar el comando &lt;code&gt;composer&lt;/code&gt; desde cualquier terminal de nuestro sistema a partir de ahora. Pues eso es todo, ya tenemos instalado Composer en nuestro Linux, pasemos al siguiente paso.&lt;/p&gt;
 
-&lt;h2 id=&quot;paso-2-instalar-laravela-namepaso2a&quot;&gt;Paso 2: Instalar Laravel&lt;a name=&quot;paso2&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;paso-2-instalar-laravel&quot;&gt;Paso 2: Instalar Laravel&lt;a name=&quot;paso2&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Ya que tenemos instalado Composer, vamos a hacernos el favor de utilizarlo. En primer lugar vamos a bajarnos y a hacer accesible desde cualquier punto de nuestra terminal el instalador de Laravel:&lt;/p&gt;
 
@@ -1090,7 +1090,7 @@ sudo apt-get install -f&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Ahora que ya tenemos Homestead instalado, podemos pasar al último paso&lt;/p&gt;
 
-&lt;h2 id=&quot;paso-5-configuracin-mnima-de-homestead&quot;&gt;Paso 5: Configuración mínima de Homestead&lt;/h2&gt;
+&lt;h2 id=&quot;paso-5-configuración-mínima-de-homestead&quot;&gt;Paso 5: Configuración mínima de Homestead&lt;/h2&gt;
 
 &lt;p&gt;Para poder comunicarte de forma segura y sin necesidad de passwords con la máquina virtual que crearemos en breve, necesitarás crear un par de claves privada/pública SSH (si no las tienes ya). En Linux esto suele ser tan fácil como ejecutar el comando:&lt;/p&gt;
 
@@ -1170,7 +1170,7 @@ variables:
   &lt;li&gt;Para cerrar Homestead y terminar la ejecución de la máquina virtual puedes utilizar el comando &lt;code&gt;homestead destroy&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;conclusin&quot;&gt;Conclusión&lt;/h2&gt;
+&lt;h2 id=&quot;conclusión&quot;&gt;Conclusión&lt;/h2&gt;
 
 &lt;p&gt;Espero que la instalación de Laravel siguiendo estos pasos te haya parecido la mar de sencilla y que puedas dedicar tu tiempo a estudiar el framework y crear nuevas aplicaciones web en lugar de perderlo gestionando servidores. Si te surge alguna duda, detectas algún error o crees que me he dejado algún dato importante, deja tu comentario más abajo.&lt;/p&gt;
 </description>
@@ -1203,7 +1203,7 @@ variables:
 
 &lt;p&gt;&lt;strong&gt;youtube-dl&lt;/strong&gt; es un programa de línea de comandos escrito en python que nos permite rastrear y bajar los recursos audiovisuales de múltiples webs. El programa está en permanente actualización y es compatible con gran parte de las webs de contenidos multimedia más conocidas del mundo. &lt;strong&gt;xclip&lt;/strong&gt; es el programa que nos permite interactuar desde la línea de comandos con el clipboard de nuestro sistema linux.&lt;/p&gt;
 
-&lt;h2 id=&quot;cmo-funciona&quot;&gt;¿Cómo funciona?&lt;/h2&gt;
+&lt;h2 id=&quot;cómo-funciona&quot;&gt;¿Cómo funciona?&lt;/h2&gt;
 
 &lt;p&gt;Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) &lt;strong&gt;youtube-autodl.sh&lt;/strong&gt;. Pon el fichero, con permisos de ejecución, en la carpeta donde deseas descargar los contenidos. Edita el código con el número máximo de subprocesos de download que quieres que se ejecuten paralelamente. A continuación ejecuta el script escribiendo:&lt;/p&gt;
 
@@ -1352,7 +1352,7 @@ variables:
     
       <item>
         <title>Introducción al control de versiones con Git</title>
-        <description>&lt;h2 id=&quot;qu-es-el-control-de-versiones&quot;&gt;¿Qué es el control de versiones?&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;qué-es-el-control-de-versiones&quot;&gt;¿Qué es el control de versiones?&lt;/h2&gt;
 
 &lt;p&gt;Durante el desarrollo e incluso durante toda la vida de cualquier programa de software se requiere de escribir o corregir código continuamente, ya sea para publicar nuevas versiones mejoradas o con nuevas funcionalidades o por necesidad de corrección de errores (bug fixes).&lt;/p&gt;
 
@@ -1360,13 +1360,13 @@ variables:
 
 &lt;p&gt;De ahí que sean necesarios sistemas de gestión de cambios o lo que se ha venido a conocer como Sistemas de Control de Versiones (VCS, en inglés), que básicamente consisten en estrategias (y software) que habilitan para realizar esa gestión de cambios.&lt;/p&gt;
 
-&lt;h2 id=&quot;qu-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h2&gt;
+&lt;h2 id=&quot;qué-es-eso-de-git&quot;&gt;¿Qué es eso de Git?&lt;/h2&gt;
 
 &lt;p&gt;Git es un programa para control de versiones. No es el único ni necesariamente el mejor en todo. Hay docenas de sistemas de gestión de versiones por ahí: algunos son de pago, otros gratuitos, unos afrontan la problemática de editar los mismos fichero por distintas personas de una manera, otros de otra… No nos interesa demasiado entrar en detalle ni compararlos en este post, aunque si te pica la curiosidad siempre puedes echar un vistacillo por &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_version_control_software&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Yo te voy a introducir a Git por la sencilla razón de que, junto con Mercurial, es el VCS más popular con diferencia (o eso me parece a mí). Además, sabiendo más o menos de qué va Git, la terminología y los conceptos generales (merge, branch, pull, push…), aprender a hacer lo mismo con un otro VCS no puede ser muy complicado.&lt;/p&gt;
 
-&lt;h2 id=&quot;git-bsico-bsico&quot;&gt;Git básico, básico&lt;/h2&gt;
+&lt;h2 id=&quot;git-básico-básico&quot;&gt;Git básico, básico&lt;/h2&gt;
 
 &lt;p&gt;Como decía un compañero mío de universidad: “para aprender a andar primero hay que aprender a gatear”, y como para aprender a gatear primero hay que nacer, qué mejor que empezar por el principio de todo: la instalación de git.&lt;/p&gt;
 
@@ -1520,7 +1520,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;li&gt;Puedes utilizar alguna interfaz gráfica para git que, como mínimo, te ayudará a visualizar los cambios realizados en los distintos ficheros antes o después de hacer el staging o el commit. Hay montones y muy buenas GUI para todos los SO: GitHub Desktop, SourceTree, git-cola… De nuevo, Google es tu amigo.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;prximamente&quot;&gt;Próximamente…&lt;/h2&gt;
+&lt;h2 id=&quot;próximamente&quot;&gt;Próximamente…&lt;/h2&gt;
 &lt;p&gt;En el próximo post sobre Git hablaré de cómo manejar las &lt;em&gt;branches&lt;/em&gt; y cómo intercambiar datos con los repositorios remotos: la auténtica belleza de todo este asuntillo.&lt;/p&gt;
 
 &lt;p&gt;Recuerda que puedes preguntarme sobre cualquier cosa que no te haya quedado clara, sobre errores que te van surgiendo o indicarme correcciones aquí abajo, en el área de comentarios.&lt;/p&gt;
@@ -1551,7 +1551,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     
       <item>
         <title>Tu web porno con Laravel - II</title>
-        <description>&lt;h2 id=&quot;preparacin-previa&quot;&gt;Preparación previa&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;preparación-previa&quot;&gt;Preparación previa&lt;/h2&gt;
 
 &lt;p&gt;Una vez configurado nuestro entorno de desarrollo de acuerdo a las &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot; target=&quot;_blank&quot;&gt;especificaciones&lt;/a&gt; de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:&lt;/p&gt;
 
@@ -1614,7 +1614,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;qu-es-eso-de-las-migrations-models-y-seeders&quot;&gt;¿Qué es eso de las migrations, models y seeders?&lt;/h2&gt;
+&lt;h2 id=&quot;qué-es-eso-de-las-migrations-models-y-seeders&quot;&gt;¿Qué es eso de las migrations, models y seeders?&lt;/h2&gt;
 
 &lt;p&gt;Cuando se trabaja con equipos de desarrolladores de varias personas es necesario que en todo momento todos tengan la misma estructura de base de datos. Para lograrlo Laravel utiliza un sistema de &lt;strong&gt;migrations&lt;/strong&gt;, que no es más que una forma de crear y modificar tablas de forma secuencial. Una migration es, por tanto, una acción sobre la base de datos: crear, eliminar, corregir, modificar algo… que una vez implementada no debería ser rectificada, salvo por una nueva migration. Por ejemplo: si yo creo una tabla &lt;em&gt;dummy&lt;/em&gt; con una columna &lt;em&gt;useless&lt;/em&gt; y tras poner los cambios en producción me doy cuenta de que esa columna no es necesaria, no debería modificar la migration que creó la columna, sino crear otra migration para eliminarla.&lt;/p&gt;
 
@@ -1628,7 +1628,7 @@ git commit --ammend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/images/db-diagram-1.jpg&quot; alt=&quot;Diagrama aproximado de nuestra base de datos&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;creacin-de-migrations&quot;&gt;Creación de migrations&lt;/h2&gt;
+&lt;h2 id=&quot;creación-de-migrations&quot;&gt;Creación de migrations&lt;/h2&gt;
 
 &lt;p&gt;Antes de hacer las migrations es necesario decirle a nuestra aplicación cómo acceder a nuestra base de datos. Para ello crea una base de datos, así como un usuario con los permisos pertinentes. Abre ahora el fichero .env en la carpeta raíz de nuestra aplicación y modifica las siguientes líneas introduciendo los datos apropiados:&lt;/p&gt;
 
@@ -1803,7 +1803,7 @@ php artisan migrate:rollback  &lt;span class=&quot;c&quot;&gt;# rollback the lat
 php artisan migrate:reset     &lt;span class=&quot;c&quot;&gt;# rollback all the migrations&lt;/span&gt;
 php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the migrations and then migrate them all again&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;creacin-de-models&quot;&gt;Creación de models&lt;/h2&gt;
+&lt;h2 id=&quot;creación-de-models&quot;&gt;Creación de models&lt;/h2&gt;
 
 &lt;p&gt;Si has llegado hasta aquí es que ya tienes tu base de datos lista. Si es la primera vez que usas Laravel ¡te felicito! Ahora eso de las migrations ya no te asusta tanto, ¿a que no? Pues lo mismo te va a pasar con esto de los models. De hecho, si estás familiarizado con las Clases de cualquier lenguaje orientado a objetos (Java, PHP…), esto de los modelos te resultará más familiar que las migrations.&lt;/p&gt;
 
@@ -2142,7 +2142,7 @@ php artisan migrate:refresh   &lt;span class=&quot;c&quot;&gt;# rollback all the
 
 &lt;p&gt;Pues me parece que ya hemos terminado con nuestros models. Para comprobar que todo funciona qué mejor manera que poblar nuestra base de datos con eloquent, es decir, a través de los models. Pasemos, por tanto, a la siguiente sección del curso.&lt;/p&gt;
 
-&lt;h2 id=&quot;creacin-de-seeders&quot;&gt;Creación de seeders&lt;/h2&gt;
+&lt;h2 id=&quot;creación-de-seeders&quot;&gt;Creación de seeders&lt;/h2&gt;
 
 &lt;p&gt;Desde hace poco Laravel viene de serie con una dependencia muy útil llamada Faker que básicamente nos ayuda a generar datos falsos: nombres propios, direcciones de calles, fechas, combinaciones de números y letras, etc. Más adelante verás ejemplos de cómo usarla.&lt;/p&gt;
 
@@ -2689,7 +2689,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
     
       <item>
         <title>La invasión de los frameworks</title>
-        <description>&lt;h2 id=&quot;introduccin-de-rigor&quot;&gt;Introducción de rigor&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;introducción-de-rigor&quot;&gt;Introducción de rigor&lt;/h2&gt;
 
 &lt;p&gt;Hace ya unos días escribí un post sobre &lt;a href=&quot;/web/2016/01/02/estrategias-de-desarrollo-web.html&quot; target=&quot;_blank&quot;&gt;estrategias de desarrollo web&lt;/a&gt; en el que recomendaba escoger diferentes tecnologías de desarrollo web en función del tipo de proyecto al que nos enfrentamos: CMS, frameworks, templates, static site generators… Y mencionaba, de pasada, alguna de las aplicaciones más populares en cada campo.&lt;/p&gt;
 
@@ -2704,7 +2704,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Y como es natural, durante los últimos años han venido surgiendo herramientas para agilizar y normalizar el desarrollo en esas áreas de trabajo. Mejor dicho: no es que hayan venido surgiendo herramientas ¡es que se están reproduciendo como conejos! De ahí lo que yo he venido a llamar…&lt;/p&gt;
 
-&lt;h2 id=&quot;la-invasin-de-los-frameworks&quot;&gt;La invasión de los frameworks&lt;/h2&gt;
+&lt;h2 id=&quot;la-invasión-de-los-frameworks&quot;&gt;La invasión de los frameworks&lt;/h2&gt;
 
 &lt;p&gt;Ya sea para aplicar al mundo del front end las buenas maneras, abstracción y modularidad típicas del desarrollo back end, como para agilizar el desarrollo web en general y evitar lo de “reinventar la rueda”, los frameworks han venido para hacernos la vida más fácil. A cambio, &lt;em&gt;sólo&lt;/em&gt; nos piden el esfuerzo de estudiar sus particularidades y diferencias (casi na’).&lt;/p&gt;
 
@@ -2757,9 +2757,9 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Por eso me ha parecido una buena idea realizar una comparativa de los frameworks, librerías y herramientas de desarrollo de aplicaciones, en lo que respecta a la popularidad y su tendencia en el tiempo. Y teniendo en cuenta que todo el mundillo de los web frameworks se mueve a través de internet: ¿qué mejor herramienta para valorar su popularidad que Google Trends?&lt;/p&gt;
 
-&lt;h2 id=&quot;popularidad-de-los-frameworks-segn-google-trends&quot;&gt;Popularidad de los frameworks según Google Trends&lt;/h2&gt;
+&lt;h2 id=&quot;popularidad-de-los-frameworks-según-google-trends&quot;&gt;Popularidad de los frameworks según Google Trends&lt;/h2&gt;
 
-&lt;h3 id=&quot;interpretando-los-grficos&quot;&gt;Interpretando los gráficos&lt;/h3&gt;
+&lt;h3 id=&quot;interpretando-los-gráficos&quot;&gt;Interpretando los gráficos&lt;/h3&gt;
 
 &lt;p&gt;Antes de bombardearte con gráficos creo que es conveniente recordar que Google Trends compara de forma relativa la búsqueda de términos o temas, lo que significa que los ejes verticales de los gráficos son una escala 0% a 100% y no un número de búsquedas determinado. Esto tiene la ventaja de que podemos comparar el interés entre las diferentes entradas de un mismo gráfico, pero no tendría ningún sentido comparar entradas entre dos gráficos distintos.&lt;/p&gt;
 
@@ -2767,7 +2767,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;En cualquier caso, no olvides que es tan importante la popularidad relativa entre herramientas como la &lt;strong&gt;tendencia&lt;/strong&gt; que sigue esa popularidad, lo que nos permite identificar nuevas herramientas que están ganando terreno a otras más viejas y que están cayendo en desuso.&lt;/p&gt;
 
-&lt;h3 id=&quot;comparativas-google-trendsgoogle-trends&quot;&gt;Comparativas &lt;a href=&quot;https://www.google.com/trends/explore&quot;&gt;Google Trends&lt;/a&gt;:&lt;/h3&gt;
+&lt;h3 id=&quot;comparativas-google-trends&quot;&gt;Comparativas &lt;a href=&quot;https://www.google.com/trends/explore&quot;&gt;Google Trends&lt;/a&gt;:&lt;/h3&gt;
 
 &lt;h4 id=&quot;php-frameworks&quot;&gt;PHP frameworks&lt;/h4&gt;
 
@@ -2922,7 +2922,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Lo de agregarle la comprobación de que se han pasado el número de argumentos correctos y la pijadilla de los colores es algo que he visto en otros scripts y he copiado descaradamente.&lt;/p&gt;
 
-&lt;h2 id=&quot;cmo-funciona&quot;&gt;¿Cómo funciona?&lt;/h2&gt;
+&lt;h2 id=&quot;cómo-funciona&quot;&gt;¿Cómo funciona?&lt;/h2&gt;
 
 &lt;p&gt;Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) &lt;strong&gt;fastcommit&lt;/strong&gt;. Pon el fichero, con permisos de ejecución, en la carpeta raíz de tu proyeto con git. A continuación escribe:&lt;/p&gt;
 
@@ -3011,21 +3011,21 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
     
       <item>
         <title>Tu web porno con Laravel - I</title>
-        <description>&lt;h2 id=&quot;no-slo-de-porno-vive-el-internauta&quot;&gt;No sólo de porno vive el internauta&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;no-sólo-de-porno-vive-el-internauta&quot;&gt;No sólo de porno vive el internauta&lt;/h2&gt;
 
 &lt;p&gt;El objetivo de este pequeño curso de Laravel es mostrar cómo de bien y rápido se puede realizar el back end (lo que no se ve) de una web no del todo estándar: un negocio web de vídeos porno ¡con su área de suscriptores y todo!&lt;/p&gt;
 
 &lt;p&gt;¡Pero no todo es porno en internet! En realidad este curso es aplicable a la creación de cualquier tipo de web que ofrezca contenidos mediante suscripción (texto, fotografía, música…), asímismo si ya sabes algo de Laravel quizá te puedan servir algunas partes del curso para profundizar en algunos aspectos del framework que desconocías.&lt;/p&gt;
 
-&lt;h2 id=&quot;qu-habremos-conseguido-al-finalizar-el-curso&quot;&gt;¿Qué habremos conseguido al finalizar el curso?&lt;/h2&gt;
+&lt;h2 id=&quot;qué-habremos-conseguido-al-finalizar-el-curso&quot;&gt;¿Qué habremos conseguido al finalizar el curso?&lt;/h2&gt;
 
 &lt;p&gt;Al finalizar el curso tendrás terminado todo el back end necesario para el funcionamiento de una página que sirve contenido audiovisual a suscriptores. Además, haremos lo justo y necesario del front end para hacernos una idea de cómo se verá la web, pero no profundizaremos en este aspecto: el diseño gráfico y los contenidos no formarán parte del curso.&lt;/p&gt;
 
-&lt;h2 id=&quot;a-quin-va-dirigido-el-curso&quot;&gt;¿A quién va dirigido el curso?&lt;/h2&gt;
+&lt;h2 id=&quot;a-quién-va-dirigido-el-curso&quot;&gt;¿A quién va dirigido el curso?&lt;/h2&gt;
 
 &lt;p&gt;A cualquier persona que tenga conocimientos básicos de desarrollo web. Es necesario tener un entorno de desarrollo adecuado: un servidor web (por ej. Apache o Nginx), PHP y base de datos (por ej. MySQL). También es necesario saber instalar y tener preparada una nueva copia de Laravel. Si nunca has usado Laravel te invito a que sigas los pasos de la web oficial para su instalación &lt;a href=&quot;https://laravel.com/docs/5.2/installation&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;. Si durante la instalación de Laravel o durante el seguimiento del curso te surgen dudas o detectas errores, házmelo saber más abajo, en el área de comentarios.&lt;/p&gt;
 
-&lt;h2 id=&quot;qu-aspectos-de-laravel-voy-a-tratar-durante-el-desarrollo&quot;&gt;¿Qué aspectos de Laravel voy a tratar durante el desarrollo?&lt;/h2&gt;
+&lt;h2 id=&quot;qué-aspectos-de-laravel-voy-a-tratar-durante-el-desarrollo&quot;&gt;¿Qué aspectos de Laravel voy a tratar durante el desarrollo?&lt;/h2&gt;
 
 &lt;p&gt;De casi todo un poco. Si no sabes nada de Laravel esto que diré a continuación te sonará a chino, pero no te desanimes, es muy posible seguir el curso sin saber nada sobre Laravel. Ofrezco este pequeño listado para aquellos ya iniciados que quieran saber si este curso tocará algún asunto que pudiera interesarles.&lt;/p&gt;
 
@@ -3051,7 +3051,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Antes de comenzar cualquier proyecto web de cierta envergadura es necesario tener una idea bastante clara de qué páginas y funcionalidades va a disponer, porque de ello dependerá todo nuestro trabajo. Así pues, nos ponemos manos a la obra y nos preguntamos: ¿cómo será y qué páginas tendrá nuestra web de contenido pornográfico?&lt;/p&gt;
 
-&lt;h3 id=&quot;rea-de-no-miembros-non-members-area&quot;&gt;Área de no miembros (non members area)&lt;/h3&gt;
+&lt;h3 id=&quot;Área-de-no-miembros-non-members-area&quot;&gt;Área de no miembros (non members area)&lt;/h3&gt;
 
 &lt;p&gt;Ésta será el área destinada a crear interés y captar suscriptores. Para ello ofreceremos enlaces a páginas con vídeos cortos (como trailers de película) que dan una visión previa de lo que podrá encontrar el usuario si se suscribe. A bote pronto necesitaremos las siguientes páginas:&lt;/p&gt;
 
@@ -3064,7 +3064,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Todas estas páginas tendrán una cabecera (header) y un pie de página (footer) en común.&lt;/p&gt;
 
-&lt;h3 id=&quot;rea-de-miembrossuscriptores-members-area&quot;&gt;Área de miembros/suscriptores (members area)&lt;/h3&gt;
+&lt;h3 id=&quot;Área-de-miembrossuscriptores-members-area&quot;&gt;Área de miembros/suscriptores (members area)&lt;/h3&gt;
 
 &lt;p&gt;En esta área, para usuarios ya suscritos, tenemos que ofrecer fácil acceso a todo nuestro contenido audiovisual. En la página inicial deberá aparecer siempre el contenido más nuevo, pero debemos ofrecer también una forma ágil de navegar entre el contenido más viejo, por tanto:&lt;/p&gt;
 
@@ -3077,7 +3077,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
 
 &lt;p&gt;Estas páginas tendrán una cabecera y un pie de página en común, pero diferentes a las del área de no miembros.&lt;/p&gt;
 
-&lt;h3 id=&quot;rea-de-administrador-de-contenidos&quot;&gt;Área de administrador de contenidos&lt;/h3&gt;
+&lt;h3 id=&quot;Área-de-administrador-de-contenidos&quot;&gt;Área de administrador de contenidos&lt;/h3&gt;
 
 &lt;p&gt;Esta será el área que usará el dueño de la web, es decir, el productor pornográfico, para gestionar los contenidos (subir vídeos e información sobre nuevas modelos), así como para gestionar a los usuarios (ver usuarios suscritos). También se podría ampliar el panel de control con feedback sobre vídeos/modelos más vistos, ingresos periódicos, etc.&lt;/p&gt;
 
@@ -3123,11 +3123,11 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
     
       <item>
         <title>Estrategias de desarrollo web</title>
-        <description>&lt;h2 id=&quot;breve-introduccin&quot;&gt;Breve introducción&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;breve-introducción&quot;&gt;Breve introducción&lt;/h2&gt;
 
 &lt;p&gt;Cualquier desarrollador web estará de acuerdo conmigo en que elegir la tecnología apropiada a la magnitud, complejidad y características de cada proyecto es de una importancia difícil de sobrevalorar. Además, es lo primero que debe hacerse  incluso antes de comenzar a trabajar en un proyecto. Por eso, he decidido estrenar mi blog comenzando por el principio, es decir, hablando sobre estrategias de desarrollo web.&lt;/p&gt;
 
-&lt;h2 id=&quot;wordpress-cms-y-todo-lo-dems&quot;&gt;WordPress, CMS y todo lo demás&lt;/h2&gt;
+&lt;h2 id=&quot;wordpress-cms-y-todo-lo-demás&quot;&gt;WordPress, CMS y todo lo demás&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://wordpress.org/&quot; target=&quot;_blank&quot;&gt;WordPress&lt;/a&gt;&lt;/strong&gt;, gracias a su enorme comunidad de desarrolladores de plugins, es muy útil para crear blogs y páginas web con docenas de funcionalidades. Si además le instalas &lt;strong&gt;&lt;a href=&quot;https://www.woothemes.com/woocommerce/&quot; target=&quot;_blank&quot;&gt;WooCommerce&lt;/a&gt;&lt;/strong&gt; o plugins similares también puedes hacer tiendas on-line más que decentes. En mi opinión, la versatilidad y sencillez de Wordpress y de otros CMS por el estilo, deja poco espacio para cualquier otra plataforma de desarrollo web salvo en algunos casos puntuales:&lt;/p&gt;
 
@@ -3137,7 +3137,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers&lt;/p&gt;
   &lt;li&gt;Desarrollo de pequeñas webs, landing pages o incluso blogs con contenido principalmente estático&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;webservices-y-apps-para-usos-especficos&quot;&gt;Webservices y apps para usos específicos&lt;/h2&gt;
+&lt;h2 id=&quot;webservices-y-apps-para-usos-específicos&quot;&gt;Webservices y apps para usos específicos&lt;/h2&gt;
 
 &lt;p&gt;Si, por ejemplo, uno desea desarrollar un webservice o una app social, un nuevo facebook, una nueva wikipedia o incluso un nuevo WordPress, donde el back end (lo que no se ve) nos va a llevar muchas semanas de desarrollo, lo más apropiado es utilizar un &lt;strong&gt;framework&lt;/strong&gt;, cuya raison d’être es, precisamente, ayudarnos a escribir el menor número de líneas de código posible, en el menor tiempo posible, para realizar todas las tareas necesarias (consultas a base de datos, validación de datos, servir páginas, enviar correos…).&lt;/p&gt;
 

@@ -1,5 +1,4 @@
 (function(app) {
-
   /**
    * Returns years, months, days since a provided date
    * @returns {string}
@@ -13,7 +12,7 @@
     var dayUnit = 1000 * 60 * 60 * 24;
     var today = new Date();
     var sinceDate = new Date(sYear,sMonth,sDay); //
-    
+
     // Calc
     var diff = Math.floor(today.getTime() - sinceDate.getTime());
     var spanInDays = Math.floor(diff/dayUnit);
@@ -38,5 +37,4 @@
 
     return timeSpan;
   }
-
 })(window.app || (window.app = {}));
