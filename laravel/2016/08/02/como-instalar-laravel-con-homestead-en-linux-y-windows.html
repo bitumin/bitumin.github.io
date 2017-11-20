@@ -128,11 +128,11 @@
 
 <p>Si usas Linux vas a tener que trabajártelo un poquito más. Necesitarás instalar en tu sistema linux los siguientes paquetes: <code>curl</code> para bajarte el instalador de Composer desde la línea de comandos, <code>php5-cli</code> para poder ejecutarlo y <code>git</code>, que además de un gestor de repositorios es una dependencia de Composer. En definitiva,utiliza tu gestor de paquetes linux favorito e instala los tres paquetes. Desde Ubuntu y similares, por ejemplo, haríamos lo siguiente:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install curl php5-cli git </code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install curl php5-cli git </code></pre></figure>
 
 <p>Sigue los pasos, confirma lo que haya que confirmar (con cariño) y una vez tengas los tres paquetes instalados, podrás bajarte y ejecutar el instalador de composer con el siguiente comando:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl -sS https://getcomposer.org/installer <span class="p">|</span> sudo php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>curl -sS https://getcomposer.org/installer <span class="p">|</span> sudo php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer</code></pre></figure>
 
 <p>Este comando hace dos cositas: instala composer y crea una copia de composer.phar en <code>/usr/local/bin/composer</code>, lo que nos permite ejecutar el comando <code>composer</code> desde cualquier terminal de nuestro sistema a partir de ahora. Pues eso es todo, ya tenemos instalado Composer en nuestro Linux, pasemos al siguiente paso.</p>
 
@@ -140,11 +140,11 @@
 
 <p>Ya que tenemos instalado Composer, vamos a hacernos el favor de utilizarlo. En primer lugar vamos a bajarnos y a hacer accesible desde cualquier punto de nuestra terminal el instalador de Laravel:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">composer global require <span class="s2">&quot;laravel/installer=~1.1&quot;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>composer global require <span class="s2">&quot;laravel/installer=~1.1&quot;</span></code></pre></figure>
 
 <p>Ahora que tenemos este fantástico instalador de Laravel a mano, navega desde terminal hasta tu directorio de proyectos (o crea un nuevo directorio donde generar nuevos proyectos en el futuro). Una vez en la raíz de este directorio ejecuta:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">laravel new nombre-de-tu-proyecto</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>laravel new nombre-de-tu-proyecto</code></pre></figure>
 
 <p>Este sencillo comando creará un nuevo directorio con el nombre de tu proyecto, en el que bajará una copia de la última versión estable de Laravel, lista para empezar a desarrollar.</p>
 
@@ -160,7 +160,7 @@
 
 <p>Yo, que uso Ubuntu, suelo hacer lo siguiente con cada uno de los paquetes .deb que me bajo:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">dpkg -i nombre-del-paquete.deb
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>dpkg -i nombre-del-paquete.deb
 sudo apt-get install -f</code></pre></figure>
 
 <p>Eso es todo, ya tenemos en nuestro sistema VirtualBox y Vagrant. Casi tan fácil como robarle un chupete a un bebé. Vayamos al cuarto paso.</p>
@@ -169,7 +169,7 @@ sudo apt-get install -f</code></pre></figure>
 
 <p>La manera más sencilla de instalar Laravel Homestead es echando mano de Composer. Como ya lo tenemos instalado, esto va a ser coser y cantar. Ejecuta:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">composer global require <span class="s2">&quot;laravel/homestead=~2.0&quot;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>composer global require <span class="s2">&quot;laravel/homestead=~2.0&quot;</span></code></pre></figure>
 
 <p>Este comando creará una copia del ejecutable homestead dentro de <code>~/.composer/vendor/bin</code>, que debería ser accesible a partir de ahora desde cualquier terminal de tu sistema. Si no es así, asegúrate de que ese directorio está en el PATH de tu sistema.</p>
 
@@ -179,7 +179,7 @@ sudo apt-get install -f</code></pre></figure>
 
 <p>Para poder comunicarte de forma segura y sin necesidad de passwords con la máquina virtual que crearemos en breve, necesitarás crear un par de claves privada/pública SSH (si no las tienes ya). En Linux esto suele ser tan fácil como ejecutar el comando:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -C <span class="s2">&quot;un-nombre-de-usuario@homestead&quot;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>ssh-keygen -t rsa -C <span class="s2">&quot;un-nombre-de-usuario@homestead&quot;</span></code></pre></figure>
 
 <p>Sigue los pasos que aparecerán y recuerda tanto el nombre de la clave (que podrás elegir o dejar uno por defecto, normalmente <code>id_rsa</code>) como el directorio donde se ha guardado, normalmente en <code>~/.ssh</code>.</p>
 
@@ -187,11 +187,11 @@ sudo apt-get install -f</code></pre></figure>
 
 <p>Una vez tenemos listas nuestras claves SSH pasemos a inicializar Homestead y a configurarlo con cariño. Ejecuta el siguiente comando para crear en tu sistema los ficheros de configuración de Homestead que editaremos a continuación:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">homestead init</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>homestead init</code></pre></figure>
 
 <p>Este comando creará el fichero <code>Homestead.yaml</code> dentro del directorio <code>~/.homestead</code>. Edita ese fichero con tu editor de texto o IDE favorito, te aparecerán una serie de opciones de configuración de Homestead, las únicas que es necesario modificar son las siguientes:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">authorize: directorio-donde-está-tu-clave-pública/nombre-de-tu-clave-pública
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>authorize: directorio-donde-está-tu-clave-pública/nombre-de-tu-clave-pública
 
 keys:
     - directorio-donde-está-tu-clave-privada/nombre-de-tu-clave-privada
@@ -206,10 +206,10 @@ sites:
 
 <p>A modo de referencia, dejo por aquí un ejemplo completo de Homestead.yaml editado en un sistema Linux:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">---
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>---
 ip: <span class="s2">&quot;192.168.10.10&quot;</span>
-memory: 2048
-cpus: 1
+memory: <span class="m">2048</span>
+cpus: <span class="m">1</span>
 provider: virtualbox
 
 authorize: ~/.ssh/id_rsa.pub
@@ -236,13 +236,13 @@ variables:
 
 <p>Es muy conveniente agregar ese par de valores al fichero hosts de nuestro sistema, que encontrarás normalmente dentro del directorio <code>/etc</code> (en Linux) o <code>C:\Windows\System32\drivers\etc</code> (en Windows). Abre el fichero hosts con tu editor de texto o IDE favorito y agrega en una línea el par de valores. Según el ejemplo que puse antes, agregaríamos la línea:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">192.168.10.10   menuvel.app</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="m">192</span>.168.10.10   menuvel.app</code></pre></figure>
 
 <p>Esto nos permite vincular la IP de nuestra máquina virtual a la dirección <code>menuvel.app</code>.</p>
 
 <p>¡Eso es todo! Ahora ya podemos ejecutar nuestra máquina virtual pre-configurada y lista para correr Laravel. Tan sólo has de escribir en tu línea de comandos:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">homestead up</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>homestead up</code></pre></figure>
 
 <p>Una vez que Homestead acabe de hacer su magia (la primera vez puede que tarde un poquito) podrás acceder a tu proyecto a través de cualquier navegador escribiendo la dirección que indicaste en sites, en el ejemplo sería <code>http://menuvel.app</code>.</p>
 
@@ -311,7 +311,7 @@ variables:
                 </ul>
             </div>
             <div class="footer-col footer-col-alt-2">
-                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con tecnologías de la información y el arte de programar software. ¡Espero que encuentres mis posts instructivos e inspiradores!
+                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con nuevas tecnologías de la información y el arte de programar software para resolver problemas. ¡Espero que encuentres mis posts instructivos e inspiradores!
 </p>
             </div>
         </div>

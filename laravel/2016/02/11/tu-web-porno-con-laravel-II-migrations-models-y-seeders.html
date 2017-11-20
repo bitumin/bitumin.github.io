@@ -92,7 +92,7 @@
 
 <p>Una vez configurado nuestro entorno de desarrollo de acuerdo a las <a href="https://laravel.com/docs/5.2/installation" target="_blank">especificaciones</a> de la web oficial de Laravel, ya podemos abrir nuestra línea de comandos y crear una nueva copia del framework:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">laravel new porn-site-demo</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>laravel new porn-site-demo</code></pre></figure>
 
 <p>Este comando creará una nueva copia de la última versión del framework en la carpeta porn-site-demo. A continuación abre dicha carpeta en tu explorador de ficheros o IDE favorito y pasemos a analizar lo que se cuece ahí dentro.</p>
 
@@ -169,13 +169,13 @@
 
 <p>Antes de hacer las migrations es necesario decirle a nuestra aplicación cómo acceder a nuestra base de datos. Para ello crea una base de datos, así como un usuario con los permisos pertinentes. Abre ahora el fichero .env en la carpeta raíz de nuestra aplicación y modifica las siguientes líneas introduciendo los datos apropiados:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">DB_DATABASE</span><span class="o">=</span>nombre_de_tu_nueva_base_de_datos
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">DB_DATABASE</span><span class="o">=</span>nombre_de_tu_nueva_base_de_datos
 <span class="nv">DB_USERNAME</span><span class="o">=</span>nombre_del_nuevo_usuario_con_permisos
 <span class="nv">DB_PASSWORD</span><span class="o">=</span>password_del_nuevo_usuario</code></pre></figure>
 
 <p>A modo de referencia, a mí la cosa me ha quedado tal que así:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">DB_DATABASE</span><span class="o">=</span>my-site
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">DB_DATABASE</span><span class="o">=</span>my-site
 <span class="nv">DB_USERNAME</span><span class="o">=</span>my-site
 <span class="nv">DB_PASSWORD</span><span class="o">=</span>uVYB5vbN38UXmdQ4</code></pre></figure>
 
@@ -200,11 +200,11 @@
 
 <p>La forma más rápida de generar las migrations necesarias para crear tablas es escribir, por cada tabla que queremos crear, el siguiente comando:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan make:migration create_table-name_table --create<span class="o">=</span>table-name</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan make:migration create_table-name_table --create<span class="o">=</span>table-name</code></pre></figure>
 
 <p>A modo de referencia, yo he escrito y ejecutado los siguientes comandos:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan make:migration create_tags_table --create<span class="o">=</span>tags
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan make:migration create_tags_table --create<span class="o">=</span>tags
 php artisan make:migration create_girls_table --create<span class="o">=</span>girls
 php artisan make:migration create_videos_table --create<span class="o">=</span>videos
 php artisan make:migration create_girl_video_table --create<span class="o">=</span>girl_video
@@ -212,25 +212,25 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 
 <p>Laravel tiene una dependencia que nos va a venir que ni pintada para gestionar nuestras suscripciones, se llama Cashier y se encargará de hacernos la vida más fácil a la hora de gestionar las suscripciones. Instalemos esta dependencia antes de continuar:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">composer require laravel/cashier:<span class="s2">&quot;~6.0&quot;</span>  </code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>composer require laravel/cashier:<span class="s2">&quot;~6.0&quot;</span>  </code></pre></figure>
 
 <p>Nótese que al ejecutar ese comando Composer nos bajará la dependencia y la guardará en la carpeta <code>vendor/</code>.</p>
 
 <p>También es necesario añadir la siguiente línea al final del array <em>providers</em> del fichero <code>config/app.php</code>:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">Laravel\Cashier\CashierServiceProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nx">Laravel\Cashier\CashierServiceProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span></code></pre></figure>
 
 <p>A esto que acabamos de hacer se le llama “registrar un Service Provider”, que es una forma muy pro de decir que hemos ampliado la funcionalidad de nuestra aplicación. Por ejemplo, el CashierServiceProvider que acabamos de registrar se encarga de registrar, a su vez, un nuevo namespace (con nuevas clases) y de asociar al comando publish la publicación o copia de ciertos ficheros que nos acabamos de bajar, desde el directorio <code>vendor/</code> a cualquier otro direcotorio, en este caso de <code>vendor/</code> a <code>resources/views/</code>. ¿Por qué no lo comprobamos? Escribe el siguiente comando:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan vendor:publish</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan vendor:publish</code></pre></figure>
 
 <p>¿Ves cómo se han copiado ciertos ficheros de <code>vendor/</code> a <code>resources/views/</code>? Más adelante ya hablaremos de qué va eso de las <strong>views</strong>.</p>
 
 <p>Ahora, tal como indica la documentación oficial de <a href="https://laravel.com/docs/5.2/billing" target="_blank">Cashier</a>, debemos modificar nuestra tabla users y crear una nueva tabla subscriptions. Como aún no hemos ejecutado las migrations, podríamos modificar directamente el fichero de migration de la tabla user, sin embargo será más pedagógico irnos acostumbrando a realizar modificaciones de nuestras tablas mediante la creación de nuevas migrations. Así pues, crearemos una migration para modificar la tabla users y otra migration para crear nuestra tabla subscriptions. Nótese que el comando para crear una migration que modifica una tabla es un poco diferente del que usamos para las migrations que crean tablas. Los comandos respectivos, para modificar <em>users</em> y crear <em>subscriptions</em>, son:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan make:migration add_cashier_columns_to_users_table --table<span class="o">=</span>users</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan make:migration add_cashier_columns_to_users_table --table<span class="o">=</span>users</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan make:migration create_subscriptions_table --create<span class="o">=</span>subscriptions</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan make:migration create_subscriptions_table --create<span class="o">=</span>subscriptions</code></pre></figure>
 
 <p>Si todo está en orden deberíamos tener ahora nueve migrations en nuestra carpeta <code>database/migrations/</code>. Si no es así, asegúrate de haber seguido todos los pasos que hemos descrito hasta ahora.</p>
 
@@ -240,7 +240,7 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 
 <p>Completemos ahora la migration para crear la tabla <em>tags</em> agregando el resto de columnas necesarias de acuerdo a nuestro diagrama:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">increments</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
 <span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
 </span><span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">);</span>
@@ -249,7 +249,7 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 
 <p>Análogamente, agreguemos las columnas que falta a la migration para crear la tabla girls:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;girls&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;girls&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">increments</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
 <span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
 </span><span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">);</span>
@@ -261,7 +261,7 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 
 <p>¿Vas intuyendo lo que hace cada método de Blueprint? <a href="https://laravel.com/docs/5.2/migrations#creating-columns" target="_blank">Aquí</a> encontrarás una referencia detallada de cada uno. Si te surge alguna duda, no te cortes y pregunta. Sigamos con la tabla videos:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">increments</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
 <span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
 </span><span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">);</span>
@@ -275,7 +275,7 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 
 <p>Completemos ahora la migration para crear la tabla subscription:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">increments</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
 <span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">integer</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">);</span>
 </span><span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
@@ -289,7 +289,7 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 
 <p>Ahora completemos las migrations para las tablas que relacionan girls con videos y tags con videos. A estas tablas normalmente se les llama de algún modo especial: asociativas, de cross-reference, junction, de enlace… Llámalas como tú quieras, en cualquier caso su función es resolver una relación many-to-many. Estas migrations deberían quedarnos de la siguiente manera:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;girl_video&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;girl_video&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">increments</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
 <span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">integer</span><span class="p">(</span><span class="s1">&#39;girl_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">unsigned</span><span class="p">();</span>
 </span><span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreign</span><span class="p">(</span><span class="s1">&#39;girl_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">references</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">on</span><span class="p">(</span><span class="s1">&#39;girls&#39;</span><span class="p">);</span>
@@ -297,7 +297,7 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 </span><span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreign</span><span class="p">(</span><span class="s1">&#39;video_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">references</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">on</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">);</span>
 </span><span class="p">});</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;tag_video&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;tag_video&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">increments</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
 <span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">integer</span><span class="p">(</span><span class="s1">&#39;tag_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">unsigned</span><span class="p">();</span>
 </span><span class="hll">    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreign</span><span class="p">(</span><span class="s1">&#39;tag_id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">references</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">on</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">);</span>
@@ -309,7 +309,7 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 
 <p>Puesto que dentro del método up() crearemos una serie de columnas en una tabla existente, dentro del método down() haremos lo contrario: eliminar las columnas de la tabla. Esto se hace de la siguiente manera:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
 <span class="hll">        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;card_last_four&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">after</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">nullable</span><span class="p">();</span>
@@ -329,16 +329,16 @@ php artisan make:migration create_tag_video_table --create<span class="o">=</spa
 
 <p>¡Parece que hemos terminado de editar nuestras migrations! Ahora viene la hora de la verdad. Abre una línea de comandos y escribe:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan migrate</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan migrate</code></pre></figure>
 
 <p>Si todo ha ido bien, no deberían aparecernos mensajes de error. Si comprobamos nuestra base de datos deberíamos ver ahora las ocho nuevas tablas que hemos creado mediante las migrations más una tabla adicional que Laravel utiliza para llevar la cuenta de las migrations que ya se han ejecutado. La próxima vez que ejecutes el comando <em>migrate</em> Laravel sólo ejecutará las migrations que no hayan sido realizadas anteriormente, de ahí que tengas que hacer nuevas migrations para modificar las anteriores si estás trabajando con más gente o modificando una base de datos que ya está en producción. Si trabajas solo en fase de desarrollo y aún no has compartido tu trabajo con el resto del equipo siempre puedes ir hacia atrás en el proceso con el comando <em>rollback</em>, modificar las migrations y volver a ejecutarlas.</p>
 
 <p>A modo de referencia dejo aquí apuntados los comandos más usados en relación con las migrations:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan migrate           <span class="c"># migrates any new migration(s)</span>
-php artisan migrate:rollback  <span class="c"># rollback the latest &quot;batch&quot; of migrations</span>
-php artisan migrate:reset     <span class="c"># rollback all the migrations</span>
-php artisan migrate:refresh   <span class="c"># rollback all the migrations and then migrate them all again</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan migrate           <span class="c1"># migrates any new migration(s)</span>
+php artisan migrate:rollback  <span class="c1"># rollback the latest &quot;batch&quot; of migrations</span>
+php artisan migrate:reset     <span class="c1"># rollback all the migrations</span>
+php artisan migrate:refresh   <span class="c1"># rollback all the migrations and then migrate them all again</span></code></pre></figure>
 
 <h2 id="creación-de-models">Creación de models</h2>
 
@@ -360,15 +360,15 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 
 <p>Pero antes… vamos a instalar otra dependencia. ¡Ya tenemos experiencia de antes con Cashier! Esta vez instalaremos la dependencia Sluggable, que básicamente nos permite crear slugs de forma automática, a partir de cualquier campo existente en cualquier tabla. Un slug es algo así como un identificador sin caracteres raros, que podemos usar sin problemas como parte de una URL. ¿Recuerdas que en nuestras tablas creamos aquellas columnas slug? Pues ahora ya sabes para qué servirán. Ejecuta el siguiente comando:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">composer require cviebrock/eloquent-sluggable</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>composer require cviebrock/eloquent-sluggable</code></pre></figure>
 
 <p>Registra el Service Provider de Sluggable, es decir, añade la siguiente línea al final del array providers en el fichero config/app.php:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">Cviebrock\EloquentSluggable\SluggableServiceProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nx">Cviebrock\EloquentSluggable\SluggableServiceProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span></code></pre></figure>
 
 <p>Finalmente, ¿lo adivinas? Ejecuta el comando publish:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan vendor:publish</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan vendor:publish</code></pre></figure>
 
 <p>A diferecia que Cashier, la dependencia Sluggable no publica views desde la carpeta vendor, sino que publica un fichero de configuración dentro de nuestra carpeta config/ . En principio no hay razón para cambiar la configuración que aparece ahí por defecto, pero no está de más que le eches un vistazo.</p>
 
@@ -377,72 +377,72 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#tag">Tag.php</a></p>
 <div id="tag" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
-<span class="lineno"> 6</span> <span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
-<span class="lineno"> 7</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span> <span class="k">class</span> <span class="nc">Tag</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
-<span class="lineno">10</span> <span class="p">{</span>
-<span class="lineno">11</span>     <span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
-<span class="lineno">12</span>     
-<span class="lineno">13</span>     <span class="sd">/**</span>
-<span class="lineno">14</span> <span class="sd">    * The field(s) we use to build the unique slug</span>
-<span class="lineno">15</span> <span class="sd">    * and the field where we store it</span>
-<span class="lineno">16</span> <span class="sd">    *</span>
-<span class="lineno">17</span> <span class="sd">    * @var array</span>
-<span class="lineno">18</span> <span class="sd">    */</span>
-<span class="lineno">19</span>     <span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
-<span class="lineno">20</span>         <span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
-<span class="lineno">21</span>         <span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
-<span class="lineno">22</span>     <span class="p">];</span>
-<span class="lineno">23</span>     
-<span class="lineno">24</span>     <span class="sd">/**</span>
-<span class="lineno">25</span> <span class="sd">    * The database table used by the model.</span>
-<span class="lineno">26</span> <span class="sd">    *</span>
-<span class="lineno">27</span> <span class="sd">    * @var string</span>
-<span class="lineno">28</span> <span class="sd">    */</span>
-<span class="lineno">29</span>     <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;tags&#39;</span><span class="p">;</span>
-<span class="lineno">30</span>     
-<span class="lineno">31</span>     <span class="sd">/**</span>
-<span class="lineno">32</span> <span class="sd">    * The attributes that are mass assignable.</span>
-<span class="lineno">33</span> <span class="sd">    *</span>
-<span class="lineno">34</span> <span class="sd">    * @var array</span>
-<span class="lineno">35</span> <span class="sd">    */</span>
-<span class="lineno">36</span>     <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="lineno">37</span>     
-<span class="lineno">38</span>     <span class="sd">/**</span>
-<span class="lineno">39</span> <span class="sd">    * The attributes excluded from the model&#39;s JSON form.</span>
-<span class="lineno">40</span> <span class="sd">    *</span>
-<span class="lineno">41</span> <span class="sd">    * @var array</span>
-<span class="lineno">42</span> <span class="sd">    */</span>
-<span class="lineno">43</span>     <span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="lineno">44</span>     
-<span class="lineno">45</span>     <span class="cm">/*</span>
-<span class="lineno">46</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">47</span> <span class="cm">    | Relationships (with other models)</span>
-<span class="lineno">48</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">49</span> <span class="cm">    */</span>
-<span class="lineno">50</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">videos</span><span class="p">()</span>
-<span class="lineno">51</span>     <span class="p">{</span>
-<span class="lineno">52</span>         <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Video&#39;</span><span class="p">);</span>
-<span class="lineno">53</span>     <span class="p">}</span>
-<span class="lineno">54</span>     
-<span class="lineno">55</span>     <span class="cm">/*</span>
-<span class="lineno">56</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">57</span> <span class="cm">    | Accessors &amp; Mutators</span>
-<span class="lineno">58</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">59</span> <span class="cm">    */</span>
-<span class="lineno">60</span>     
-<span class="lineno">61</span>     <span class="cm">/*</span>
-<span class="lineno">62</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">63</span> <span class="cm">    | Scopes</span>
-<span class="lineno">64</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">65</span> <span class="cm">    */</span>
-<span class="lineno">66</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
+<span class="lineno"> 6 </span><span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
+<span class="lineno"> 7 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="k">class</span> <span class="nc">Tag</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
+<span class="lineno">10 </span><span class="p">{</span>
+<span class="lineno">11 </span>    <span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
+<span class="lineno">12 </span>    
+<span class="lineno">13 </span>    <span class="sd">/**</span>
+<span class="lineno">14 </span><span class="sd">    * The field(s) we use to build the unique slug</span>
+<span class="lineno">15 </span><span class="sd">    * and the field where we store it</span>
+<span class="lineno">16 </span><span class="sd">    *</span>
+<span class="lineno">17 </span><span class="sd">    * @var array</span>
+<span class="lineno">18 </span><span class="sd">    */</span>
+<span class="lineno">19 </span>    <span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
+<span class="lineno">20 </span>        <span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+<span class="lineno">21 </span>        <span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+<span class="lineno">22 </span>    <span class="p">];</span>
+<span class="lineno">23 </span>    
+<span class="lineno">24 </span>    <span class="sd">/**</span>
+<span class="lineno">25 </span><span class="sd">    * The database table used by the model.</span>
+<span class="lineno">26 </span><span class="sd">    *</span>
+<span class="lineno">27 </span><span class="sd">    * @var string</span>
+<span class="lineno">28 </span><span class="sd">    */</span>
+<span class="lineno">29 </span>    <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;tags&#39;</span><span class="p">;</span>
+<span class="lineno">30 </span>    
+<span class="lineno">31 </span>    <span class="sd">/**</span>
+<span class="lineno">32 </span><span class="sd">    * The attributes that are mass assignable.</span>
+<span class="lineno">33 </span><span class="sd">    *</span>
+<span class="lineno">34 </span><span class="sd">    * @var array</span>
+<span class="lineno">35 </span><span class="sd">    */</span>
+<span class="lineno">36 </span>    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="lineno">37 </span>    
+<span class="lineno">38 </span>    <span class="sd">/**</span>
+<span class="lineno">39 </span><span class="sd">    * The attributes excluded from the model&#39;s JSON form.</span>
+<span class="lineno">40 </span><span class="sd">    *</span>
+<span class="lineno">41 </span><span class="sd">    * @var array</span>
+<span class="lineno">42 </span><span class="sd">    */</span>
+<span class="lineno">43 </span>    <span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="lineno">44 </span>    
+<span class="lineno">45 </span>    <span class="cm">/*</span>
+<span class="lineno">46 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">47 </span><span class="cm">    | Relationships (with other models)</span>
+<span class="lineno">48 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">49 </span><span class="cm">    */</span>
+<span class="lineno">50 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">videos</span><span class="p">()</span>
+<span class="lineno">51 </span>    <span class="p">{</span>
+<span class="lineno">52 </span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Video&#39;</span><span class="p">);</span>
+<span class="lineno">53 </span>    <span class="p">}</span>
+<span class="lineno">54 </span>    
+<span class="lineno">55 </span>    <span class="cm">/*</span>
+<span class="lineno">56 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">57 </span><span class="cm">    | Accessors &amp; Mutators</span>
+<span class="lineno">58 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">59 </span><span class="cm">    */</span>
+<span class="lineno">60 </span>    
+<span class="lineno">61 </span>    <span class="cm">/*</span>
+<span class="lineno">62 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">63 </span><span class="cm">    | Scopes</span>
+<span class="lineno">64 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">65 </span><span class="cm">    */</span>
+<span class="lineno">66 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -505,11 +505,11 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 
 <p>Fíjate que en nuestro model Tag hemos escrito la función videos(), que devuelve el resultado de utilizar el método belongToMany() porque la relación entre Tag y Video era de many to many (tal como indico en la tabla). A partir de ahora, podremos escribir en cualquier parte de nuestro código:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nv">$tag</span><span class="o">-&gt;</span><span class="na">videos</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">()</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nv">$tag</span><span class="o">-&gt;</span><span class="na">videos</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">()</span></code></pre></figure>
 
 <p>O aún mejor:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nv">$tag</span><span class="o">-&gt;</span><span class="na">videos</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="nv">$tag</span><span class="o">-&gt;</span><span class="na">videos</span></code></pre></figure>
 
 <p>Obtendremos así todos los vídeos relacionados con una tag específica. A este sistema para obtener información de nuestra base de datos, es decir, hacer consultas a nuestra base de datos, a través los models y la concatenación de métodos se le conoce como <strong>eloquent</strong> en lenguaje <em>laravelita</em>.</p>
 
@@ -518,149 +518,149 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#video">Video.php</a></p>
 <div id="video" class="collapse"> 
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
-<span class="lineno"> 6</span> <span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
-<span class="lineno"> 7</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span> <span class="k">class</span> <span class="nc">Video</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
-<span class="lineno">10</span> <span class="p">{</span>
-<span class="lineno">11</span>     <span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
-<span class="lineno">12</span> 
-<span class="lineno">13</span>     <span class="sd">/**</span>
-<span class="lineno">14</span> <span class="sd">     * The attribute(s) we use to build the slug</span>
-<span class="lineno">15</span> <span class="sd">     * and the field name where we store it</span>
-<span class="lineno">16</span> <span class="sd">     *</span>
-<span class="lineno">17</span> <span class="sd">     * @var array</span>
-<span class="lineno">18</span> <span class="sd">     */</span>
-<span class="lineno">19</span>     <span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
-<span class="lineno">20</span>         <span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span>
-<span class="lineno">21</span>         <span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
-<span class="lineno">22</span>     <span class="p">];</span>
-<span class="lineno">23</span> 
-<span class="lineno">24</span>     <span class="sd">/**</span>
-<span class="lineno">25</span> <span class="sd">     * The database table used by the model.</span>
-<span class="lineno">26</span> <span class="sd">     *</span>
-<span class="lineno">27</span> <span class="sd">     * @var string</span>
-<span class="lineno">28</span> <span class="sd">     */</span>
-<span class="lineno">29</span>     <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;videos&#39;</span><span class="p">;</span>
-<span class="lineno">30</span> 
-<span class="lineno">31</span>     <span class="sd">/**</span>
-<span class="lineno">32</span> <span class="sd">     * The attributes that are mass assignable.</span>
-<span class="lineno">33</span> <span class="sd">     *</span>
-<span class="lineno">34</span> <span class="sd">     * @var array</span>
-<span class="lineno">35</span> <span class="sd">     */</span>
-<span class="lineno">36</span>     <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="lineno">37</span> 
-<span class="lineno">38</span>     <span class="sd">/**</span>
-<span class="lineno">39</span> <span class="sd">     * The attributes excluded from the model&#39;s JSON form.</span>
-<span class="lineno">40</span> <span class="sd">     *</span>
-<span class="lineno">41</span> <span class="sd">     * @var array</span>
-<span class="lineno">42</span> <span class="sd">     */</span>
-<span class="lineno">43</span>     <span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="lineno">44</span> 
-<span class="lineno">45</span>     <span class="cm">/*</span>
-<span class="lineno">46</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">47</span> <span class="cm">    | Relationships</span>
-<span class="lineno">48</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">49</span> <span class="cm">    */</span>
-<span class="lineno">50</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">tags</span><span class="p">()</span>
-<span class="lineno">51</span>     <span class="p">{</span>
-<span class="lineno">52</span>         <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Tag&#39;</span><span class="p">);</span>
-<span class="lineno">53</span>     <span class="p">}</span>
-<span class="lineno">54</span> 
-<span class="lineno">55</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">girls</span><span class="p">()</span>
-<span class="lineno">56</span>     <span class="p">{</span>
-<span class="lineno">57</span>         <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Girl&#39;</span><span class="p">);</span>
-<span class="lineno">58</span>     <span class="p">}</span>
-<span class="lineno">59</span> 
-<span class="lineno">60</span>     <span class="cm">/*</span>
-<span class="lineno">61</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">62</span> <span class="cm">    | Accessors &amp; Mutators</span>
-<span class="lineno">63</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">64</span> <span class="cm">    */</span>
-<span class="lineno">65</span> 
-<span class="lineno">66</span>     <span class="cm">/*</span>
-<span class="lineno">67</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">68</span> <span class="cm">    | Scopes</span>
-<span class="lineno">69</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">70</span> <span class="cm">    */</span>
-<span class="lineno">71</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
+<span class="lineno"> 6 </span><span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
+<span class="lineno"> 7 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="k">class</span> <span class="nc">Video</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
+<span class="lineno">10 </span><span class="p">{</span>
+<span class="lineno">11 </span>    <span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
+<span class="lineno">12 </span>
+<span class="lineno">13 </span>    <span class="sd">/**</span>
+<span class="lineno">14 </span><span class="sd">     * The attribute(s) we use to build the slug</span>
+<span class="lineno">15 </span><span class="sd">     * and the field name where we store it</span>
+<span class="lineno">16 </span><span class="sd">     *</span>
+<span class="lineno">17 </span><span class="sd">     * @var array</span>
+<span class="lineno">18 </span><span class="sd">     */</span>
+<span class="lineno">19 </span>    <span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
+<span class="lineno">20 </span>        <span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span>
+<span class="lineno">21 </span>        <span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+<span class="lineno">22 </span>    <span class="p">];</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>    <span class="sd">/**</span>
+<span class="lineno">25 </span><span class="sd">     * The database table used by the model.</span>
+<span class="lineno">26 </span><span class="sd">     *</span>
+<span class="lineno">27 </span><span class="sd">     * @var string</span>
+<span class="lineno">28 </span><span class="sd">     */</span>
+<span class="lineno">29 </span>    <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;videos&#39;</span><span class="p">;</span>
+<span class="lineno">30 </span>
+<span class="lineno">31 </span>    <span class="sd">/**</span>
+<span class="lineno">32 </span><span class="sd">     * The attributes that are mass assignable.</span>
+<span class="lineno">33 </span><span class="sd">     *</span>
+<span class="lineno">34 </span><span class="sd">     * @var array</span>
+<span class="lineno">35 </span><span class="sd">     */</span>
+<span class="lineno">36 </span>    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="lineno">37 </span>
+<span class="lineno">38 </span>    <span class="sd">/**</span>
+<span class="lineno">39 </span><span class="sd">     * The attributes excluded from the model&#39;s JSON form.</span>
+<span class="lineno">40 </span><span class="sd">     *</span>
+<span class="lineno">41 </span><span class="sd">     * @var array</span>
+<span class="lineno">42 </span><span class="sd">     */</span>
+<span class="lineno">43 </span>    <span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="lineno">44 </span>
+<span class="lineno">45 </span>    <span class="cm">/*</span>
+<span class="lineno">46 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">47 </span><span class="cm">    | Relationships</span>
+<span class="lineno">48 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">49 </span><span class="cm">    */</span>
+<span class="lineno">50 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">tags</span><span class="p">()</span>
+<span class="lineno">51 </span>    <span class="p">{</span>
+<span class="lineno">52 </span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Tag&#39;</span><span class="p">);</span>
+<span class="lineno">53 </span>    <span class="p">}</span>
+<span class="lineno">54 </span>
+<span class="lineno">55 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">girls</span><span class="p">()</span>
+<span class="lineno">56 </span>    <span class="p">{</span>
+<span class="lineno">57 </span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Girl&#39;</span><span class="p">);</span>
+<span class="lineno">58 </span>    <span class="p">}</span>
+<span class="lineno">59 </span>
+<span class="lineno">60 </span>    <span class="cm">/*</span>
+<span class="lineno">61 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">62 </span><span class="cm">    | Accessors &amp; Mutators</span>
+<span class="lineno">63 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">64 </span><span class="cm">    */</span>
+<span class="lineno">65 </span>
+<span class="lineno">66 </span>    <span class="cm">/*</span>
+<span class="lineno">67 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">68 </span><span class="cm">    | Scopes</span>
+<span class="lineno">69 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">70 </span><span class="cm">    */</span>
+<span class="lineno">71 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
 <p><a href="javascript:" data-toggle="collapse" data-target="#girl">Girl.php</a></p>
 <div id="girl" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
-<span class="lineno"> 6</span> <span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
-<span class="lineno"> 7</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span> <span class="k">class</span> <span class="nc">Girl</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
-<span class="lineno">10</span> <span class="p">{</span>
-<span class="lineno">11</span>     <span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
-<span class="lineno">12</span> 
-<span class="lineno">13</span>     <span class="sd">/**</span>
-<span class="lineno">14</span> <span class="sd">     * The attribute(s) we use to build the slug</span>
-<span class="lineno">15</span> <span class="sd">     * and the field name where we store it</span>
-<span class="lineno">16</span> <span class="sd">     *</span>
-<span class="lineno">17</span> <span class="sd">     * @var array</span>
-<span class="lineno">18</span> <span class="sd">     */</span>
-<span class="lineno">19</span>     <span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
-<span class="lineno">20</span>         <span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
-<span class="lineno">21</span>         <span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
-<span class="lineno">22</span>     <span class="p">];</span>
-<span class="lineno">23</span> 
-<span class="lineno">24</span>     <span class="sd">/**</span>
-<span class="lineno">25</span> <span class="sd">     * The database table used by the model.</span>
-<span class="lineno">26</span> <span class="sd">     *</span>
-<span class="lineno">27</span> <span class="sd">     * @var string</span>
-<span class="lineno">28</span> <span class="sd">     */</span>
-<span class="lineno">29</span>     <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;girls&#39;</span><span class="p">;</span>
-<span class="lineno">30</span> 
-<span class="lineno">31</span>     <span class="sd">/**</span>
-<span class="lineno">32</span> <span class="sd">     * The attributes that are mass assignable.</span>
-<span class="lineno">33</span> <span class="sd">     *</span>
-<span class="lineno">34</span> <span class="sd">     * @var array</span>
-<span class="lineno">35</span> <span class="sd">     */</span>
-<span class="lineno">36</span>     <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="lineno">37</span> 
-<span class="lineno">38</span>     <span class="sd">/**</span>
-<span class="lineno">39</span> <span class="sd">     * The attributes excluded from the model&#39;s JSON form.</span>
-<span class="lineno">40</span> <span class="sd">     *</span>
-<span class="lineno">41</span> <span class="sd">     * @var array</span>
-<span class="lineno">42</span> <span class="sd">     */</span>
-<span class="lineno">43</span>     <span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="lineno">44</span> 
-<span class="lineno">45</span>     <span class="cm">/*</span>
-<span class="lineno">46</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">47</span> <span class="cm">    | Relationships</span>
-<span class="lineno">48</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">49</span> <span class="cm">    */</span>
-<span class="lineno">50</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">videos</span><span class="p">()</span>
-<span class="lineno">51</span>     <span class="p">{</span>
-<span class="lineno">52</span>         <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Video&#39;</span><span class="p">);</span>
-<span class="lineno">53</span>     <span class="p">}</span>
-<span class="lineno">54</span> 
-<span class="lineno">55</span>     <span class="cm">/*</span>
-<span class="lineno">56</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">57</span> <span class="cm">    | Accessors &amp; Mutators</span>
-<span class="lineno">58</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">59</span> <span class="cm">    */</span>
-<span class="lineno">60</span> 
-<span class="lineno">61</span>     <span class="cm">/*</span>
-<span class="lineno">62</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">63</span> <span class="cm">    | Scopes</span>
-<span class="lineno">64</span> <span class="cm">    |-----------------------------------------------</span>
-<span class="lineno">65</span> <span class="cm">    */</span>
-<span class="lineno">66</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableInterface</span><span class="p">;</span>
+<span class="lineno"> 6 </span><span class="k">use</span> <span class="nx">Cviebrock\EloquentSluggable\SluggableTrait</span><span class="p">;</span>
+<span class="lineno"> 7 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="k">class</span> <span class="nc">Girl</span> <span class="k">extends</span> <span class="nx">Model</span> <span class="k">implements</span> <span class="nx">SluggableInterface</span>
+<span class="lineno">10 </span><span class="p">{</span>
+<span class="lineno">11 </span>    <span class="k">use</span> <span class="nx">SluggableTrait</span><span class="p">;</span>
+<span class="lineno">12 </span>
+<span class="lineno">13 </span>    <span class="sd">/**</span>
+<span class="lineno">14 </span><span class="sd">     * The attribute(s) we use to build the slug</span>
+<span class="lineno">15 </span><span class="sd">     * and the field name where we store it</span>
+<span class="lineno">16 </span><span class="sd">     *</span>
+<span class="lineno">17 </span><span class="sd">     * @var array</span>
+<span class="lineno">18 </span><span class="sd">     */</span>
+<span class="lineno">19 </span>    <span class="k">protected</span> <span class="nv">$sluggable</span> <span class="o">=</span> <span class="p">[</span>
+<span class="lineno">20 </span>        <span class="s1">&#39;build_from&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+<span class="lineno">21 </span>        <span class="s1">&#39;save_to&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span>
+<span class="lineno">22 </span>    <span class="p">];</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>    <span class="sd">/**</span>
+<span class="lineno">25 </span><span class="sd">     * The database table used by the model.</span>
+<span class="lineno">26 </span><span class="sd">     *</span>
+<span class="lineno">27 </span><span class="sd">     * @var string</span>
+<span class="lineno">28 </span><span class="sd">     */</span>
+<span class="lineno">29 </span>    <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;girls&#39;</span><span class="p">;</span>
+<span class="lineno">30 </span>
+<span class="lineno">31 </span>    <span class="sd">/**</span>
+<span class="lineno">32 </span><span class="sd">     * The attributes that are mass assignable.</span>
+<span class="lineno">33 </span><span class="sd">     *</span>
+<span class="lineno">34 </span><span class="sd">     * @var array</span>
+<span class="lineno">35 </span><span class="sd">     */</span>
+<span class="lineno">36 </span>    <span class="k">protected</span> <span class="nv">$fillable</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="lineno">37 </span>
+<span class="lineno">38 </span>    <span class="sd">/**</span>
+<span class="lineno">39 </span><span class="sd">     * The attributes excluded from the model&#39;s JSON form.</span>
+<span class="lineno">40 </span><span class="sd">     *</span>
+<span class="lineno">41 </span><span class="sd">     * @var array</span>
+<span class="lineno">42 </span><span class="sd">     */</span>
+<span class="lineno">43 </span>    <span class="k">protected</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="lineno">44 </span>
+<span class="lineno">45 </span>    <span class="cm">/*</span>
+<span class="lineno">46 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">47 </span><span class="cm">    | Relationships</span>
+<span class="lineno">48 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">49 </span><span class="cm">    */</span>
+<span class="lineno">50 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">videos</span><span class="p">()</span>
+<span class="lineno">51 </span>    <span class="p">{</span>
+<span class="lineno">52 </span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">belongsToMany</span><span class="p">(</span><span class="s1">&#39;App\Video&#39;</span><span class="p">);</span>
+<span class="lineno">53 </span>    <span class="p">}</span>
+<span class="lineno">54 </span>
+<span class="lineno">55 </span>    <span class="cm">/*</span>
+<span class="lineno">56 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">57 </span><span class="cm">    | Accessors &amp; Mutators</span>
+<span class="lineno">58 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">59 </span><span class="cm">    */</span>
+<span class="lineno">60 </span>
+<span class="lineno">61 </span>    <span class="cm">/*</span>
+<span class="lineno">62 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">63 </span><span class="cm">    | Scopes</span>
+<span class="lineno">64 </span><span class="cm">    |-----------------------------------------------</span>
+<span class="lineno">65 </span><span class="cm">    */</span>
+<span class="lineno">66 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -668,7 +668,7 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 
 <p>En verdad todo este rollo que te he soltado se resuelve, en nuestro caso, abriendo User.php y agregando las siguientes líneas de código:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="o">...</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="o">...</span>
 <span class="k">use</span> <span class="nx">Illuminate\Foundation\Auth\User</span> <span class="k">as</span> <span class="nx">Authenticatable</span><span class="p">;</span>
 <span class="hll"><span class="k">use</span> <span class="nx">Laravel\Cashier\Billable</span><span class="p">;</span>
 </span>
@@ -708,189 +708,189 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#seeders">seeders.php</a></p>
 <div id="seeders" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno">  1</span> <span class="cp">&lt;?php</span>
-<span class="lineno">  2</span> 
-<span class="lineno">  3</span> <span class="k">return</span> <span class="p">[</span>
-<span class="lineno">  4</span> 
-<span class="lineno">  5</span>     <span class="c1">// Seed each of these tables with this numbers of rows</span>
-<span class="lineno">  6</span>     <span class="s1">&#39;nGirls&#39;</span>    <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
-<span class="lineno">  7</span>     <span class="s1">&#39;nVideos&#39;</span>   <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
-<span class="lineno">  8</span>     <span class="s1">&#39;nUsers&#39;</span>    <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span>
-<span class="lineno">  9</span> 
-<span class="lineno"> 10</span>     <span class="c1">// How many tags can be associated to each video?</span>
-<span class="lineno"> 11</span>     <span class="s1">&#39;minTags&#39;</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-<span class="lineno"> 12</span>     <span class="s1">&#39;maxTags&#39;</span>   <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
-<span class="lineno"> 13</span> 
-<span class="lineno"> 14</span>     <span class="c1">// How many girls can be associated to each video?</span>
-<span class="lineno"> 15</span>     <span class="s1">&#39;minGirls&#39;</span>  <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-<span class="lineno"> 16</span>     <span class="s1">&#39;maxGirls&#39;</span>  <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
-<span class="lineno"> 17</span> 
-<span class="lineno"> 18</span>     <span class="c1">// Fake information locale (en_US, es_ES, etc.)</span>
-<span class="lineno"> 19</span>     <span class="s1">&#39;locale&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;es_ES&#39;</span><span class="p">,</span>
-<span class="lineno"> 20</span> 
-<span class="lineno"> 21</span>     <span class="c1">// Subscription name</span>
-<span class="lineno"> 22</span>     <span class="s1">&#39;subscriptionName&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
-<span class="lineno"> 23</span> 
-<span class="lineno"> 24</span>     <span class="c1">// Subscription plan types</span>
-<span class="lineno"> 25</span>     <span class="s1">&#39;subscriptionPlans&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-<span class="lineno"> 26</span>         <span class="s1">&#39;monthly&#39;</span><span class="p">,</span>
-<span class="lineno"> 27</span>         <span class="s1">&#39;every-three-months&#39;</span><span class="p">,</span>
-<span class="lineno"> 28</span>         <span class="s1">&#39;yearly&#39;</span><span class="p">,</span>
-<span class="lineno"> 29</span>     <span class="p">],</span>
-<span class="lineno"> 30</span> 
-<span class="lineno"> 31</span>     <span class="c1">// Porn categories (courtesy of one random porn site)</span>
-<span class="lineno"> 32</span>     <span class="s1">&#39;pornCategories&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-<span class="lineno"> 33</span>         <span class="s1">&#39;3D Hentai&#39;</span><span class="p">,</span>
-<span class="lineno"> 34</span>         <span class="s1">&#39;3D Stereoscopic&#39;</span><span class="p">,</span>
-<span class="lineno"> 35</span>         <span class="s1">&#39;3D Toons&#39;</span><span class="p">,</span>
-<span class="lineno"> 36</span>         <span class="s1">&#39;Amateur&#39;</span><span class="p">,</span>
-<span class="lineno"> 37</span>         <span class="s1">&#39;Anal&#39;</span><span class="p">,</span>
-<span class="lineno"> 38</span>         <span class="s1">&#39;Arab&#39;</span><span class="p">,</span>
-<span class="lineno"> 39</span>         <span class="s1">&#39;Asian&#39;</span><span class="p">,</span>
-<span class="lineno"> 40</span>         <span class="s1">&#39;Babes&#39;</span><span class="p">,</span>
-<span class="lineno"> 41</span>         <span class="s1">&#39;Babysitters&#39;</span><span class="p">,</span>
-<span class="lineno"> 42</span>         <span class="s1">&#39;Ballbusting&#39;</span><span class="p">,</span>
-<span class="lineno"> 43</span>         <span class="s1">&#39;BBW&#39;</span><span class="p">,</span>
-<span class="lineno"> 44</span>         <span class="s1">&#39;BDSM&#39;</span><span class="p">,</span>
-<span class="lineno"> 45</span>         <span class="s1">&#39;Beach&#39;</span><span class="p">,</span>
-<span class="lineno"> 46</span>         <span class="s1">&#39;Big Butt&#39;</span><span class="p">,</span>
-<span class="lineno"> 47</span>         <span class="s1">&#39;Big Dick&#39;</span><span class="p">,</span>
-<span class="lineno"> 48</span>         <span class="s1">&#39;Big Tits&#39;</span><span class="p">,</span>
-<span class="lineno"> 49</span>         <span class="s1">&#39;Bisexual&#39;</span><span class="p">,</span>
-<span class="lineno"> 50</span>         <span class="s1">&#39;Black&#39;</span><span class="p">,</span>
-<span class="lineno"> 51</span>         <span class="s1">&#39;Blonde&#39;</span><span class="p">,</span>
-<span class="lineno"> 52</span>         <span class="s1">&#39;Blowjob&#39;</span><span class="p">,</span>
-<span class="lineno"> 53</span>         <span class="s1">&#39;Brazilian&#39;</span><span class="p">,</span>
-<span class="lineno"> 54</span>         <span class="s1">&#39;British&#39;</span><span class="p">,</span>
-<span class="lineno"> 55</span>         <span class="s1">&#39;Brunette&#39;</span><span class="p">,</span>
-<span class="lineno"> 56</span>         <span class="s1">&#39;Bukkake&#39;</span><span class="p">,</span>
-<span class="lineno"> 57</span>         <span class="s1">&#39;Cartoon&#39;</span><span class="p">,</span>
-<span class="lineno"> 58</span>         <span class="s1">&#39;Casting&#39;</span><span class="p">,</span>
-<span class="lineno"> 59</span>         <span class="s1">&#39;Cat Fights&#39;</span><span class="p">,</span>
-<span class="lineno"> 60</span>         <span class="s1">&#39;Celebrities&#39;</span><span class="p">,</span>
-<span class="lineno"> 61</span>         <span class="s1">&#39;CFNM&#39;</span><span class="p">,</span>
-<span class="lineno"> 62</span>         <span class="s1">&#39;Changing Room&#39;</span><span class="p">,</span>
-<span class="lineno"> 63</span>         <span class="s1">&#39;Chaturbate&#39;</span><span class="p">,</span>
-<span class="lineno"> 64</span>         <span class="s1">&#39;Cheerleaders&#39;</span><span class="p">,</span>
-<span class="lineno"> 65</span>         <span class="s1">&#39;Chinese&#39;</span><span class="p">,</span>
-<span class="lineno"> 66</span>         <span class="s1">&#39;Close-up&#39;</span><span class="p">,</span>
-<span class="lineno"> 67</span>         <span class="s1">&#39;College&#39;</span><span class="p">,</span>
-<span class="lineno"> 68</span>         <span class="s1">&#39;Compilation&#39;</span><span class="p">,</span>
-<span class="lineno"> 69</span>         <span class="s1">&#39;Cosplay&#39;</span><span class="p">,</span>
-<span class="lineno"> 70</span>         <span class="s1">&#39;Cougar&#39;</span><span class="p">,</span>
-<span class="lineno"> 71</span>         <span class="s1">&#39;Couple&#39;</span><span class="p">,</span>
-<span class="lineno"> 72</span>         <span class="s1">&#39;Creampie&#39;</span><span class="p">,</span>
-<span class="lineno"> 73</span>         <span class="s1">&#39;Cuckold&#39;</span><span class="p">,</span>
-<span class="lineno"> 74</span>         <span class="s1">&#39;Cumshot&#39;</span><span class="p">,</span>
-<span class="lineno"> 75</span>         <span class="s1">&#39;Cunnilingus&#39;</span><span class="p">,</span>
-<span class="lineno"> 76</span>         <span class="s1">&#39;Czech&#39;</span><span class="p">,</span>
-<span class="lineno"> 77</span>         <span class="s1">&#39;Danish&#39;</span><span class="p">,</span>
-<span class="lineno"> 78</span>         <span class="s1">&#39;Deep Throat&#39;</span><span class="p">,</span>
-<span class="lineno"> 79</span>         <span class="s1">&#39;Dildos/Toys&#39;</span><span class="p">,</span>
-<span class="lineno"> 80</span>         <span class="s1">&#39;Doggy Style&#39;</span><span class="p">,</span>
-<span class="lineno"> 81</span>         <span class="s1">&#39;Double Penetration&#39;</span><span class="p">,</span>
-<span class="lineno"> 82</span>         <span class="s1">&#39;Downblouse&#39;</span><span class="p">,</span>
-<span class="lineno"> 83</span>         <span class="s1">&#39;Ebony&#39;</span><span class="p">,</span>
-<span class="lineno"> 84</span>         <span class="s1">&#39;Emo&#39;</span><span class="p">,</span>
-<span class="lineno"> 85</span>         <span class="s1">&#39;European&#39;</span><span class="p">,</span>
-<span class="lineno"> 86</span>         <span class="s1">&#39;Face Sitting&#39;</span><span class="p">,</span>
-<span class="lineno"> 87</span>         <span class="s1">&#39;Facial&#39;</span><span class="p">,</span>
-<span class="lineno"> 88</span>         <span class="s1">&#39;Femdom&#39;</span><span class="p">,</span>
-<span class="lineno"> 89</span>         <span class="s1">&#39;Fetish&#39;</span><span class="p">,</span>
-<span class="lineno"> 90</span>         <span class="s1">&#39;Fingering&#39;</span><span class="p">,</span>
-<span class="lineno"> 91</span>         <span class="s1">&#39;Fisting&#39;</span><span class="p">,</span>
-<span class="lineno"> 92</span>         <span class="s1">&#39;Flashing&#39;</span><span class="p">,</span>
-<span class="lineno"> 93</span>         <span class="s1">&#39;Foot Fetish&#39;</span><span class="p">,</span>
-<span class="lineno"> 94</span>         <span class="s1">&#39;French&#39;</span><span class="p">,</span>
-<span class="lineno"> 95</span>         <span class="s1">&#39;Fucking Machines&#39;</span><span class="p">,</span>
-<span class="lineno"> 96</span>         <span class="s1">&#39;Funny&#39;</span><span class="p">,</span>
-<span class="lineno"> 97</span>         <span class="s1">&#39;Gangbang&#39;</span><span class="p">,</span>
-<span class="lineno"> 98</span>         <span class="s1">&#39;Gaping&#39;</span><span class="p">,</span>
-<span class="lineno"> 99</span>         <span class="s1">&#39;German&#39;</span><span class="p">,</span>
-<span class="lineno">100</span>         <span class="s1">&#39;Girlfriend&#39;</span><span class="p">,</span>
-<span class="lineno">101</span>         <span class="s1">&#39;Glory Holes&#39;</span><span class="p">,</span>
-<span class="lineno">102</span>         <span class="s1">&#39;Gothic&#39;</span><span class="p">,</span>
-<span class="lineno">103</span>         <span class="s1">&#39;Grannies&#39;</span><span class="p">,</span>
-<span class="lineno">104</span>         <span class="s1">&#39;Group Sex&#39;</span><span class="p">,</span>
-<span class="lineno">105</span>         <span class="s1">&#39;Hairy&#39;</span><span class="p">,</span>
-<span class="lineno">106</span>         <span class="s1">&#39;Handjob&#39;</span><span class="p">,</span>
-<span class="lineno">107</span>         <span class="s1">&#39;Hardcore&#39;</span><span class="p">,</span>
-<span class="lineno">108</span>         <span class="s1">&#39;HD&#39;</span><span class="p">,</span>
-<span class="lineno">109</span>         <span class="s1">&#39;Hentai&#39;</span><span class="p">,</span>
-<span class="lineno">110</span>         <span class="s1">&#39;Hidden Cams&#39;</span><span class="p">,</span>
-<span class="lineno">111</span>         <span class="s1">&#39;Indian&#39;</span><span class="p">,</span>
-<span class="lineno">112</span>         <span class="s1">&#39;Interracial&#39;</span><span class="p">,</span>
-<span class="lineno">113</span>         <span class="s1">&#39;Italian&#39;</span><span class="p">,</span>
-<span class="lineno">114</span>         <span class="s1">&#39;Japanese&#39;</span><span class="p">,</span>
-<span class="lineno">115</span>         <span class="s1">&#39;JOI&#39;</span><span class="p">,</span>
-<span class="lineno">116</span>         <span class="s1">&#39;Korean&#39;</span><span class="p">,</span>
-<span class="lineno">117</span>         <span class="s1">&#39;Latex&#39;</span><span class="p">,</span>
-<span class="lineno">118</span>         <span class="s1">&#39;Latina&#39;</span><span class="p">,</span>
-<span class="lineno">119</span>         <span class="s1">&#39;Lesbian&#39;</span><span class="p">,</span>
-<span class="lineno">120</span>         <span class="s1">&#39;Lingerie&#39;</span><span class="p">,</span>
-<span class="lineno">121</span>         <span class="s1">&#39;Live Show&#39;</span><span class="p">,</span>
-<span class="lineno">122</span>         <span class="s1">&#39;Massage&#39;</span><span class="p">,</span>
-<span class="lineno">123</span>         <span class="s1">&#39;Masturbation&#39;</span><span class="p">,</span>
-<span class="lineno">124</span>         <span class="s1">&#39;Mature&#39;</span><span class="p">,</span>
-<span class="lineno">125</span>         <span class="s1">&#39;Medical&#39;</span><span class="p">,</span>
-<span class="lineno">126</span>         <span class="s1">&#39;Midgets&#39;</span><span class="p">,</span>
-<span class="lineno">127</span>         <span class="s1">&#39;MILF&#39;</span><span class="p">,</span>
-<span class="lineno">128</span>         <span class="s1">&#39;Military&#39;</span><span class="p">,</span>
-<span class="lineno">129</span>         <span class="s1">&#39;Natural Tits&#39;</span><span class="p">,</span>
-<span class="lineno">130</span>         <span class="s1">&#39;Nipples&#39;</span><span class="p">,</span>
-<span class="lineno">131</span>         <span class="s1">&#39;Oldy&#39;</span><span class="p">,</span>
-<span class="lineno">132</span>         <span class="s1">&#39;Orgasm&#39;</span><span class="p">,</span>
-<span class="lineno">133</span>         <span class="s1">&#39;Outdoor&#39;</span><span class="p">,</span>
-<span class="lineno">134</span>         <span class="s1">&#39;Panties&#39;</span><span class="p">,</span>
-<span class="lineno">135</span>         <span class="s1">&#39;Philippines&#39;</span><span class="p">,</span>
-<span class="lineno">136</span>         <span class="s1">&#39;Phone&#39;</span><span class="p">,</span>
-<span class="lineno">137</span>         <span class="s1">&#39;Piercing&#39;</span><span class="p">,</span>
-<span class="lineno">138</span>         <span class="s1">&#39;Pissing&#39;</span><span class="p">,</span>
-<span class="lineno">139</span>         <span class="s1">&#39;Pornstars&#39;</span><span class="p">,</span>
-<span class="lineno">140</span>         <span class="s1">&#39;POV&#39;</span><span class="p">,</span>
-<span class="lineno">141</span>         <span class="s1">&#39;Pregnant&#39;</span><span class="p">,</span>
-<span class="lineno">142</span>         <span class="s1">&#39;Public&#39;</span><span class="p">,</span>
-<span class="lineno">143</span>         <span class="s1">&#39;Reality&#39;</span><span class="p">,</span>
-<span class="lineno">144</span>         <span class="s1">&#39;Redhead&#39;</span><span class="p">,</span>
-<span class="lineno">145</span>         <span class="s1">&#39;Retro&#39;</span><span class="p">,</span>
-<span class="lineno">146</span>         <span class="s1">&#39;Rimming&#39;</span><span class="p">,</span>
-<span class="lineno">147</span>         <span class="s1">&#39;Romantic&#39;</span><span class="p">,</span>
-<span class="lineno">148</span>         <span class="s1">&#39;Russian&#39;</span><span class="p">,</span>
-<span class="lineno">149</span>         <span class="s1">&#39;Selfshot&#39;</span><span class="p">,</span>
-<span class="lineno">150</span>         <span class="s1">&#39;Sharking&#39;</span><span class="p">,</span>
-<span class="lineno">151</span>         <span class="s1">&#39;Shaved&#39;</span><span class="p">,</span>
-<span class="lineno">152</span>         <span class="s1">&#39;Shower&#39;</span><span class="p">,</span>
-<span class="lineno">153</span>         <span class="s1">&#39;Skinny&#39;</span><span class="p">,</span>
-<span class="lineno">154</span>         <span class="s1">&#39;Small Tits&#39;</span><span class="p">,</span>
-<span class="lineno">155</span>         <span class="s1">&#39;Smoking&#39;</span><span class="p">,</span>
-<span class="lineno">156</span>         <span class="s1">&#39;Softcore&#39;</span><span class="p">,</span>
-<span class="lineno">157</span>         <span class="s1">&#39;Solo Girl&#39;</span><span class="p">,</span>
-<span class="lineno">158</span>         <span class="s1">&#39;Spanish&#39;</span><span class="p">,</span>
-<span class="lineno">159</span>         <span class="s1">&#39;Spanking&#39;</span><span class="p">,</span>
-<span class="lineno">160</span>         <span class="s1">&#39;Sports&#39;</span><span class="p">,</span>
-<span class="lineno">161</span>         <span class="s1">&#39;Squirting&#39;</span><span class="p">,</span>
-<span class="lineno">162</span>         <span class="s1">&#39;Stockings&#39;</span><span class="p">,</span>
-<span class="lineno">163</span>         <span class="s1">&#39;Strapon&#39;</span><span class="p">,</span>
-<span class="lineno">164</span>         <span class="s1">&#39;Strip&#39;</span><span class="p">,</span>
-<span class="lineno">165</span>         <span class="s1">&#39;Swallow&#39;</span><span class="p">,</span>
-<span class="lineno">166</span>         <span class="s1">&#39;Swedish&#39;</span><span class="p">,</span>
-<span class="lineno">167</span>         <span class="s1">&#39;Swingers&#39;</span><span class="p">,</span>
-<span class="lineno">168</span>         <span class="s1">&#39;Tattoos&#39;</span><span class="p">,</span>
-<span class="lineno">169</span>         <span class="s1">&#39;Thai&#39;</span><span class="p">,</span>
-<span class="lineno">170</span>         <span class="s1">&#39;Threesomes&#39;</span><span class="p">,</span>
-<span class="lineno">171</span>         <span class="s1">&#39;Turkish&#39;</span><span class="p">,</span>
-<span class="lineno">172</span>         <span class="s1">&#39;Underwater&#39;</span><span class="p">,</span>
-<span class="lineno">173</span>         <span class="s1">&#39;Uniform&#39;</span><span class="p">,</span>
-<span class="lineno">174</span>         <span class="s1">&#39;Upskirt&#39;</span><span class="p">,</span>
-<span class="lineno">175</span>         <span class="s1">&#39;Vintage&#39;</span><span class="p">,</span>
-<span class="lineno">176</span>         <span class="s1">&#39;Voyeur&#39;</span><span class="p">,</span>
-<span class="lineno">177</span>         <span class="s1">&#39;Webcam&#39;</span><span class="p">,</span>
-<span class="lineno">178</span>         <span class="s1">&#39;Wife&#39;</span><span class="p">,</span>
-<span class="lineno">179</span>         <span class="s1">&#39;Window&#39;</span><span class="p">,</span>
-<span class="lineno">180</span>         <span class="s1">&#39;Yoga&#39;</span>
-<span class="lineno">181</span>     <span class="p">],</span>
-<span class="lineno">182</span> 
-<span class="lineno">183</span> <span class="p">];</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno">  1 </span><span class="cp">&lt;?php</span>
+<span class="lineno">  2 </span>
+<span class="lineno">  3 </span><span class="k">return</span> <span class="p">[</span>
+<span class="lineno">  4 </span>
+<span class="lineno">  5 </span>    <span class="c1">// Seed each of these tables with this numbers of rows</span>
+<span class="lineno">  6 </span>    <span class="s1">&#39;nGirls&#39;</span>    <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+<span class="lineno">  7 </span>    <span class="s1">&#39;nVideos&#39;</span>   <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+<span class="lineno">  8 </span>    <span class="s1">&#39;nUsers&#39;</span>    <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span>
+<span class="lineno">  9 </span>
+<span class="lineno"> 10 </span>    <span class="c1">// How many tags can be associated to each video?</span>
+<span class="lineno"> 11 </span>    <span class="s1">&#39;minTags&#39;</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="lineno"> 12 </span>    <span class="s1">&#39;maxTags&#39;</span>   <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+<span class="lineno"> 13 </span>
+<span class="lineno"> 14 </span>    <span class="c1">// How many girls can be associated to each video?</span>
+<span class="lineno"> 15 </span>    <span class="s1">&#39;minGirls&#39;</span>  <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="lineno"> 16 </span>    <span class="s1">&#39;maxGirls&#39;</span>  <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+<span class="lineno"> 17 </span>
+<span class="lineno"> 18 </span>    <span class="c1">// Fake information locale (en_US, es_ES, etc.)</span>
+<span class="lineno"> 19 </span>    <span class="s1">&#39;locale&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;es_ES&#39;</span><span class="p">,</span>
+<span class="lineno"> 20 </span>
+<span class="lineno"> 21 </span>    <span class="c1">// Subscription name</span>
+<span class="lineno"> 22 </span>    <span class="s1">&#39;subscriptionName&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
+<span class="lineno"> 23 </span>
+<span class="lineno"> 24 </span>    <span class="c1">// Subscription plan types</span>
+<span class="lineno"> 25 </span>    <span class="s1">&#39;subscriptionPlans&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<span class="lineno"> 26 </span>        <span class="s1">&#39;monthly&#39;</span><span class="p">,</span>
+<span class="lineno"> 27 </span>        <span class="s1">&#39;every-three-months&#39;</span><span class="p">,</span>
+<span class="lineno"> 28 </span>        <span class="s1">&#39;yearly&#39;</span><span class="p">,</span>
+<span class="lineno"> 29 </span>    <span class="p">],</span>
+<span class="lineno"> 30 </span>
+<span class="lineno"> 31 </span>    <span class="c1">// Porn categories (courtesy of one random porn site)</span>
+<span class="lineno"> 32 </span>    <span class="s1">&#39;pornCategories&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<span class="lineno"> 33 </span>        <span class="s1">&#39;3D Hentai&#39;</span><span class="p">,</span>
+<span class="lineno"> 34 </span>        <span class="s1">&#39;3D Stereoscopic&#39;</span><span class="p">,</span>
+<span class="lineno"> 35 </span>        <span class="s1">&#39;3D Toons&#39;</span><span class="p">,</span>
+<span class="lineno"> 36 </span>        <span class="s1">&#39;Amateur&#39;</span><span class="p">,</span>
+<span class="lineno"> 37 </span>        <span class="s1">&#39;Anal&#39;</span><span class="p">,</span>
+<span class="lineno"> 38 </span>        <span class="s1">&#39;Arab&#39;</span><span class="p">,</span>
+<span class="lineno"> 39 </span>        <span class="s1">&#39;Asian&#39;</span><span class="p">,</span>
+<span class="lineno"> 40 </span>        <span class="s1">&#39;Babes&#39;</span><span class="p">,</span>
+<span class="lineno"> 41 </span>        <span class="s1">&#39;Babysitters&#39;</span><span class="p">,</span>
+<span class="lineno"> 42 </span>        <span class="s1">&#39;Ballbusting&#39;</span><span class="p">,</span>
+<span class="lineno"> 43 </span>        <span class="s1">&#39;BBW&#39;</span><span class="p">,</span>
+<span class="lineno"> 44 </span>        <span class="s1">&#39;BDSM&#39;</span><span class="p">,</span>
+<span class="lineno"> 45 </span>        <span class="s1">&#39;Beach&#39;</span><span class="p">,</span>
+<span class="lineno"> 46 </span>        <span class="s1">&#39;Big Butt&#39;</span><span class="p">,</span>
+<span class="lineno"> 47 </span>        <span class="s1">&#39;Big Dick&#39;</span><span class="p">,</span>
+<span class="lineno"> 48 </span>        <span class="s1">&#39;Big Tits&#39;</span><span class="p">,</span>
+<span class="lineno"> 49 </span>        <span class="s1">&#39;Bisexual&#39;</span><span class="p">,</span>
+<span class="lineno"> 50 </span>        <span class="s1">&#39;Black&#39;</span><span class="p">,</span>
+<span class="lineno"> 51 </span>        <span class="s1">&#39;Blonde&#39;</span><span class="p">,</span>
+<span class="lineno"> 52 </span>        <span class="s1">&#39;Blowjob&#39;</span><span class="p">,</span>
+<span class="lineno"> 53 </span>        <span class="s1">&#39;Brazilian&#39;</span><span class="p">,</span>
+<span class="lineno"> 54 </span>        <span class="s1">&#39;British&#39;</span><span class="p">,</span>
+<span class="lineno"> 55 </span>        <span class="s1">&#39;Brunette&#39;</span><span class="p">,</span>
+<span class="lineno"> 56 </span>        <span class="s1">&#39;Bukkake&#39;</span><span class="p">,</span>
+<span class="lineno"> 57 </span>        <span class="s1">&#39;Cartoon&#39;</span><span class="p">,</span>
+<span class="lineno"> 58 </span>        <span class="s1">&#39;Casting&#39;</span><span class="p">,</span>
+<span class="lineno"> 59 </span>        <span class="s1">&#39;Cat Fights&#39;</span><span class="p">,</span>
+<span class="lineno"> 60 </span>        <span class="s1">&#39;Celebrities&#39;</span><span class="p">,</span>
+<span class="lineno"> 61 </span>        <span class="s1">&#39;CFNM&#39;</span><span class="p">,</span>
+<span class="lineno"> 62 </span>        <span class="s1">&#39;Changing Room&#39;</span><span class="p">,</span>
+<span class="lineno"> 63 </span>        <span class="s1">&#39;Chaturbate&#39;</span><span class="p">,</span>
+<span class="lineno"> 64 </span>        <span class="s1">&#39;Cheerleaders&#39;</span><span class="p">,</span>
+<span class="lineno"> 65 </span>        <span class="s1">&#39;Chinese&#39;</span><span class="p">,</span>
+<span class="lineno"> 66 </span>        <span class="s1">&#39;Close-up&#39;</span><span class="p">,</span>
+<span class="lineno"> 67 </span>        <span class="s1">&#39;College&#39;</span><span class="p">,</span>
+<span class="lineno"> 68 </span>        <span class="s1">&#39;Compilation&#39;</span><span class="p">,</span>
+<span class="lineno"> 69 </span>        <span class="s1">&#39;Cosplay&#39;</span><span class="p">,</span>
+<span class="lineno"> 70 </span>        <span class="s1">&#39;Cougar&#39;</span><span class="p">,</span>
+<span class="lineno"> 71 </span>        <span class="s1">&#39;Couple&#39;</span><span class="p">,</span>
+<span class="lineno"> 72 </span>        <span class="s1">&#39;Creampie&#39;</span><span class="p">,</span>
+<span class="lineno"> 73 </span>        <span class="s1">&#39;Cuckold&#39;</span><span class="p">,</span>
+<span class="lineno"> 74 </span>        <span class="s1">&#39;Cumshot&#39;</span><span class="p">,</span>
+<span class="lineno"> 75 </span>        <span class="s1">&#39;Cunnilingus&#39;</span><span class="p">,</span>
+<span class="lineno"> 76 </span>        <span class="s1">&#39;Czech&#39;</span><span class="p">,</span>
+<span class="lineno"> 77 </span>        <span class="s1">&#39;Danish&#39;</span><span class="p">,</span>
+<span class="lineno"> 78 </span>        <span class="s1">&#39;Deep Throat&#39;</span><span class="p">,</span>
+<span class="lineno"> 79 </span>        <span class="s1">&#39;Dildos/Toys&#39;</span><span class="p">,</span>
+<span class="lineno"> 80 </span>        <span class="s1">&#39;Doggy Style&#39;</span><span class="p">,</span>
+<span class="lineno"> 81 </span>        <span class="s1">&#39;Double Penetration&#39;</span><span class="p">,</span>
+<span class="lineno"> 82 </span>        <span class="s1">&#39;Downblouse&#39;</span><span class="p">,</span>
+<span class="lineno"> 83 </span>        <span class="s1">&#39;Ebony&#39;</span><span class="p">,</span>
+<span class="lineno"> 84 </span>        <span class="s1">&#39;Emo&#39;</span><span class="p">,</span>
+<span class="lineno"> 85 </span>        <span class="s1">&#39;European&#39;</span><span class="p">,</span>
+<span class="lineno"> 86 </span>        <span class="s1">&#39;Face Sitting&#39;</span><span class="p">,</span>
+<span class="lineno"> 87 </span>        <span class="s1">&#39;Facial&#39;</span><span class="p">,</span>
+<span class="lineno"> 88 </span>        <span class="s1">&#39;Femdom&#39;</span><span class="p">,</span>
+<span class="lineno"> 89 </span>        <span class="s1">&#39;Fetish&#39;</span><span class="p">,</span>
+<span class="lineno"> 90 </span>        <span class="s1">&#39;Fingering&#39;</span><span class="p">,</span>
+<span class="lineno"> 91 </span>        <span class="s1">&#39;Fisting&#39;</span><span class="p">,</span>
+<span class="lineno"> 92 </span>        <span class="s1">&#39;Flashing&#39;</span><span class="p">,</span>
+<span class="lineno"> 93 </span>        <span class="s1">&#39;Foot Fetish&#39;</span><span class="p">,</span>
+<span class="lineno"> 94 </span>        <span class="s1">&#39;French&#39;</span><span class="p">,</span>
+<span class="lineno"> 95 </span>        <span class="s1">&#39;Fucking Machines&#39;</span><span class="p">,</span>
+<span class="lineno"> 96 </span>        <span class="s1">&#39;Funny&#39;</span><span class="p">,</span>
+<span class="lineno"> 97 </span>        <span class="s1">&#39;Gangbang&#39;</span><span class="p">,</span>
+<span class="lineno"> 98 </span>        <span class="s1">&#39;Gaping&#39;</span><span class="p">,</span>
+<span class="lineno"> 99 </span>        <span class="s1">&#39;German&#39;</span><span class="p">,</span>
+<span class="lineno">100 </span>        <span class="s1">&#39;Girlfriend&#39;</span><span class="p">,</span>
+<span class="lineno">101 </span>        <span class="s1">&#39;Glory Holes&#39;</span><span class="p">,</span>
+<span class="lineno">102 </span>        <span class="s1">&#39;Gothic&#39;</span><span class="p">,</span>
+<span class="lineno">103 </span>        <span class="s1">&#39;Grannies&#39;</span><span class="p">,</span>
+<span class="lineno">104 </span>        <span class="s1">&#39;Group Sex&#39;</span><span class="p">,</span>
+<span class="lineno">105 </span>        <span class="s1">&#39;Hairy&#39;</span><span class="p">,</span>
+<span class="lineno">106 </span>        <span class="s1">&#39;Handjob&#39;</span><span class="p">,</span>
+<span class="lineno">107 </span>        <span class="s1">&#39;Hardcore&#39;</span><span class="p">,</span>
+<span class="lineno">108 </span>        <span class="s1">&#39;HD&#39;</span><span class="p">,</span>
+<span class="lineno">109 </span>        <span class="s1">&#39;Hentai&#39;</span><span class="p">,</span>
+<span class="lineno">110 </span>        <span class="s1">&#39;Hidden Cams&#39;</span><span class="p">,</span>
+<span class="lineno">111 </span>        <span class="s1">&#39;Indian&#39;</span><span class="p">,</span>
+<span class="lineno">112 </span>        <span class="s1">&#39;Interracial&#39;</span><span class="p">,</span>
+<span class="lineno">113 </span>        <span class="s1">&#39;Italian&#39;</span><span class="p">,</span>
+<span class="lineno">114 </span>        <span class="s1">&#39;Japanese&#39;</span><span class="p">,</span>
+<span class="lineno">115 </span>        <span class="s1">&#39;JOI&#39;</span><span class="p">,</span>
+<span class="lineno">116 </span>        <span class="s1">&#39;Korean&#39;</span><span class="p">,</span>
+<span class="lineno">117 </span>        <span class="s1">&#39;Latex&#39;</span><span class="p">,</span>
+<span class="lineno">118 </span>        <span class="s1">&#39;Latina&#39;</span><span class="p">,</span>
+<span class="lineno">119 </span>        <span class="s1">&#39;Lesbian&#39;</span><span class="p">,</span>
+<span class="lineno">120 </span>        <span class="s1">&#39;Lingerie&#39;</span><span class="p">,</span>
+<span class="lineno">121 </span>        <span class="s1">&#39;Live Show&#39;</span><span class="p">,</span>
+<span class="lineno">122 </span>        <span class="s1">&#39;Massage&#39;</span><span class="p">,</span>
+<span class="lineno">123 </span>        <span class="s1">&#39;Masturbation&#39;</span><span class="p">,</span>
+<span class="lineno">124 </span>        <span class="s1">&#39;Mature&#39;</span><span class="p">,</span>
+<span class="lineno">125 </span>        <span class="s1">&#39;Medical&#39;</span><span class="p">,</span>
+<span class="lineno">126 </span>        <span class="s1">&#39;Midgets&#39;</span><span class="p">,</span>
+<span class="lineno">127 </span>        <span class="s1">&#39;MILF&#39;</span><span class="p">,</span>
+<span class="lineno">128 </span>        <span class="s1">&#39;Military&#39;</span><span class="p">,</span>
+<span class="lineno">129 </span>        <span class="s1">&#39;Natural Tits&#39;</span><span class="p">,</span>
+<span class="lineno">130 </span>        <span class="s1">&#39;Nipples&#39;</span><span class="p">,</span>
+<span class="lineno">131 </span>        <span class="s1">&#39;Oldy&#39;</span><span class="p">,</span>
+<span class="lineno">132 </span>        <span class="s1">&#39;Orgasm&#39;</span><span class="p">,</span>
+<span class="lineno">133 </span>        <span class="s1">&#39;Outdoor&#39;</span><span class="p">,</span>
+<span class="lineno">134 </span>        <span class="s1">&#39;Panties&#39;</span><span class="p">,</span>
+<span class="lineno">135 </span>        <span class="s1">&#39;Philippines&#39;</span><span class="p">,</span>
+<span class="lineno">136 </span>        <span class="s1">&#39;Phone&#39;</span><span class="p">,</span>
+<span class="lineno">137 </span>        <span class="s1">&#39;Piercing&#39;</span><span class="p">,</span>
+<span class="lineno">138 </span>        <span class="s1">&#39;Pissing&#39;</span><span class="p">,</span>
+<span class="lineno">139 </span>        <span class="s1">&#39;Pornstars&#39;</span><span class="p">,</span>
+<span class="lineno">140 </span>        <span class="s1">&#39;POV&#39;</span><span class="p">,</span>
+<span class="lineno">141 </span>        <span class="s1">&#39;Pregnant&#39;</span><span class="p">,</span>
+<span class="lineno">142 </span>        <span class="s1">&#39;Public&#39;</span><span class="p">,</span>
+<span class="lineno">143 </span>        <span class="s1">&#39;Reality&#39;</span><span class="p">,</span>
+<span class="lineno">144 </span>        <span class="s1">&#39;Redhead&#39;</span><span class="p">,</span>
+<span class="lineno">145 </span>        <span class="s1">&#39;Retro&#39;</span><span class="p">,</span>
+<span class="lineno">146 </span>        <span class="s1">&#39;Rimming&#39;</span><span class="p">,</span>
+<span class="lineno">147 </span>        <span class="s1">&#39;Romantic&#39;</span><span class="p">,</span>
+<span class="lineno">148 </span>        <span class="s1">&#39;Russian&#39;</span><span class="p">,</span>
+<span class="lineno">149 </span>        <span class="s1">&#39;Selfshot&#39;</span><span class="p">,</span>
+<span class="lineno">150 </span>        <span class="s1">&#39;Sharking&#39;</span><span class="p">,</span>
+<span class="lineno">151 </span>        <span class="s1">&#39;Shaved&#39;</span><span class="p">,</span>
+<span class="lineno">152 </span>        <span class="s1">&#39;Shower&#39;</span><span class="p">,</span>
+<span class="lineno">153 </span>        <span class="s1">&#39;Skinny&#39;</span><span class="p">,</span>
+<span class="lineno">154 </span>        <span class="s1">&#39;Small Tits&#39;</span><span class="p">,</span>
+<span class="lineno">155 </span>        <span class="s1">&#39;Smoking&#39;</span><span class="p">,</span>
+<span class="lineno">156 </span>        <span class="s1">&#39;Softcore&#39;</span><span class="p">,</span>
+<span class="lineno">157 </span>        <span class="s1">&#39;Solo Girl&#39;</span><span class="p">,</span>
+<span class="lineno">158 </span>        <span class="s1">&#39;Spanish&#39;</span><span class="p">,</span>
+<span class="lineno">159 </span>        <span class="s1">&#39;Spanking&#39;</span><span class="p">,</span>
+<span class="lineno">160 </span>        <span class="s1">&#39;Sports&#39;</span><span class="p">,</span>
+<span class="lineno">161 </span>        <span class="s1">&#39;Squirting&#39;</span><span class="p">,</span>
+<span class="lineno">162 </span>        <span class="s1">&#39;Stockings&#39;</span><span class="p">,</span>
+<span class="lineno">163 </span>        <span class="s1">&#39;Strapon&#39;</span><span class="p">,</span>
+<span class="lineno">164 </span>        <span class="s1">&#39;Strip&#39;</span><span class="p">,</span>
+<span class="lineno">165 </span>        <span class="s1">&#39;Swallow&#39;</span><span class="p">,</span>
+<span class="lineno">166 </span>        <span class="s1">&#39;Swedish&#39;</span><span class="p">,</span>
+<span class="lineno">167 </span>        <span class="s1">&#39;Swingers&#39;</span><span class="p">,</span>
+<span class="lineno">168 </span>        <span class="s1">&#39;Tattoos&#39;</span><span class="p">,</span>
+<span class="lineno">169 </span>        <span class="s1">&#39;Thai&#39;</span><span class="p">,</span>
+<span class="lineno">170 </span>        <span class="s1">&#39;Threesomes&#39;</span><span class="p">,</span>
+<span class="lineno">171 </span>        <span class="s1">&#39;Turkish&#39;</span><span class="p">,</span>
+<span class="lineno">172 </span>        <span class="s1">&#39;Underwater&#39;</span><span class="p">,</span>
+<span class="lineno">173 </span>        <span class="s1">&#39;Uniform&#39;</span><span class="p">,</span>
+<span class="lineno">174 </span>        <span class="s1">&#39;Upskirt&#39;</span><span class="p">,</span>
+<span class="lineno">175 </span>        <span class="s1">&#39;Vintage&#39;</span><span class="p">,</span>
+<span class="lineno">176 </span>        <span class="s1">&#39;Voyeur&#39;</span><span class="p">,</span>
+<span class="lineno">177 </span>        <span class="s1">&#39;Webcam&#39;</span><span class="p">,</span>
+<span class="lineno">178 </span>        <span class="s1">&#39;Wife&#39;</span><span class="p">,</span>
+<span class="lineno">179 </span>        <span class="s1">&#39;Window&#39;</span><span class="p">,</span>
+<span class="lineno">180 </span>        <span class="s1">&#39;Yoga&#39;</span>
+<span class="lineno">181 </span>    <span class="p">],</span>
+<span class="lineno">182 </span>
+<span class="lineno">183 </span><span class="p">];</span></code></pre></figure>
 
 </div>
 
@@ -899,25 +899,25 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#tagtableseeder">TagTableSeeder.php</a></p>
 <div id="tagtableseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">class</span> <span class="nc">TagTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
-<span class="lineno"> 6</span> <span class="p">{</span>
-<span class="lineno"> 7</span>     <span class="sd">/**</span>
-<span class="lineno"> 8</span> <span class="sd">     * Run the database seeds.</span>
-<span class="lineno"> 9</span> <span class="sd">     *</span>
-<span class="lineno">10</span> <span class="sd">     * @return void</span>
-<span class="lineno">11</span> <span class="sd">     */</span>
-<span class="lineno">12</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
-<span class="lineno">13</span>     <span class="p">{</span>
-<span class="lineno">14</span>         <span class="k">foreach</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.pornCategories&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$categoryName</span><span class="p">)</span>
-<span class="lineno">15</span>             <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-<span class="lineno">16</span>                 <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$categoryName</span><span class="p">,</span>
-<span class="lineno">17</span>             <span class="p">]);</span>
-<span class="lineno">18</span>     <span class="p">}</span>
-<span class="lineno">19</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">class</span> <span class="nc">TagTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="lineno"> 6 </span><span class="p">{</span>
+<span class="lineno"> 7 </span>    <span class="sd">/**</span>
+<span class="lineno"> 8 </span><span class="sd">     * Run the database seeds.</span>
+<span class="lineno"> 9 </span><span class="sd">     *</span>
+<span class="lineno">10 </span><span class="sd">     * @return void</span>
+<span class="lineno">11 </span><span class="sd">     */</span>
+<span class="lineno">12 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+<span class="lineno">13 </span>    <span class="p">{</span>
+<span class="lineno">14 </span>        <span class="k">foreach</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.pornCategories&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$categoryName</span><span class="p">)</span>
+<span class="lineno">15 </span>            <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+<span class="lineno">16 </span>                <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$categoryName</span><span class="p">,</span>
+<span class="lineno">17 </span>            <span class="p">]);</span>
+<span class="lineno">18 </span>    <span class="p">}</span>
+<span class="lineno">19 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -932,32 +932,32 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#girltableseeder">GirlTableSeeder.php</a></p>
 <div id="girltableseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">class</span> <span class="nc">GirlTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
-<span class="lineno"> 6</span> <span class="p">{</span>
-<span class="lineno"> 7</span> 
-<span class="lineno"> 8</span>     <span class="sd">/**</span>
-<span class="lineno"> 9</span> <span class="sd">     * Run the database seeds.</span>
-<span class="lineno">10</span> <span class="sd">     *</span>
-<span class="lineno">11</span> <span class="sd">     * @return void</span>
-<span class="lineno">12</span> <span class="sd">     */</span>
-<span class="lineno">13</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
-<span class="lineno">14</span>     <span class="p">{</span>
-<span class="lineno">15</span>         <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
-<span class="lineno">16</span> 
-<span class="lineno">17</span>         <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nGirls&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
-<span class="lineno">18</span>             <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-<span class="lineno">19</span>                 <span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;female&#39;</span><span class="p">),</span>
-<span class="lineno">20</span>                 <span class="s1">&#39;age&#39;</span>           <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">numberBetween</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">90</span><span class="p">),</span>
-<span class="lineno">21</span>                 <span class="s1">&#39;picture&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-profile-picture.jpg&#39;</span><span class="p">,</span>
-<span class="lineno">22</span>                 <span class="s1">&#39;description&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span>
-<span class="lineno">23</span>             <span class="p">]);</span>
-<span class="lineno">24</span>     <span class="p">}</span>
-<span class="lineno">25</span> 
-<span class="lineno">26</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">class</span> <span class="nc">GirlTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="lineno"> 6 </span><span class="p">{</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span>    <span class="sd">/**</span>
+<span class="lineno"> 9 </span><span class="sd">     * Run the database seeds.</span>
+<span class="lineno">10 </span><span class="sd">     *</span>
+<span class="lineno">11 </span><span class="sd">     * @return void</span>
+<span class="lineno">12 </span><span class="sd">     */</span>
+<span class="lineno">13 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+<span class="lineno">14 </span>    <span class="p">{</span>
+<span class="lineno">15 </span>        <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+<span class="lineno">16 </span>
+<span class="lineno">17 </span>        <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nGirls&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+<span class="lineno">18 </span>            <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+<span class="lineno">19 </span>                <span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">(</span><span class="s1">&#39;female&#39;</span><span class="p">),</span>
+<span class="lineno">20 </span>                <span class="s1">&#39;age&#39;</span>           <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">numberBetween</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">90</span><span class="p">),</span>
+<span class="lineno">21 </span>                <span class="s1">&#39;picture&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-profile-picture.jpg&#39;</span><span class="p">,</span>
+<span class="lineno">22 </span>                <span class="s1">&#39;description&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span>
+<span class="lineno">23 </span>            <span class="p">]);</span>
+<span class="lineno">24 </span>    <span class="p">}</span>
+<span class="lineno">25 </span>
+<span class="lineno">26 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -968,31 +968,31 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#videotableseeder">VideoTableSeeder.php</a></p>
 <div id="videotableseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">class</span> <span class="nc">VideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
-<span class="lineno"> 6</span> <span class="p">{</span>
-<span class="lineno"> 7</span>     <span class="sd">/**</span>
-<span class="lineno"> 8</span> <span class="sd">     * Run the database seeds.</span>
-<span class="lineno"> 9</span> <span class="sd">     *</span>
-<span class="lineno">10</span> <span class="sd">     * @return void</span>
-<span class="lineno">11</span> <span class="sd">     */</span>
-<span class="lineno">12</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
-<span class="lineno">13</span>     <span class="p">{</span>
-<span class="lineno">14</span>         <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
-<span class="lineno">15</span> 
-<span class="lineno">16</span>         <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nVideos&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
-<span class="lineno">17</span>             <span class="nx">\App\Video</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-<span class="lineno">18</span>                 <span class="s1">&#39;title&#39;</span>         <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">sentence</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-<span class="lineno">19</span>                 <span class="s1">&#39;filename&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;example-video.flv&#39;</span><span class="p">,</span>
-<span class="lineno">20</span>                 <span class="s1">&#39;thumbnail&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;example-thumbnail.jpg&#39;</span><span class="p">,</span>
-<span class="lineno">21</span>                 <span class="s1">&#39;featured&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">boolean</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-<span class="lineno">22</span>                 <span class="s1">&#39;trailer&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-trailer.flv&#39;</span>
-<span class="lineno">23</span>             <span class="p">]);</span>
-<span class="lineno">24</span>     <span class="p">}</span>
-<span class="lineno">25</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">class</span> <span class="nc">VideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="lineno"> 6 </span><span class="p">{</span>
+<span class="lineno"> 7 </span>    <span class="sd">/**</span>
+<span class="lineno"> 8 </span><span class="sd">     * Run the database seeds.</span>
+<span class="lineno"> 9 </span><span class="sd">     *</span>
+<span class="lineno">10 </span><span class="sd">     * @return void</span>
+<span class="lineno">11 </span><span class="sd">     */</span>
+<span class="lineno">12 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+<span class="lineno">13 </span>    <span class="p">{</span>
+<span class="lineno">14 </span>        <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+<span class="lineno">15 </span>
+<span class="lineno">16 </span>        <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nVideos&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+<span class="lineno">17 </span>            <span class="nx">\App\Video</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+<span class="lineno">18 </span>                <span class="s1">&#39;title&#39;</span>         <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">sentence</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+<span class="lineno">19 </span>                <span class="s1">&#39;filename&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;example-video.flv&#39;</span><span class="p">,</span>
+<span class="lineno">20 </span>                <span class="s1">&#39;thumbnail&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;example-thumbnail.jpg&#39;</span><span class="p">,</span>
+<span class="lineno">21 </span>                <span class="s1">&#39;featured&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">boolean</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+<span class="lineno">22 </span>                <span class="s1">&#39;trailer&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;example-trailer.flv&#39;</span>
+<span class="lineno">23 </span>            <span class="p">]);</span>
+<span class="lineno">24 </span>    <span class="p">}</span>
+<span class="lineno">25 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -1001,88 +1001,88 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#relationshipsseeder">TagVideoTableSeeder.php</a></p>
 <div id="relationshipsseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">class</span> <span class="nc">TagVideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
-<span class="lineno"> 6</span> <span class="p">{</span>
-<span class="lineno"> 7</span>     <span class="sd">/**</span>
-<span class="lineno"> 8</span> <span class="sd">     * Run the database seeds.</span>
-<span class="lineno"> 9</span> <span class="sd">     *</span>
-<span class="lineno">10</span> <span class="sd">     * @return void</span>
-<span class="lineno">11</span> <span class="sd">     */</span>
-<span class="lineno">12</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
-<span class="lineno">13</span>     <span class="p">{</span>
-<span class="lineno">14</span>         <span class="c1">// First we gather all tags and videos previously created</span>
-<span class="lineno">15</span>         <span class="nv">$tags</span> <span class="o">=</span> <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
-<span class="lineno">16</span>         <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
-<span class="lineno">17</span>       
-<span class="lineno">18</span>         <span class="c1">// Now we iterate through all the videos in our DB</span>
-<span class="lineno">19</span>         <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">20</span>       
-<span class="lineno">21</span>             <span class="c1">// We select some random tag keys out of the array of tag&#39;s ids</span>
-<span class="lineno">22</span>             <span class="nv">$selectedTagKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
-<span class="lineno">23</span>                 <span class="nv">$tags</span><span class="p">,</span>
-<span class="lineno">24</span>                 <span class="nb">mt_rand</span><span class="p">(</span>
-<span class="lineno">25</span>                     <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.minTags&#39;</span><span class="p">),</span>
-<span class="lineno">26</span>                     <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.maxTags&#39;</span><span class="p">)</span>
-<span class="lineno">27</span>                 <span class="p">)</span>
-<span class="lineno">28</span>             <span class="p">);</span>
-<span class="lineno">29</span>             
-<span class="lineno">30</span>             <span class="c1">// Finally, we associate the selected tags to the current video</span>
-<span class="lineno">31</span>             <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedTagKeys</span><span class="p">))</span>
-<span class="lineno">32</span>                 <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$selectedTagKeys</span><span class="p">]);</span>
-<span class="lineno">33</span>             <span class="k">else</span>
-<span class="lineno">34</span>                 <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedTagKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
-<span class="lineno">35</span>                     <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
-<span class="lineno">36</span>         <span class="p">}</span>
-<span class="lineno">37</span>     <span class="p">}</span>
-<span class="lineno">38</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">class</span> <span class="nc">TagVideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="lineno"> 6 </span><span class="p">{</span>
+<span class="lineno"> 7 </span>    <span class="sd">/**</span>
+<span class="lineno"> 8 </span><span class="sd">     * Run the database seeds.</span>
+<span class="lineno"> 9 </span><span class="sd">     *</span>
+<span class="lineno">10 </span><span class="sd">     * @return void</span>
+<span class="lineno">11 </span><span class="sd">     */</span>
+<span class="lineno">12 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+<span class="lineno">13 </span>    <span class="p">{</span>
+<span class="lineno">14 </span>        <span class="c1">// First we gather all tags and videos previously created</span>
+<span class="lineno">15 </span>        <span class="nv">$tags</span> <span class="o">=</span> <span class="nx">\App\Tag</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
+<span class="lineno">16 </span>        <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+<span class="lineno">17 </span>      
+<span class="lineno">18 </span>        <span class="c1">// Now we iterate through all the videos in our DB</span>
+<span class="lineno">19 </span>        <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">20 </span>      
+<span class="lineno">21 </span>            <span class="c1">// We select some random tag keys out of the array of tag&#39;s ids</span>
+<span class="lineno">22 </span>            <span class="nv">$selectedTagKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
+<span class="lineno">23 </span>                <span class="nv">$tags</span><span class="p">,</span>
+<span class="lineno">24 </span>                <span class="nb">mt_rand</span><span class="p">(</span>
+<span class="lineno">25 </span>                    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.minTags&#39;</span><span class="p">),</span>
+<span class="lineno">26 </span>                    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.maxTags&#39;</span><span class="p">)</span>
+<span class="lineno">27 </span>                <span class="p">)</span>
+<span class="lineno">28 </span>            <span class="p">);</span>
+<span class="lineno">29 </span>            
+<span class="lineno">30 </span>            <span class="c1">// Finally, we associate the selected tags to the current video</span>
+<span class="lineno">31 </span>            <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedTagKeys</span><span class="p">))</span>
+<span class="lineno">32 </span>                <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$selectedTagKeys</span><span class="p">]);</span>
+<span class="lineno">33 </span>            <span class="k">else</span>
+<span class="lineno">34 </span>                <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedTagKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
+<span class="lineno">35 </span>                    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">tags</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$tags</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
+<span class="lineno">36 </span>        <span class="p">}</span>
+<span class="lineno">37 </span>    <span class="p">}</span>
+<span class="lineno">38 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
 <p><a href="javascript:" data-toggle="collapse" data-target="#relationshipsseeder2">GirlVideoTableSeeder.php</a></p>
 <div id="relationshipsseeder2" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">class</span> <span class="nc">GirlVideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
-<span class="lineno"> 6</span> <span class="p">{</span>
-<span class="lineno"> 7</span>     <span class="sd">/**</span>
-<span class="lineno"> 8</span> <span class="sd">     * Run the database seeds.</span>
-<span class="lineno"> 9</span> <span class="sd">     *</span>
-<span class="lineno">10</span> <span class="sd">     * @return void</span>
-<span class="lineno">11</span> <span class="sd">     */</span>
-<span class="lineno">12</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
-<span class="lineno">13</span>     <span class="p">{</span>
-<span class="lineno">14</span>         <span class="c1">// First we gather all girls and videos previously created</span>
-<span class="lineno">15</span>         <span class="nv">$girls</span> <span class="o">=</span> <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
-<span class="lineno">16</span>         <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
-<span class="lineno">17</span> 
-<span class="lineno">18</span>         <span class="c1">// Now we iterate through all the videos</span>
-<span class="lineno">19</span>         <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">20</span> 
-<span class="lineno">21</span>             <span class="c1">// We select some random keys from the girl&#39;s ids array</span>
-<span class="lineno">22</span>             <span class="nv">$selectedGirlKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
-<span class="lineno">23</span>                 <span class="nv">$girls</span><span class="p">,</span>
-<span class="lineno">24</span>                 <span class="nb">mt_rand</span><span class="p">(</span>
-<span class="lineno">25</span>                     <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.minGirls&#39;</span><span class="p">),</span>
-<span class="lineno">26</span>                     <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.maxGirls&#39;</span><span class="p">)</span>
-<span class="lineno">27</span>                 <span class="p">)</span>
-<span class="lineno">28</span>             <span class="p">);</span>
-<span class="lineno">29</span> 
-<span class="lineno">30</span>             <span class="c1">// Finally, we associate the selected girls to the current video</span>
-<span class="lineno">31</span>             <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span><span class="p">))</span>
-<span class="lineno">32</span>                 <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$selectedGirlKeys</span><span class="p">]);</span>
-<span class="lineno">33</span>             <span class="k">else</span>
-<span class="lineno">34</span>                 <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
-<span class="lineno">35</span>                     <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
-<span class="lineno">36</span>         <span class="p">}</span>
-<span class="lineno">37</span>     <span class="p">}</span>
-<span class="lineno">38</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">class</span> <span class="nc">GirlVideoTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="lineno"> 6 </span><span class="p">{</span>
+<span class="lineno"> 7 </span>    <span class="sd">/**</span>
+<span class="lineno"> 8 </span><span class="sd">     * Run the database seeds.</span>
+<span class="lineno"> 9 </span><span class="sd">     *</span>
+<span class="lineno">10 </span><span class="sd">     * @return void</span>
+<span class="lineno">11 </span><span class="sd">     */</span>
+<span class="lineno">12 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+<span class="lineno">13 </span>    <span class="p">{</span>
+<span class="lineno">14 </span>        <span class="c1">// First we gather all girls and videos previously created</span>
+<span class="lineno">15 </span>        <span class="nv">$girls</span> <span class="o">=</span> <span class="nx">\App\Girl</span><span class="o">::</span><span class="na">all</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
+<span class="lineno">16 </span>        <span class="nv">$videos</span> <span class="o">=</span> <span class="nx">\App\Video</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+<span class="lineno">17 </span>
+<span class="lineno">18 </span>        <span class="c1">// Now we iterate through all the videos</span>
+<span class="lineno">19 </span>        <span class="k">foreach</span><span class="p">(</span><span class="nv">$videos</span> <span class="k">as</span> <span class="nv">$video</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">20 </span>
+<span class="lineno">21 </span>            <span class="c1">// We select some random keys from the girl&#39;s ids array</span>
+<span class="lineno">22 </span>            <span class="nv">$selectedGirlKeys</span> <span class="o">=</span> <span class="nb">array_rand</span><span class="p">(</span>
+<span class="lineno">23 </span>                <span class="nv">$girls</span><span class="p">,</span>
+<span class="lineno">24 </span>                <span class="nb">mt_rand</span><span class="p">(</span>
+<span class="lineno">25 </span>                    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.minGirls&#39;</span><span class="p">),</span>
+<span class="lineno">26 </span>                    <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.maxGirls&#39;</span><span class="p">)</span>
+<span class="lineno">27 </span>                <span class="p">)</span>
+<span class="lineno">28 </span>            <span class="p">);</span>
+<span class="lineno">29 </span>
+<span class="lineno">30 </span>            <span class="c1">// Finally, we associate the selected girls to the current video</span>
+<span class="lineno">31 </span>            <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span><span class="p">))</span>
+<span class="lineno">32 </span>                <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$selectedGirlKeys</span><span class="p">]);</span>
+<span class="lineno">33 </span>            <span class="k">else</span>
+<span class="lineno">34 </span>                <span class="k">foreach</span><span class="p">(</span><span class="nv">$selectedGirlKeys</span> <span class="k">as</span> <span class="nv">$tagKey</span><span class="p">)</span>
+<span class="lineno">35 </span>                    <span class="nv">$video</span><span class="o">-&gt;</span><span class="na">girls</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$girls</span><span class="p">[</span><span class="nv">$tagKey</span><span class="p">]);</span>
+<span class="lineno">36 </span>        <span class="p">}</span>
+<span class="lineno">37 </span>    <span class="p">}</span>
+<span class="lineno">38 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -1103,66 +1103,66 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 <p><a href="javascript:" data-toggle="collapse" data-target="#usertableseeders">UserTableSeeder.php</a></p>
 <div id="usertableseeders" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">class</span> <span class="nc">UserTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
-<span class="lineno"> 6</span> <span class="p">{</span>
-<span class="lineno"> 7</span>     <span class="sd">/**</span>
-<span class="lineno"> 8</span> <span class="sd">     * Run the database seeds.</span>
-<span class="lineno"> 9</span> <span class="sd">     *</span>
-<span class="lineno">10</span> <span class="sd">     * @return void</span>
-<span class="lineno">11</span> <span class="sd">     */</span>
-<span class="lineno">12</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
-<span class="lineno">13</span>     <span class="p">{</span>
-<span class="lineno">14</span>         <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
-<span class="lineno">15</span>     
-<span class="lineno">16</span>         <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nUsers&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
-<span class="lineno">17</span>             <span class="nx">\App\User</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-<span class="lineno">18</span>                 <span class="s1">&#39;name&#39;</span>              <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span>
-<span class="lineno">19</span>                 <span class="s1">&#39;email&#39;</span>             <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">,</span>
-<span class="lineno">20</span>                 <span class="s1">&#39;password&#39;</span>          <span class="o">=&gt;</span> <span class="nx">bcrypt</span><span class="p">(</span><span class="s1">&#39;wanker&#39;</span><span class="p">),</span>
-<span class="lineno">21</span>                 <span class="s1">&#39;stripe_id&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;cus_&#39;</span><span class="o">.</span><span class="nv">$i</span><span class="p">,</span>
-<span class="lineno">22</span>                 <span class="s1">&#39;card_brand&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;Visa&#39;</span><span class="p">,</span>
-<span class="lineno">23</span>                 <span class="s1">&#39;card_last_four&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;4242&#39;</span><span class="p">,</span>
-<span class="lineno">24</span>             <span class="p">]);</span>
-<span class="lineno">25</span>     <span class="p">}</span>
-<span class="lineno">26</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">class</span> <span class="nc">UserTableSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="lineno"> 6 </span><span class="p">{</span>
+<span class="lineno"> 7 </span>    <span class="sd">/**</span>
+<span class="lineno"> 8 </span><span class="sd">     * Run the database seeds.</span>
+<span class="lineno"> 9 </span><span class="sd">     *</span>
+<span class="lineno">10 </span><span class="sd">     * @return void</span>
+<span class="lineno">11 </span><span class="sd">     */</span>
+<span class="lineno">12 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+<span class="lineno">13 </span>    <span class="p">{</span>
+<span class="lineno">14 </span>        <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+<span class="lineno">15 </span>    
+<span class="lineno">16 </span>        <span class="k">foreach</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.nUsers&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="nv">$i</span><span class="p">)</span>
+<span class="lineno">17 </span>            <span class="nx">\App\User</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+<span class="lineno">18 </span>                <span class="s1">&#39;name&#39;</span>              <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">,</span>
+<span class="lineno">19 </span>                <span class="s1">&#39;email&#39;</span>             <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">,</span>
+<span class="lineno">20 </span>                <span class="s1">&#39;password&#39;</span>          <span class="o">=&gt;</span> <span class="nx">bcrypt</span><span class="p">(</span><span class="s1">&#39;wanker&#39;</span><span class="p">),</span>
+<span class="lineno">21 </span>                <span class="s1">&#39;stripe_id&#39;</span>         <span class="o">=&gt;</span> <span class="s1">&#39;cus_&#39;</span><span class="o">.</span><span class="nv">$i</span><span class="p">,</span>
+<span class="lineno">22 </span>                <span class="s1">&#39;card_brand&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;Visa&#39;</span><span class="p">,</span>
+<span class="lineno">23 </span>                <span class="s1">&#39;card_last_four&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;4242&#39;</span><span class="p">,</span>
+<span class="lineno">24 </span>            <span class="p">]);</span>
+<span class="lineno">25 </span>    <span class="p">}</span>
+<span class="lineno">26 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
 <p><a href="javascript:" data-toggle="collapse" data-target="#subscriptionsseeder">SubscriptionTableSeeder.php</a></p>
 <div id="subscriptionsseeder" class="collapse">
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span> <span class="k">class</span> <span class="nc">SubscriptionsSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
-<span class="lineno"> 6</span> <span class="p">{</span>
-<span class="lineno"> 7</span>     <span class="sd">/**</span>
-<span class="lineno"> 8</span> <span class="sd">     * Run the database seeds.</span>
-<span class="lineno"> 9</span> <span class="sd">     *</span>
-<span class="lineno">10</span> <span class="sd">     * @return void</span>
-<span class="lineno">11</span> <span class="sd">     */</span>
-<span class="lineno">12</span>     <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
-<span class="lineno">13</span>     <span class="p">{</span>
-<span class="lineno">14</span>         <span class="nv">$users</span> <span class="o">=</span> <span class="nx">\App\User</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
-<span class="lineno">15</span>         <span class="nv">$subscriptionPlans</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptionPlans&#39;</span><span class="p">);</span>
-<span class="lineno">16</span>         <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
-<span class="lineno">17</span>     
-<span class="lineno">18</span>         <span class="k">foreach</span><span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span>
-<span class="lineno">19</span>             <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
-<span class="lineno">20</span>                 <span class="s1">&#39;user_id&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
-<span class="lineno">21</span>                 <span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptionName&#39;</span><span class="p">),</span>
-<span class="lineno">22</span>                 <span class="s1">&#39;stripe_id&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="lineno">23</span>                 <span class="s1">&#39;stripe_plan&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$subscriptionPlans</span><span class="p">[</span><span class="nb">array_rand</span><span class="p">(</span><span class="nv">$subscriptionPlans</span><span class="p">)],</span>
-<span class="lineno">24</span>                 <span class="s1">&#39;quantity&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
-<span class="lineno">25</span>                 <span class="s1">&#39;ends_at&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">dateTimeBetween</span><span class="p">(</span><span class="s1">&#39;-3 months&#39;</span><span class="p">,</span><span class="s1">&#39;1 year&#39;</span><span class="p">),</span>
-<span class="lineno">26</span>             <span class="p">]);</span>
-<span class="lineno">27</span>     <span class="p">}</span>
-<span class="lineno">28</span> <span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="lineno"> 1 </span><span class="cp">&lt;?php</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">use</span> <span class="nx">Illuminate\Database\Seeder</span><span class="p">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">class</span> <span class="nc">SubscriptionsSeeder</span> <span class="k">extends</span> <span class="nx">Seeder</span>
+<span class="lineno"> 6 </span><span class="p">{</span>
+<span class="lineno"> 7 </span>    <span class="sd">/**</span>
+<span class="lineno"> 8 </span><span class="sd">     * Run the database seeds.</span>
+<span class="lineno"> 9 </span><span class="sd">     *</span>
+<span class="lineno">10 </span><span class="sd">     * @return void</span>
+<span class="lineno">11 </span><span class="sd">     */</span>
+<span class="lineno">12 </span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+<span class="lineno">13 </span>    <span class="p">{</span>
+<span class="lineno">14 </span>        <span class="nv">$users</span> <span class="o">=</span> <span class="nx">\App\User</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+<span class="lineno">15 </span>        <span class="nv">$subscriptionPlans</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptionPlans&#39;</span><span class="p">);</span>
+<span class="lineno">16 </span>        <span class="nv">$faker</span> <span class="o">=</span> <span class="nx">Faker\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.locale&#39;</span><span class="p">));</span>
+<span class="lineno">17 </span>    
+<span class="lineno">18 </span>        <span class="k">foreach</span><span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span>
+<span class="lineno">19 </span>            <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span>
+<span class="lineno">20 </span>                <span class="s1">&#39;user_id&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
+<span class="lineno">21 </span>                <span class="s1">&#39;name&#39;</span>          <span class="o">=&gt;</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;seeders.subscriptionName&#39;</span><span class="p">),</span>
+<span class="lineno">22 </span>                <span class="s1">&#39;stripe_id&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="lineno">23 </span>                <span class="s1">&#39;stripe_plan&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$subscriptionPlans</span><span class="p">[</span><span class="nb">array_rand</span><span class="p">(</span><span class="nv">$subscriptionPlans</span><span class="p">)],</span>
+<span class="lineno">24 </span>                <span class="s1">&#39;quantity&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="lineno">25 </span>                <span class="s1">&#39;ends_at&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$faker</span><span class="o">-&gt;</span><span class="na">dateTimeBetween</span><span class="p">(</span><span class="s1">&#39;-3 months&#39;</span><span class="p">,</span><span class="s1">&#39;1 year&#39;</span><span class="p">),</span>
+<span class="lineno">26 </span>            <span class="p">]);</span>
+<span class="lineno">27 </span>    <span class="p">}</span>
+<span class="lineno">28 </span><span class="p">}</span></code></pre></figure>
 
 </div>
 
@@ -1174,7 +1174,7 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 
 <p>Agrégale las siguientes líneas:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php">    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">()</span>
     <span class="p">{</span>
 <span class="hll">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="nx">TagTableSeeder</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
 </span><span class="hll">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="nx">GirlTableSeeder</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
@@ -1187,13 +1187,13 @@ php artisan migrate:refresh   <span class="c"># rollback all the migrations and 
 
 <p>¡Ya hemos terminado con los seeders! Crucemos los dedos y pasemos a escribir el comando para ejecutarlos:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan db:seed</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan db:seed</code></pre></figure>
 
 <p>Si todo va bien deberíamos tener todas nuestras tablas llenitas de datos, compruébalo y congratúlate.</p>
 
 <p>Podría ocurrir que algún seeder nos diese error y se quedase la historia a medio hacer, en estos casos, una vez corregido nuestro código, un comando muy útil que resetea la base de datos y vuelve a intentar poblarla es el siguiente:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan migrate:refresh --seed  <span class="c"># Si lo usas en el entorno de producción irás al infierno</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>php artisan migrate:refresh --seed  <span class="c1"># Si lo usas en el entorno de producción irás al infierno</span></code></pre></figure>
 
 <p>Anótalo bien, porque yo he perdido la cuenta de las veces que lo he tenido que usar en la fase de desarrollo de los proyectos.</p>
 
@@ -1257,7 +1257,7 @@ Tu web porno con Laravel - III: Routes, resources y controllers</p>
                 </ul>
             </div>
             <div class="footer-col footer-col-alt-2">
-                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con tecnologías de la información y el arte de programar software. ¡Espero que encuentres mis posts instructivos e inspiradores!
+                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con nuevas tecnologías de la información y el arte de programar software para resolver problemas. ¡Espero que encuentres mis posts instructivos e inspiradores!
 </p>
             </div>
         </div>
