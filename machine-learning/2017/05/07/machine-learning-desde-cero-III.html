@@ -4,16 +4,27 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a...">
+  <meta name="description" content="Repasito sobre la regresión">
 
-  <title>Bash script: fastcommit</title>
+  <title>Machine learning desde cero (III)</title>
 
+  
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
   
 
   
-
+  <link href="//jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="//jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
   
 
+  
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  
+
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.js"></script>
   
 
   
@@ -25,7 +36,7 @@
 
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300&family=Lato:300">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://mitxelmoriana.com/bash/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html">
+  <link rel="canonical" href="http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html">
   <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
   <link rel="icon" type="image/png" href="/favicon.png">
 </head>
@@ -67,7 +78,7 @@
         <div class="page-content">
             <div class="wrapper">
                 <div id="sharing-btns-wrapper">
-    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/bash/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html" data-layout="button"></div>
+    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html" data-layout="button"></div>
     <!--Twitter--><a href="https://twitter.com/share" class="twitter-share-button" data-lang="es"></a>
     <!--Linkedin--><script type="IN/Share"></script>
     <!--Google+--><!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
@@ -75,68 +86,55 @@
                 <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div id="header-image-wrapper">
-        <div id="header-image" style="background-image: url('/headers/git_boss.png');"></div>
+        <div id="header-image" style="background-image: url('/headers/machine-learning-3.jpg');"></div>
     </div>
     
     <header class="post-header wrapper">
         <h1 class="post-title" itemprop="name headline">
-            Bash script: fastcommit
+            Machine learning desde cero (III)
             
-            <br><span class="post-subtitle">Haz git add, commit y push a master rápidamente</span>
+            <br><span class="post-subtitle">Clasificación lineal y regresión logística</span>
             
         </h1>
-        <p class="post-meta"><time datetime="2016-01-25T00:00:00+01:00" itemprop="datePublished">Jan 25, 2016</time></p>
+        <p class="post-meta"><time datetime="2017-05-07T00:00:00+02:00" itemprop="datePublished">May 7, 2017</time></p>
     </header>
     <div class="post-content" itemprop="articleBody">
-        <p>Dejo por aquí un bash script para hacer con Git el stage de todos los cambios que hayan en el espacio de trabajo, commit con el mensaje que queramos y push a master branch, todo de una vez. Yo lo uso para ahorrarme escribir los mismos comandos una y otra vez en pequeños proyectos (los catalanes somos así de agarraos).</p>
+        <h2 id="repasito-sobre-la-regresión">Repasito sobre la regresión</h2>
 
-<p>Lo de agregarle la comprobación de que se han pasado el número de argumentos correctos y la pijadilla de los colores es algo que he visto en otros scripts y he copiado descaradamente.</p>
+<p>En los posts anteriores vimos cómo es posible predecir ciertos valores “de salida” a partir de ciertos valores
+“de entrada” a través de descubrir tendencias (rectas, planos, hiperplanos… con cierta pendiente)
+en observaciones anteriores.</p>
 
-<h2 id="cómo-funciona">¿Cómo funciona?</h2>
+<p>A este cálculo de una posible tendencia lineal lo llamamos regresión lineal y vimos, de pasada, que es posible
+ajustar no sólo formas geométricas lineales sino también curvas (este tema lo trataremos en profundidad en futuros
+posts).</p>
 
-<p>Copia el código y guárdalo en un nuevo fichero llamado (por ejemplo) <strong>fastcommit</strong>. Pon el fichero, con permisos de ejecución, en la carpeta raíz de tu proyeto con git. A continuación escribe:</p>
+<p>Vimos también, de pasada, que no siempre es posible describir tendencias significativas o, dicho de otro modo, que
+es posible que las observaciones existentes presenten variables sin correlación lineal o bien con una
+correlación lineal muy débil.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./fastcommit <span class="s2">&quot;Mensaje_para_el_commit&quot;</span>     <span class="c"># Sólo admite un (1) argumento</span></code></pre></figure>
+<p>Desde el punto de vista del Machine Learning, puesto que la obtención o ajuste del patrón, modelo o tendencia se hace a partir
+de una familia de datos de entrenamiento en que los valores de salida son conocidos, la regresión lineal entra dentro de
+la familia de algoritmos de aprendizaje <strong>supervisado</strong>.</p>
 
-<h2 id="el-script">El script</h2>
+<p>En este posts vamos a introducir otro de los algoritmos fundamentales de aprendizaje supervisado: el de la clasificación
+lineal.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1</span> <span class="c">#!/usr/bin/env bash</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> <span class="c">##########################################################</span>
-<span class="lineno"> 4</span> <span class="c"># Stage all, commit and push to master</span>
-<span class="lineno"> 5</span> <span class="c">##########################################################</span>
-<span class="lineno"> 6</span> 
-<span class="lineno"> 7</span> <span class="c"># Exit on error</span>
-<span class="lineno"> 8</span> <span class="nb">set</span> -e
-<span class="lineno"> 9</span> 
-<span class="lineno">10</span> <span class="nv">red</span><span class="o">=</span><span class="s1">&#39;\033[01;31m&#39;</span>
-<span class="lineno">11</span> <span class="nv">blue</span><span class="o">=</span><span class="s1">&#39;\033[01;34m&#39;</span>
-<span class="lineno">12</span> <span class="nv">green</span><span class="o">=</span><span class="s1">&#39;\033[01;32m&#39;</span>
-<span class="lineno">13</span> <span class="nv">norm</span><span class="o">=</span><span class="s1">&#39;\033[00m&#39;</span>
-<span class="lineno">14</span> 
-<span class="lineno">15</span> <span class="nv">EXPECTED_ARGS</span><span class="o">=</span>1
-<span class="lineno">16</span> <span class="nv">E_BADARGS</span><span class="o">=</span>65
-<span class="lineno">17</span> 
-<span class="lineno">18</span> <span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-ne <span class="nv">$EXPECTED_ARGS</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-<span class="lineno">19</span>     <span class="nb">echo</span> -e <span class="s2">&quot;\nUsage: $0 \&quot;Commit message\&quot;\n&quot;</span>
-<span class="lineno">20</span>     <span class="nb">exit</span> <span class="nv">$E_BADARGS</span>
-<span class="lineno">21</span> <span class="k">fi</span>
-<span class="lineno">22</span> 
-<span class="lineno">23</span> <span class="nb">echo</span> -e <span class="s2">&quot;\n${blue}- Staging all changes within the working space${norm}\n${blue}- Commit with the message ${red}${1}${norm}\n${blue}- Pushing to origin, master branch\n${norm}&quot;</span>
-<span class="lineno">24</span> 
-<span class="lineno">25</span> git add -A <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Stage ---&gt; [${green}OK${blue}]${norm}&quot;</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Stage ---&gt; [${red}BAD${blue}]${norm}&quot;</span>
-<span class="lineno">26</span> git commit -m <span class="s2">&quot;${1}&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Commit ---&gt; [${green}OK${blue}]${norm}&quot;</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Commit ---&gt; [${red}BAD${blue}]${norm}&quot;</span>
-<span class="lineno">27</span> git push origin master <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Push ---&gt; [${green}OK${blue}]${norm}&quot;</span> <span class="o">||</span> <span class="nb">echo</span> -e <span class="s2">&quot;${blue}Push ---&gt; [${red}BAD${blue}]${norm}&quot;</span>
-<span class="lineno">28</span> 
-<span class="lineno">29</span> <span class="nb">echo</span> -e <span class="s2">&quot; &quot;</span>
-<span class="lineno">30</span> 
-<span class="lineno">31</span> <span class="nb">exit </span>0</code></pre></figure>
+<h2 id="la-clasificación-lineal">La clasificación lineal</h2>
 
-<h2 id="aviso-probablemente-innecesario">Aviso probablemente innecesario</h2>
+<blockquote>
+  <p>εκστα ση… εκστα νο…<br />
+<small>Chimo Bayo</small></p>
+</blockquote>
 
-<p>No me hago responsable de los daños causados por el uso de este script, incluyendo, aunque no de forma exclusiva: que no funcione, que te explote el PC, que haga algo que no te guste, que te perjudique algún fichero, que te abduzcan los extraterrestres, que invoque a un espíritu del averno o que te deje tu pareja.</p>
+<p>En la regresión nuestro objetivo era predecir un valor escalar (un número) a partir de ciertas observaciones,
+lo que nos permitía, por ejemplo, predecir precios de bienes inmuebles. En la clasificación lineal, en cambio,
+nuestro objetivo es predecir un valor discreto, o dicho de otro modo, clasificar observaciones en categorías
+distintas: animal o vegetal, enfermo o sano, etc.</p>
 
-<p>Como norma general, no ejecutes nada sin saber previamente lo que hace. Aún menos si te lo pide alguien por internet.</p>
+<p>Las aplicaciones de la clasificación son muchas y muy útiles: filtros de spam (¿es este email spam o no spam?),
+análisis de emociones (¿esta cara está triste o feliz?)…</p>
+
 
     </div>
 </article>
@@ -144,7 +142,7 @@
 <div id="disqus_thread"></div>
 <script>
      var disqus_config = function () {
-         this.page.url = 'http://mitxelmoriana.com/bash/2016/01/25/bash-script-para-hacer-git-add-commit-y-push-rapidamente.html';
+         this.page.url = 'http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html';
      };
     (function() {
         var d = document, s = d.createElement('script');
