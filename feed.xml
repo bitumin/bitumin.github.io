@@ -6,71 +6,9 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 15 Aug 2019 09:53:09 +0200</pubDate>
-    <lastBuildDate>Thu, 15 Aug 2019 09:53:09 +0200</lastBuildDate>
+    <pubDate>Thu, 15 Aug 2019 09:56:09 +0200</pubDate>
+    <lastBuildDate>Thu, 15 Aug 2019 09:56:09 +0200</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
-    
-      <item>
-        <title>Machine learning desde cero (III)</title>
-        <description>&lt;h2 id=&quot;repasito-sobre-la-regresión&quot;&gt;Repasito sobre la regresión&lt;/h2&gt;
-
-&lt;p&gt;En los posts anteriores vimos cómo es posible predecir ciertos valores “de salida” a partir de ciertos valores
-“de entrada” a través de descubrir tendencias (rectas, planos, hiperplanos… con cierta pendiente)
-en observaciones anteriores.&lt;/p&gt;
-
-&lt;p&gt;A este cálculo de una posible tendencia lineal lo llamamos regresión lineal y vimos, de pasada, que es posible
-ajustar no sólo formas geométricas lineales sino también curvas (este tema lo trataremos en profundidad en futuros
-posts).&lt;/p&gt;
-
-&lt;p&gt;Vimos también, de pasada, que no siempre es posible describir tendencias significativas o, dicho de otro modo, que
-es posible que las observaciones existentes presenten variables sin correlación lineal o bien con una
-correlación lineal muy débil.&lt;/p&gt;
-
-&lt;p&gt;Desde el punto de vista del Machine Learning, puesto que la obtención o ajuste del patrón, modelo o tendencia se hace a partir
-de una familia de datos de entrenamiento en que los valores de salida son conocidos, la regresión lineal entra dentro de
-la familia de algoritmos de aprendizaje &lt;strong&gt;supervisado&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;En este posts vamos a introducir otro de los algoritmos fundamentales de aprendizaje supervisado: el de la clasificación
-lineal.&lt;/p&gt;
-
-&lt;h2 id=&quot;la-clasificación-lineal&quot;&gt;La clasificación lineal&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;εκστα ση… εκστα νο…&lt;br /&gt;
-&lt;small&gt;Chimo Bayo&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;En la regresión nuestro objetivo era predecir un valor escalar (un número) a partir de ciertas observaciones,
-lo que nos permitía, por ejemplo, predecir precios de bienes inmuebles. En la clasificación lineal, en cambio,
-nuestro objetivo es predecir un valor discreto, o dicho de otro modo, clasificar observaciones en categorías
-distintas: animal o vegetal, enfermo o sano, etc.&lt;/p&gt;
-
-&lt;p&gt;Las aplicaciones de la clasificación son muchas y muy útiles: filtros de spam (¿es este email spam o no spam?),
-análisis de emociones (¿esta cara está triste o feliz?)…&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 07 May 2017 00:00:00 +0200</pubDate>
-        <link>http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html</link>
-        <guid isPermaLink="true">http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html</guid>
-        
-        <category>ai,</category>
-        
-        <category>machine</category>
-        
-        <category>learning,</category>
-        
-        <category>deep</category>
-        
-        <category>learning,</category>
-        
-        <category>python,</category>
-        
-        <category>programming</category>
-        
-        
-        <category>machine-learning</category>
-        
-      </item>
     
       <item>
         <title>Machine learning desde cero (II)</title>
