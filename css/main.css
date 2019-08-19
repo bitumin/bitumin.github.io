@@ -704,7 +704,7 @@ a:hover {
     color: #333; }
 
 .IN-widget {
-  vertical-align: top; }
+  vertical-align: top !important; }
 
 /**
 * Beautify line numbers
