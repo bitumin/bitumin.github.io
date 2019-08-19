@@ -6,9 +6,137 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 15 Aug 2019 09:59:46 +0200</pubDate>
-    <lastBuildDate>Thu, 15 Aug 2019 09:59:46 +0200</lastBuildDate>
+    <pubDate>Mon, 19 Aug 2019 11:08:02 +0200</pubDate>
+    <lastBuildDate>Mon, 19 Aug 2019 11:08:02 +0200</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>Data structures I</title>
+        <description>&lt;h2 id=&quot;introducción-a-las-estructuras-de-datos&quot;&gt;Introducción a las estructuras de datos&lt;/h2&gt;
+
+&lt;p&gt;Los problemas más sencillos en programación a menudo se resuelven con sencillas operaciones
+aritméticas (contadores, multiplicación, división, módulos, etc.)
+sobre tipos de datos fundamentales como &lt;code&gt;int&lt;/code&gt; o &lt;code&gt;float&lt;/code&gt;, pero a medida que los problemas se vuelven más complejos
+y tenemos la necesidad de guardar los datos y sus relaciones en memoria para operar 
+con ellos de la forma más eficiente posible, surge la necesidad de utilizar estructuras de datos.&lt;/p&gt;
+
+&lt;p&gt;Empecemos por revisar el &lt;em&gt;array&lt;/em&gt; y su implementación en mis dos lenguajes favoritos: JS y PHP.&lt;/p&gt;
+
+&lt;h2 id=&quot;algunas-curiosidades-sobre-js-y-php&quot;&gt;Algunas curiosidades sobre JS y PHP&lt;/h2&gt;
+
+&lt;p&gt;Debido a las particularidades del lenguaje JS
+las estructuras de datos y su implementación están estrechamente relacionadas con los &lt;em&gt;objects&lt;/em&gt;,
+básicamente porque que todas las estructuras de datos no primitivas en JS son, en el fondo, &lt;em&gt;objects&lt;/em&gt; 
+(de ahí el adagio &lt;em&gt;“Everything is an object in JavaScript”&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;En cuanto a PHP, su principal particularidad es que buena parte de las estructuras de datos se pueden
+implementar a partir del &lt;code&gt;array&lt;/code&gt;. Según la propia documentación, a partir del &lt;code&gt;array&lt;/code&gt; se pueden implementar
+las estructuras &lt;em&gt;“list (vector), hash table (an implementation of a map), dictionary, collection,
+stack, queue, and probably more”&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;En PHP5 se ofrecían algunas alternativas al &lt;code&gt;array&lt;/code&gt; a través de la librería estándar &lt;code&gt;SPL&lt;/code&gt;, pero a partir de PHP7
+la solución más eficiente en casi todos los casos es el &lt;code&gt;array&lt;/code&gt; o bien las estructuras de datos que ofrece la librería &lt;code&gt;ds&lt;/code&gt;
+(al respecto, ver &lt;a href=&quot;https://medium.com/@rtheunissen/efficient-data-structures-for-php-7-9dda7af674cd&quot;&gt;Efficient data structures for PHP 7&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;En resumen, debido a las diferencias a bajo nivel de cada lenguaje, pueden existen
+diferencias entre la definición y comportamiento teóricos de una estructura de datos particular
+y su comportamiento real entre distintas versiones de JS o PHP y sus intérpretes.&lt;/p&gt;
+
+&lt;h2 id=&quot;el-array-ideal&quot;&gt;El &lt;em&gt;array&lt;/em&gt; ideal&lt;/h2&gt;
+
+&lt;p&gt;Un &lt;em&gt;array&lt;/em&gt; es una colección lineal de elementos a los que se puede acceder a través de un índice o &lt;em&gt;key&lt;/em&gt;,
+estos elementos pueden tener valores repetidos y sin ningún orden en particular.&lt;/p&gt;
+
+&lt;p&gt;Típicamente a cada índice se le asigna una dirección u &lt;em&gt;offset&lt;/em&gt; en memoria de forma que los elementos tienen direcciones consecutivas,
+por ello sólo es necesario guardar la dirección del primero como referencia para localizar al resto. Debido a esto,
+&lt;strong&gt;leer&lt;/strong&gt; el valor relacionado con un índice particular en un &lt;em&gt;array&lt;/em&gt; es una operación sencilla y rápida (&lt;em&gt;O(1)&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Buscar&lt;/strong&gt; un elemento dado en un &lt;em&gt;array&lt;/em&gt;, en cambio, requiere de recorrer todos los índices y comprobar cada uno de los elementos en cada índice
+hasta dar con el elemento buscado (o informar de que no aparece), por lo que la búsqueda en un &lt;em&gt;array&lt;/em&gt; es una operación menos eficiente que la lectura
+(&lt;em&gt;O(n)&lt;/em&gt; en el peor caso).&lt;/p&gt;
+
+&lt;p&gt;La &lt;strong&gt;inserción&lt;/strong&gt; y &lt;strong&gt;eliminación&lt;/strong&gt; de elementos en el &lt;em&gt;array&lt;/em&gt; también implican complejidades del orden de &lt;em&gt;O(n)&lt;/em&gt;
+puesto que implican, en el peor caso, reindexar todo el resto de elementos del &lt;em&gt;array&lt;/em&gt; después de la inserción
+o eliminación de un elemento al principio del &lt;em&gt;array&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;implementación-del-array-en-js-v8&quot;&gt;Implementación del &lt;em&gt;array&lt;/em&gt; en JS V8&lt;/h2&gt;
+
+&lt;p&gt;En JS sobre el motor V8 (chrome, Node…) los &lt;code&gt;Array&lt;/code&gt; son &lt;em&gt;“list-like object”&lt;/em&gt; que, al igual que cualquier
+otro &lt;code&gt;Object&lt;/code&gt; puede contener propiedades (named properties) y elementos (integer-indexed elements) y que,
+por debajo, se comportan de distinto modo según lo que les metamos dentro.&lt;/p&gt;
+
+&lt;p&gt;Si limitamos nuestro &lt;code&gt;Array&lt;/code&gt; a contener elementos indexados por &lt;em&gt;integers&lt;/em&gt; contiguos el &lt;code&gt;Array&lt;/code&gt; se
+comportará aproximadamente como un &lt;em&gt;array&lt;/em&gt; ideal, porque a nivel de la máquina virtual, de hecho,
+se empleará un &lt;em&gt;array&lt;/em&gt; para indexar y acceder a nuestros elementos.&lt;/p&gt;
+
+&lt;p&gt;Debido a esta peculiaridad del &lt;code&gt;Array&lt;/code&gt; como &lt;code&gt;Object&lt;/code&gt; en JS sobre V8, se pueden hacer cosas tan curiosas como éstas:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let fruits = ['Apple', 'Banana'];
+fruits.length; // 2
+
+fruits['hello'] = 'Eggplant';
+fruits.length; // 2 (!) 
+
+let hi = {toString: () =&amp;gt; 'hello'};
+fruits[hi]; // 'Eggplant' (!)
+
+fruits[-1] = 'Tomato';
+fruits.length; // 2 (!)
+
+fruits[18] = 'Orange';
+fruits.length; // 19 (!)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Puedes encontrar info más detallada sobre la gestión a bajo nivel de las propiedades y elementos de un &lt;code&gt;Object&lt;/code&gt; en JS sobre V8
+&lt;a href=&quot;https://v8.dev/blog/fast-properties&quot;&gt;aquí&lt;/a&gt; y &lt;a href=&quot;https://www.jayconrod.com/posts/52/a-tour-of-v8-object-representation&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;implementación-del-array-en-php7&quot;&gt;Implementación del &lt;em&gt;array&lt;/em&gt; en PHP7&lt;/h2&gt;
+
+&lt;p&gt;Al igual que en JS sobre V8, en PHP el &lt;code&gt;array&lt;/code&gt; es una construcción muy flexible, es decir, a partir de la cual
+se pueden construir diversas estructuras de datos y no sólo &lt;em&gt;arrays&lt;/em&gt; “ideales”.&lt;/p&gt;
+
+&lt;p&gt;Para hacer posible esta flexibilidad, en PHP todos los &lt;code&gt;array&lt;/code&gt; son, por debajo, “ordered maps” u “ordered dictionaries”, 
+es decir, pares &lt;em&gt;key-value&lt;/em&gt; cuyo orden de inserción en el &lt;code&gt;array&lt;/code&gt; se mantiene representado en memoria.&lt;/p&gt;
+
+&lt;p&gt;En PHP7, mientras utilicemos el &lt;em&gt;array&lt;/em&gt; para almacenar &lt;em&gt;integer-indexed elements&lt;/em&gt; en orden ascendente
+el &lt;code&gt;array&lt;/code&gt; se comportará aproximadamente como un &lt;em&gt;array&lt;/em&gt; ideal, porque a bajo nivel se utiliza un &lt;em&gt;array&lt;/em&gt; real
+para leer/encontrar los datos almacenados a través de su índice y offset en memoria.&lt;/p&gt;
+
+&lt;p&gt;Sin embargo, si utilizáramos el &lt;code&gt;array&lt;/code&gt; para construir un &lt;em&gt;array&lt;/em&gt; asociativo, por debajo se emplearía una función de hashing
+para asignar y recuperar el índice numérico de cada named property (y entraría en funcionamiento un algoritmo para evitar colisiones),
+con lo que el &lt;code&gt;array&lt;/code&gt; asociativo real perdería la eficiencia computacional y compacidad en memoria características del &lt;em&gt;array&lt;/em&gt; “puro”.&lt;/p&gt;
+
+&lt;p&gt;Al respecto de PHP7 y sus optimizaciones en la implementación del &lt;em&gt;array&lt;/em&gt; respecto a PHP5,
+puedes encontrar info detallada &lt;a href=&quot;https://nikic.github.io/2014/12/22/PHPs-new-hashtable-implementation.html&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 24 Sep 2017 00:00:00 +0200</pubDate>
+        <link>http://mitxelmoriana.com/data-structures/2017/09/24/data-structures-en-js-y-php.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/data-structures/2017/09/24/data-structures-en-js-y-php.html</guid>
+        
+        <category>data</category>
+        
+        <category>structures,</category>
+        
+        <category>js,</category>
+        
+        <category>es6,</category>
+        
+        <category>v8,</category>
+        
+        <category>php,</category>
+        
+        <category>php7,</category>
+        
+        <category>ds,</category>
+        
+        <category>array,</category>
+        
+        <category>objects</category>
+        
+        
+        <category>data-structures</category>
+        
+      </item>
     
       <item>
         <title>Machine learning desde cero (II)</title>

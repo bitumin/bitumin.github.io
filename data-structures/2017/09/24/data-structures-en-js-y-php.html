@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Introducción a las estructuras de datos">
+
+  <title>Data structures I</title>
+
+  
+
+  
+
+  
+
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300&family=Lato:300">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mitxelmoriana.com/data-structures/2017/09/24/data-structures-en-js-y-php.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+    <body>
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-71923540-1', 'auto');
+    ga('send', 'pageview');
+</script>
+        <!--Sharing buttons JS-->
+<!--Facebook--><div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=184462238579593";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+<!--Twitter--><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--Linkedin--><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: es_ES</script>
+<!--Google+--><!--<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>-->
+        <header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">MitxelMoriana</a>
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/cv/">CV</a>
+        
+          <a class="page-link" href="/about/">Sobre mí</a>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+        <div class="page-content">
+            <div class="wrapper">
+                <div id="sharing-btns-wrapper">
+    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/data-structures/2017/09/24/data-structures-en-js-y-php.html" data-layout="button"></div>
+    <!--Twitter--><a href="https://twitter.com/share" class="twitter-share-button" data-lang="es"></a>
+    <!--Linkedin--><script type="IN/Share"></script>
+    <!--Google+--><!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
+</div>
+                <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div id="header-image-wrapper">
+        <div id="header-image" style="background-image: url('/headers/data-structures-1.jpg');"></div>
+    </div>
+    
+    <header class="post-header wrapper">
+        <h1 class="post-title" itemprop="name headline">
+            Data structures I
+            
+            <br><span class="post-subtitle">el array su implementación en JS V8 y PHP7</span>
+            
+        </h1>
+        <p class="post-meta"><time datetime="2017-09-24T00:00:00+02:00" itemprop="datePublished">Sep 24, 2017</time></p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="introducción-a-las-estructuras-de-datos">Introducción a las estructuras de datos</h2>
+
+<p>Los problemas más sencillos en programación a menudo se resuelven con sencillas operaciones
+aritméticas (contadores, multiplicación, división, módulos, etc.)
+sobre tipos de datos fundamentales como <code>int</code> o <code>float</code>, pero a medida que los problemas se vuelven más complejos
+y tenemos la necesidad de guardar los datos y sus relaciones en memoria para operar 
+con ellos de la forma más eficiente posible, surge la necesidad de utilizar estructuras de datos.</p>
+
+<p>Empecemos por revisar el <em>array</em> y su implementación en mis dos lenguajes favoritos: JS y PHP.</p>
+
+<h2 id="algunas-curiosidades-sobre-js-y-php">Algunas curiosidades sobre JS y PHP</h2>
+
+<p>Debido a las particularidades del lenguaje JS
+las estructuras de datos y su implementación están estrechamente relacionadas con los <em>objects</em>,
+básicamente porque que todas las estructuras de datos no primitivas en JS son, en el fondo, <em>objects</em> 
+(de ahí el adagio <em>“Everything is an object in JavaScript”</em>).</p>
+
+<p>En cuanto a PHP, su principal particularidad es que buena parte de las estructuras de datos se pueden
+implementar a partir del <code>array</code>. Según la propia documentación, a partir del <code>array</code> se pueden implementar
+las estructuras <em>“list (vector), hash table (an implementation of a map), dictionary, collection,
+stack, queue, and probably more”</em>.</p>
+
+<p>En PHP5 se ofrecían algunas alternativas al <code>array</code> a través de la librería estándar <code>SPL</code>, pero a partir de PHP7
+la solución más eficiente en casi todos los casos es el <code>array</code> o bien las estructuras de datos que ofrece la librería <code>ds</code>
+(al respecto, ver <a href="https://medium.com/@rtheunissen/efficient-data-structures-for-php-7-9dda7af674cd">Efficient data structures for PHP 7</a>).</p>
+
+<p>En resumen, debido a las diferencias a bajo nivel de cada lenguaje, pueden existen
+diferencias entre la definición y comportamiento teóricos de una estructura de datos particular
+y su comportamiento real entre distintas versiones de JS o PHP y sus intérpretes.</p>
+
+<h2 id="el-array-ideal">El <em>array</em> ideal</h2>
+
+<p>Un <em>array</em> es una colección lineal de elementos a los que se puede acceder a través de un índice o <em>key</em>,
+estos elementos pueden tener valores repetidos y sin ningún orden en particular.</p>
+
+<p>Típicamente a cada índice se le asigna una dirección u <em>offset</em> en memoria de forma que los elementos tienen direcciones consecutivas,
+por ello sólo es necesario guardar la dirección del primero como referencia para localizar al resto. Debido a esto,
+<strong>leer</strong> el valor relacionado con un índice particular en un <em>array</em> es una operación sencilla y rápida (<em>O(1)</em>).</p>
+
+<p><strong>Buscar</strong> un elemento dado en un <em>array</em>, en cambio, requiere de recorrer todos los índices y comprobar cada uno de los elementos en cada índice
+hasta dar con el elemento buscado (o informar de que no aparece), por lo que la búsqueda en un <em>array</em> es una operación menos eficiente que la lectura
+(<em>O(n)</em> en el peor caso).</p>
+
+<p>La <strong>inserción</strong> y <strong>eliminación</strong> de elementos en el <em>array</em> también implican complejidades del orden de <em>O(n)</em>
+puesto que implican, en el peor caso, reindexar todo el resto de elementos del <em>array</em> después de la inserción
+o eliminación de un elemento al principio del <em>array</em>.</p>
+
+<h2 id="implementación-del-array-en-js-v8">Implementación del <em>array</em> en JS V8</h2>
+
+<p>En JS sobre el motor V8 (chrome, Node…) los <code>Array</code> son <em>“list-like object”</em> que, al igual que cualquier
+otro <code>Object</code> puede contener propiedades (named properties) y elementos (integer-indexed elements) y que,
+por debajo, se comportan de distinto modo según lo que les metamos dentro.</p>
+
+<p>Si limitamos nuestro <code>Array</code> a contener elementos indexados por <em>integers</em> contiguos el <code>Array</code> se
+comportará aproximadamente como un <em>array</em> ideal, porque a nivel de la máquina virtual, de hecho,
+se empleará un <em>array</em> para indexar y acceder a nuestros elementos.</p>
+
+<p>Debido a esta peculiaridad del <code>Array</code> como <code>Object</code> en JS sobre V8, se pueden hacer cosas tan curiosas como éstas:</p>
+
+<pre><code>let fruits = ['Apple', 'Banana'];
+fruits.length; // 2
+
+fruits['hello'] = 'Eggplant';
+fruits.length; // 2 (!) 
+
+let hi = {toString: () =&gt; 'hello'};
+fruits[hi]; // 'Eggplant' (!)
+
+fruits[-1] = 'Tomato';
+fruits.length; // 2 (!)
+
+fruits[18] = 'Orange';
+fruits.length; // 19 (!)
+</code></pre>
+
+<p>Puedes encontrar info más detallada sobre la gestión a bajo nivel de las propiedades y elementos de un <code>Object</code> en JS sobre V8
+<a href="https://v8.dev/blog/fast-properties">aquí</a> y <a href="https://www.jayconrod.com/posts/52/a-tour-of-v8-object-representation">aquí</a>.</p>
+
+<h2 id="implementación-del-array-en-php7">Implementación del <em>array</em> en PHP7</h2>
+
+<p>Al igual que en JS sobre V8, en PHP el <code>array</code> es una construcción muy flexible, es decir, a partir de la cual
+se pueden construir diversas estructuras de datos y no sólo <em>arrays</em> “ideales”.</p>
+
+<p>Para hacer posible esta flexibilidad, en PHP todos los <code>array</code> son, por debajo, “ordered maps” u “ordered dictionaries”, 
+es decir, pares <em>key-value</em> cuyo orden de inserción en el <code>array</code> se mantiene representado en memoria.</p>
+
+<p>En PHP7, mientras utilicemos el <em>array</em> para almacenar <em>integer-indexed elements</em> en orden ascendente
+el <code>array</code> se comportará aproximadamente como un <em>array</em> ideal, porque a bajo nivel se utiliza un <em>array</em> real
+para leer/encontrar los datos almacenados a través de su índice y offset en memoria.</p>
+
+<p>Sin embargo, si utilizáramos el <code>array</code> para construir un <em>array</em> asociativo, por debajo se emplearía una función de hashing
+para asignar y recuperar el índice numérico de cada named property (y entraría en funcionamiento un algoritmo para evitar colisiones),
+con lo que el <code>array</code> asociativo real perdería la eficiencia computacional y compacidad en memoria características del <em>array</em> “puro”.</p>
+
+<p>Al respecto de PHP7 y sus optimizaciones en la implementación del <em>array</em> respecto a PHP5,
+puedes encontrar info detallada <a href="https://nikic.github.io/2014/12/22/PHPs-new-hashtable-implementation.html">aquí</a>.</p>
+
+    </div>
+</article>
+                
+            </div>
+        </div>
+        <footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-alt-1">
+                <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
+                <br>
+                <ul class="social-media-list">
+                    
+                    <li>
+                        <a href="https://github.com/bitumin"><i class="fa fa-github-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://facebook.com/mitxel.moriana"><i class="fa fa-facebook-official"></i></a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/morianamitxel"><i class="fa fa-linkedin-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/mitxelmoriana"><i class="fa fa-twitter-square"></i></a>
+
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer-col footer-col-alt-2">
+                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con nuevas tecnologías de la información y el arte de programar software para resolver problemas. ¡Espero que encuentres mis posts instructivos e inspiradores!
+</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+    </body>
+</html>
