@@ -181,9 +181,9 @@ es decir, pares <em>key-value</em> cuyo orden de inserción en el <code>array</c
 el <code>array</code> se comportará aproximadamente como un <em>array</em> ideal, porque a bajo nivel se utiliza un <em>array</em> real
 para leer/encontrar los datos almacenados a través de su índice y offset en memoria.</p>
 
-<p>Sin embargo, si utilizáramos el <code>array</code> para construir un <em>array</em> asociativo, por debajo se emplearía una función de hashing
-para asignar y recuperar el índice numérico de cada named property (y entraría en funcionamiento un algoritmo para evitar colisiones),
-con lo que el <code>array</code> asociativo real perdería la eficiencia computacional y compacidad en memoria características del <em>array</em> “puro”.</p>
+<p>Sin embargo, si utilizáramos el <code>array</code> para construir un <em>array</em> asociativo, “por debajo” se empleará una función de hashing
+para asignar y recuperar el índice numérico de cada named property (y entrará en funcionamiento un algoritmo para evitar colisiones),
+con lo que el <code>array</code> asociativo real perderá la eficiencia computacional característica del <em>array</em> “puro”.</p>
 
 <p>Al respecto de PHP7 y sus optimizaciones en la implementación del <em>array</em> respecto a PHP5,
 puedes encontrar info detallada <a href="https://nikic.github.io/2014/12/22/PHPs-new-hashtable-implementation.html">aquí</a>.</p>

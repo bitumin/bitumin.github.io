@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Aug 2019 11:18:31 +0200</pubDate>
-    <lastBuildDate>Mon, 19 Aug 2019 11:18:31 +0200</lastBuildDate>
+    <pubDate>Mon, 19 Aug 2019 18:30:42 +0200</pubDate>
+    <lastBuildDate>Mon, 19 Aug 2019 18:30:42 +0200</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -102,9 +102,9 @@ es decir, pares &lt;em&gt;key-value&lt;/em&gt; cuyo orden de inserción en el &l
 el &lt;code&gt;array&lt;/code&gt; se comportará aproximadamente como un &lt;em&gt;array&lt;/em&gt; ideal, porque a bajo nivel se utiliza un &lt;em&gt;array&lt;/em&gt; real
 para leer/encontrar los datos almacenados a través de su índice y offset en memoria.&lt;/p&gt;
 
-&lt;p&gt;Sin embargo, si utilizáramos el &lt;code&gt;array&lt;/code&gt; para construir un &lt;em&gt;array&lt;/em&gt; asociativo, por debajo se emplearía una función de hashing
-para asignar y recuperar el índice numérico de cada named property (y entraría en funcionamiento un algoritmo para evitar colisiones),
-con lo que el &lt;code&gt;array&lt;/code&gt; asociativo real perdería la eficiencia computacional y compacidad en memoria características del &lt;em&gt;array&lt;/em&gt; “puro”.&lt;/p&gt;
+&lt;p&gt;Sin embargo, si utilizáramos el &lt;code&gt;array&lt;/code&gt; para construir un &lt;em&gt;array&lt;/em&gt; asociativo, “por debajo” se empleará una función de hashing
+para asignar y recuperar el índice numérico de cada named property (y entrará en funcionamiento un algoritmo para evitar colisiones),
+con lo que el &lt;code&gt;array&lt;/code&gt; asociativo real perderá la eficiencia computacional característica del &lt;em&gt;array&lt;/em&gt; “puro”.&lt;/p&gt;
 
 &lt;p&gt;Al respecto de PHP7 y sus optimizaciones en la implementación del &lt;em&gt;array&lt;/em&gt; respecto a PHP5,
 puedes encontrar info detallada &lt;a href=&quot;https://nikic.github.io/2014/12/22/PHPs-new-hashtable-implementation.html&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
@@ -135,6 +135,302 @@ puedes encontrar info detallada &lt;a href=&quot;https://nikic.github.io/2014/12
         
         
         <category>data-structures</category>
+        
+      </item>
+    
+      <item>
+        <title>Machine learning desde cero (III)</title>
+        <description>&lt;h2 id=&quot;repasito-sobre-la-regresión&quot;&gt;Repasito sobre la regresión&lt;/h2&gt;
+
+&lt;p&gt;En los posts anteriores vimos cómo es posible predecir ciertos valores “de salida” a partir de ciertos valores
+“de entrada” a través de descubrir tendencias (rectas, planos, hiperplanos… con cierta pendiente)
+en observaciones anteriores.&lt;/p&gt;
+
+&lt;p&gt;A este cálculo de una posible tendencia lineal lo llamamos regresión lineal y vimos, de pasada, que es posible
+ajustar no sólo formas geométricas lineales sino también curvas (este tema lo trataremos en profundidad en futuros
+posts).&lt;/p&gt;
+
+&lt;p&gt;Desde el punto de vista del Machine Learning, puesto que la obtención o ajuste del patrón, modelo o tendencia se hace a partir
+de una familia de datos de entrenamiento en que los valores de salida son conocidos, la regresión lineal entra dentro de
+la familia de algoritmos de aprendizaje &lt;strong&gt;supervisado&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;En este posts vamos a introducir otro de los algoritmos fundamentales de aprendizaje supervisado: el de la clasificación
+lineal.&lt;/p&gt;
+
+&lt;h2 id=&quot;la-clasificación&quot;&gt;La clasificación&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;εκστα ση… εκστα νο…&lt;br /&gt;
+&lt;small&gt;Chimo Bayo&lt;/small&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;En la regresión nuestro objetivo era predecir una variable respuesta en forma de de número real a partir de ciertas observaciones,
+por ejemplo, podíamos predecir precios de bienes inmuebles. En la clasificación, en cambio,
+nuestro objetivo es predecir un valor discreto, o dicho de otro modo, clasificar observaciones en categorías
+distintas: animal o vegetal, enfermo o sano, etc.&lt;/p&gt;
+
+&lt;p&gt;Las aplicaciones de la clasificación son muchas y muy útiles, entre las más conocidas están, por ejemplo,
+el filtro de spam (clasificar emails como spam o no spam) o la resolución de problemas de &lt;em&gt;computer vision&lt;/em&gt;
+como el análisis de emociones (clasificar caras como triste, feliz…).&lt;/p&gt;
+
+&lt;h2 id=&quot;la-clasificación-lineal&quot;&gt;La clasificación lineal&lt;/h2&gt;
+
+&lt;p&gt;Vamos a empezar por la clasificación lineal binaria, es decir, donde la variable respuesta que queremos predecir
+sólo puede tener dos categorías posibles (por ejemplo: spam o no spam, enfermo o sano, etc.). Existen diversos algoritmos
+para tratar de delimitar linealmente las categorías “de respuesta”, en este post usaremos el de la regresión logística.&lt;/p&gt;
+
+&lt;p&gt;Como veremos, la función objetivo a optimizar en la clasificación lineal como problema de regresión logística
+no tendrá una solución “en forma cerrada” (closed-form solution) o, dicho de otro modo,
+que no vamos a poder encontrar una solución en forma de expresión matemática con operaciones “sencillas”.
+Esta dificultad nos va a permitir introducir un algoritmo de búsqueda de soluciones de forma iterativa que, de hecho,
+aplicaremos a la resolución de muchos otros problemas de optimización que surgen en machine learning,
+incluyendo también el de la regresión lineal de los &lt;em&gt;posts&lt;/em&gt; anteriores.&lt;/p&gt;
+
+&lt;p&gt;Empecemos por presentar una serie de datos de ejemplo en que se ha observado si una serie de pacientes presentaban
+o no presentaban una enfermedad cardíaca y la edad y frecuencia cardíaca máxima de cada paciente.&lt;/p&gt;
+
+&lt;table class=&quot;table table-sm&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Edad&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Frecuencia cardíaca máxima&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Enfermo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;67&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;108&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;65&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;129&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;62&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;63&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;147&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;52&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;155&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;56&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;142&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;55&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;148&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;61&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;132&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;40&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;154&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;53&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;168&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;51&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;41&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;172&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;43&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;57&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;112&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;48&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;139&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;64&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;144&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;60&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;61&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;173&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;63&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;150&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;37&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;187&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;59&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;178&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;56&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;153&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;44&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;173&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;52&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;162&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;57&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;174&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;54&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;48&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;168&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;66&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;158&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;49&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;171&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;58&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;162&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Nuestro objetivo es construir un modelo predictivo de tal forma que podamos predecir con cierta fiabilidad
+si un nuevo paciente está sano o enfermo a partir de su edad y de medir su frecuencia cardíaca máxima. Hasta
+aquí vemos que el planteamiento es muy similar al de la regresión como predicción.&lt;/p&gt;
+
+&lt;p&gt;Una forma habitual de presentar gráficamente el problema de la clasificación lineal es a través de una nube
+de puntos sobre un plano en que los dos ejes cartesianos representarán nuestras variables predictivas
+(la &lt;code&gt;Edad&lt;/code&gt; y la &lt;code&gt;Frecuencia cardíaca máxima&lt;/code&gt; en nuestro ejemplo) y un color o forma distinta para cada punto que represente
+nuestra variable “objetivo” a predecir (en el ejemplo, si está &lt;code&gt;Enfermo&lt;/code&gt; usaremos la cruz, si está sano la redonda). Veámoslo:&lt;/p&gt;
+
+&lt;div id=&quot;pointscloud&quot; class=&quot;jxgbox&quot; style=&quot;width:400px; height:400px;&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var healthy = {
+    &quot;67&quot;: 108,
+    &quot;65&quot;: 129,
+    &quot;62&quot;: 160,
+    &quot;63&quot;: 147,
+    &quot;52&quot;: 155,
+    &quot;56&quot;: 142,
+    &quot;55&quot; : 148,
+    &quot;61&quot;: 132,
+    &quot;40&quot;: 154,
+    &quot;53&quot; : 168,
+    &quot;51&quot;: 160,
+    &quot;41&quot; : 172,
+    &quot;43&quot;: 160,
+    &quot;57&quot;: 112,
+    &quot;48&quot; : 139
+};
+var sick = {
+    &quot;64&quot; : 144,
+    &quot;60&quot;: 160,
+    &quot;61&quot;: 173,
+    &quot;63&quot; : 150,
+    &quot;37&quot; : 187,
+    &quot;59&quot; : 178,
+    &quot;56&quot; : 153,
+    &quot;44&quot; : 173,
+    &quot;52&quot; : 162,
+    &quot;57&quot; : 174,
+    &quot;54&quot; : 160,
+    &quot;48&quot;: 168,
+    &quot;66&quot;: 158,
+    &quot;49&quot; : 171,
+    &quot;58&quot; : 162
+};
+var board = JXG.JSXGraph.initBoard('pointscloud', {boundingbox:[15,200,90,90],axis:false,showCopyright:false,showNavigation:false,keepaspectratio:false});
+board.create('axis', [[20, 0], [20, 20]]);
+board.create('axis', [[0, 100], [100, 100]]);
+_.each(healthy, function (hrate, age) {
+    board.create('point', [parseInt(age), hrate], {face:'o', withLabel:false});
+});
+_.each(sick, function (hrate, age) {
+    board.create('point', [parseInt(age), hrate], {face:'x', withLabel:false});
+});
+&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;[To be continued]&lt;/p&gt;
+</description>
+        <pubDate>Sun, 07 May 2017 00:00:00 +0200</pubDate>
+        <link>http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html</link>
+        <guid isPermaLink="true">http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html</guid>
+        
+        <category>ai,</category>
+        
+        <category>machine</category>
+        
+        <category>learning,</category>
+        
+        <category>deep</category>
+        
+        <category>learning,</category>
+        
+        <category>python,</category>
+        
+        <category>programming</category>
+        
+        
+        <category>machine-learning</category>
         
       </item>
     

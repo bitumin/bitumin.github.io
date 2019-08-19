@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Repasito sobre la regresión">
+
+  <title>Machine learning desde cero (III)</title>
+
+  
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  
+
+  
+  <link href="//jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="//jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  
+
+  
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  
+
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300&family=Lato:300">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html">
+  <link rel="alternate" type="application/rss+xml" title="MitxelMoriana" href="http://mitxelmoriana.com/feed.xml">
+  <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+    <body>
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-71923540-1', 'auto');
+    ga('send', 'pageview');
+</script>
+        <!--Sharing buttons JS-->
+<!--Facebook--><div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.5&appId=184462238579593";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+<!--Twitter--><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--Linkedin--><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: es_ES</script>
+<!--Google+--><!--<script src="https://apis.google.com/js/platform.js" async defer>{lang: 'es'}</script>-->
+        <header class="site-header">
+  <div class="wrapper">
+    <a class="site-title" href="/">MitxelMoriana</a>
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/cv/">CV</a>
+        
+          <a class="page-link" href="/about/">Sobre mí</a>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+        <div class="page-content">
+            <div class="wrapper">
+                <div id="sharing-btns-wrapper">
+    <!--Facebook--><div class="fb-share-button" data-href="http://mitxelmoriana.com/machine-learning/2017/05/07/machine-learning-desde-cero-III.html" data-layout="button"></div>
+    <!--Twitter--><a href="https://twitter.com/share" class="twitter-share-button" data-lang="es"></a>
+    <!--Linkedin--><script type="IN/Share"></script>
+    <!--Google+--><!--<div class="g-plus" data-action="share" data-annotation="none"></div>-->
+</div>
+                <article class="post with-header-image" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div id="header-image-wrapper">
+        <div id="header-image" style="background-image: url('/headers/machine-learning-3.jpg');"></div>
+    </div>
+    
+    <header class="post-header wrapper">
+        <h1 class="post-title" itemprop="name headline">
+            Machine learning desde cero (III)
+            
+            <br><span class="post-subtitle">Clasificación lineal y regresión logística</span>
+            
+        </h1>
+        <p class="post-meta"><time datetime="2017-05-07T00:00:00+02:00" itemprop="datePublished">May 7, 2017</time></p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="repasito-sobre-la-regresión">Repasito sobre la regresión</h2>
+
+<p>En los posts anteriores vimos cómo es posible predecir ciertos valores “de salida” a partir de ciertos valores
+“de entrada” a través de descubrir tendencias (rectas, planos, hiperplanos… con cierta pendiente)
+en observaciones anteriores.</p>
+
+<p>A este cálculo de una posible tendencia lineal lo llamamos regresión lineal y vimos, de pasada, que es posible
+ajustar no sólo formas geométricas lineales sino también curvas (este tema lo trataremos en profundidad en futuros
+posts).</p>
+
+<p>Desde el punto de vista del Machine Learning, puesto que la obtención o ajuste del patrón, modelo o tendencia se hace a partir
+de una familia de datos de entrenamiento en que los valores de salida son conocidos, la regresión lineal entra dentro de
+la familia de algoritmos de aprendizaje <strong>supervisado</strong>.</p>
+
+<p>En este posts vamos a introducir otro de los algoritmos fundamentales de aprendizaje supervisado: el de la clasificación
+lineal.</p>
+
+<h2 id="la-clasificación">La clasificación</h2>
+
+<blockquote>
+  <p>εκστα ση… εκστα νο…<br />
+<small>Chimo Bayo</small></p>
+</blockquote>
+
+<p>En la regresión nuestro objetivo era predecir una variable respuesta en forma de de número real a partir de ciertas observaciones,
+por ejemplo, podíamos predecir precios de bienes inmuebles. En la clasificación, en cambio,
+nuestro objetivo es predecir un valor discreto, o dicho de otro modo, clasificar observaciones en categorías
+distintas: animal o vegetal, enfermo o sano, etc.</p>
+
+<p>Las aplicaciones de la clasificación son muchas y muy útiles, entre las más conocidas están, por ejemplo,
+el filtro de spam (clasificar emails como spam o no spam) o la resolución de problemas de <em>computer vision</em>
+como el análisis de emociones (clasificar caras como triste, feliz…).</p>
+
+<h2 id="la-clasificación-lineal">La clasificación lineal</h2>
+
+<p>Vamos a empezar por la clasificación lineal binaria, es decir, donde la variable respuesta que queremos predecir
+sólo puede tener dos categorías posibles (por ejemplo: spam o no spam, enfermo o sano, etc.). Existen diversos algoritmos
+para tratar de delimitar linealmente las categorías “de respuesta”, en este post usaremos el de la regresión logística.</p>
+
+<p>Como veremos, la función objetivo a optimizar en la clasificación lineal como problema de regresión logística
+no tendrá una solución “en forma cerrada” (closed-form solution) o, dicho de otro modo,
+que no vamos a poder encontrar una solución en forma de expresión matemática con operaciones “sencillas”.
+Esta dificultad nos va a permitir introducir un algoritmo de búsqueda de soluciones de forma iterativa que, de hecho,
+aplicaremos a la resolución de muchos otros problemas de optimización que surgen en machine learning,
+incluyendo también el de la regresión lineal de los <em>posts</em> anteriores.</p>
+
+<p>Empecemos por presentar una serie de datos de ejemplo en que se ha observado si una serie de pacientes presentaban
+o no presentaban una enfermedad cardíaca y la edad y frecuencia cardíaca máxima de cada paciente.</p>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th style="text-align: center">Edad</th>
+      <th style="text-align: center">Frecuencia cardíaca máxima</th>
+      <th style="text-align: center">Enfermo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">67</td>
+      <td style="text-align: center">108</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">65</td>
+      <td style="text-align: center">129</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">62</td>
+      <td style="text-align: center">160</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">63</td>
+      <td style="text-align: center">147</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">52</td>
+      <td style="text-align: center">155</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">56</td>
+      <td style="text-align: center">142</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">55</td>
+      <td style="text-align: center">148</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">61</td>
+      <td style="text-align: center">132</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">40</td>
+      <td style="text-align: center">154</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">53</td>
+      <td style="text-align: center">168</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">51</td>
+      <td style="text-align: center">160</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">41</td>
+      <td style="text-align: center">172</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">43</td>
+      <td style="text-align: center">160</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">57</td>
+      <td style="text-align: center">112</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">48</td>
+      <td style="text-align: center">139</td>
+      <td style="text-align: center">0 (No)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">64</td>
+      <td style="text-align: center">144</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">60</td>
+      <td style="text-align: center">160</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">61</td>
+      <td style="text-align: center">173</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">63</td>
+      <td style="text-align: center">150</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">37</td>
+      <td style="text-align: center">187</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">59</td>
+      <td style="text-align: center">178</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">56</td>
+      <td style="text-align: center">153</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">44</td>
+      <td style="text-align: center">173</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">52</td>
+      <td style="text-align: center">162</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">57</td>
+      <td style="text-align: center">174</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">54</td>
+      <td style="text-align: center">160</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">48</td>
+      <td style="text-align: center">168</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">66</td>
+      <td style="text-align: center">158</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">49</td>
+      <td style="text-align: center">171</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">58</td>
+      <td style="text-align: center">162</td>
+      <td style="text-align: center">1 (Sí)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nuestro objetivo es construir un modelo predictivo de tal forma que podamos predecir con cierta fiabilidad
+si un nuevo paciente está sano o enfermo a partir de su edad y de medir su frecuencia cardíaca máxima. Hasta
+aquí vemos que el planteamiento es muy similar al de la regresión como predicción.</p>
+
+<p>Una forma habitual de presentar gráficamente el problema de la clasificación lineal es a través de una nube
+de puntos sobre un plano en que los dos ejes cartesianos representarán nuestras variables predictivas
+(la <code>Edad</code> y la <code>Frecuencia cardíaca máxima</code> en nuestro ejemplo) y un color o forma distinta para cada punto que represente
+nuestra variable “objetivo” a predecir (en el ejemplo, si está <code>Enfermo</code> usaremos la cruz, si está sano la redonda). Veámoslo:</p>
+
+<div id="pointscloud" class="jxgbox" style="width:400px; height:400px;"></div>
+<script type="text/javascript">
+var healthy = {
+    "67": 108,
+    "65": 129,
+    "62": 160,
+    "63": 147,
+    "52": 155,
+    "56": 142,
+    "55" : 148,
+    "61": 132,
+    "40": 154,
+    "53" : 168,
+    "51": 160,
+    "41" : 172,
+    "43": 160,
+    "57": 112,
+    "48" : 139
+};
+var sick = {
+    "64" : 144,
+    "60": 160,
+    "61": 173,
+    "63" : 150,
+    "37" : 187,
+    "59" : 178,
+    "56" : 153,
+    "44" : 173,
+    "52" : 162,
+    "57" : 174,
+    "54" : 160,
+    "48": 168,
+    "66": 158,
+    "49" : 171,
+    "58" : 162
+};
+var board = JXG.JSXGraph.initBoard('pointscloud', {boundingbox:[15,200,90,90],axis:false,showCopyright:false,showNavigation:false,keepaspectratio:false});
+board.create('axis', [[20, 0], [20, 20]]);
+board.create('axis', [[0, 100], [100, 100]]);
+_.each(healthy, function (hrate, age) {
+    board.create('point', [parseInt(age), hrate], {face:'o', withLabel:false});
+});
+_.each(sick, function (hrate, age) {
+    board.create('point', [parseInt(age), hrate], {face:'x', withLabel:false});
+});
+</script>
+
+<p><br /></p>
+
+<p>[To be continued]</p>
+
+    </div>
+</article>
+                
+            </div>
+        </div>
+        <footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-alt-1">
+                <a href="mailto:moriana.mitxel@gmail.com"><span class="email-link"><i class="fa fa-envelope"></i> moriana.mitxel@gmail.com</span></a>
+                <br>
+                <ul class="social-media-list">
+                    
+                    <li>
+                        <a href="https://github.com/bitumin"><i class="fa fa-github-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://facebook.com/mitxel.moriana"><i class="fa fa-facebook-official"></i></a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://linkedin.com/in/morianamitxel"><i class="fa fa-linkedin-square"></i></a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/mitxelmoriana"><i class="fa fa-twitter-square"></i></a>
+
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer-col footer-col-alt-2">
+                <p>Huola. Soy Mitxel, desarrollador y tecnófilo. En este blog hablo sobre asuntos relacionados con mi trabajo, así que encontrarás posts relacionados con nuevas tecnologías de la información y el arte de programar software para resolver problemas. ¡Espero que encuentres mis posts instructivos e inspiradores!
+</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+    </body>
+</html>
