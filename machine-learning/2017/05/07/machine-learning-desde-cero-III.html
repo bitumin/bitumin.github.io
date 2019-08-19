@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Repasito sobre la regresión">
 
-  <title>Machine learning desde cero (III)</title>
+  <title>Machine learning desde cero III</title>
 
   
   <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
@@ -91,7 +91,7 @@
     
     <header class="post-header wrapper">
         <h1 class="post-title" itemprop="name headline">
-            Machine learning desde cero (III)
+            Machine learning desde cero III
             
             <br><span class="post-subtitle">Clasificación lineal y regresión logística</span>
             
@@ -135,18 +135,19 @@ como el análisis de emociones (clasificar caras como triste, feliz…).</p>
 <h2 id="la-clasificación-lineal">La clasificación lineal</h2>
 
 <p>Vamos a empezar por la clasificación lineal binaria, es decir, donde la variable respuesta que queremos predecir
-sólo puede tener dos categorías posibles (por ejemplo: spam o no spam, enfermo o sano, etc.). Existen diversos algoritmos
-para tratar de delimitar linealmente las categorías “de respuesta”, en este post usaremos el de la regresión logística.</p>
+sólo puede tener dos categorías posibles (por ejemplo: spam o no spam, enfermo o sano, etc.). Aunque existen diversos algoritmos
+para tratar de delimitar linealmente las categorías “de respuesta”, en este post vamos a empezar usando el de la regresión logística.</p>
 
 <p>Como veremos, la función objetivo a optimizar en la clasificación lineal como problema de regresión logística
 no tendrá una solución “en forma cerrada” (closed-form solution) o, dicho de otro modo,
-que no vamos a poder encontrar una solución en forma de expresión matemática con operaciones “sencillas”.
+que no vamos a poder encontrar una solución en forma de fórmula matemática con operaciones “sencillas”.
 Esta dificultad nos va a permitir introducir un algoritmo de búsqueda de soluciones de forma iterativa que, de hecho,
 aplicaremos a la resolución de muchos otros problemas de optimización que surgen en machine learning,
 incluyendo también el de la regresión lineal de los <em>posts</em> anteriores.</p>
 
 <p>Empecemos por presentar una serie de datos de ejemplo en que se ha observado si una serie de pacientes presentaban
-o no presentaban una enfermedad cardíaca y la edad y frecuencia cardíaca máxima de cada paciente.</p>
+o no presentaban una enfermedad cardíaca y la edad y frecuencia cardíaca máxima de cada paciente como variables predictoras
+(voy a utilizar un dataset con más de 300 observaciones, de las cuales voy a emplear 212 como dataset de entrenamiento):</p>
 
 <table class="table table-sm">
   <thead>
@@ -158,211 +159,97 @@ o no presentaban una enfermedad cardíaca y la edad y frecuencia cardíaca máxi
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">67</td>
-      <td style="text-align: center">108</td>
-      <td style="text-align: center">0 (No)</td>
+      <td style="text-align: center">54</td>
+      <td style="text-align: center">109</td>
+      <td style="text-align: center">0</td>
     </tr>
     <tr>
-      <td style="text-align: center">65</td>
-      <td style="text-align: center">129</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">62</td>
-      <td style="text-align: center">160</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">63</td>
-      <td style="text-align: center">147</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">52</td>
-      <td style="text-align: center">155</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">56</td>
-      <td style="text-align: center">142</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">55</td>
-      <td style="text-align: center">148</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">61</td>
-      <td style="text-align: center">132</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">40</td>
-      <td style="text-align: center">154</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">53</td>
-      <td style="text-align: center">168</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">51</td>
-      <td style="text-align: center">160</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">41</td>
-      <td style="text-align: center">172</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">43</td>
-      <td style="text-align: center">160</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">57</td>
-      <td style="text-align: center">112</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">48</td>
-      <td style="text-align: center">139</td>
-      <td style="text-align: center">0 (No)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">64</td>
-      <td style="text-align: center">144</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">60</td>
-      <td style="text-align: center">160</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">61</td>
-      <td style="text-align: center">173</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">63</td>
-      <td style="text-align: center">150</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">37</td>
-      <td style="text-align: center">187</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">59</td>
-      <td style="text-align: center">178</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">56</td>
-      <td style="text-align: center">153</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">44</td>
-      <td style="text-align: center">173</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">52</td>
-      <td style="text-align: center">162</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">57</td>
-      <td style="text-align: center">174</td>
-      <td style="text-align: center">1 (Sí)</td>
+      <td style="text-align: center">66</td>
+      <td style="text-align: center">165</td>
+      <td style="text-align: center">0</td>
     </tr>
     <tr>
       <td style="text-align: center">54</td>
       <td style="text-align: center">160</td>
-      <td style="text-align: center">1 (Sí)</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">41</td>
+      <td style="text-align: center">179</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">53</td>
+      <td style="text-align: center">173</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">46</td>
+      <td style="text-align: center">120</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">54</td>
+      <td style="text-align: center">116</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">54</td>
+      <td style="text-align: center">195</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">67</td>
+      <td style="text-align: center">71</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">44</td>
+      <td style="text-align: center">175</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">41</td>
+      <td style="text-align: center">153</td>
+      <td style="text-align: center">1</td>
     </tr>
     <tr>
       <td style="text-align: center">48</td>
-      <td style="text-align: center">168</td>
-      <td style="text-align: center">1 (Sí)</td>
+      <td style="text-align: center">175</td>
+      <td style="text-align: center">1</td>
     </tr>
     <tr>
-      <td style="text-align: center">66</td>
-      <td style="text-align: center">158</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">49</td>
-      <td style="text-align: center">171</td>
-      <td style="text-align: center">1 (Sí)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">58</td>
-      <td style="text-align: center">162</td>
-      <td style="text-align: center">1 (Sí)</td>
+      <td style="text-align: center">…</td>
+      <td style="text-align: center">…</td>
+      <td style="text-align: center">…</td>
     </tr>
   </tbody>
 </table>
 
-<p>Nuestro objetivo es construir un modelo predictivo de tal forma que podamos predecir con cierta fiabilidad
-si un nuevo paciente está sano o enfermo a partir de su edad y de medir su frecuencia cardíaca máxima. Hasta
-aquí vemos que el planteamiento es muy similar al de la regresión como predicción.</p>
+<p>Nuestro objetivo es construir un modelo predictivo de tal forma que podamos clasificar con cierta fiabilidad
+si un nuevo paciente está sano o enfermo a partir de su edad (que podemos preguntar) y su frecuencia cardíaca máxima
+(que podemos medir). Hasta aquí vemos que el planteamiento es muy similar al de la regresión como predicción.</p>
 
 <p>Una forma habitual de presentar gráficamente el problema de la clasificación lineal es a través de una nube
 de puntos sobre un plano en que los dos ejes cartesianos representarán nuestras variables predictivas
-(la <code>Edad</code> y la <code>Frecuencia cardíaca máxima</code> en nuestro ejemplo) y un color o forma distinta para cada punto que represente
-nuestra variable “objetivo” a predecir (en el ejemplo, si está <code>Enfermo</code> usaremos la cruz, si está sano la redonda). Veámoslo:</p>
+(en nuestro ejemplo la <code>Edad</code> la pondremos en el horizontal y la <code>Frecuencia cardíaca máxima</code> en el vertical)
+y un color o forma distintos para cada punto que represente nuestra variable “objetivo” a predecir
+(para la categoría <code>Enfermo</code> usaré el color rojo y para la categoría <code>Sano</code> utilizaré el azul):</p>
 
 <div id="pointscloud" class="jxgbox" style="width:400px; height:400px;"></div>
 <script type="text/javascript">
-var healthy = {
-    "67": 108,
-    "65": 129,
-    "62": 160,
-    "63": 147,
-    "52": 155,
-    "56": 142,
-    "55" : 148,
-    "61": 132,
-    "40": 154,
-    "53" : 168,
-    "51": 160,
-    "41" : 172,
-    "43": 160,
-    "57": 112,
-    "48" : 139
-};
-var sick = {
-    "64" : 144,
-    "60": 160,
-    "61": 173,
-    "63" : 150,
-    "37" : 187,
-    "59" : 178,
-    "56" : 153,
-    "44" : 173,
-    "52" : 162,
-    "57" : 174,
-    "54" : 160,
-    "48": 168,
-    "66": 158,
-    "49" : 171,
-    "58" : 162
-};
-var board = JXG.JSXGraph.initBoard('pointscloud', {boundingbox:[15,200,90,90],axis:false,showCopyright:false,showNavigation:false,keepaspectratio:false});
+let healthy = [[54, 109],[66, 165],[46, 120],[54, 116],[54, 195],[67, 71],[60, 144],[48, 150],[70, 109],[59, 162],[60, 141],[35, 130],[68, 141],[55, 130],[67, 150],[61, 161],[52, 161],[39, 140],[52, 168],[53, 95],[64, 158],[58, 130],[63, 144],[50, 128],[63, 147],[59, 140],[49, 126],[62, 154],[59, 142],[54, 113],[64, 132],[60, 155],[58, 165],[58, 131],[57, 124],[61, 138],[58, 171],[46, 144],[59, 90],[68, 150],[54, 108],[49, 139],[43, 143],[70, 112],[47, 152],[60, 170],[59, 143],[40, 181],[58, 160],[57, 123],[58, 105],[56, 105],[51, 173],[61, 146],[56, 142],[62, 103],[57, 115],[63, 154],[52, 156],[63, 132],[47, 118],[41, 158],[58, 111],[45, 132],[67, 108],[51, 122],[50, 163],[56, 150],[57, 164],[58, 146],[77, 162],[56, 144],[52, 160],[61, 169],[60, 160],[61, 125],[48, 166],[55, 132],[35, 156],[43, 120],[44, 177],[48, 168],[54, 126],[66, 132],[62, 99],[58, 173],[55, 145],[62, 160],[59, 125],[61, 140],[62, 106],[63, 136],[43, 136],[65, 127],[40, 114],[60, 142],[60, 157],[57, 150],[70, 125]];
+let sick = [[54, 160], [41, 179], [53, 173], [44, 175], [41, 153], [48, 175], [71, 162], [55, 161], [52, 190], [68, 115], [44, 173], [52, 169], [53, 160], [66, 152], [42, 178], [69, 131], [58, 165], [42, 194], [52, 172], [65, 140], [51, 125], [59, 182], [54, 152], [65, 157], [60, 96], [68, 151], [34, 174], [42, 173], [41, 172], [37, 187], [57, 174], [55, 155], [29, 202], [42, 162], [42, 122], [49, 162], [46, 152], [44, 169], [44, 188], [62, 146], [41, 168], [66, 114], [47, 179], [41, 132], [51, 157], [52, 147], [50, 159], [56, 153], [54, 165], [64, 122], [58, 172], [74, 121], [64, 154], [56, 169], [52, 169], [42, 150], [71, 130], [54, 167], [64, 133], [41, 168], [66, 151], [41, 163], [56, 162], [44, 179], [52, 178], [55, 166], [54, 158], [45, 152], [41, 172], [44, 149], [46, 156], [65, 151], [48, 180], [45, 185], [54, 163], [43, 171], [50, 162], [58, 154], [58, 144], [45, 138], [58, 162], [69, 151], [56, 178], [35, 174], [63, 150], [57, 163], [40, 178], [46, 160], [51, 143], [39, 182], [60, 160], [52, 162], [51, 149], [71, 125], [47, 143], [56, 163], [38, 173], [37, 170], [65, 148], [64, 144], [64, 105], [54, 147], [39, 152], [63, 172], [57, 168], [45, 175], [51, 166], [63, 179], [67, 142], [66, 138], [47, 156], [60, 171], [43, 162]];
+var board = JXG.JSXGraph.initBoard('pointscloud', {boundingbox:[15,220,100,50],axis:false,showCopyright:false,showNavigation:false});
 board.create('axis', [[20, 0], [20, 20]]);
-board.create('axis', [[0, 100], [100, 100]]);
-_.each(healthy, function (hrate, age) {
-    board.create('point', [parseInt(age), hrate], {face:'o', withLabel:false});
+board.create('axis', [[0, 65], [65, 65]]);
+_.each(healthy, function (obs) {
+    let hrate = obs[1], age = obs[0]; 
+    board.create('point', [parseInt(age), hrate], {face:'o', withLabel:false, fillColor: 'blue', strokeColor: 'blue'});
 });
-_.each(sick, function (hrate, age) {
-    board.create('point', [parseInt(age), hrate], {face:'x', withLabel:false});
+_.each(sick, function (obs) {
+    let hrate = obs[1], age = obs[0]; 
+    board.create('point', [parseInt(age), hrate], {face:'o', withLabel:false});
 });
 </script>
 

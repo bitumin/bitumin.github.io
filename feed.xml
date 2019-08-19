@@ -6,8 +6,8 @@
 </description>
     <link>http://mitxelmoriana.com/</link>
     <atom:link href="http://mitxelmoriana.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Aug 2019 18:30:42 +0200</pubDate>
-    <lastBuildDate>Mon, 19 Aug 2019 18:30:42 +0200</lastBuildDate>
+    <pubDate>Mon, 19 Aug 2019 22:42:34 +0200</pubDate>
+    <lastBuildDate>Mon, 19 Aug 2019 22:42:34 +0200</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -59,7 +59,7 @@ hasta dar con el elemento buscado (o informar de que no aparece), por lo que la 
 puesto que implican, en el peor caso, reindexar todo el resto de elementos del &lt;em&gt;array&lt;/em&gt; después de la inserción
 o eliminación de un elemento al principio del &lt;em&gt;array&lt;/em&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;implementación-del-array-en-js-v8&quot;&gt;Implementación del &lt;em&gt;array&lt;/em&gt; en JS V8&lt;/h2&gt;
+&lt;h2 id=&quot;implementación-del-array-en-js-sobre-v8&quot;&gt;Implementación del &lt;em&gt;array&lt;/em&gt; en JS sobre V8&lt;/h2&gt;
 
 &lt;p&gt;En JS sobre el motor V8 (chrome, Node…) los &lt;code&gt;Array&lt;/code&gt; son &lt;em&gt;“list-like object”&lt;/em&gt; que, al igual que cualquier
 otro &lt;code&gt;Object&lt;/code&gt; puede contener propiedades (named properties) y elementos (integer-indexed elements) y que,
@@ -90,9 +90,9 @@ fruits.length; // 19 (!)
 &lt;p&gt;Puedes encontrar info más detallada sobre la gestión a bajo nivel de las propiedades y elementos de un &lt;code&gt;Object&lt;/code&gt; en JS sobre V8
 &lt;a href=&quot;https://v8.dev/blog/fast-properties&quot;&gt;aquí&lt;/a&gt; y &lt;a href=&quot;https://www.jayconrod.com/posts/52/a-tour-of-v8-object-representation&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;implementación-del-array-en-php7&quot;&gt;Implementación del &lt;em&gt;array&lt;/em&gt; en PHP7&lt;/h2&gt;
+&lt;h2 id=&quot;implementación-del-array-en-php7-sobre-zend-engine&quot;&gt;Implementación del &lt;em&gt;array&lt;/em&gt; en PHP7 sobre Zend Engine&lt;/h2&gt;
 
-&lt;p&gt;Al igual que en JS sobre V8, en PHP el &lt;code&gt;array&lt;/code&gt; es una construcción muy flexible, es decir, a partir de la cual
+&lt;p&gt;Al igual que en JS sobre V8, en PHP sobre Zend el &lt;code&gt;array&lt;/code&gt; es una construcción muy flexible, es decir, a partir de la cual
 se pueden construir diversas estructuras de datos y no sólo &lt;em&gt;arrays&lt;/em&gt; “ideales”.&lt;/p&gt;
 
 &lt;p&gt;Para hacer posible esta flexibilidad, en PHP todos los &lt;code&gt;array&lt;/code&gt; son, por debajo, “ordered maps” u “ordered dictionaries”, 
@@ -102,11 +102,11 @@ es decir, pares &lt;em&gt;key-value&lt;/em&gt; cuyo orden de inserción en el &l
 el &lt;code&gt;array&lt;/code&gt; se comportará aproximadamente como un &lt;em&gt;array&lt;/em&gt; ideal, porque a bajo nivel se utiliza un &lt;em&gt;array&lt;/em&gt; real
 para leer/encontrar los datos almacenados a través de su índice y offset en memoria.&lt;/p&gt;
 
-&lt;p&gt;Sin embargo, si utilizáramos el &lt;code&gt;array&lt;/code&gt; para construir un &lt;em&gt;array&lt;/em&gt; asociativo, “por debajo” se empleará una función de hashing
+&lt;p&gt;Sin embargo, si utilizamos el &lt;code&gt;array&lt;/code&gt; para construir un &lt;em&gt;array&lt;/em&gt; asociativo, “por debajo” se empleará una función de hashing
 para asignar y recuperar el índice numérico de cada named property (y entrará en funcionamiento un algoritmo para evitar colisiones),
-con lo que el &lt;code&gt;array&lt;/code&gt; asociativo real perderá la eficiencia computacional característica del &lt;em&gt;array&lt;/em&gt; “puro”.&lt;/p&gt;
+con lo que el &lt;code&gt;array&lt;/code&gt; real con el que estamos trabajando perderá la eficiencia computacional característica del &lt;em&gt;array&lt;/em&gt; “puro”.&lt;/p&gt;
 
-&lt;p&gt;Al respecto de PHP7 y sus optimizaciones en la implementación del &lt;em&gt;array&lt;/em&gt; respecto a PHP5,
+&lt;p&gt;Al respecto de PHP7 y sus optimizaciones en la implementación del &lt;em&gt;array&lt;/em&gt; respecto a PHP5 sobre Zend Engine
 puedes encontrar info detallada &lt;a href=&quot;https://nikic.github.io/2014/12/22/PHPs-new-hashtable-implementation.html&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 24 Sep 2017 00:00:00 +0200</pubDate>
@@ -123,9 +123,21 @@ puedes encontrar info detallada &lt;a href=&quot;https://nikic.github.io/2014/12
         
         <category>v8,</category>
         
+        <category>node,</category>
+        
+        <category>chrome,</category>
+        
+        <category>chromium,</category>
+        
         <category>php,</category>
         
         <category>php7,</category>
+        
+        <category>zend,</category>
+        
+        <category>zend</category>
+        
+        <category>engine,</category>
         
         <category>ds,</category>
         
@@ -139,7 +151,7 @@ puedes encontrar info detallada &lt;a href=&quot;https://nikic.github.io/2014/12
       </item>
     
       <item>
-        <title>Machine learning desde cero (III)</title>
+        <title>Machine learning desde cero III</title>
         <description>&lt;h2 id=&quot;repasito-sobre-la-regresión&quot;&gt;Repasito sobre la regresión&lt;/h2&gt;
 
 &lt;p&gt;En los posts anteriores vimos cómo es posible predecir ciertos valores “de salida” a partir de ciertos valores
@@ -176,18 +188,19 @@ como el análisis de emociones (clasificar caras como triste, feliz…).&lt;/p&g
 &lt;h2 id=&quot;la-clasificación-lineal&quot;&gt;La clasificación lineal&lt;/h2&gt;
 
 &lt;p&gt;Vamos a empezar por la clasificación lineal binaria, es decir, donde la variable respuesta que queremos predecir
-sólo puede tener dos categorías posibles (por ejemplo: spam o no spam, enfermo o sano, etc.). Existen diversos algoritmos
-para tratar de delimitar linealmente las categorías “de respuesta”, en este post usaremos el de la regresión logística.&lt;/p&gt;
+sólo puede tener dos categorías posibles (por ejemplo: spam o no spam, enfermo o sano, etc.). Aunque existen diversos algoritmos
+para tratar de delimitar linealmente las categorías “de respuesta”, en este post vamos a empezar usando el de la regresión logística.&lt;/p&gt;
 
 &lt;p&gt;Como veremos, la función objetivo a optimizar en la clasificación lineal como problema de regresión logística
 no tendrá una solución “en forma cerrada” (closed-form solution) o, dicho de otro modo,
-que no vamos a poder encontrar una solución en forma de expresión matemática con operaciones “sencillas”.
+que no vamos a poder encontrar una solución en forma de fórmula matemática con operaciones “sencillas”.
 Esta dificultad nos va a permitir introducir un algoritmo de búsqueda de soluciones de forma iterativa que, de hecho,
 aplicaremos a la resolución de muchos otros problemas de optimización que surgen en machine learning,
 incluyendo también el de la regresión lineal de los &lt;em&gt;posts&lt;/em&gt; anteriores.&lt;/p&gt;
 
 &lt;p&gt;Empecemos por presentar una serie de datos de ejemplo en que se ha observado si una serie de pacientes presentaban
-o no presentaban una enfermedad cardíaca y la edad y frecuencia cardíaca máxima de cada paciente.&lt;/p&gt;
+o no presentaban una enfermedad cardíaca y la edad y frecuencia cardíaca máxima de cada paciente como variables predictoras
+(voy a utilizar un dataset con más de 300 observaciones, de las cuales voy a emplear 212 como dataset de entrenamiento):&lt;/p&gt;
 
 &lt;table class=&quot;table table-sm&quot;&gt;
   &lt;thead&gt;
@@ -199,211 +212,97 @@ o no presentaban una enfermedad cardíaca y la edad y frecuencia cardíaca máxi
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;67&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;108&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;54&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;109&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;65&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;129&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;62&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;63&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;147&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;52&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;155&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;56&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;142&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;55&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;148&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;61&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;132&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;40&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;154&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;53&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;168&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;51&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;41&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;172&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;43&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;57&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;112&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;48&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;139&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0 (No)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;64&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;144&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;60&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;61&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;173&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;63&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;150&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;37&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;187&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;59&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;178&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;56&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;153&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;44&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;173&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;52&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;162&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;57&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;174&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;66&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;165&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;54&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;160&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;41&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;179&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;53&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;173&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;46&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;120&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;54&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;116&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;54&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;195&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;67&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;71&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;44&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;175&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;41&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;153&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;48&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;168&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;175&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;66&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;158&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;49&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;171&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;58&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;162&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1 (Sí)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;…&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;…&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;…&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Nuestro objetivo es construir un modelo predictivo de tal forma que podamos predecir con cierta fiabilidad
-si un nuevo paciente está sano o enfermo a partir de su edad y de medir su frecuencia cardíaca máxima. Hasta
-aquí vemos que el planteamiento es muy similar al de la regresión como predicción.&lt;/p&gt;
+&lt;p&gt;Nuestro objetivo es construir un modelo predictivo de tal forma que podamos clasificar con cierta fiabilidad
+si un nuevo paciente está sano o enfermo a partir de su edad (que podemos preguntar) y su frecuencia cardíaca máxima
+(que podemos medir). Hasta aquí vemos que el planteamiento es muy similar al de la regresión como predicción.&lt;/p&gt;
 
 &lt;p&gt;Una forma habitual de presentar gráficamente el problema de la clasificación lineal es a través de una nube
 de puntos sobre un plano en que los dos ejes cartesianos representarán nuestras variables predictivas
-(la &lt;code&gt;Edad&lt;/code&gt; y la &lt;code&gt;Frecuencia cardíaca máxima&lt;/code&gt; en nuestro ejemplo) y un color o forma distinta para cada punto que represente
-nuestra variable “objetivo” a predecir (en el ejemplo, si está &lt;code&gt;Enfermo&lt;/code&gt; usaremos la cruz, si está sano la redonda). Veámoslo:&lt;/p&gt;
+(en nuestro ejemplo la &lt;code&gt;Edad&lt;/code&gt; la pondremos en el horizontal y la &lt;code&gt;Frecuencia cardíaca máxima&lt;/code&gt; en el vertical)
+y un color o forma distintos para cada punto que represente nuestra variable “objetivo” a predecir
+(para la categoría &lt;code&gt;Enfermo&lt;/code&gt; usaré el color rojo y para la categoría &lt;code&gt;Sano&lt;/code&gt; utilizaré el azul):&lt;/p&gt;
 
 &lt;div id=&quot;pointscloud&quot; class=&quot;jxgbox&quot; style=&quot;width:400px; height:400px;&quot;&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
-var healthy = {
-    &quot;67&quot;: 108,
-    &quot;65&quot;: 129,
-    &quot;62&quot;: 160,
-    &quot;63&quot;: 147,
-    &quot;52&quot;: 155,
-    &quot;56&quot;: 142,
-    &quot;55&quot; : 148,
-    &quot;61&quot;: 132,
-    &quot;40&quot;: 154,
-    &quot;53&quot; : 168,
-    &quot;51&quot;: 160,
-    &quot;41&quot; : 172,
-    &quot;43&quot;: 160,
-    &quot;57&quot;: 112,
-    &quot;48&quot; : 139
-};
-var sick = {
-    &quot;64&quot; : 144,
-    &quot;60&quot;: 160,
-    &quot;61&quot;: 173,
-    &quot;63&quot; : 150,
-    &quot;37&quot; : 187,
-    &quot;59&quot; : 178,
-    &quot;56&quot; : 153,
-    &quot;44&quot; : 173,
-    &quot;52&quot; : 162,
-    &quot;57&quot; : 174,
-    &quot;54&quot; : 160,
-    &quot;48&quot;: 168,
-    &quot;66&quot;: 158,
-    &quot;49&quot; : 171,
-    &quot;58&quot; : 162
-};
-var board = JXG.JSXGraph.initBoard('pointscloud', {boundingbox:[15,200,90,90],axis:false,showCopyright:false,showNavigation:false,keepaspectratio:false});
+let healthy = [[54, 109],[66, 165],[46, 120],[54, 116],[54, 195],[67, 71],[60, 144],[48, 150],[70, 109],[59, 162],[60, 141],[35, 130],[68, 141],[55, 130],[67, 150],[61, 161],[52, 161],[39, 140],[52, 168],[53, 95],[64, 158],[58, 130],[63, 144],[50, 128],[63, 147],[59, 140],[49, 126],[62, 154],[59, 142],[54, 113],[64, 132],[60, 155],[58, 165],[58, 131],[57, 124],[61, 138],[58, 171],[46, 144],[59, 90],[68, 150],[54, 108],[49, 139],[43, 143],[70, 112],[47, 152],[60, 170],[59, 143],[40, 181],[58, 160],[57, 123],[58, 105],[56, 105],[51, 173],[61, 146],[56, 142],[62, 103],[57, 115],[63, 154],[52, 156],[63, 132],[47, 118],[41, 158],[58, 111],[45, 132],[67, 108],[51, 122],[50, 163],[56, 150],[57, 164],[58, 146],[77, 162],[56, 144],[52, 160],[61, 169],[60, 160],[61, 125],[48, 166],[55, 132],[35, 156],[43, 120],[44, 177],[48, 168],[54, 126],[66, 132],[62, 99],[58, 173],[55, 145],[62, 160],[59, 125],[61, 140],[62, 106],[63, 136],[43, 136],[65, 127],[40, 114],[60, 142],[60, 157],[57, 150],[70, 125]];
+let sick = [[54, 160], [41, 179], [53, 173], [44, 175], [41, 153], [48, 175], [71, 162], [55, 161], [52, 190], [68, 115], [44, 173], [52, 169], [53, 160], [66, 152], [42, 178], [69, 131], [58, 165], [42, 194], [52, 172], [65, 140], [51, 125], [59, 182], [54, 152], [65, 157], [60, 96], [68, 151], [34, 174], [42, 173], [41, 172], [37, 187], [57, 174], [55, 155], [29, 202], [42, 162], [42, 122], [49, 162], [46, 152], [44, 169], [44, 188], [62, 146], [41, 168], [66, 114], [47, 179], [41, 132], [51, 157], [52, 147], [50, 159], [56, 153], [54, 165], [64, 122], [58, 172], [74, 121], [64, 154], [56, 169], [52, 169], [42, 150], [71, 130], [54, 167], [64, 133], [41, 168], [66, 151], [41, 163], [56, 162], [44, 179], [52, 178], [55, 166], [54, 158], [45, 152], [41, 172], [44, 149], [46, 156], [65, 151], [48, 180], [45, 185], [54, 163], [43, 171], [50, 162], [58, 154], [58, 144], [45, 138], [58, 162], [69, 151], [56, 178], [35, 174], [63, 150], [57, 163], [40, 178], [46, 160], [51, 143], [39, 182], [60, 160], [52, 162], [51, 149], [71, 125], [47, 143], [56, 163], [38, 173], [37, 170], [65, 148], [64, 144], [64, 105], [54, 147], [39, 152], [63, 172], [57, 168], [45, 175], [51, 166], [63, 179], [67, 142], [66, 138], [47, 156], [60, 171], [43, 162]];
+var board = JXG.JSXGraph.initBoard('pointscloud', {boundingbox:[15,220,100,50],axis:false,showCopyright:false,showNavigation:false});
 board.create('axis', [[20, 0], [20, 20]]);
-board.create('axis', [[0, 100], [100, 100]]);
-_.each(healthy, function (hrate, age) {
-    board.create('point', [parseInt(age), hrate], {face:'o', withLabel:false});
+board.create('axis', [[0, 65], [65, 65]]);
+_.each(healthy, function (obs) {
+    let hrate = obs[1], age = obs[0]; 
+    board.create('point', [parseInt(age), hrate], {face:'o', withLabel:false, fillColor: 'blue', strokeColor: 'blue'});
 });
-_.each(sick, function (hrate, age) {
-    board.create('point', [parseInt(age), hrate], {face:'x', withLabel:false});
+_.each(sick, function (obs) {
+    let hrate = obs[1], age = obs[0]; 
+    board.create('point', [parseInt(age), hrate], {face:'o', withLabel:false});
 });
 &lt;/script&gt;
 
@@ -435,7 +334,7 @@ _.each(sick, function (hrate, age) {
       </item>
     
       <item>
-        <title>Machine learning desde cero (II)</title>
+        <title>Machine learning desde cero II</title>
         <description>&lt;h2 id=&quot;repasito-unidimensional&quot;&gt;Repasito unidimensional&lt;/h2&gt;
 
 &lt;p&gt;En el post anterior vimos cómo la predicción basada en una familia de datos de salida y una sola familia de datos de
@@ -989,7 +888,7 @@ la clasificación lineal y la regresión logística.&lt;/p&gt;
       </item>
     
       <item>
-        <title>Machine learning desde cero (I)</title>
+        <title>Machine learning desde cero I</title>
         <description>&lt;h2 id=&quot;learning-machine-learning&quot;&gt;Learning machine learning&lt;/h2&gt;
 
 &lt;p&gt;Como yo tengo memoria de pez y un blog de tecnología he decidido ir subiendo los apuntes que voy tomando sobre

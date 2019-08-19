@@ -85,7 +85,7 @@
         <h1 class="post-title" itemprop="name headline">
             Data structures I
             
-            <br><span class="post-subtitle">el array su implementación en JS V8 y PHP7</span>
+            <br><span class="post-subtitle">el array su implementación en JS V8 y PHP7 Zend</span>
             
         </h1>
         <p class="post-meta"><time datetime="2017-09-24T00:00:00+02:00" itemprop="datePublished">Sep 24, 2017</time></p>
@@ -138,7 +138,7 @@ hasta dar con el elemento buscado (o informar de que no aparece), por lo que la 
 puesto que implican, en el peor caso, reindexar todo el resto de elementos del <em>array</em> después de la inserción
 o eliminación de un elemento al principio del <em>array</em>.</p>
 
-<h2 id="implementación-del-array-en-js-v8">Implementación del <em>array</em> en JS V8</h2>
+<h2 id="implementación-del-array-en-js-sobre-v8">Implementación del <em>array</em> en JS sobre V8</h2>
 
 <p>En JS sobre el motor V8 (chrome, Node…) los <code>Array</code> son <em>“list-like object”</em> que, al igual que cualquier
 otro <code>Object</code> puede contener propiedades (named properties) y elementos (integer-indexed elements) y que,
@@ -169,9 +169,9 @@ fruits.length; // 19 (!)
 <p>Puedes encontrar info más detallada sobre la gestión a bajo nivel de las propiedades y elementos de un <code>Object</code> en JS sobre V8
 <a href="https://v8.dev/blog/fast-properties">aquí</a> y <a href="https://www.jayconrod.com/posts/52/a-tour-of-v8-object-representation">aquí</a>.</p>
 
-<h2 id="implementación-del-array-en-php7">Implementación del <em>array</em> en PHP7</h2>
+<h2 id="implementación-del-array-en-php7-sobre-zend-engine">Implementación del <em>array</em> en PHP7 sobre Zend Engine</h2>
 
-<p>Al igual que en JS sobre V8, en PHP el <code>array</code> es una construcción muy flexible, es decir, a partir de la cual
+<p>Al igual que en JS sobre V8, en PHP sobre Zend el <code>array</code> es una construcción muy flexible, es decir, a partir de la cual
 se pueden construir diversas estructuras de datos y no sólo <em>arrays</em> “ideales”.</p>
 
 <p>Para hacer posible esta flexibilidad, en PHP todos los <code>array</code> son, por debajo, “ordered maps” u “ordered dictionaries”, 
@@ -181,11 +181,11 @@ es decir, pares <em>key-value</em> cuyo orden de inserción en el <code>array</c
 el <code>array</code> se comportará aproximadamente como un <em>array</em> ideal, porque a bajo nivel se utiliza un <em>array</em> real
 para leer/encontrar los datos almacenados a través de su índice y offset en memoria.</p>
 
-<p>Sin embargo, si utilizáramos el <code>array</code> para construir un <em>array</em> asociativo, “por debajo” se empleará una función de hashing
+<p>Sin embargo, si utilizamos el <code>array</code> para construir un <em>array</em> asociativo, “por debajo” se empleará una función de hashing
 para asignar y recuperar el índice numérico de cada named property (y entrará en funcionamiento un algoritmo para evitar colisiones),
-con lo que el <code>array</code> asociativo real perderá la eficiencia computacional característica del <em>array</em> “puro”.</p>
+con lo que el <code>array</code> real con el que estamos trabajando perderá la eficiencia computacional característica del <em>array</em> “puro”.</p>
 
-<p>Al respecto de PHP7 y sus optimizaciones en la implementación del <em>array</em> respecto a PHP5,
+<p>Al respecto de PHP7 y sus optimizaciones en la implementación del <em>array</em> respecto a PHP5 sobre Zend Engine
 puedes encontrar info detallada <a href="https://nikic.github.io/2014/12/22/PHPs-new-hashtable-implementation.html">aquí</a>.</p>
 
     </div>
