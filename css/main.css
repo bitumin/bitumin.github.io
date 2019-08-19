@@ -703,6 +703,9 @@ a:hover {
   .page-cv-content .btn-pdf {
     color: #333; }
 
+.IN-widget {
+  vertical-align: top; }
+
 /**
 * Beautify line numbers
 */
