@@ -58,8 +58,6 @@
         
           <a class="page-link" href="/cv/">CV</a>
         
-          <a class="page-link" href="/about/">Sobre mí</a>
-        
       </div>
     </nav>
   </div>
@@ -110,11 +108,11 @@
 
 <p>Básicamente si usas Linux lo puedes instalar con tu gestor de paquetes habitual:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install git-all</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt-get <span class="nb">install </span>git-all</code></pre></figure>
 
 <p>O, alternativamente:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo yum install git-all</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>yum <span class="nb">install </span>git-all</code></pre></figure>
 
 <p>Si usas Mac te lo puedes bajar de <a href="http://git-scm.com/download/mac" target="_blank">aquí</a>. Si usas Windows te puedes bajar el instalador <a href="http://git-scm.com/download/win" target="_blank">aquí</a>.</p>
 
@@ -127,8 +125,8 @@ git version 2.7.0</code></pre></figure>
 
 <p>Mientras que en la versión de Git para mi Windows me aparece</p>
 
-<figure class="highlight"><pre><code class="language-bat" data-lang="bat">C:\<span class="p">&gt;</span> <span class="n">git</span> version
-git version <span class="m">2</span>.<span class="m">7</span>.<span class="m">0</span>.windows.<span class="m">1</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bat" data-lang="bat"><span class="kd">C</span>:\&gt; <span class="kd">git</span> <span class="kd">version</span>
+<span class="kd">git</span> <span class="kd">version</span> <span class="m">2</span>.7.0.windows.1</code></pre></figure>
 
 <h3 id="aprendiendo-a-gatear-usar-git-en-tu-entorno-local">Aprendiendo a gatear: usar Git en tu entorno local</h3>
 
@@ -169,7 +167,7 @@ git version <span class="m">2</span>.<span class="m">7</span>.<span class="m">0<
 
 <p>Podemos hacer lo mismo si acabamos de crear un proyecto o acabamos de crear nuevos ficheros dentro del proyecto. ¡De hecho, este es el caso en el que estamos ahora!. Si intentas hacer un commit ahora, sin embargo, te aparecerá un mensajito preocupante, pruébalo:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit -m <span class="s2">&quot;My first commit&quot;</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit <span class="nt">-m</span> <span class="s2">"My first commit"</span>
 ...
 nothing added to commit but untracked files present</code></pre></figure>
 
@@ -185,7 +183,7 @@ nothing added to commit but untracked files present</code></pre></figure>
 
 <p>Lo que significa que nuestro fichero está listo para ser confirmado, es decir, para ser incluido en el próximo commit que hagamos. Vamos allá:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit -m <span class="s2">&quot;My first commit&quot;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit <span class="nt">-m</span> <span class="s2">"My first commit"</span></code></pre></figure>
 
 <p>¡Felicidades por tu primer commit!. Ahora volvamos a hacer un <em>git status</em>. Git nos dirá esta vez que nuestro espacio de trabajo está libre de nuevas modificaciones desde el último commit (claro, lo acabamos de hacer).</p>
 
@@ -197,12 +195,12 @@ nothing added to commit but untracked files present</code></pre></figure>
 
 <p>Y debería aparecerte algo como esto</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">diff --git a/thisIsAnAppYouBetterBelieveIt.txt b/thisIsAnAppYouBetterBelieveIt.txt
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">diff <span class="nt">--git</span> a/thisIsAnAppYouBetterBelieveIt.txt b/thisIsAnAppYouBetterBelieveIt.txt
 index 5d8a8b4..4955b9f 100644
---- a/thisIsAnAppYouBetterBelieveIt.txt
+<span class="nt">---</span> a/thisIsAnAppYouBetterBelieveIt.txt
 +++ b/thisIsAnAppYouBetterBelieveIt.txt
-@@ -1 +1 @@
--Hola Paco
+@@ <span class="nt">-1</span> +1 @@
+<span class="nt">-Hola</span> Paco
 <span class="se">\ </span>No newline at end of file
 +Hola Pedro
 <span class="se">\ </span>No newline at end of file</code></pre></figure>
@@ -217,22 +215,22 @@ index 5d8a8b4..4955b9f 100644
 
 <p>A continuación escribe:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit -m <span class="s2">&quot;I changed the name for the lulz&quot;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit <span class="nt">-m</span> <span class="s2">"I changed the name for the lulz"</span></code></pre></figure>
 
 <p>Perfecto, en tu segundo commit has confirmado el cambio del nombre en esa línea de código.</p>
 
 <p>¿Y si creo 200 ficheros, elimino 100 y modifico 500? ¿Tengo que hacer el staging uno a uno? Y la respuesta es que no. Aquí te dejo unos comandos muy útiles que te servirán para hacer el staging de cambios de múltiples ficheros al mismo tiempo:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git add .     <span class="c"># Staging de todos los ficheros modificados o recién creados (sin los eliminados)</span>
-git add -A    <span class="c"># Staging de todos los ficheros modificados, eliminados o recién creados</span>
-git add -u    <span class="c"># Staging de todos los ficheros modificados o eliminados (sin los nuevos)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git add <span class="nb">.</span>     <span class="c"># Staging de todos los ficheros modificados o recién creados (sin los eliminados)</span>
+git add <span class="nt">-A</span>    <span class="c"># Staging de todos los ficheros modificados, eliminados o recién creados</span>
+git add <span class="nt">-u</span>    <span class="c"># Staging de todos los ficheros modificados o eliminados (sin los nuevos)</span></code></pre></figure>
 
 <p>No te olvides de hacer el commit después de hacer el staging si estás contento con los cambios realizados. Puedes pensar en el staging como un paso previo en el que valorar cuáles de los cambios merecen formar parte de un mismo commit o confirmación. De hecho, en un entorno profesional deberías tomarte bastante en serio lo de realizar un commit o, dicho de otro modo, no hagas un commit (y aún menos lo subdas al repositorio remoto) sin estar 100% seguro de que los cambios que has realizado son (prácticamente) los definitivos para resolver el asunto que te traes entre manos.</p>
 
 <p>De todos modos no sufras demasiado si cometes un error al estilo “se me olvidó modificar este fichero”. Siempre puedes hacer nuevos commits corrigiendo errores o, incluso, enmendar el último commit realizado escribiendo:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">git add fichero_que_se_me_olvidó_modificar
-git commit --ammend</code></pre></figure>
+git commit <span class="nt">--ammend</span></code></pre></figure>
 
 <p>Esto sustituirá el último commit realizado por un commit idéntico pero que incluirá el fichero que olvidaste modificar/crear/eliminar.</p>
 

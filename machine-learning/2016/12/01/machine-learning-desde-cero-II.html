@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Repasito unidimensionalEn el post anterior vimos cómo la predicción basada en una familia de datos de salida y una sola familia de datos deentrada se podía e...">
 
-  <title>Machine learning desde cero II</title>
+  <title>Machine learning desde cero (II)</title>
 
   
   <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
@@ -69,8 +69,6 @@
         
           <a class="page-link" href="/cv/">CV</a>
         
-          <a class="page-link" href="/about/">Sobre mí</a>
-        
       </div>
     </nav>
   </div>
@@ -91,7 +89,7 @@
     
     <header class="post-header wrapper">
         <h1 class="post-title" itemprop="name headline">
-            Machine learning desde cero II
+            Machine learning desde cero (II)
             
             <br><span class="post-subtitle">Regresión lineal multidimensional</span>
             
@@ -107,31 +105,30 @@ entrada se podía expresar matemáticamente como el ajuste de una recta a una nu
 <p>La función objetivo de nuestro modelo consistía en encontrar los parámetros que minimizaban la recta de mejor
  ajuste a la nube de puntos. Es decir, minimizar la expresión:</p>
 
-<script type="math/tex; mode=display">\sum[y_i - (\alpha+\beta x_i)]^2</script>
+\[\sum[y_i - (\alpha+\beta x_i)]^2\]
 
 <p>A esta expresión la llamábamos función objetivo. A modo de ejercicio busqué el mínimo de la función objetivo, 
 despejé para $\alpha$ y $\beta$ y llegué a la siguiente expresión matricial:</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{bmatrix} \alpha \\ \beta \end{bmatrix} =
-\begin{bmatrix} n & \sum x_i \\ \sum x_i & \sum x_i^2 \end{bmatrix}^{-1}
-\begin{bmatrix} \sum y_i \\ \sum x_i y_i \end{bmatrix} %]]></script>
+\[\begin{bmatrix} \alpha \\ \beta \end{bmatrix} =
+\begin{bmatrix} n &amp; \sum x_i \\ \sum x_i &amp; \sum x_i^2 \end{bmatrix}^{-1}
+\begin{bmatrix} \sum y_i \\ \sum x_i y_i \end{bmatrix}\]
 
 <p>Esta fue, precisamente, la expresión que utilicé en el script de python para realizar el cálculo de $\alpha$ y $\beta$,
 aprovechando que la librería numpy nos permite realizar cálculos matriciales de forma muy sencilla:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">...</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="p">...</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span>
-<span class="n">sum_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span>
-<span class="n">sum_x_squared</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">sum_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
-<span class="n">sum_xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y_data</span><span class="p">))</span>
+<span class="n">sum_x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span>
+<span class="n">sum_x_squared</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">power</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">sum_y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
+<span class="n">sum_xy</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">x_data</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y_data</span><span class="p">))</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">n</span><span class="p">,</span> <span class="n">sum_x</span><span class="p">],</span> <span class="p">[</span><span class="n">sum_x</span><span class="p">,</span> <span class="n">sum_x_squared</span><span class="p">]])</span> <span class="c"># matriz que invertimos</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">([</span><span class="n">sum_y</span><span class="p">,</span> <span class="n">sum_xy</span><span class="p">])</span> <span class="c"># vector</span>
-
-<span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c"># w es nuestro vector con los valores de alpha y beta</span>
-<span class="o">...</span></code></pre></figure>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="n">n</span><span class="p">,</span> <span class="n">sum_x</span><span class="p">],</span> <span class="p">[</span><span class="n">sum_x</span><span class="p">,</span> <span class="n">sum_x_squared</span><span class="p">]])</span> <span class="c1"># matriz que invertimos
+</span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">transpose</span><span class="p">([</span><span class="n">sum_y</span><span class="p">,</span> <span class="n">sum_xy</span><span class="p">])</span> <span class="c1"># vector
+</span>
+<span class="bp">self</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># w es nuestro vector con los valores de alpha y beta
+</span><span class="p">...</span></code></pre></figure>
 
 <h2 id="dos-mejor-que-uno">Dos mejor que uno</h2>
 
@@ -356,7 +353,7 @@ porque más adelante nos ayudará a construir la función objetivo para cualquie
 <p>Para cada punto del espacio definido como $({x_1}_i, {x_2}_i, y_i)$, la distancia vertical de dicho punto a nuestro
 plano arbitrario será:</p>
 
-<script type="math/tex; mode=display">\epsilon_i = y_i - (\alpha+\beta_1 {x_1}_i+\beta_2 {x_2}_i)</script>
+\[\epsilon_i = y_i - (\alpha+\beta_1 {x_1}_i+\beta_2 {x_2}_i)\]
 
 <p>Ahora es un momento ideal para tratar de re-expresar nuestra función distancia de forma que facilite la introducción
 de nuevas variables en el futuro. En el fondo se trata de un sencillo ejercicio de álgebra e imaginación:</p>
@@ -364,16 +361,15 @@ de nuevas variables en el futuro. En el fondo se trata de un sencillo ejercicio 
 <p>Para facilitar las cosas renombremos $\alpha$ como $\beta_0$ y supongamos que está multiplicando al número $1$. Nuestra
 función quedaría del siguiente modo:</p>
 
-<script type="math/tex; mode=display">\epsilon_i = y_i - (\beta_0 1+ \beta_1 {x_1}_i+\beta_2 {x_2}_i)
-\tag{1}</script>
+\[\epsilon_i = y_i - (\beta_0 1+ \beta_1 {x_1}_i+\beta_2 {x_2}_i)
+\tag{1}\]
 
 <p>El segundo término de la resta no es más que un sumatorio, que puede re-expresarse como el producto punto (o producto escalar)
 entre dos vectores, en este caso:</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\epsilon_i = y_i - 
-\begin{bmatrix} \beta_0 & \beta_1 & \beta_2 \end{bmatrix} 
-\begin{bmatrix} 1 \\ {x_1}_i \\ {x_2}_i \end{bmatrix} %]]></script>
+\[\epsilon_i = y_i - 
+\begin{bmatrix} \beta_0 &amp; \beta_1 &amp; \beta_2 \end{bmatrix} 
+\begin{bmatrix} 1 \\ {x_1}_i \\ {x_2}_i \end{bmatrix}\]
 
 <p>En la literatura matemática tradicional se puede encontrar al vector de las betas representado simplemente con una $\beta$ 
 y con el nombre de vector de estimadores, mientras que en machine learning puede encontrarse representado por la letra $w$ y se le 
@@ -382,7 +378,7 @@ suele representarse, sencillamente, con una $x$.</p>
 
 <p>Por tanto, nuestra expresión con la notación habitual en machine learning podría re-escribirse como:</p>
 
-<script type="math/tex; mode=display">\epsilon_i = y_i - w^T x</script>
+\[\epsilon_i = y_i - w^T x\]
 
 <p>Nótese que si agregáramos ahora nuevas variables predictoras, lo único que haríamos sería incrementar la dimensión
 de los vectores $w$ y $x$, es decir, si en el ejemplo con dos variables predictoras sabemos que se trata de vectores
@@ -397,18 +393,17 @@ conformarnos con la expresión para cada $\epsilon_i$, pongamos todas las $epsil
 <p>Teniendo en cuenta la expresión (1), si pasáramos todo en forma de vector, a lo loco, nos quedaría algo como esto 
 para el caso de dos variables predictoras y n observaciones (n puntos en la nube):</p>
 
-<script type="math/tex; mode=display">\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} = 
+\[\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} = 
 \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} -
-\begin{bmatrix} \beta_0 1+ \beta_1 {x_1}_1+\beta_2 {x_2}_1 \\ \vdots \\ \beta_0 1+ \beta_1 {x_1}_n+\beta_2 {x_2}_n \end{bmatrix}</script>
+\begin{bmatrix} \beta_0 1+ \beta_1 {x_1}_1+\beta_2 {x_2}_1 \\ \vdots \\ \beta_0 1+ \beta_1 {x_1}_n+\beta_2 {x_2}_n \end{bmatrix}\]
 
 <p>Todo apunta a que la magia del álgebra lineal nos permite re-expresar el vector de más a la derecha de forma mucho más
 elegante, ¿qué tal un producto punto entre una matriz y el vector de betas?</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} = 
+\[\begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} = 
 \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} -
-\begin{bmatrix} 1 & {x_1}_1 & {x_2}_1 \\ \vdots & \vdots & \vdots \\ 1 & {x_1}_n & {x_2}_n \end{bmatrix}
-\begin{bmatrix} \beta_0 \\ \beta_1 \\ \beta_2 \end{bmatrix} %]]></script>
+\begin{bmatrix} 1 &amp; {x_1}_1 &amp; {x_2}_1 \\ \vdots &amp; \vdots &amp; \vdots \\ 1 &amp; {x_1}_n &amp; {x_2}_n \end{bmatrix}
+\begin{bmatrix} \beta_0 \\ \beta_1 \\ \beta_2 \end{bmatrix}\]
 
 <p>En la literatura matemática encontraremos esta expresión matricial de las distancias en su forma simbólica abreviada:
 $\epsilon$ representando al vector de distancias, $y$ representando al vector de valores de la variable respuesta,
@@ -417,8 +412,8 @@ $b$ para el vector de estimadores. En machine learning, por otro lado, no es rar
 de valores de la variable respuesta como $T$ de <em>target</em> o valores objetivo y, como ya vimos antes, 
 el vector de estimadores o parámetros incógnita como $w$ de vector de pesos o <em>weights</em>, en definitiva:</p>
 
-<script type="math/tex; mode=display">\epsilon = T - Xw 
-\tag{2}</script>
+\[\epsilon = T - Xw 
+\tag{2}\]
 
 <p>Esta expresión es elegante y potente al mismo tiempo. Primeramente porque se puede emplear para cualquier número de 
 variables predictoras, siempre y cuando tengamos en cuenta que las dimensiones de $X$ y $w$ cambiarán. Por ejemplo:
@@ -433,31 +428,30 @@ nuestra función objetivo sin despeinarnos y, además, ¡para cualquier número 
 <p>Recordemos que nuestra función objetivo no era la expresión de las distancias en sí, sino el mínimo del
  sumatorio de las distancias al cuadrado, es decir:</p>
 
-<script type="math/tex; mode=display">\sum\epsilon_i^2</script>
+\[\sum\epsilon_i^2\]
 
 <p>Si abrazas la magia del álgebra lineal, este sumatorio también se puede expresar como
 el producto punto entre dos vectores de epsilons:</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\sum\epsilon_i^2 = \epsilon_1 \epsilon_1 + \dots + \epsilon_n \epsilon_n =
-\begin{bmatrix} \epsilon_1 & \dots & \epsilon_n \end{bmatrix} 
+\[\sum\epsilon_i^2 = \epsilon_1 \epsilon_1 + \dots + \epsilon_n \epsilon_n =
+\begin{bmatrix} \epsilon_1 &amp; \dots &amp; \epsilon_n \end{bmatrix} 
 \begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix} =
-\epsilon^T \epsilon %]]></script>
+\epsilon^T \epsilon\]
 
 <p>Empleando nuestra maravillosa expresión (2) al producto punto entre los vectores epsilons y operando obtendremos
 nuestra nueva función objetivo en forma de operaciones matriciales. Nótese que estamos multiplicando vectores y 
 matrices, no escalares, por lo que la transposición, la propiedad distributiva y las simplificaciones se han aplicar 
 con especial cariño (siguiendo las propiedades de vectores y matrices):</p>
 
-<script type="math/tex; mode=display">\sum\epsilon_i^2 = \epsilon^T \epsilon =
+\[\sum\epsilon_i^2 = \epsilon^T \epsilon =
 (T - Xw)^T (T - Xw) \\
 = T^TT - T^TXw - w^TX^TT + w^TX^TXw \\
-= T^TT - 2w^TX^TT + w^TX^TXw</script>
+= T^TT - 2w^TX^TT + w^TX^TXw\]
 
 <p>Nuestra función objetivo para el caso general será, por tanto:</p>
 
-<script type="math/tex; mode=display">\sum\epsilon_i^2 = 
-T^TT - 2w^TX^TT + w^TX^TXw</script>
+\[\sum\epsilon_i^2 = 
+T^TT - 2w^TX^TT + w^TX^TXw\]
 
 <p>Ahora hemos de derivar respecto al vector de parámetros incógnita o vector de pesos $w$. Esta derivada no es
  ni mucho menos trivial y consiste, de forma simplificada, en ver que no existe vector de incógnitas en el primer término 
@@ -466,13 +460,13 @@ del último término equivale a la derivada de una expresión cuadrática (el ve
 Se puede consultar la demostración de estas derivadas en cualquier libro medianamente exhaustivo sobre el modelo de 
 mínimos cuadrados (pregunta en el área de comentarios si tienes curiosidad). El resultado sería el siguiente:</p>
 
-<script type="math/tex; mode=display">\dfrac{\partial (\sum\epsilon_i^2)}{\partial w} = -2X^TT + 2X^TXw</script>
+\[\dfrac{\partial (\sum\epsilon_i^2)}{\partial w} = -2X^TT + 2X^TXw\]
 
 <p>Igualando a cero y despejando para el vector de incógnitas:</p>
 
-<script type="math/tex; mode=display">-2X^TT + 2X^TXw = 0</script>
+\[-2X^TT + 2X^TXw = 0\]
 
-<script type="math/tex; mode=display">w = (X^TX)^{-1}X^TT \tag{3}</script>
+\[w = (X^TX)^{-1}X^TT \tag{3}\]
 
 <p>Nótese que esta expresión (3) nos permite calcular los parámetros $\beta$ para cualquier número de variables predictoras,
 incluyendo nuestro ejemplo al principio de este post (dos variables predictoras) y, también, el ejemplo del primer
@@ -484,52 +478,99 @@ lineal.</p>
 el ejemplo que puse al principio del post, es decir, calculemos el plano que mejor se ajusta a la nube de puntos
 en el espacio:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span> 
-<span class="lineno"> 4</span> <span class="k">class</span> <span class="nc">LinearRegression</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="lineno"> 5</span>     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_predictive_variables</span><span class="p">):</span>
-<span class="lineno"> 6</span>         <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">number_of_predictive_variables</span>
-<span class="lineno"> 7</span>         <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">number_of_predictive_variables</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span>     <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="o">*</span><span class="n">x_data</span><span class="p">):</span>
-<span class="lineno">10</span>         <span class="n">x_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">y_data</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-<span class="lineno">11</span>         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x_var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<span class="lineno">12</span>             <span class="n">x_matrix</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_var</span>
-<span class="lineno">13</span> 
-<span class="lineno">14</span>         <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">x_matrix</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x_matrix</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x_matrix</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
-<span class="lineno">15</span> 
-<span class="lineno">16</span>     <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">x_values</span><span class="p">):</span>
-<span class="lineno">17</span>         <span class="n">x_values_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="lineno">18</span>         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x_value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<span class="lineno">19</span>             <span class="n">x_values_vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_value</span>
-<span class="lineno">20</span> 
-<span class="lineno">21</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x_values_vector</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
-<span class="lineno">22</span> 
-<span class="lineno">23</span>     <span class="k">def</span> <span class="nf">get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="lineno">24</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span>
-<span class="lineno">25</span> 
-<span class="lineno">26</span> 
-<span class="lineno">27</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="lineno">28</span> <span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">92.7</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">109.2</span><span class="p">,</span> <span class="mf">114.5</span><span class="p">,</span> <span class="mf">104.1</span><span class="p">,</span> <span class="mf">91.8</span><span class="p">,</span> <span class="mf">115.2</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">317.7</span><span class="p">,</span> <span class="mf">278.7</span><span class="p">,</span> <span class="mf">113.8</span><span class="p">,</span> <span class="mf">144.2</span><span class="p">,</span> <span class="mf">90.6</span><span class="p">,</span> <span class="mf">104.1</span><span class="p">,</span> <span class="mf">94.8</span><span class="p">,</span>
-<span class="lineno">29</span>                <span class="mf">139.4</span><span class="p">,</span> <span class="mf">154.6</span><span class="p">,</span> <span class="mf">138.2</span><span class="p">,</span> <span class="mf">127.8</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">116.7</span><span class="p">,</span> <span class="mf">157.0</span><span class="p">,</span> <span class="mf">169.1</span><span class="p">,</span> <span class="mf">153.5</span><span class="p">,</span> <span class="mf">165.1</span><span class="p">,</span> <span class="mf">139.7</span><span class="p">,</span> <span class="mf">170.1</span><span class="p">,</span> <span class="mf">111.5</span><span class="p">])</span>
-<span class="lineno">30</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">42</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
-<span class="lineno">31</span>                <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
-<span class="lineno">32</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">259000</span><span class="p">,</span> <span class="mi">295000</span><span class="p">,</span> <span class="mi">279000</span><span class="p">,</span> <span class="mi">259000</span><span class="p">,</span> <span class="mi">299000</span><span class="p">,</span> <span class="mi">299000</span><span class="p">,</span> <span class="mi">309000</span><span class="p">,</span> <span class="mi">289000</span><span class="p">,</span> <span class="mi">849000</span><span class="p">,</span> <span class="mi">829000</span><span class="p">,</span> <span class="mi">359000</span><span class="p">,</span> <span class="mi">315000</span><span class="p">,</span> <span class="mi">310000</span><span class="p">,</span>
-<span class="lineno">33</span>               <span class="mi">309000</span><span class="p">,</span> <span class="mi">300000</span><span class="p">,</span> <span class="mi">289000</span><span class="p">,</span> <span class="mi">369000</span><span class="p">,</span> <span class="mi">419000</span><span class="p">,</span> <span class="mi">405000</span><span class="p">,</span> <span class="mi">439000</span><span class="p">,</span> <span class="mi">375000</span><span class="p">,</span> <span class="mi">379000</span><span class="p">,</span> <span class="mi">445000</span><span class="p">,</span> <span class="mi">379000</span><span class="p">,</span> <span class="mi">389000</span><span class="p">,</span> <span class="mi">369000</span><span class="p">,</span>
-<span class="lineno">34</span>               <span class="mi">458000</span><span class="p">,</span> <span class="mi">410000</span><span class="p">])</span>
-<span class="lineno">35</span> 
-<span class="lineno">36</span> <span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-<span class="lineno">37</span> <span class="n">lr</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span>
-<span class="lineno">38</span> 
-<span class="lineno">39</span> <span class="k">print</span> <span class="s">&quot;weights (vector of betas) =&quot;</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
-<span class="lineno">40</span> <span class="k">print</span> <span class="s">&quot;price prediction for 50 m2 and 0 years =&quot;</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="lineno">41</span> <span class="k">print</span> <span class="s">&quot;price prediction for 50 m2 and 30 years =&quot;</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-<span class="lineno">42</span> <span class="k">print</span> <span class="s">&quot;price prediction for 50 m2 and 100 years =&quot;</span><span class="p">,</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="lineno">43</span> <span class="c"># weights (vector of betas) = [ 83455.24240792   2494.67526436  -1438.1104518 ]</span>
-<span class="lineno">44</span> <span class="c"># price prediction for 50 m2 and 0 years = 208189.005626</span>
-<span class="lineno">45</span> <span class="c"># price prediction for 50 m2 and 30 years = 165045.692072</span>
-<span class="lineno">46</span> <span class="c"># price prediction for 50 m2 and 100 years = 64377.9604464</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+
+<span class="k">class</span> <span class="nc">LinearRegression</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_predictive_variables</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">number_of_predictive_variables</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">number_of_predictive_variables</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="o">*</span><span class="n">x_data</span><span class="p">):</span>
+        <span class="n">x_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">y_data</span><span class="p">),</span> <span class="bp">self</span><span class="p">.</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x_var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">x_matrix</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_var</span>
+
+        <span class="bp">self</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">inv</span><span class="p">(</span><span class="n">x_matrix</span><span class="p">.</span><span class="n">T</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x_matrix</span><span class="p">)).</span><span class="n">dot</span><span class="p">(</span><span class="n">x_matrix</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="n">y_data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">x_values</span><span class="p">):</span>
+        <span class="n">x_values_vector</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x_value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">x_values_vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_value</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">x_values_vector</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">w</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">w</span>
+
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mf">92.7</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">109.2</span><span class="p">,</span> <span class="mf">114.5</span><span class="p">,</span> <span class="mf">104.1</span><span class="p">,</span> <span class="mf">91.8</span><span class="p">,</span> <span class="mf">115.2</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">317.7</span><span class="p">,</span> <span class="mf">278.7</span><span class="p">,</span> <span class="mf">113.8</span><span class="p">,</span> <span class="mf">144.2</span><span class="p">,</span> <span class="mf">90.6</span><span class="p">,</span> <span class="mf">104.1</span><span class="p">,</span> <span class="mf">94.8</span><span class="p">,</span>
+               <span class="mf">139.4</span><span class="p">,</span> <span class="mf">154.6</span><span class="p">,</span> <span class="mf">138.2</span><span class="p">,</span> <span class="mf">127.8</span><span class="p">,</span> <span class="mf">139.4</span><span class="p">,</span> <span class="mf">116.7</span><span class="p">,</span> <span class="mf">157.0</span><span class="p">,</span> <span class="mf">169.1</span><span class="p">,</span> <span class="mf">153.5</span><span class="p">,</span> <span class="mf">165.1</span><span class="p">,</span> <span class="mf">139.7</span><span class="p">,</span> <span class="mf">170.1</span><span class="p">,</span> <span class="mf">111.5</span><span class="p">])</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">42</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+               <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">259000</span><span class="p">,</span> <span class="mi">295000</span><span class="p">,</span> <span class="mi">279000</span><span class="p">,</span> <span class="mi">259000</span><span class="p">,</span> <span class="mi">299000</span><span class="p">,</span> <span class="mi">299000</span><span class="p">,</span> <span class="mi">309000</span><span class="p">,</span> <span class="mi">289000</span><span class="p">,</span> <span class="mi">849000</span><span class="p">,</span> <span class="mi">829000</span><span class="p">,</span> <span class="mi">359000</span><span class="p">,</span> <span class="mi">315000</span><span class="p">,</span> <span class="mi">310000</span><span class="p">,</span>
+              <span class="mi">309000</span><span class="p">,</span> <span class="mi">300000</span><span class="p">,</span> <span class="mi">289000</span><span class="p">,</span> <span class="mi">369000</span><span class="p">,</span> <span class="mi">419000</span><span class="p">,</span> <span class="mi">405000</span><span class="p">,</span> <span class="mi">439000</span><span class="p">,</span> <span class="mi">375000</span><span class="p">,</span> <span class="mi">379000</span><span class="p">,</span> <span class="mi">445000</span><span class="p">,</span> <span class="mi">379000</span><span class="p">,</span> <span class="mi">389000</span><span class="p">,</span> <span class="mi">369000</span><span class="p">,</span>
+              <span class="mi">458000</span><span class="p">,</span> <span class="mi">410000</span><span class="p">])</span>
+
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="n">lr</span><span class="p">.</span><span class="n">train</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">"weights (vector of betas) ="</span><span class="p">,</span> <span class="n">lr</span><span class="p">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">"price prediction for 50 m2 and 0 years ="</span><span class="p">,</span> <span class="n">lr</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">"price prediction for 50 m2 and 30 years ="</span><span class="p">,</span> <span class="n">lr</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">"price prediction for 50 m2 and 100 years ="</span><span class="p">,</span> <span class="n">lr</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># weights (vector of betas) = [ 83455.24240792   2494.67526436  -1438.1104518 ]
+# price prediction for 50 m2 and 0 years = 208189.005626
+# price prediction for 50 m2 and 30 years = 165045.692072
+# price prediction for 50 m2 and 100 years = 64377.9604464</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p><br />
 Nuestro vector de betas o pesos define ahora un plano en el espacio. Si lo ploteamos obtenemos nuestro plano 
